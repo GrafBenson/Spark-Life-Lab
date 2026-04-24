@@ -1,0 +1,1860 @@
+[
+  {
+    "slug": "mittagstisch",
+    "label": "Mittagstisch",
+    "heading": "Mittagstisch",
+    "infoBlocks": [
+      {
+        "title": "- KABIR MITTAGSTISCH",
+        "text": "Alle Gerichte werden nach Ihrem Anruf speziell für Sie zubereitet. Bitte sagen Sie uns bei Ihrer Bestellung, ob Sie mild, mittelscharf oder scharf wünschen! Alle Gerichte auch zum Mitnehmen. / / \"Nur/Only Mo. - Sa. 11:30 - 14:30\""
+      },
+      {
+        "title": "- Info",
+        "text": "Alle Gerichte werden inklusive Tagessuppe und indischem Basmatireis serviert / All meals include a soup of the day and indian Basmatirice"
+      },
+      {
+        "title": "- Salate",
+        "text": ""
+      }
+    ],
+    "items": [
+      {
+        "legacyId": "001",
+        "name": "Punjabi-Paneer",
+        "price": "8,60 €",
+        "description": "Hausgemachter Käse in Mandel-Kokosnuß-Sahnesauce / Homemade cheese in coconutsauce",
+        "allergens": "H G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "002",
+        "name": "Murg - Curry",
+        "price": "8,70 €",
+        "description": "Hühnerfleisch in Currysauce / Chickenmeat in currysauce",
+        "allergens": "G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "003",
+        "name": "Lamm -Curry",
+        "price": "8,90 €",
+        "description": "Gewürfeltes Lammfleisch in Currysauce / Lumped lambsmeat in currysauce",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "004",
+        "name": "Mughlai - Lamm",
+        "price": "9,20 €",
+        "description": "Feingewürztes Lammfleisch in Sahnesauce / Fine seasoned lambsmeat in creamsauce",
+        "allergens": "H G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "005",
+        "name": "Shabshie Ghost",
+        "price": "8,90 €",
+        "description": "Zartes Lammfleisch mit Gemüse in Currysauce / Tender lambsmeat with vegetables in currysauce",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "006",
+        "name": "Beef - Curry",
+        "price": "8,90 €",
+        "description": "Gewürfeltes Rindfleisch, feingewürzt in scharfer Currysauce / Lumped beef, seasoned in hot currysauce",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "007",
+        "name": "Beef - Shabshie",
+        "price": "9,40 €",
+        "description": "Zartes Rindfleisch mit gemischtem Gemüse, Kashmirgewürz / tender beef with mixed vegetables, seasoned Kashmirstyle",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "008a",
+        "name": "Beef Alu",
+        "price": "8,90 €",
+        "description": "Rindfleisch mit Kartoffeln in Currysauce / Beefmeat with potatoes in currysauce",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "008b",
+        "name": "Lamm Alu",
+        "price": "8,90 €",
+        "description": "Lammfleisch mit Kartoffeln in Currysauce / Lambsmeat with potatoes in currysauce",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "009",
+        "name": "Dal Tarka",
+        "price": "8,30 €",
+        "description": "Indisches Nationalgericht aus Linsen / national Indian dish made of lentils",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "010",
+        "name": "Shabshie",
+        "price": "8,50 €",
+        "description": "Gemischtes Gemüse, kräftig gewürzt / mixed vegetables,spicy",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "011",
+        "name": "Chicken Shabshie",
+        "price": "8,70 €",
+        "description": "Gemischtes Gemüse mit Hähnchenfleisch, kräftig gewürzt / mixed vegetables with chickenmeat, spicy season ed",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "012",
+        "name": "Kleiner gemischter Salat",
+        "price": "4,50 €",
+        "description": "",
+        "allergens": "G C J",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "013",
+        "name": "Kashmiri - Ghost",
+        "price": "8,90 €",
+        "description": "Lammfleisch mit Kashmirigewürzen in Currysauce (sehr scharf) / Lamb with Kashmir-seasoning in currysauce ( very spicy )",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "014",
+        "name": "Chicken - Badami",
+        "price": "9,20 €",
+        "description": "Hähnchenfleisch in Mandelsauce / Chicken in Almondsaurce",
+        "allergens": "H G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "015",
+        "name": "Beef - Palak",
+        "price": "8,90 €",
+        "description": "Rindfleisch mit Spinat, gut gewürzt / Beef with spinach, well seasoned",
+        "allergens": "G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "016",
+        "name": "Chicken - Mushroom",
+        "price": "8,70 €",
+        "description": "Hähnchenfleisch mit Champignon in Currysauce / Chicken with Champignon in currysauce",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "017",
+        "name": "Dal - Ghost",
+        "price": "8,70 €",
+        "description": "Indische Linsen mit Lamm, mit Ingwer verfeinert / Indian lentils with Lamb, refined with ginger",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "018",
+        "name": "Murg - Dal",
+        "price": "8,70 €",
+        "description": "Indische Linsen mit Hähnchenfleisch, mit Ingwer verfeinert / Indian lentils with Chicken, refined with ginger",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "019",
+        "name": "Beef - Dal",
+        "price": "8,90 €",
+        "description": "Indische Linsen mit Rindfleisch, mit Ingwer verfeinert / Indian lentils with Beef, refined with ginger",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "020",
+        "name": "Alu - Palak",
+        "price": "7,90 €",
+        "description": "Kartoffeln mit Spinat, gut gewürzt / Potatos with spinach , well seasoned",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "021",
+        "name": "Channa - Palak",
+        "price": "7,90 €",
+        "description": "Kichererbsen mit Rahm-Spinat, mit Kashmirigewürzen verfeinert / Chickpeas with spinach, refined with Kashmir-seasoning",
+        "allergens": "G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "022",
+        "name": "Mango - Shabsie",
+        "price": "8,30 €",
+        "description": "Gemischtes Gemüse in Mangosauce, süß-sauer / Mixed vegetables with a sweet and sour mangosauce",
+        "allergens": "G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "023",
+        "name": "Shabsie - Koftas",
+        "price": "8,90 €",
+        "description": "Gemüseklößchen in Currysauce, fein gewürzt / Vegetable Balls in currysauce, mildly seasoned Salate / Salads",
+        "allergens": "H G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "026",
+        "name": "Murg Tikka",
+        "price": "9,90 €",
+        "description": "Mariniertes Hähnchenbrustfilet aus dem Tandoor (Grill) / Marinated chicken breast fillet from the tandoor (grill)",
+        "allergens": "G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "027",
+        "name": "Palak Paneer",
+        "price": "9,50 €",
+        "description": "Rahmspinat mit hausgemachtem Käse / Creamed spinach with homemade cheese",
+        "allergens": "G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "24",
+        "name": "India - Salat",
+        "price": "8,50 €",
+        "description": "Gem. Salat mit Hähnchenfleisch, exotischen Früchten und hausgemachtem Mango-Curry-Dressing / Mixed salad with chicken and exotic fruits, in homemade mango-curry dressing",
+        "allergens": "L S",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "25",
+        "name": "Bombay - Salat",
+        "price": "7,30 €",
+        "description": "Gem. Salat mit roten Bohnen, roten Zwiebeln, gemischtem Paprika,Mais und hausgemachtem Dressing / Mixed salad with red beans, red onions, mixed capsicum, sweet corn and homemade dressing",
+        "allergens": "L S",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "29",
+        "name": "Nan",
+        "price": "3,50 €",
+        "description": "Hefeteig aus dem Lehmofen",
+        "allergens": "A1 G C",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "30",
+        "name": "Knoblauch Nan",
+        "price": "3,90 €",
+        "description": "Hefeteig aus dem Lehmofen, mit Knoblauch",
+        "allergens": "A1 G C",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "31",
+        "name": "Raita",
+        "price": "4,90 €",
+        "description": "Gurken-Joghurt, fein gewürz",
+        "allergens": "G",
+        "futureOrderable": true
+      }
+    ]
+  },
+  {
+    "slug": "suppen",
+    "label": "Suppen",
+    "heading": "Suppen",
+    "infoBlocks": [],
+    "items": [
+      {
+        "legacyId": "263",
+        "name": "Dal Suppe",
+        "price": "5,90 €",
+        "description": "Kräftige indische Linsen Suppe",
+        "allergens": "4",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "264",
+        "name": "Kashmiri Beans",
+        "price": "5,90 €",
+        "description": "Scharfe, braune Bohnensuppe",
+        "allergens": "4",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "265",
+        "name": "Murg Suppe",
+        "price": "6,20 €",
+        "description": "Hühner-Creme-Suppe",
+        "allergens": "G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "266",
+        "name": "Shabsie Suppe",
+        "price": "5,90 €",
+        "description": "Gemüse-Creme-Suppe",
+        "allergens": "G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "267",
+        "name": "Tomatensuppe",
+        "price": "5,90 €",
+        "description": "Tomaten-Creme-Suppe, fein gewürzt",
+        "allergens": "G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "420",
+        "name": "Jhenga Suppe",
+        "price": "7,50 €",
+        "description": "Garnelen-Creme-Suppe, fein gewürzt",
+        "allergens": "B G",
+        "futureOrderable": true
+      }
+    ]
+  },
+  {
+    "slug": "empfehlung-des-hauses",
+    "label": "Empfehlung des Hauses",
+    "heading": "Empfehlung des Hauses",
+    "infoBlocks": [],
+    "items": [
+      {
+        "legacyId": "268",
+        "name": "Mango Chicken",
+        "price": "15,90 €",
+        "description": "Gebratenes Hühnerbrustfilet mit frischer Mango in süß-saurer Sauce",
+        "allergens": "G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "269",
+        "name": "Chicken Achari(scharf)",
+        "price": "15,90 €",
+        "description": "Gebratenes Hühnerbrustfilet in Currysauce mit Mixed Pickles verfeinert",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "270",
+        "name": "Mutton Dschalfrezi (scharf)",
+        "price": "16,90 €",
+        "description": "Gebratenes Lammfleisch mit Trockenfrüchten, Knoblauch und Ingwer runden den Geschmack ab",
+        "allergens": "H",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "271",
+        "name": "Navratten Korma",
+        "price": "14,90 €",
+        "description": "Gemischtes frisches Gemüse mit Cashewnüssen und Rosinen in Sahnesauce",
+        "allergens": "H G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "272",
+        "name": "Garhwal Shabsie",
+        "price": "14,70 €",
+        "description": "Gebratenes gemischtes Gemüse mit Kokosnuss in Tomatensauce mit Ingwer verfeinert",
+        "allergens": "H G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "273a",
+        "name": "Keema-Nan (Lamm)",
+        "price": "5,50 €",
+        "description": "Frisch gebackenes Fladenbrot mit kleingeschnittenem Lammfleisch gefüllt oder",
+        "allergens": "A1 C G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "273b",
+        "name": "Keema-Nan (Hähnchen)",
+        "price": "5,50 €",
+        "description": "Frisch gebackenes Fladenbrot mit kleingeschnittenem Hähnchenfleisch gefüllt",
+        "allergens": "A1 C G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "274",
+        "name": "Kabir-Nan",
+        "price": "5,50 €",
+        "description": "Frisch gebackenes Fladenbrot mit Rosinen, Nüssen, Käse und gemischten Früchten gefüllt",
+        "allergens": "A1 C G H",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "193",
+        "name": "Chicken Jaffrani",
+        "price": "16,70 €",
+        "description": "Spezialität unseres Chefkochs, gebratenes in Hühnerbrustfilet Curry-Safran-Sahne-Sauce",
+        "allergens": "C G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "194",
+        "name": "Bhindi Ghost, Beef",
+        "price": "17,50 €",
+        "description": "Zartes Lammfleisch, Rindfleisch mit mit Zwiebeln, Tomaten und Ingwer",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "196",
+        "name": "Beef Masala",
+        "price": "16,90 €",
+        "description": "Zartes Rindfleisch in Mandel-Sahne-Sauce",
+        "allergens": "H G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "405",
+        "name": "Chicken Kohlapuri",
+        "price": "15,90 €",
+        "description": "Gebratenes Hühnerbrustfilet in feiner Kokosnuß-Sauce, mit frischer Kokosnuß zubereitet",
+        "allergens": "H K",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "406",
+        "name": "Chili Chicken",
+        "price": "15,50 €",
+        "description": "Hühnerbrustfilet mit frischer Paprika in Chilisauce, sehr scharf",
+        "allergens": "F",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "407",
+        "name": "Mutton Dahiwala",
+        "price": "16,50 €",
+        "description": "Zartes Lammfleisch in Joghurt-Curry-Sauce mit Mandeln und mit Safran verfeinert",
+        "allergens": "H G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "408",
+        "name": "Mutton Rogenjosh",
+        "price": "16,50 €",
+        "description": "Zartes Lammfleisch mit verschiedenen Gewürzen in Currysauce gebraten und mit Thymian verfeinert",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "409",
+        "name": "Beef Kashmiri",
+        "price": "15,40 €",
+        "description": "Rindfleisch mit Kashmirigewürzen in Currysauce, scharf",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "410a",
+        "name": "Beef Khata Mitha",
+        "price": "15,40 €",
+        "description": "Zartes Rind in Ananas - Mangosauce, süß-sauer",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "410b",
+        "name": "Mutton Khata Mitha",
+        "price": "15,40 €",
+        "description": "Zartes Lammfleisch in Ananas - Mangosauce, süß-sauer",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "411",
+        "name": "Cheese Chili",
+        "price": "15,50 €",
+        "description": "Hausgemachter Käse mit frischer Paprika in Chilisauce, sehr scharf",
+        "allergens": "F G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "412",
+        "name": "Hariyali Kofta",
+        "price": "14,50 €",
+        "description": "Gemüseklößchen in Rahm-Spinat, mit Minze verfeinert",
+        "allergens": "H G",
+        "futureOrderable": true
+      }
+    ]
+  },
+  {
+    "slug": "thalis",
+    "label": "Thalis",
+    "heading": "Thalis",
+    "infoBlocks": [],
+    "items": [
+      {
+        "legacyId": "198",
+        "name": "Shahi Thali",
+        "price": "19,50 €",
+        "description": "- Kleine Vorspeise (gebackenes Gemüse) / - Murg Korma / - Hühnerbrustfilet süß-sauer / - Beef Curry Spezial, scharf / - Spinat mit Käse / - Dal (indisches Linsengericht) / - kleiner Salat / - mit Nan und Reis / /",
+        "allergens": "G H A1 C",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "199",
+        "name": "Nababi Thali",
+        "price": "19,50 €",
+        "description": "- Kleine Vorspeise (gebackenes Gemüse) / - Lammfleisch süß-sauer / - Chicken Curry / - Gemüse kräftig gewürzt / - Dal (indisches Linsengericht) / - kleiner Salat / - mit Nan und Reis / /",
+        "allergens": "G H A1 C",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "132",
+        "name": "Thali für eine Person",
+        "price": "18,50 €",
+        "description": "- 1 x Fleischcurry / - 1 x Gemüsegericht / - Dal (indisches Linsengericht) / - Raita / - Reis / - Chappati / - Papadam / /",
+        "allergens": "G A1",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "133",
+        "name": "Vegetarisch Thali",
+        "price": "17,90 €",
+        "description": "- 2 x Gemüsegericht / - Dal (indisches Linsengericht) / - Raita / - Reis / - Chappati / - Papadam / /",
+        "allergens": "G A1",
+        "futureOrderable": true
+      }
+    ]
+  },
+  {
+    "slug": "getraenke",
+    "label": "Getränke",
+    "heading": "Getränke",
+    "infoBlocks": [
+      {
+        "title": "- Alkoholfrei (inkl. Pfand)",
+        "text": ""
+      },
+      {
+        "title": "- Bier (inkl. Pfand)",
+        "text": ""
+      },
+      {
+        "title": "- Wein",
+        "text": ""
+      }
+    ],
+    "items": [
+      {
+        "legacyId": "280",
+        "name": "Cola",
+        "price": "3,90 €",
+        "description": "1,0l (coffeinhaltig)",
+        "allergens": "1 2",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "281",
+        "name": "Cola Light",
+        "price": "3,90 €",
+        "description": "1,0l",
+        "allergens": "1 2 9",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "282",
+        "name": "Fanta",
+        "price": "3,90 €",
+        "description": "1,0l (mit Farbstoff)",
+        "allergens": "1",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "283",
+        "name": "Spezi",
+        "price": "3,90 €",
+        "description": "1,0l (coffeinhaltig)",
+        "allergens": "1 2",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "284",
+        "name": "Mineralwasser",
+        "price": "3,10 €",
+        "description": "0,7l",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "285",
+        "name": "Orangensaft",
+        "price": "3,90 €",
+        "description": "1,0l",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "286",
+        "name": "Apfelsaft",
+        "price": "3,90 €",
+        "description": "1,0l",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "287a",
+        "name": "Lassi süß",
+        "price": "5,90 €",
+        "description": "0,7l (Joghurtgetränk)",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "287b",
+        "name": "Lassi sauer",
+        "price": "5,90 €",
+        "description": "0,7l (Joghurtgetränk)",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "288",
+        "name": "Mango Lassi",
+        "price": "6,20 €",
+        "description": "0,7l (Joghurtgetränk)",
+        "allergens": "G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "289",
+        "name": "Exotische Säfte",
+        "price": "6,50 €",
+        "description": "0,7l",
+        "allergens": "G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "289a",
+        "name": "Mango Saft",
+        "price": "5,20 €",
+        "description": "1,0l",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "289b",
+        "name": "Guave Saft",
+        "price": "5,20 €",
+        "description": "1,0l",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "289c",
+        "name": "Maracuja Saft",
+        "price": "5,20 €",
+        "description": "1,0l",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "289d",
+        "name": "Lychee Saft",
+        "price": "5,20 €",
+        "description": "1,0l",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "292",
+        "name": "Hell oder Dunkel",
+        "price": "4,70 €",
+        "description": "0,5l",
+        "allergens": "A 2",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "293a",
+        "name": "Weizen Hell",
+        "price": "3,10 €",
+        "description": "0,5l",
+        "allergens": "A 1",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "293b",
+        "name": "Weizen Dunkel",
+        "price": "3,30 €",
+        "description": "0,5l",
+        "allergens": "A 1",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "294",
+        "name": "King Fischer",
+        "price": "3,90 €",
+        "description": "0,3l (indisches Bier)",
+        "allergens": "A 1",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "295a",
+        "name": "Weine rot",
+        "price": "12,90 €",
+        "description": "0,7l",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "295b",
+        "name": "Weine weiß",
+        "price": "12,90 €",
+        "description": "0,7l",
+        "allergens": "",
+        "futureOrderable": true
+      }
+    ]
+  },
+  {
+    "slug": "vorspeisen-salate",
+    "label": "Vorspeisen-Salate",
+    "heading": "Vorspeisen-Salate",
+    "infoBlocks": [
+      {
+        "title": "- Warme Vorspeisen mit 3 hausgemachten Saucen: Mango, Tamarinde und Minze",
+        "text": ""
+      },
+      {
+        "title": "- Salate",
+        "text": ""
+      },
+      {
+        "title": "- Kalte Vorspeise",
+        "text": ""
+      }
+    ],
+    "items": [
+      {
+        "legacyId": "202",
+        "name": "Vegetable Pakora",
+        "price": "6,50 €",
+        "description": "In Kichererbsenmehl gebackenes Gemüse",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "203",
+        "name": "Murg Pakora",
+        "price": "6,90 €",
+        "description": "In Kichererbsenmehl gebackenes Hühnerfleisch",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "204",
+        "name": "Paneer Pakora",
+        "price": "6,90 €",
+        "description": "In Kichererbsenmehl gebackener Käse",
+        "allergens": "G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "205",
+        "name": "Samosa Pastetchen",
+        "price": "6,90 €",
+        "description": "Mit frischem Gemüse gefüllt, 2 Stück",
+        "allergens": "A1",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "206",
+        "name": "Onions Bhaji",
+        "price": "6,90 €",
+        "description": "In Kichererbsenmehl gebackene Zwiebelringe",
+        "allergens": "C",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "207",
+        "name": "Jheenga Pakora",
+        "price": "12,50 €",
+        "description": "in Kichererbsenmehl gebackene Riesengarnelen",
+        "allergens": "B",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "208",
+        "name": "Gemischte Vorspeise",
+        "price": "13,50 €",
+        "description": "Für 2 Personen",
+        "allergens": "G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "116",
+        "name": "Kalmi Kabab",
+        "price": "9,90 €",
+        "description": "Marinierte Hühnerbeine im Lehmofen gegrillt, auf Salat",
+        "allergens": "G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "117",
+        "name": "Fisch Pakora",
+        "price": "8,90 €",
+        "description": "In Kichererbsenmehl gebackenes Fischfilet",
+        "allergens": "D",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "421",
+        "name": "Gemischte Vorspeise",
+        "price": "7,90 €",
+        "description": "Für 1 Personen",
+        "allergens": "G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "209",
+        "name": "Gemischter Salat",
+        "price": "6,70 €",
+        "description": "Vom Markt, mit hausgemachtem Joghurt Dressing",
+        "allergens": "A G J",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "210",
+        "name": "Kabir-Salat",
+        "price": "8,70 €",
+        "description": "gemischter Salat mit Shrimps und gekochtem Ei mit hausgemachtem Joghurt Dressing",
+        "allergens": "A G J C B",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "211",
+        "name": "Indian Salat",
+        "price": "8,50 €",
+        "description": "Mit mariniertem Hähnchenbrustfilet mit hausgemachtem Joghurt Dressing",
+        "allergens": "A G J",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "212",
+        "name": "Gemischter Salat",
+        "price": "10,90 €",
+        "description": "Mit marinierten Riesengarnelen mit hausgemachtem Joghurt Dressing",
+        "allergens": "B A G J",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "422",
+        "name": "Mango Avocado Salat",
+        "price": "8,20 €",
+        "description": "Frische Mango und Avocado mit Tomaten, frischen Koriander",
+        "allergens": "A G J",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "213",
+        "name": "Channa Chat",
+        "price": "6,20 €",
+        "description": "Kichererbsen mit Tomaten, Zwiebeln, pikant gewürzt",
+        "allergens": "G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "214",
+        "name": "Murg Chat",
+        "price": "6,50 €",
+        "description": "Hühnerfleisch mit Tomaten, Zwiebeln, pikant gewürzt",
+        "allergens": "G",
+        "futureOrderable": true
+      }
+    ]
+  },
+  {
+    "slug": "biryani-reis-spezialitaeten",
+    "label": "Biryani-Reis Spezialitäten",
+    "heading": "Biryani-Reis Spezialitäten",
+    "infoBlocks": [],
+    "items": [
+      {
+        "legacyId": "215",
+        "name": "Mughlai Biryani",
+        "price": "15,50 €",
+        "description": "Lammfleisch fein gewürzt in Safranreis",
+        "allergens": "G H",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "216",
+        "name": "Murg Biryani",
+        "price": "15,50 €",
+        "description": "Hühnerfleisch in Safranreis",
+        "allergens": "G H",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "217",
+        "name": "Jheenga Biryani",
+        "price": "20,50 €",
+        "description": "Riesengarnelen in Safranreis",
+        "allergens": "B H G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "218",
+        "name": "Kabir Biryani",
+        "price": "20,50 €",
+        "description": "Safranreis mit Eiern, Lamm- und Hühnerfleisch, Garnelen und Nüssen",
+        "allergens": "C G H B",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "219",
+        "name": "Sabshie Biryani",
+        "price": "15,50 €",
+        "description": "Safranreis mit frischem gemischtem Gemüse",
+        "allergens": "G H",
+        "futureOrderable": true
+      }
+    ]
+  },
+  {
+    "slug": "tandoor",
+    "label": "Tandoor",
+    "heading": "Tandoor",
+    "infoBlocks": [
+      {
+        "title": "- Aus dem Tandoor (Lehmofen)",
+        "text": ""
+      }
+    ],
+    "items": [
+      {
+        "legacyId": "129",
+        "name": "Jheenga Tandoori",
+        "price": "24,50 €",
+        "description": "mit Safran-Joghurt marinierte Ganelen im Tonofen gegart, mit Nanbrot",
+        "allergens": "B G A1 C",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "220",
+        "name": "Tandoori Murg",
+        "price": "15,50 €",
+        "description": "Zwei Hähnchenkeulen spezial aus dem Tandoor, mit Nanbrot",
+        "allergens": "G A1 C",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "221",
+        "name": "Murg Tikka",
+        "price": "15,90 €",
+        "description": "mariniertes Hähnchenbrustfilet, mit Nanbrot",
+        "allergens": "G A1 C",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "223",
+        "name": "Botti Kebab",
+        "price": "20,50 €",
+        "description": "Gegrilltes zart mariniertes Lammfleisch vom Spieß, mit Nanbrot",
+        "allergens": "G A1 H C",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "224",
+        "name": "Grill-Platte Spezial",
+        "price": "21,50 €",
+        "description": "Verschied. gegrillte Fleischsorten, mit Nanbrot",
+        "allergens": "A1 G B C",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "423",
+        "name": "Paneer Tikka",
+        "price": "16,50 €",
+        "description": "Gegrillter marinierter hausgemachter Käse mit Nanbrot",
+        "allergens": "G A1 C",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "131",
+        "name": "Spezial Kabir Teller",
+        "price": "31,50 €",
+        "description": "Für 2 Personen gebratenes Lammfilet und Hühnerbrustfilet mit verschiedenem Gemüse, Nanbrot und Reis",
+        "allergens": "A1 H G C",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "127",
+        "name": "Fisch Tikka",
+        "price": "17,90 €",
+        "description": "mariniertes gegrilltes Fischfilet, mit Nanbrot",
+        "allergens": "A1 G D",
+        "futureOrderable": true
+      }
+    ]
+  },
+  {
+    "slug": "fisch",
+    "label": "Fisch",
+    "heading": "Fisch",
+    "infoBlocks": [
+      {
+        "title": "- Fisch Spezialitäten mit basmatireis",
+        "text": ""
+      }
+    ],
+    "items": [
+      {
+        "legacyId": "225",
+        "name": "Jheenga Masala",
+        "price": "21,50 €",
+        "description": "Riesengarnelen in Mandelsahnesauce",
+        "allergens": "B G H",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "226",
+        "name": "Jheenga Bhunna",
+        "price": "21,50 €",
+        "description": "Riesengarnelen mit Tomaten und Zwiebeln in pikanter Sauce",
+        "allergens": "B",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "227",
+        "name": "Jheenga Palak",
+        "price": "20,50 €",
+        "description": "Riesengarnelen mit orientalischem Spinat B G",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "228",
+        "name": "Jheenga Curry",
+        "price": "21,50 €",
+        "description": "Riesengarnelen in Currysauce",
+        "allergens": "B G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "424",
+        "name": "Jheenga Chili",
+        "price": "20,90 €",
+        "description": "Riesengarnelen mit Knoblauch und Ingwer, Paprika in Chilisauce, sehr pikant",
+        "allergens": "B F",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "137",
+        "name": "Fisch Curry",
+        "price": "16,90 €",
+        "description": "Fischfilet in Currysauce",
+        "allergens": "D",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "197",
+        "name": "Fisch Masala",
+        "price": "17,20 €",
+        "description": "Seelachsfilet in Milch- und Mandelsauce",
+        "allergens": "D H G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "413",
+        "name": "Fisch Chili",
+        "price": "16,50 €",
+        "description": "Seelachsfilet mit frischer Paprika in Chilisauce, sehr scharf",
+        "allergens": "D F",
+        "futureOrderable": true
+      }
+    ]
+  },
+  {
+    "slug": "curry-spezialitaeten",
+    "label": "Curry Spezialitäten",
+    "heading": "Curry Spezialitäten",
+    "infoBlocks": [
+      {
+        "title": "- Curry Spezialitäten mit basmatireis",
+        "text": ""
+      }
+    ],
+    "items": [
+      {
+        "legacyId": "141",
+        "name": "Murg Makhani",
+        "price": "16,50 €",
+        "description": "Hühnerbrustfilet in Milch und Mandel-Sahnesauce (gebratenes Fleisch) mit Cashewnüssen, Rosinen und Kokosnuß",
+        "allergens": "G H",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "142",
+        "name": "Murg do Pyaza",
+        "price": "15,90 €",
+        "description": "Hühnerfleisch in Joghurt, Tomaten, fein gewürzt",
+        "allergens": "G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "153",
+        "name": "Beef Vindalu",
+        "price": "15,90 €",
+        "description": "Rindfleisch mit Kartoffeln, sehr scharf",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "154",
+        "name": "Lamm Vindalu",
+        "price": "15,90 €",
+        "description": "Lammfleisch mit Kartoffeln, sehr scharf",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "222",
+        "name": "Butter Chicken",
+        "price": "16,90 €",
+        "description": "Gegrilltes Hühnerfleisch in Buttercremesauce und Mandeln mit Basmatireis",
+        "allergens": "G H",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "229",
+        "name": "Murg Curry",
+        "price": "14,90 €",
+        "description": "Hühnerfleisch in Currysauce",
+        "allergens": "G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "230",
+        "name": "Karahi Murg",
+        "price": "17,20 €",
+        "description": "Spezialität, gebratenes Hühnerfleisch mit Paprika, Zwiebeln und Tomaten, verfeinert mit Ingwer",
+        "allergens": "G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "231",
+        "name": "Karahi Ghost",
+        "price": "17,70 €",
+        "description": "Spezialität, gebratenes Lammfleisch mit Paprika, Zwiebeln und Tomaten, verfeinert mit Ingwer",
+        "allergens": "G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "232",
+        "name": "Lamm Curry",
+        "price": "15,90 €",
+        "description": "Lammfleisch in Currysauce",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "233",
+        "name": "Lamm Masala",
+        "price": "17,50 €",
+        "description": "Lammfleisch in Mandelsahnesauce",
+        "allergens": "G H",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "234",
+        "name": "Murg Badami",
+        "price": "17,70 €",
+        "description": "Hühnerfleisch in Mandelsahnesauce",
+        "allergens": "G H",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "235",
+        "name": "Palak Ghost",
+        "price": "16,90 €",
+        "description": "Lammfleisch mit orientalischem Spinat",
+        "allergens": "G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "236",
+        "name": "Murg Palak",
+        "price": "16,20 €",
+        "description": "Hühnerfleisch mit orientalischem Spinat",
+        "allergens": "G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "237",
+        "name": "Beef Palak",
+        "price": "16,20 €",
+        "description": "Rindfleisch mit orientalischem Spinat",
+        "allergens": "G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "238a",
+        "name": "Mutton Korma",
+        "price": "17,70 €",
+        "description": "Lamm fein gewürzt in Sahnesauce",
+        "allergens": "G H",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "238b",
+        "name": "Chicken Korma",
+        "price": "17,70 €",
+        "description": "Hühnerfleisch fein gewürzt in Sahnesauce",
+        "allergens": "G H",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "239",
+        "name": "Beef Curry",
+        "price": "16,70 €",
+        "description": "Spezial Spezialität unseres Chefkochs, scharf",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "240",
+        "name": "Murg Jalfrezi",
+        "price": "16,70 €",
+        "description": "Gebratenes Hühnerfleisch, sehr pikant gewürzt",
+        "allergens": "H",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "241",
+        "name": "Beef Bhunna",
+        "price": "17,10 €",
+        "description": "zartes Rindfleisch mit Tomaten, Zwiebeln, gut gewürzt",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "242",
+        "name": "Lamm Bhunna",
+        "price": "17,10 €",
+        "description": "zartes Lammfleisch, Tomaten, Zwiebeln, gut gewürzt",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "243",
+        "name": "Murg Bhunna",
+        "price": "17,10 €",
+        "description": "Zartes Hühnerfleisch mit Tomaten und Zwiebeln, gut gewürzt",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "425",
+        "name": "Murg Tikka Nilgiri",
+        "price": "16,70 €",
+        "description": "Hühnerbrustfilet in Spinat mit Minze und Kokosnussmilch, scharf",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "426",
+        "name": "Chicken Tikka Masala",
+        "price": "17,70 €",
+        "description": "Ggrilltes Hühnerbrustfilet in Cashewnuss-Sahnesauce",
+        "allergens": "G 4",
+        "futureOrderable": true
+      }
+    ]
+  },
+  {
+    "slug": "vegetarische-spezialitaeten",
+    "label": "Vegetarische Spezialitäten",
+    "heading": "Vegetarische Spezialitäten",
+    "infoBlocks": [
+      {
+        "title": "- Vegetarische Spezialitäten mit Basmatireis",
+        "text": ""
+      }
+    ],
+    "items": [
+      {
+        "legacyId": "427",
+        "name": "Dal Makhni",
+        "price": "13,90 €",
+        "description": "indische Linsen mit Butter zubereitet",
+        "allergens": "G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "174",
+        "name": "Matter Paneer",
+        "price": "14,70 €",
+        "description": "Erbsen, hausgemachter Käse in Currysauce",
+        "allergens": "G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "183",
+        "name": "Karahi Paneer",
+        "price": "16,30 €",
+        "description": "Hausgemachter gebratener Käse in Currysauce",
+        "allergens": "G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "246",
+        "name": "Palak Paneer",
+        "price": "14,90 €",
+        "description": "Rahmspinat mit hausgemachtem Käse",
+        "allergens": "G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "247",
+        "name": "Shabshie Koftas",
+        "price": "13,90 €",
+        "description": "Gemüseklößchen in würziger Currysauce",
+        "allergens": "G H",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "248",
+        "name": "Malai Koftas",
+        "price": "15,20 €",
+        "description": "Gemüseklößchen in Mandelsahnesauce",
+        "allergens": "G H",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "251",
+        "name": "Shahi Paneer",
+        "price": "16,70 €",
+        "description": "Hausgemachtem Käse in Mandelsahnesauce",
+        "allergens": "G H",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "262",
+        "name": "Shabshie Masala",
+        "price": "14,90 €",
+        "description": "gemischtes Gemüse in Mandelsauce",
+        "allergens": "G H",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "401",
+        "name": "Shabshie Dschalfrezi",
+        "price": "15,20 €",
+        "description": "gebratenes gemischtes Gemüse und hausgemachter Käse mit Kashmari-Gewürzen in Currysauce",
+        "allergens": "G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "402",
+        "name": "Karahi Mushroom",
+        "price": "15,40 €",
+        "description": "Frische Champignons mit Joghurt, Tomaten und Ingwer, fein gewürzt",
+        "allergens": "G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "403",
+        "name": "Tomaten Jaipuri",
+        "price": "15,90 €",
+        "description": "Gefüllte Tomaten mit Gemüse und hausgemachtem Käse, Mandeln, Cashewnüssen und Rosinen in Kokosmilch, speziell gewürzt",
+        "allergens": "G H",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "404",
+        "name": "Kabir Alu",
+        "price": "15,90 €",
+        "description": "Gefüllte Kartoffeln mit Mandeln, Cashewnüssen und Rosinen (lassen Sie sich überraschen)",
+        "allergens": "G H",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "428",
+        "name": "Mango Shabsie",
+        "price": "14,90 €",
+        "description": "Frisches gemischtes Gemüse in Mangosauce",
+        "allergens": "G",
+        "futureOrderable": true
+      }
+    ]
+  },
+  {
+    "slug": "vegan",
+    "label": "Vegan",
+    "heading": "Vegan",
+    "infoBlocks": [
+      {
+        "title": "- Vegane Suppen",
+        "text": ""
+      },
+      {
+        "title": "- Vegane Vorspeisen",
+        "text": ""
+      },
+      {
+        "title": "- Veganes Brot",
+        "text": ""
+      }
+    ],
+    "items": [
+      {
+        "legacyId": "801",
+        "name": "Dal Suppe",
+        "price": "5,90 €",
+        "description": "Kräftige indische Linsensuppe",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "802",
+        "name": "Kashmiri Beans",
+        "price": "5,90 €",
+        "description": "Scharfe braune Bohnensuppe",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "803",
+        "name": "Shabsie Suppe",
+        "price": "5,90 €",
+        "description": "Gemüsesuppe fein gewürzt, mit Kokosnussmilch zubereitet",
+        "allergens": "K",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "804",
+        "name": "Papad",
+        "price": "2,90 €",
+        "description": "Zwei dünne, knusprige Linsenwaffeln, mit 3 verschiedene Dip",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "805",
+        "name": "Delhi Alu",
+        "price": "5,50 €",
+        "description": "Gebratene Kartoffeln mit feinen Gewürzen",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "806",
+        "name": "Shabsie Pakora",
+        "price": "6,50 €",
+        "description": "In Kichererbsenmehl gebackenes Gemüse",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "807",
+        "name": "Samosa Teigtaschen",
+        "price": "6,90 €",
+        "description": "Mit Gemüsefüllung",
+        "allergens": "A1",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "808",
+        "name": "Onion Rings",
+        "price": "6,20 €",
+        "description": "In Kichererbsenmehl gebackene Zwiebelringe",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "809",
+        "name": "Gemischter Vorspeisenteller",
+        "price": "13,50 €",
+        "description": "Für 2 Personen",
+        "allergens": "A1",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "810",
+        "name": "Tandoori Roti",
+        "price": "3,20 €",
+        "description": "im Lehmofen gebackenes Fladenbrot aus Weizenvollkornmehl",
+        "allergens": "A1",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "811",
+        "name": "Tandoori Pranta",
+        "price": "4,10 €",
+        "description": "Gewürztes Brot aus Vollkornmehl",
+        "allergens": "A1",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "812",
+        "name": "Alu Prantha",
+        "price": "4,50 €",
+        "description": "Gefülltes Brot mit Kartoffeln aus Vollkornmehl",
+        "allergens": "A1",
+        "futureOrderable": true
+      }
+    ]
+  },
+  {
+    "slug": "vegane-spezialitaeten",
+    "label": "Vegane Spezialitäten",
+    "heading": "Vegane Spezialitäten",
+    "infoBlocks": [
+      {
+        "title": "- Vegane Spezialitäten mit Basmatireis",
+        "text": ""
+      }
+    ],
+    "items": [
+      {
+        "legacyId": "813",
+        "name": "Dal Tarka (Vegan)",
+        "price": "13,50 €",
+        "description": "Indisches Linsengericht mit Ingwer, indisches Nationalgericht",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "814",
+        "name": "Alu Gobi (Vegan)",
+        "price": "14,50 €",
+        "description": "Kartoffeln, Blumenkohl mit feinen Gewürzen in Currysoße",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "815",
+        "name": "Mushroom Chilli (Vegan)",
+        "price": "14,70 €",
+        "description": "Frische Champignons mit Paprika in Chilisauce, sehr scharf",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "816",
+        "name": "Punjabi Chana (Vegan)",
+        "price": "13,90 €",
+        "description": "Kichererbsen mit Curry, Tomaten und Ingwer, leicht scharf",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "817",
+        "name": "Tinda Masala (Vegan)",
+        "price": "14,90 €",
+        "description": "Orientalisches Gemüse mit Tomaten und Zwiebeln, gut gewürzt",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "818",
+        "name": "Shabsie (Vegan)",
+        "price": "14,10 €",
+        "description": "Frisches gemischtes Gemüse in Currysauce",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "819",
+        "name": "Chana Palak (Vegan)",
+        "price": "14,10 €",
+        "description": "Kichererbsen mit indischem Spinat mit Kokosnußmilch",
+        "allergens": "K",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "820",
+        "name": "Bhindi Masala (Vegan)",
+        "price": "14,90 €",
+        "description": "orientalisches Gemüse, Okraschoten in Currysauce",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "821",
+        "name": "Saag Alu (Vegan)",
+        "price": "11,90 €",
+        "description": "Kartoffeln mit Spinat, gut gewürzt",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "822",
+        "name": "Matter Mushroom curry (Vegan)",
+        "price": "14,70 €",
+        "description": "frische Champignons und grüne Erbsen in Currysauce",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "833",
+        "name": "Vegetarisch Thali",
+        "price": "17,90 €",
+        "description": "- 2 x Gemüsegericht / - Dal (indisches Linsengericht) / - Raita / - Reis / - Chappati / - Papadam / /",
+        "allergens": "G A1",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "824",
+        "name": "Garhwal Shabsie (Vegan)",
+        "price": "15,30 €",
+        "description": "In der Pfanne serviertes, gebratenes Gemüse mit Kokosnuss und Mandeln in Tomatensauce und Ingwer (Vegane Zubereitung)",
+        "allergens": "H",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "825",
+        "name": "Shabsie Biryani (Vegan)",
+        "price": "15,50 €",
+        "description": "Safranreis mit frischem Gemüse nach Mughlai Art mit Mandeln, Rosinen, Cashewnüssen und Kokosnuß",
+        "allergens": "H K",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "826",
+        "name": "Jaipuri Kofta (Vegan)",
+        "price": "15,20 €",
+        "description": "Gemüsebällchen in Kokosnuß-Soße mit Sesam (sonst wie oben)",
+        "allergens": "H K",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "827",
+        "name": "Jaipuri Shabsie (Vegan)",
+        "price": "16,20 €",
+        "description": "Gemischtes Gemüse in Kokosnuß- Mandelsoße (sonst wie oben)",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "828",
+        "name": "Baigen Bharta",
+        "price": "15,50 €",
+        "description": "gehackte Auberginen mit Ingwer, gut gewürzt",
+        "allergens": "",
+        "futureOrderable": true
+      }
+    ]
+  },
+  {
+    "slug": "beilagen",
+    "label": "Beilagen",
+    "heading": "Beilagen",
+    "infoBlocks": [],
+    "items": [
+      {
+        "legacyId": "168",
+        "name": "Palau Reis",
+        "price": "6,90 €",
+        "description": "Gebratener Reis mit Erbsen, Zwiebeln und Käse",
+        "allergens": "A1",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "252",
+        "name": "Tandoori Roti",
+        "price": "3,20 €",
+        "description": "Teigfladen aus Vollkornmehl",
+        "allergens": "A1 G C",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "253",
+        "name": "Nan",
+        "price": "3,50 €",
+        "description": "Hefeteig aus dem Lehmofen",
+        "allergens": "A1 G C",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "254",
+        "name": "Knoblauch Nan",
+        "price": "3,90 €",
+        "description": "Hefeteig aus dem Lehmofen, mit Knoblauch",
+        "allergens": "G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "255",
+        "name": "Raita",
+        "price": "4,90 €",
+        "description": "Gurken-Joghurt, fein gewürz",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "256",
+        "name": "Papad",
+        "price": "2,90 €",
+        "description": "Linsenwaffeln, 2 Stück mit 3 Dips",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "257",
+        "name": "Basmati Reis",
+        "price": "4,50 €",
+        "description": "Spezial indischer Reis",
+        "allergens": "G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "414",
+        "name": "Mix Raita",
+        "price": "5,20 €",
+        "description": "Joghurt mit Gurken, Tomaten und Zwiebeln, fein gewürzt",
+        "allergens": "A1 G C",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "415",
+        "name": "Onion Kulcha",
+        "price": "4,10 €",
+        "description": "Hefeteig aus dem Lehmofen, mit Zwiebeln",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "415b",
+        "name": "Käse Nan",
+        "price": "4,70 €",
+        "description": "Hefeteig aus dem Lehmofen, mit Käse",
+        "allergens": "A1 G C",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "415c",
+        "name": "Minz Nan",
+        "price": "4,10 €",
+        "description": "Hefeteig aus dem Lehmofen, mit Minze",
+        "allergens": "A1 G C",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "415d",
+        "name": "Gemüse Nan",
+        "price": "4,10 €",
+        "description": "Hefeteig aus dem Lehmofen, mit Gemüse",
+        "allergens": "",
+        "futureOrderable": true
+      }
+    ]
+  },
+  {
+    "slug": "extra-sauce",
+    "label": "Extra Sauce",
+    "heading": "Extra Sauce",
+    "infoBlocks": [],
+    "items": [
+      {
+        "legacyId": "416",
+        "name": "Scharfe Sauce",
+        "price": "2,50 €",
+        "description": "",
+        "allergens": "G H",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "417",
+        "name": "Mandelsauce",
+        "price": "5,90 €",
+        "description": "",
+        "allergens": "G",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "418",
+        "name": "Chatney (3 Dips)",
+        "price": "1,50 €",
+        "description": "",
+        "allergens": "",
+        "futureOrderable": true
+      }
+    ]
+  },
+  {
+    "slug": "dessert",
+    "label": "DESSERT",
+    "heading": "DESSERT",
+    "infoBlocks": [],
+    "items": [
+      {
+        "legacyId": "258",
+        "name": "Gulab Jamun",
+        "price": "4,90 €",
+        "description": "Frittierte Milchbällchen in Zuckersirup",
+        "allergens": "G H",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "259",
+        "name": "Firni",
+        "price": "5,90 €",
+        "description": "Honigmilch, Mandeln, Pistazien, Nüsse und Reismehl",
+        "allergens": "G H",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "260",
+        "name": "Mango Creme",
+        "price": "6,20 €",
+        "description": "Besonders zu empfehlen",
+        "allergens": "",
+        "futureOrderable": true
+      }
+    ]
+  },
+  {
+    "slug": "menue",
+    "label": "Menü",
+    "heading": "Menü",
+    "infoBlocks": [
+      {
+        "title": "- Alle Menüs für Zwei Personen",
+        "text": ""
+      }
+    ],
+    "items": [
+      {
+        "legacyId": "777a",
+        "name": "Menü 1 Chicken",
+        "price": "29,00 €",
+        "description": "",
+        "allergens": "H G A1 C",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "777b",
+        "name": "Menu 1 Shabsie",
+        "price": "29,00 €",
+        "description": "Vorspeise: Mix Pakora / Hauptspeise: Shabsie Korma / Nachspeise: Gulab Jamun / und / Mango Lassi 0,7l /",
+        "allergens": "",
+        "futureOrderable": true
+      },
+      {
+        "legacyId": "777",
+        "name": "Menü 2 Kabir",
+        "price": "36,00 €",
+        "description": "Vorspeise: Mix Pakora / Hauptspeise: Kabir Teller / Nachspeise: Mango Creme / und / Mango Lassi 0,7l /",
+        "allergens": "",
+        "futureOrderable": true
+      }
+    ]
+  }
+]

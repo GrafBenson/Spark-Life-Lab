@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Banthai Sushi / Heim- & Partyservice Redesign
 
-## Getting Started
+Modernes Next.js-/TypeScript-/Tailwind-Redesign auf Basis der oeffentlich verifizierten Inhalte aus dem Altsystem von Banthai.
 
-First, run the development server:
+## Lokal starten
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Dann `http://localhost:3000` im Browser oeffnen.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Build / Quality Check
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run lint
+npm run build
+npm run start
+```
 
-## Learn More
+## Projektstruktur
 
-To learn more about Next.js, take a look at the following resources:
+- `app/` - Routen mit App Router
+  - `app/page.tsx` (Home)
+  - `app/bestellen/page.tsx` (Bestellen / Speisekarte)
+  - `app/speisekarte/page.tsx` (Alias auf Bestellen)
+  - `app/bewertungen/page.tsx`
+  - `app/liefergebiet/page.tsx`
+  - `app/kontakt/page.tsx`
+  - `app/impressum/page.tsx`
+  - `app/datenschutz/page.tsx`
+- `components/` - wiederverwendbare UI-Elemente (Header, Footer, Mobile Action Bar, Order-Link)
+- `data/site.ts` - zentraler Data-Layer mit verifizierten Fakten + TODO-Hinweisen
+- `CLIENT_REVIEW_NOTES.md` - Quellen, verifizierte Fakten, offene Punkte zur Betreiberfreigabe
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Inhaltsquelle
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Wrapper-Domain: `http://www.banthaisushi.de`
+- Primare Inhaltsquelle: `http://www.hunger-stillen.de/cgi-bin/Homepage.fpl?SHOP=Banthai`
 
-## Deploy on Vercel
+## Was noch bestaetigt werden muss
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- Vollstaendige Menuepunkte und Preise je Kategorie
+- Liefergebietszonen und Mindestbestellwerte im Detail
+- Vollstaendige rechtliche Impressumsangaben fuer den finalen Launch
+- Final freigegebener Datenschutztext
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Deployment
+
+Deployment ist auf jeder Next.js-faehigen Plattform moeglich (z. B. Vercel).
+Vor Livegang alle TODO-Punkte aus `CLIENT_REVIEW_NOTES.md` final bestaetigen.
