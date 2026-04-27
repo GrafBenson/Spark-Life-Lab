@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     template: "%s | SparkLifeLab",
   },
   description:
-    "Midlife clarity coaching for professionals in their 40s and 50s. Get the free Midlife Clarity Check or join the SparkLife Identity Lab small-group programme.",
+    "A calm, guided space for people in midlife who sense something has shifted. Free Midlife Clarity Check and SparkLife Identity Lab.",
   applicationName: "SparkLifeLab",
   openGraph: {
     type: "website",
@@ -37,13 +37,13 @@ export const metadata: Metadata = {
     siteName: "SparkLifeLab",
     title: "SparkLifeLab — Midlife Clarity Coaching & Reflection",
     description:
-      "Midlife clarity coaching for professionals in their 40s and 50s. Free Clarity Check + small-group Identity Lab programme.",
+      "A calm, guided space for people in midlife who sense something has shifted. Free Midlife Clarity Check and SparkLife Identity Lab.",
   },
   twitter: {
     card: "summary_large_image",
     title: "SparkLifeLab — Midlife Clarity Coaching & Reflection",
     description:
-      "SparkLifeLab helps professionals in their 40s and 50s find clarity, reconnect with what matters, and step forward with intention.",
+      "SparkLifeLab helps professionals in their 40s and 50s find clarity, reconnect with what matters, and step into what comes next.",
   },
 };
 

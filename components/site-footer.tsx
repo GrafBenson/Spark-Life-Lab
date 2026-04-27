@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { legalItems, navItems, site } from "@/data/site";
+import { site } from "@/data/site";
 
 export function SiteFooter() {
   function openCookiePreferences() {
@@ -11,35 +11,53 @@ export function SiteFooter() {
   return (
     <footer className="site-footer">
       <div className="footer-grid">
-        <div className="footer-brand">
-          <Link className="footer-wordmark" href="/">
+
+        {/* Brand column */}
+        <div>
+          <Link className="footer-wordmark" href="/" aria-label="SparkLifeLab home">
             <span>Spark</span>LifeLab
           </Link>
-          <p>Midlife clarity coaching — for people ready to find what comes next.</p>
-          <a href={`mailto:${site.email}`}>{site.email}</a>
+          <p className="footer-tagline">Ignite your best life — on purpose</p>
+          <div className="footer-contact">
+            <a href={`mailto:${site.email}`}>{site.email}</a>
+          </div>
+          <div className="footer-contact" style={{ marginTop: "0.5rem" }}>
+            <a
+              href="https://sparklifelab.substack.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Read our essays on Substack →
+            </a>
+          </div>
         </div>
 
+        {/* Navigate column */}
         <div>
           <p className="footer-heading">Explore</p>
           <ul className="footer-links">
-            {navItems.map((item) => (
-              <li key={item.href}>
-                <Link href={item.href}>{item.label}</Link>
-              </li>
-            ))}
+            <li><a href="/#clarity-check">Clarity Check</a></li>
+            <li><a href="/#identity-lab">Identity Lab</a></li>
+            <li><a href="/#about">Our Story</a></li>
+            <li><Link href="/clarity-check/">Get the Clarity Check</Link></li>
+            <li><Link href="/identity-lab/">Identity Lab page</Link></li>
           </ul>
         </div>
 
+        {/* Legal column */}
         <div>
           <p className="footer-heading">Legal</p>
           <ul className="footer-links">
-            {legalItems.map((item) => (
-              <li key={item.href}>
-                <Link href={item.href}>{item.label}</Link>
-              </li>
-            ))}
+            <li><Link href="/privacy-policy/">Privacy Policy</Link></li>
+            <li><Link href="/terms-of-use/">Terms of Use</Link></li>
+            <li><Link href="/cookie-policy/">Cookie Policy</Link></li>
+            <li><Link href="/impressum/">Impressum</Link></li>
             <li>
-              <button type="button" className="footer-text-button" onClick={openCookiePreferences}>
+              <button
+                type="button"
+                className="footer-text-button"
+                onClick={openCookiePreferences}
+              >
                 Cookie preferences
               </button>
             </li>
@@ -49,7 +67,7 @@ export function SiteFooter() {
 
       <div className="footer-bottom">
         <p>© {site.year} SparkLifeLab. All rights reserved.</p>
-        <p>Midlife clarity coaching at {site.domain}.</p>
+        <p>spark-life-lab.com</p>
       </div>
     </footer>
   );

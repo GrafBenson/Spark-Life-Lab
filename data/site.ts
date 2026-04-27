@@ -8,13 +8,12 @@ export const site = {
   year: 2026,
 };
 
+// V10: Resources and Contact are deferred at launch.
+// Nav anchors are handled directly in site-header.tsx.
 export const navItems = [
-  { href: "/", label: "Home" },
   { href: "/clarity-check/", label: "Clarity Check" },
   { href: "/identity-lab/", label: "Identity Lab" },
   { href: "/about/", label: "Our Story" },
-  { href: "/resources/", label: "Resources" },
-  { href: "/contact/", label: "Contact" },
 ];
 
 export const legalItems = [

@@ -11,23 +11,47 @@ type LegalPageProps = {
 export function LegalPage({ title, intro, children }: LegalPageProps) {
   return (
     <main>
-      <section className="legal-hero">
-        <p className="eyebrow">Review required before launch</p>
-        <h1>{title}</h1>
-        <p>{intro}</p>
-      </section>
-      <section className="legal-content">
-        <div className="legal-notice">
-          <strong>Legal placeholder:</strong> This page is a structured placeholder for client
-          review. Replace it with lawyer-reviewed or Termly/iubenda-generated text before the
-          public launch.
+      <section
+        className="legal-hero section"
+        style={{ background: "var(--page-bg)", paddingLeft: "5vw", paddingRight: "5vw" }}
+      >
+        <div className="section-inner mid">
+          <p className="brand-context">SparkLifeLab · Legal</p>
+          <h1>{title}</h1>
+          <p className="page-intro">{intro}</p>
         </div>
-        {children}
-        <p className="legal-contact">
-          Privacy or legal questions can be sent to{" "}
-          <a href={`mailto:${site.email}`}>{site.email}</a>. You can return to the{" "}
-          <Link href="/">homepage</Link>.
-        </p>
+      </section>
+
+      <section
+        className="legal-content"
+        style={{ paddingLeft: "5vw", paddingRight: "5vw", paddingBottom: "clamp(4rem,6vw,6rem)" }}
+      >
+        <div className="legal-content-inner">
+          <div className="legal-todo">
+            <strong>TODO — Final legal copy required.</strong> This is a structured
+            placeholder. Replace with lawyer-reviewed or{" "}
+            <a href="https://termly.io" target="_blank" rel="noopener noreferrer">Termly</a>/
+            <a href="https://iubenda.com" target="_blank" rel="noopener noreferrer">iubenda</a>-generated
+            text before public launch. Do not invent company registration data, legal
+            addresses, or responsible person details.
+          </div>
+
+          {children}
+
+          <p style={{ color: "var(--muted)", fontSize: "0.9rem", marginTop: "2rem" }}>
+            Questions?{" "}
+            <a
+              href={`mailto:${site.email}`}
+              style={{ color: "var(--authority)", borderBottom: "1px solid rgba(27,58,107,0.3)" }}
+            >
+              {site.email}
+            </a>
+            {" · "}
+            <Link href="/" style={{ color: "var(--authority)", borderBottom: "1px solid rgba(27,58,107,0.3)" }}>
+              Return to homepage
+            </Link>
+          </p>
+        </div>
       </section>
     </main>
   );

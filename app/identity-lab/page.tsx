@@ -1,101 +1,148 @@
 import type { Metadata } from "next";
-import { ButtonLink } from "@/components/button-link";
-import { CtaBand } from "@/components/cta-band";
-import { PageHero } from "@/components/page-hero";
-import { Reveal } from "@/components/motion/reveal";
+import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 
 export const metadata: Metadata = {
-  title: "SparkLife Identity Lab — Midlife Coaching Programme",
+  title: "SparkLife Identity Lab — SparkLifeLab",
   description:
-    "Small-group online coaching programme for midlife realignment. Explore values, identity, and direction with SparkLifeLab's guided process.",
+    "A guided transformation journey for people in midlife. Explore values, strengths, and direction in a small supported group. Ends with your personal IdentityMap.",
   openGraph: {
-    title: "SparkLife Identity Lab — Midlife Coaching Programme",
+    title: "SparkLife Identity Lab — SparkLifeLab",
     description:
-      "A structured small-group online coaching programme for people in midlife ready to move from fog toward grounded clarity.",
+      "Not a course. Not coaching. A guided crossing — with others who understand what this passage feels like. Ends with your personal IdentityMap.",
   },
 };
 
 export default function IdentityLabPage() {
   return (
     <>
-      <BreadcrumbJsonLd page="SparkLife Identity Lab" href="/identity-lab/" />
+      <BreadcrumbJsonLd page="Identity Lab" href="/identity-lab/" />
       <main>
-        <PageHero
-          variant="lab"
-          eyebrow="SparkLife Identity Lab"
-          title="A small-group coaching programme for midlife realignment."
-          intro="6–8 people. Online. Several weeks. Guided from naming what no longer fits to clarity about what comes next."
-          cta={{ href: "/clarity-check/", label: "Begin with the free Clarity Check" }}
-        />
+      {/* Page hero */}
+      <section
+        className="section"
+        style={{
+          background: "var(--authority)",
+          paddingTop: "clamp(4.5rem,6vw,7rem)",
+          paddingBottom: "clamp(3.5rem,5vw,5.5rem)",
+          paddingLeft: "5vw",
+          paddingRight: "5vw",
+        }}
+      >
+        <div className="section-inner mid">
+          <p className="brand-context" style={{ color: "rgba(255,255,255,0.55)" }}>
+            SparkLifeLab · Identity Lab
+          </p>
+          <p className="eyebrow-white">When you&rsquo;re ready for the next step.</p>
+          <h1 style={{ color: "var(--white)" }}>The SparkLife Identity Lab</h1>
+          <p className="page-intro" style={{ color: "rgba(255,255,255,0.80)", maxWidth: "640px" }}>
+            Your guided first step into clarity. A transformation journey for people in
+            midlife who are ready to move from fog to grounded forward movement.
+          </p>
+        </div>
+      </section>
 
-        <p className="brand-context">
-          SparkLifeLab · Midlife clarity coaching — Identity Lab
-        </p>
+      {/* What it is */}
+      <section className="section" style={{ background: "var(--page-bg)", paddingLeft: "5vw", paddingRight: "5vw" }}>
+        <div className="section-inner mid">
+          <p className="eyebrow">What it is</p>
+          <h2>Not a course. Not coaching. A guided crossing.</h2>
+          <p className="lead" style={{ maxWidth: "680px" }}>
+            Once you have a clearer sense of where you are, the SparkLife Identity Lab
+            offers the next step — a guided transformation journey to help you understand
+            who you are now, what truly matters, and how to move forward with intention.
+          </p>
+          <p>
+            In a small, supported group, you will explore your values, your strengths, and
+            the direction that feels most aligned with who you are becoming.
+          </p>
+          <p>
+            A guided crossing — with others who understand what this passage feels like.
+          </p>
+        </div>
+      </section>
 
-        <Reveal as="section" className="section">
-          <div className="section-inner split">
-            <div>
-              <p className="eyebrow">What it is</p>
-              <h2>Guided coaching, not a course.</h2>
-              <p>
-                Small-group structured reflection — values, identity, direction — with
-                honest dialogue at a human pace. Not therapy, not a productivity system.
-                A guided crossing from the Midlife Fog toward clarity you can act on.
-              </p>
-            </div>
-            <div className="program-panel">
-              <p className="eyebrow">For people who</p>
-              <ul className="quiet-list">
-                <li>Feel a restlessness they cannot ignore.</li>
-                <li>Want language for who they are becoming.</li>
-                <li>Value structure without being rushed.</li>
-                <li>Prefer companionship over motivational hype.</li>
-              </ul>
-            </div>
+      {/* IdentityMap */}
+      <section className="section" style={{ background: "var(--sand)", paddingLeft: "5vw", paddingRight: "5vw" }}>
+        <div className="section-inner mid">
+          <p className="eyebrow">What you leave with</p>
+          <h2>Your personal IdentityMap</h2>
+          <p>
+            The journey ends with your personal <strong>IdentityMap</strong>: a
+            beautifully designed document that brings together everything you discovered —
+            your values, strengths, purpose, and emerging future.
+          </p>
+          <p>
+            Not a worksheet. Not a summary. A compass you keep.
+          </p>
+          <blockquote className="pull-quote-dark">
+            A clear, visual record of who you are now and the direction that feels most
+            yours — to return to whenever the fog creeps back.
+          </blockquote>
+        </div>
+      </section>
+
+      {/* How it works */}
+      <section className="section" style={{ background: "var(--page-bg)", paddingLeft: "5vw", paddingRight: "5vw" }}>
+        <div className="section-inner mid">
+          <p className="eyebrow">How it works</p>
+          <h2>Small group. Online. Human pace.</h2>
+          <p>
+            The SparkLife Identity Lab runs with a small group — typically 6–8 people —
+            over several weeks. Sessions are online and designed to move at a human pace,
+            not the pace of a training programme.
+          </p>
+          <p>
+            You will be guided through structured reflection, honest dialogue with fellow
+            travellers, and a gradual deepening of self-knowledge. There is no performance,
+            no grading, no pressure to have answers. Only the invitation to look more
+            closely.
+          </p>
+
+          {/* CTA */}
+          <div style={{ marginTop: "2.5rem" }}>
+            {/* TODO: Replace href with Kajabi/registration link when registration opens.
+                Until then, link points back to the homepage Clarity Check section
+                as the natural first step. */}
+            <Link className="button button-primary" href="/clarity-check/">
+              Start with the free Midlife Clarity Check →
+            </Link>
+            <p
+              style={{
+                color: "var(--gold)",
+                fontStyle: "italic",
+                fontSize: "0.9rem",
+                marginTop: "1rem",
+              }}
+            >
+              First cohort launching May 2026. Places are limited.
+            </p>
+            <p style={{ color: "var(--muted)", fontSize: "0.85rem", marginTop: "0.25rem" }}>
+              {/* TODO: Update status text and CTA link when registration opens. */}
+              Registration opening soon. Begin with the Clarity Check to be notified when
+              places become available.
+            </p>
           </div>
-        </Reveal>
+        </div>
+      </section>
 
-        <Reveal as="section" className="section section-cream" delay={80}>
-          <div className="section-inner">
-            <p className="eyebrow">What the programme covers</p>
-            <h2>From fog toward a more honest next chapter.</h2>
-            <div className="feature-grid">
-              <article className="feature">
-                <h3>Structured reflection</h3>
-                <p>A clear container for what feels misaligned and what may be ready to shift.</p>
-              </article>
-              <article className="feature">
-                <h3>Identity and values</h3>
-                <p>Who you are now — not only the roles you have carried.</p>
-              </article>
-              <article className="feature">
-                <h3>Supported dialogue</h3>
-                <p>Conversation with others who understand the threshold.</p>
-              </article>
-              <article className="feature">
-                <h3>Grounded next steps</h3>
-                <p>Small choices that make clarity lived, not only understood.</p>
-              </article>
-            </div>
-            <div className="hero-actions">
-              <ButtonLink href="/contact/" variant="secondary">
-                Register interest
-              </ButtonLink>
-              <span className="meta-line" style={{ alignSelf: "center" }}>
-                Cohort dates &amp; pricing announced when registration opens.
-              </span>
-            </div>
-          </div>
-        </Reveal>
-
-        <CtaBand
-          title="New here? Start with the free Clarity Check."
-          text="20–30 minutes. No cost, no commitment."
-          href="/clarity-check/"
-          label="Get the free Clarity Check"
-        />
-      </main>
+      {/* Soft return */}
+      <section
+        className="section"
+        style={{ background: "var(--authority)", paddingLeft: "5vw", paddingRight: "5vw", paddingTop: "3.5rem", paddingBottom: "3.5rem" }}
+      >
+        <div className="section-inner narrow" style={{ textAlign: "center" }}>
+          <h2 style={{ color: "var(--white)" }}>Not sure if you&rsquo;re ready?</h2>
+          <p style={{ color: "rgba(255,255,255,0.80)", maxWidth: "480px", margin: "0 auto 2rem" }}>
+            Start with the free Midlife Clarity Check. It only takes 20–30 minutes and
+            will help you understand exactly where you are.
+          </p>
+          <Link className="button button-primary" href="/clarity-check/">
+            Get the free Midlife Clarity Check →
+          </Link>
+        </div>
+      </section>
+    </main>
     </>
   );
 }

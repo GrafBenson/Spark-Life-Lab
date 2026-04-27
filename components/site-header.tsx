@@ -3,12 +3,25 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
-import { navItems } from "@/data/site";
+
+// V10 navigation logic:
+// On homepage  → anchors point to #section-id
+// On subpages  → anchors point to /#section-id
+// CTA always   → /clarity-check/
+
+const navLinks = [
+  { label: "Clarity Check",  anchor: "clarity-check" },
+  { label: "Identity Lab",   anchor: "identity-lab" },
+  { label: "Our Story",      anchor: "about" },
+];
 
 export function SiteHeader() {
   const pathname = usePathname();
   const [menuOpen, setMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  const isHome = pathname === "/" || pathname === "";
+  const onClarityPage = pathname === "/clarity-check/" || pathname === "/clarity-check";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -17,31 +30,29 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  const onClarityCheckPage = pathname === "/clarity-check/" || pathname === "/clarity-check";
+  function anchorHref(anchor: string) {
+    return isHome ? `#${anchor}` : `/#${anchor}`;
+  }
 
   return (
-    <header className={`site-header ${scrolled ? "is-scrolled" : ""}`}>
-      <Link className="wordmark" href="/" aria-label="SparkLifeLab home">
+    <header className={`site-header${scrolled ? " is-scrolled" : ""}`}>
+      <Link className="wordmark" href="/" aria-label="SparkLifeLab — home">
         <span>Spark</span>LifeLab
       </Link>
 
       <nav className="desktop-nav" aria-label="Primary navigation">
-        {navItems.slice(1).map((item) => (
-          <Link
-            key={item.href}
-            href={item.href}
-            aria-current={pathname === item.href ? "page" : undefined}
-          >
+        {navLinks.map((item) => (
+          <a key={item.anchor} href={anchorHref(item.anchor)}>
             {item.label}
-          </Link>
+          </a>
         ))}
       </nav>
 
-      {onClarityCheckPage ? (
+      {onClarityPage ? (
         <span aria-hidden="true" />
       ) : (
         <Link className="header-cta" href="/clarity-check/">
-          Clarity Check
+          Get the Midlife Clarity Check →
         </Link>
       )}
 
@@ -51,31 +62,34 @@ export function SiteHeader() {
         aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
         aria-expanded={menuOpen}
         aria-controls="mobile-nav"
-        onClick={() => setMenuOpen((open) => !open)}
+        onClick={() => setMenuOpen((o) => !o)}
       >
         <span />
         <span />
       </button>
 
-      <div className={`mobile-nav-panel ${menuOpen ? "is-open" : ""}`} id="mobile-nav">
+      <div
+        className={`mobile-nav-panel${menuOpen ? " is-open" : ""}`}
+        id="mobile-nav"
+        aria-hidden={!menuOpen}
+      >
         <nav aria-label="Mobile navigation">
-          {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              aria-current={pathname === item.href ? "page" : undefined}
+          {navLinks.map((item) => (
+            <a
+              key={item.anchor}
+              href={anchorHref(item.anchor)}
               onClick={() => setMenuOpen(false)}
             >
               {item.label}
-            </Link>
+            </a>
           ))}
-          {onClarityCheckPage ? null : (
+          {onClarityPage ? null : (
             <Link
               className="mobile-nav-cta"
               href="/clarity-check/"
               onClick={() => setMenuOpen(false)}
             >
-              Get the Midlife Clarity Check
+              Get the Midlife Clarity Check →
             </Link>
           )}
         </nav>

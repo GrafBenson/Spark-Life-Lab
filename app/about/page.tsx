@@ -1,18 +1,16 @@
 import type { Metadata } from "next";
-import { ButtonLink } from "@/components/button-link";
-import { FounderCards } from "@/components/founder-cards";
-import { PageHero } from "@/components/page-hero";
-import { Reveal } from "@/components/motion/reveal";
+import Image from "next/image";
+import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 
 export const metadata: Metadata = {
-  title: "About SparkLifeLab — Our Story & Founders",
+  title: "Our Story — SparkLifeLab",
   description:
-    "SparkLifeLab was founded by three people who navigated midlife fog themselves. Meet Bärbel, Gunther, and Scott and learn why they built a calm space for midlife clarity.",
+    "Three co-founders who met on a shared journey and built SparkLifeLab because something like it didn't exist when they needed it. Meet Bärbel, Gunther, and Scott.",
   openGraph: {
-    title: "About SparkLifeLab — Our Story & Founders",
+    title: "Our Story — SparkLifeLab",
     description:
-      "Three co-founders, fellow travellers, who built SparkLifeLab because something like it didn't exist when they needed it.",
+      "We're fellow travellers, not experts standing apart. Meet the three co-founders of SparkLifeLab.",
   },
 };
 
@@ -21,59 +19,185 @@ export default function AboutPage() {
     <>
       <BreadcrumbJsonLd page="Our Story" href="/about/" />
       <main>
-        <PageHero
-          variant="story"
-          eyebrow="Our story"
-          title="Fellow travellers, not experts standing apart."
-          intro="SparkLifeLab exists because we wished something like it had existed when we first felt the restlessness ourselves."
-          aside={
-            // eslint-disable-next-line @next/next/no-img-element
-            <img
-              src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=900&q=80"
-              alt="A quiet field of warm afternoon light."
-              loading="lazy"
-              decoding="async"
-              style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "cover" }}
-            />
-          }
-        />
+      {/* Hero */}
+      <section
+        className="section"
+        style={{ background: "var(--page-bg)", paddingTop: "clamp(4.5rem,6vw,7rem)", paddingLeft: "5vw", paddingRight: "5vw" }}
+      >
+        <div className="section-inner mid">
+          <p className="brand-context">SparkLifeLab · About</p>
+          <p className="eyebrow">We&rsquo;ve walked this path ourselves.</p>
+          <h1>A calm, guided space to regain orientation</h1>
+          <p className="page-intro">
+            SparkLifeLab exists for people in midlife who sense that something in their
+            life no longer fits — even if, from the outside, everything looks fine.
+          </p>
+        </div>
+      </section>
 
-        <p className="brand-context">
-          SparkLifeLab · Midlife clarity coaching — About
-        </p>
+      {/* Positioning */}
+      <section className="section" style={{ background: "var(--sand)", paddingLeft: "5vw", paddingRight: "5vw" }}>
+        <div className="section-inner narrow">
+          <p className="eyebrow">Why we exist</p>
+          <h2>Midlife deserves a more thoughtful framing.</h2>
+          <p>
+            We exist because midlife deserves a more thoughtful, humane framing — as a
+            meaningful threshold where experience, longing, and possibility meet.
+          </p>
+          <p>
+            Feeling stuck or uncertain is not a flaw. It is often a signal that growth is
+            asking for attention. We don't promise quick fixes or dramatic reinvention. We
+            walk alongside people as guides — offering structure, reflection, and
+            companionship as they find their own direction forward.
+          </p>
+          <blockquote className="pull-quote-dark">
+            Midlife is not a crisis. It is a threshold — a meaningful crossing that many
+            people reach alone and without support.
+          </blockquote>
+        </div>
+      </section>
 
-        <Reveal as="section" className="section">
-          <div className="section-inner narrow">
-            <p className="eyebrow">Why we built this</p>
-            <h2>Space, time, and companionship changed the question.</h2>
-            <p>
-              Bärbel, Gunther, and Scott met on an online course about life purpose.
-              None of us was struggling — careers established, lives solid from the outside.
-              Yet each of us felt the stories we were living no longer quite fit.
-            </p>
-            <p>
-              What helped was not quick advice. It was slowing down together — conversations
-              that did not rush us toward answers. Gradually, clarity emerged.
-            </p>
-            <p>
-              We built SparkLifeLab so others would not have to find that space alone.
-              We are still on the path ourselves, and glad to walk it with you.
-            </p>
+      {/* Founders story */}
+      <section className="section" style={{ background: "var(--page-bg)", paddingLeft: "5vw", paddingRight: "5vw" }}>
+        <div className="section-inner mid">
+          <p className="eyebrow">Why we built SparkLifeLab</p>
+          <h2>Fellow travellers — not experts standing apart.</h2>
+          <p className="lead" style={{ maxWidth: "680px", marginBottom: "1.5rem" }}>
+            SparkLifeLab began with a quiet question many people reach in midlife: Is this
+            really it — or is something else trying to emerge?
+          </p>
+          <p>
+            The three of us — Bärbel, Gunther, and Scott — met during an online course on
+            life purpose. None of us was in a difficult place. Our careers were
+            established, our lives looked solid and successful from the outside. Yet each
+            of us felt a growing sense that the stories we were living no longer quite fit.
+            Something had shifted — subtle, persistent, hard to name.
+          </p>
+          <p>
+            What helped us most wasn't quick advice or ready-made solutions, but the
+            chance to slow down together. Space, time, and companionship. Conversations
+            that didn't rush us toward answers, but helped us listen more closely to what
+            mattered now. Gradually, clarity emerged.
+          </p>
+          <p>
+            We realised this wasn't a personal failure. It was a threshold — a meaningful
+            crossing many people reach in midlife, often alone and without support.
+            SparkLifeLab grew from the wish that something like this had existed when we
+            first felt that quiet restlessness. We're still on that path ourselves — and
+            we're glad to walk it with you.
+          </p>
+        </div>
+      </section>
+
+      {/* Founder cards */}
+      <section className="section" style={{ background: "var(--sand)", paddingLeft: "5vw", paddingRight: "5vw" }}>
+        <div className="section-inner">
+          <p className="eyebrow">The founders</p>
+          <h2>Who we are</h2>
+
+          <div className="founder-grid">
+            <article className="founder-card">
+              <Image
+                src="/images/founder_barbel.png"
+                alt="Bärbel Tress, Co-founder of SparkLifeLab"
+                width={120}
+                height={120}
+                className="founder-photo"
+                style={{ width: "120px", height: "120px" }}
+              />
+              <h3>Bärbel Tress</h3>
+              <p className="founder-role">Co-founder</p>
+              <p>
+                A scientist and maven who spent decades guiding researchers forward — and
+                found her own path forward when she discovered her genius and purpose in
+                midlife.
+              </p>
+              <a
+                className="founder-linkedin"
+                href="https://www.linkedin.com/in/baerbeltress"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Bärbel Tress on LinkedIn (opens in new tab)"
+              >
+                LinkedIn →
+              </a>
+            </article>
+
+            <article className="founder-card">
+              <Image
+                src="/images/founder_gunther.png"
+                alt="Gunther Tress, Co-founder of SparkLifeLab"
+                width={120}
+                height={120}
+                className="founder-photo"
+                style={{ width: "120px", height: "120px" }}
+              />
+              <h3>Gunther Tress</h3>
+              <p className="founder-role">Co-founder</p>
+              <p>
+                A communicator, scientist, and storyteller who built a career making
+                complex ideas come alive — and brings that same clarity, warmth, and
+                lightness to midlife transformation.
+              </p>
+              <a
+                className="founder-linkedin"
+                href="https://www.linkedin.com/in/gunthertress"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Gunther Tress on LinkedIn (opens in new tab)"
+              >
+                LinkedIn →
+              </a>
+            </article>
+
+            <article className="founder-card">
+              <Image
+                src="/images/founder_scott.png"
+                alt="Scott E. Burton, Co-founder of SparkLifeLab"
+                width={120}
+                height={120}
+                className="founder-photo"
+                style={{ width: "120px", height: "120px" }}
+              />
+              <h3>Scott E. Burton</h3>
+              <p className="founder-role">Co-founder</p>
+              <p>
+                A strategist and guide with decades in leadership and transformation who
+                found that the most important journey was the one inward.
+              </p>
+              <a
+                className="founder-linkedin"
+                href="https://www.linkedin.com/in/scotteburton"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Scott E. Burton on LinkedIn (opens in new tab)"
+              >
+                LinkedIn →
+              </a>
+            </article>
           </div>
-        </Reveal>
 
-        <Reveal as="section" className="section section-cream" delay={80}>
-          <div className="section-inner">
-            <p className="eyebrow">The founders</p>
-            <h2>Bärbel, Gunther, and Scott.</h2>
-            <FounderCards />
-            <div className="hero-actions">
-              <ButtonLink href="/clarity-check/">Start with the free Clarity Check</ButtonLink>
-              <ButtonLink href="/contact/" variant="secondary">Contact us</ButtonLink>
-            </div>
-          </div>
-        </Reveal>
-      </main>
+          <p className="founders-closing">Co-founders. Fellow travellers. Still becoming.</p>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section
+        className="section"
+        style={{ background: "var(--authority)", textAlign: "center", paddingLeft: "5vw", paddingRight: "5vw" }}
+      >
+        <div className="section-inner narrow">
+          <h2 style={{ color: "var(--white)" }}>Ready to take the first step?</h2>
+          <p style={{ color: "rgba(255,255,255,0.80)", maxWidth: "480px", margin: "0 auto 2rem" }}>
+            The free Midlife Clarity Check is the best place to start. It only takes
+            20–30 minutes.
+          </p>
+          <Link className="button button-primary" href="/clarity-check/">
+            Get the free Midlife Clarity Check →
+          </Link>
+        </div>
+      </section>
+    </main>
     </>
   );
 }

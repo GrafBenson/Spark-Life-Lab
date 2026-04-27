@@ -1,5 +1,11 @@
 "use client";
 
+// TODO: When ready for production, replace this localStorage-based banner
+// with a real consent management platform (Termly, iubenda, Cookiebot, etc.)
+// to ensure GDPR/TTDSG compliance. Until then, this provides correct UX behaviour:
+// banner shows on first visit, preferences saved to localStorage, no non-essential
+// cookies set before consent.
+
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
@@ -28,9 +34,7 @@ export function CookieConsent() {
   useEffect(() => {
     const timer = window.setTimeout(() => {
       const stored = window.localStorage.getItem(storageKey);
-      if (!stored) {
-        setVisible(true);
-      }
+      if (!stored) setVisible(true);
     }, 0);
 
     const openPreferences = () => {
@@ -62,44 +66,44 @@ export function CookieConsent() {
     setManageOpen(false);
   }
 
-  if (!visible) {
-    return null;
-  }
+  if (!visible) return null;
 
   return (
-    <section className="cookie-panel" aria-label="Cookie consent">
+    <section className="cookie-panel" role="dialog" aria-label="Cookie consent" aria-modal="true">
       <div className="cookie-copy">
         <p className="cookie-title">Cookie preferences</p>
         <p>
-          We use essential cookies for this website to work. Non-essential analytics or
-          marketing cookies should only be enabled after consent. Read the{" "}
+          We use cookies to improve your experience. By continuing you accept our{" "}
           <Link href="/cookie-policy/">Cookie Policy</Link>.
         </p>
-      </div>
 
-      {manageOpen ? (
-        <div className="cookie-manage">
-          <label>
-            <input type="checkbox" checked disabled /> Essential cookies
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              checked={analytics}
-              onChange={(event) => setAnalytics(event.target.checked)}
-            />{" "}
-            Analytics cookies
-          </label>
-          <label>
-            <input
-              type="checkbox"
-              checked={marketing}
-              onChange={(event) => setMarketing(event.target.checked)}
-            />{" "}
-            Marketing cookies
-          </label>
-        </div>
-      ) : null}
+        {manageOpen ? (
+          <div className="cookie-manage">
+            <label>
+              <input type="checkbox" checked disabled readOnly aria-label="Essential cookies (always active)" />
+              {" "}Essential cookies <em style={{ fontSize: "0.8em", opacity: 0.65 }}>(always active)</em>
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                checked={analytics}
+                onChange={(e) => setAnalytics(e.target.checked)}
+                aria-label="Analytics cookies"
+              />
+              {" "}Analytics cookies
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                checked={marketing}
+                onChange={(e) => setMarketing(e.target.checked)}
+                aria-label="Marketing cookies"
+              />
+              {" "}Marketing cookies
+            </label>
+          </div>
+        ) : null}
+      </div>
 
       <div className="cookie-actions">
         <button type="button" onClick={() => saveConsent(essentialOnly)}>
@@ -112,13 +116,7 @@ export function CookieConsent() {
           <button
             type="button"
             className="cookie-primary"
-            onClick={() =>
-              saveConsent({
-                mode: "custom",
-                analytics,
-                marketing,
-              })
-            }
+            onClick={() => saveConsent({ mode: "custom", analytics, marketing })}
           >
             Save choices
           </button>
@@ -126,13 +124,7 @@ export function CookieConsent() {
           <button
             type="button"
             className="cookie-primary"
-            onClick={() =>
-              saveConsent({
-                mode: "all",
-                analytics: true,
-                marketing: true,
-              })
-            }
+            onClick={() => saveConsent({ mode: "all", analytics: true, marketing: true })}
           >
             Accept all
           </button>

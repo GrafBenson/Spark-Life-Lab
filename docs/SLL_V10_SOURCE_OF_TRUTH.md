@@ -1,4 +1,3 @@
-[SLL_V10_SOURCE_OF_TRUTH.md](https://github.com/user-attachments/files/27135252/SLL_V10_SOURCE_OF_TRUTH.md)
 # SparkLifeLab — V10 Source of Truth
 
 **Status:** Binding implementation source of truth  
