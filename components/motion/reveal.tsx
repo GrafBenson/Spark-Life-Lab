@@ -1,8 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactNode } from "react";
+import { useEffect, useRef, useState, type HTMLAttributes, type ReactNode } from "react";
 
-type RevealProps = {
+type RevealProps = Omit<HTMLAttributes<HTMLElement>, "className"> & {
   children: ReactNode;
   delay?: number;
   className?: string;
@@ -14,6 +14,7 @@ export function Reveal({
   delay = 0,
   className = "",
   as: Tag = "div",
+  ...rest
 }: RevealProps) {
   const ref = useRef<HTMLElement | null>(null);
   const [shown, setShown] = useState(false);
@@ -59,6 +60,7 @@ export function Reveal({
     <Tag
       ref={ref as never}
       className={`reveal ${shown ? "is-in" : ""} ${className}`.trim()}
+      {...rest}
     >
       {children}
     </Tag>
