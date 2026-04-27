@@ -39,7 +39,7 @@ export default function AboutPage() {
         />
 
         <p className="brand-context">
-          SparkLifeLab · Midlife clarity coaching — Our story
+          SparkLifeLab · Midlife clarity coaching — About
         </p>
 
         <Reveal as="section" className="section">

@@ -30,7 +30,7 @@ export default function IdentityLabPage() {
         />
 
         <p className="brand-context">
-          SparkLifeLab · Midlife clarity coaching — Identity Lab programme
+          SparkLifeLab · Midlife clarity coaching — Identity Lab
         </p>
 
         <Reveal as="section" className="section">

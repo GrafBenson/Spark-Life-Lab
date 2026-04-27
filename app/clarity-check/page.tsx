@@ -29,7 +29,7 @@ export default function ClarityCheckPage() {
         />
 
         <p className="brand-context">
-          SparkLifeLab · Midlife clarity coaching — Free Clarity Check
+          SparkLifeLab · Midlife clarity coaching — Clarity Check
         </p>
 
         <Reveal as="section" className="section">

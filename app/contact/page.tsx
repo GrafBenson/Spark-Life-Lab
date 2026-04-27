@@ -29,6 +29,14 @@ export default function ContactPage() {
         />
 
         <Reveal as="section" className="section">
+          <div className="section-inner">
+            <p style={{ marginBottom: "2rem", lineHeight: 1.7 }}>
+              SparkLifeLab offers two ways to start: the free Midlife Clarity Check (a 20–30 minute PDF reflection) and the SparkLife Identity Lab (a small-group coaching programme). If you have questions about either, or want to talk about collaboration, write to us.
+            </p>
+          </div>
+        </Reveal>
+
+        <Reveal as="section" className="section">
           <div className="section-inner contact-grid">
             <article className="contact-method">
               <p className="eyebrow">Email</p>

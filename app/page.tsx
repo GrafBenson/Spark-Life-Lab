@@ -32,6 +32,9 @@ export default function Home() {
               has shifted and find a grounded way forward — through structured reflection and
               small-group coaching.
             </p>
+            <p style={{ fontSize: "0.95rem", lineHeight: 1.6, color: "var(--text-secondary)" }}>
+              Start with the free Midlife Clarity Check or join the Identity Lab coaching programme.
+            </p>
             <div className="hero-actions">
               <ButtonLink href="/clarity-check/">Get the free Clarity Check</ButtonLink>
               <ButtonLink href="/identity-lab/" variant="secondary">
@@ -69,7 +72,7 @@ export default function Home() {
       <Reveal as="section" className="section" delay={60}>
         <div className="section-inner">
           <p className="eyebrow">How SparkLifeLab works</p>
-          <h2>A clear path from fog to forward.</h2>
+          <h2>Three steps from clarity to grounded forward.</h2>
           <div className="steps">
             {planSteps.map((step, index) => (
               <article className="step-card" key={step.label}>

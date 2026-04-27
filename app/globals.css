@@ -373,6 +373,14 @@ main {
   width: 1.7rem;
 }
 
+.brand-context {
+  color: var(--soft);
+  font-size: 0.82rem;
+  letter-spacing: 0.1em;
+  margin-bottom: 2.5rem;
+  text-transform: uppercase;
+}
+
 .hero h1 {
   color: var(--blue);
   font-size: clamp(2.85rem, 4.3vw, 4.55rem);
