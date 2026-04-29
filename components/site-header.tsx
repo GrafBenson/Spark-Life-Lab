@@ -9,27 +9,37 @@ import { primaryCta, primaryNav } from "@/data/site";
 import { Wordmark } from "./wordmark";
 
 /**
- * Sticky top navigation.
+ * Sticky top navigation — Option B premium treatment.
+ *
+ * Background: Cream (#EEEAE5), calm and refined.
+ * Desktop: wordmark left · 3 anchor links centre · navy CTA button right.
+ * Mobile: wordmark left · hamburger right.
  *
  * Nav links are homepage anchor links (e.g. #clarity-check).
  * From subpages they are prefixed with / so the browser navigates home first.
- *
- * Desktop: wordmark + 3 anchor links + primary CTA button.
- * Mobile: wordmark + hamburger that opens a stacked panel.
  */
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const isHome = pathname === "/";
 
-  // Reset mobile menu when the route changes (derived-state pattern — no effect needed).
+  // Reset mobile menu on route change (derived-state pattern).
   const [prevPathname, setPrevPathname] = useState(pathname);
   if (prevPathname !== pathname) {
     setPrevPathname(pathname);
     setOpen(false);
   }
 
-  // Lock body scroll while the mobile menu is open.
+  // Subtle shadow on scroll.
+  useEffect(() => {
+    const handler = () => setScrolled(window.scrollY > 4);
+    window.addEventListener("scroll", handler, { passive: true });
+    handler();
+    return () => window.removeEventListener("scroll", handler);
+  }, []);
+
+  // Lock body scroll while mobile menu is open.
   useEffect(() => {
     if (open) {
       const previous = document.body.style.overflow;
@@ -40,7 +50,7 @@ export function SiteHeader() {
     }
   }, [open]);
 
-  // Anchor links scroll on the homepage; from other pages they navigate home first.
+  // Anchor links scroll on homepage; from subpages they navigate home first.
   const navHref = (anchor: string) => (isHome ? anchor : `/${anchor}`);
 
   return (
@@ -50,30 +60,35 @@ export function SiteHeader() {
       </a>
 
       <header
-        className="sticky top-0 z-50"
+        className="sticky top-0 z-50 transition-shadow duration-200"
         style={{
           background: "var(--cream)",
-          borderBottom: "1px solid rgba(139, 143, 166, 0.25)",
+          borderBottom: "1px solid rgba(139, 143, 166, 0.18)",
+          boxShadow: scrolled
+            ? "0 2px 16px rgba(32, 40, 65, 0.06)"
+            : "none",
         }}
       >
-        <div className="container-shell flex h-[68px] items-center justify-between gap-6">
+        <div className="container-shell flex h-[66px] items-center justify-between gap-6">
           <Wordmark size="md" />
 
+          {/* Desktop nav */}
           <nav
             aria-label="Primary"
-            className="hidden items-center gap-7 lg:flex"
+            className="hidden items-center gap-8 lg:flex"
           >
             {primaryNav.map((link) => (
               <Link
                 key={link.href}
                 href={navHref(link.href)}
-                className="text-[0.78rem] uppercase tracking-[0.14em] text-[color:var(--mid-navy)] transition-colors hover:text-[color:var(--deep-navy)]"
+                className="text-[0.72rem] uppercase tracking-[0.18em] text-[color:var(--mid-navy)] transition-colors hover:text-[color:var(--deep-navy)]"
               >
                 {link.label}
               </Link>
             ))}
           </nav>
 
+          {/* Desktop CTA */}
           <div className="hidden lg:block">
             <Link href={primaryCta.href} className="btn-primary">
               {primaryCta.label}
@@ -88,54 +103,60 @@ export function SiteHeader() {
             aria-label={open ? "Close menu" : "Open menu"}
             onClick={() => setOpen((c) => !c)}
             className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-sm"
-            style={{ border: "1px solid rgba(139, 143, 166, 0.3)" }}
+            style={{
+              border: "1px solid rgba(139, 143, 166, 0.28)",
+              background: "transparent",
+            }}
           >
-            <span aria-hidden className="relative block h-3 w-5">
+            <span aria-hidden className="relative block h-[10px] w-[18px]">
               <span
-                className={`absolute left-0 right-0 top-0 h-[1.5px] bg-[color:var(--deep-navy)] transition-transform ${
-                  open ? "translate-y-[5px] rotate-45" : ""
+                className={`absolute left-0 right-0 top-0 h-[1.5px] bg-[color:var(--deep-navy)] transition-all duration-200 ${
+                  open ? "translate-y-[4px] rotate-45" : ""
                 }`}
               />
               <span
-                className={`absolute left-0 right-0 bottom-0 h-[1.5px] bg-[color:var(--deep-navy)] transition-transform ${
-                  open ? "-translate-y-[6px] -rotate-45" : ""
+                className={`absolute left-0 right-0 bottom-0 h-[1.5px] bg-[color:var(--deep-navy)] transition-all duration-200 ${
+                  open ? "-translate-y-[5px] -rotate-45" : ""
                 }`}
               />
             </span>
           </button>
         </div>
 
-        {open ? (
+        {/* Mobile nav panel */}
+        {open && (
           <div
             id="mobile-nav"
             className="lg:hidden"
             style={{
               background: "var(--cream)",
-              borderTop: "1px solid rgba(139, 143, 166, 0.2)",
+              borderTop: "1px solid rgba(139, 143, 166, 0.16)",
             }}
           >
             <nav
               aria-label="Mobile primary"
-              className="container-shell grid gap-1 py-4"
+              className="container-shell grid gap-0.5 py-5"
             >
               {primaryNav.map((link) => (
                 <Link
                   key={link.href}
                   href={navHref(link.href)}
-                  className="px-2 py-3 text-[0.95rem] text-[color:var(--mid-navy)] hover:text-[color:var(--deep-navy)]"
+                  className="px-2 py-3.5 text-[0.95rem] text-[color:var(--mid-navy)] hover:text-[color:var(--deep-navy)]"
                 >
                   {link.label}
                 </Link>
               ))}
-              <Link
-                href={primaryCta.href}
-                className="btn-primary mt-3 justify-center"
-              >
-                {primaryCta.label}
-              </Link>
+              <div className="mt-2 border-t pt-4" style={{ borderColor: "rgba(139, 143, 166, 0.18)" }}>
+                <Link
+                  href={primaryCta.href}
+                  className="btn-primary w-full justify-center"
+                >
+                  {primaryCta.label}
+                </Link>
+              </div>
             </nav>
           </div>
-        ) : null}
+        )}
       </header>
     </>
   );

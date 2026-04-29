@@ -13,18 +13,20 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      {/* ─── Intro ─── */}
+      {/* ─── Intro — two-column ─── */}
       <section className="section-pad" style={{ background: "var(--paper)" }}>
         <div className="container-shell">
-          <div className="grid items-start gap-14 lg:grid-cols-2">
+          <div className="grid items-start gap-14 lg:grid-cols-2 xl:gap-20">
             <div>
               <p className="kicker">We&apos;ve walked this path ourselves.</p>
-              <span aria-hidden className="section-divider" />
+              <span aria-hidden className="section-divider mt-4" />
               <h1 className="display-hero">
-                A calm, guided space to regain orientation
+                A calm, guided space
+                <br />
+                to regain orientation
               </h1>
             </div>
-            <div>
+            <div className="pt-2">
               <p className="body-copy">
                 SparkLifeLab exists for people in midlife who sense that
                 something in their life no longer fits — even if, from the
@@ -48,12 +50,12 @@ export default function AboutPage() {
       <section className="section-pad section-soft">
         <div className="container-narrow">
           <p className="kicker">Why we built SparkLifeLab</p>
-          <span aria-hidden className="section-divider" />
+          <span aria-hidden className="section-divider mt-4" />
           <h2 className="display-section">
             We&apos;re fellow travellers — not experts standing apart.
           </h2>
 
-          <div className="mt-10 space-y-5">
+          <div className="mt-10 max-w-[600px] space-y-5">
             <p className="body-copy">
               SparkLifeLab began with a quiet question many people reach in
               midlife: Is this really it — or is something else trying to
@@ -84,50 +86,56 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <blockquote className="problem-reframe">
+          <blockquote className="pull-quote">
             Co-founders. Fellow travellers. Still becoming.
           </blockquote>
         </div>
       </section>
 
-      {/* ─── Founder cards ─── */}
+      {/* ─── Founder strips — horizontal, editorial ─── */}
       <section className="section-pad" style={{ background: "var(--paper)" }}>
-        <div className="container-shell">
-          <div className="text-center">
+        <div className="container-mid">
+          <div className="mb-12">
             <p className="kicker">The team</p>
-            <span aria-hidden className="section-divider center" />
+            <span aria-hidden className="section-divider mt-4" />
             <h2 className="display-section">Meet the founders</h2>
           </div>
 
-          <div className="mt-14 grid gap-6 md:grid-cols-3">
+          {/* Horizontal strips — one per founder, separated by hairlines */}
+          <div>
             {founders.map((f) => (
-              <div key={f.initials} className="founder-card">
-                <div className="relative mx-auto mb-5 h-28 w-28 overflow-hidden rounded-full">
+              <div key={f.initials} className="founder-strip">
+                {/* Circular photo */}
+                <div className="founder-strip-avatar">
                   <Image
                     src={`/images/${f.file}`}
                     alt={f.name}
                     fill
                     className="object-cover"
-                    sizes="112px"
+                    sizes="88px"
                   />
                 </div>
-                <p className="font-[family-name:var(--font-display)] text-xl text-[color:var(--deep-navy)]">
-                  {f.name}
-                </p>
-                <p className="mt-1 text-[0.7rem] uppercase tracking-[0.12em] text-[color:var(--slate-mist)]">
-                  {f.role}
-                </p>
-                <p className="mt-3 text-[0.9rem] leading-relaxed text-[color:var(--mid-navy)]">
-                  {f.bio}
-                </p>
-                <a
-                  href={f.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="mt-4 inline-block text-[0.78rem] text-[color:var(--ember)] hover:underline"
-                >
-                  LinkedIn →
-                </a>
+
+                {/* Content */}
+                <div>
+                  <p className="font-[family-name:var(--font-display)] text-[1.1rem] font-medium text-[color:var(--deep-navy)]">
+                    {f.name}
+                  </p>
+                  <p className="mt-0.5 text-[0.65rem] uppercase tracking-[0.18em] text-[color:var(--slate-mist)]">
+                    {f.role}
+                  </p>
+                  <p className="mt-3 max-w-lg text-[0.95rem] leading-relaxed text-[color:var(--mid-navy)]">
+                    {f.bio}
+                  </p>
+                  <a
+                    href={f.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 inline-block text-[0.78rem] text-[color:var(--ember)] hover:underline"
+                  >
+                    LinkedIn →
+                  </a>
+                </div>
               </div>
             ))}
           </div>
@@ -136,9 +144,9 @@ export default function AboutPage() {
 
       {/* ─── CTA ─── */}
       <section className="section-pad section-soft">
-        <div className="container-narrow text-center">
+        <div className="container-narrow">
           <h2 className="display-section">Ready to take the first step?</h2>
-          <p className="lead-copy mx-auto mt-5 max-w-sm">
+          <p className="lead-copy mt-5 max-w-sm">
             The Midlife Clarity Check is free, takes 20–30 minutes, and starts
             with honesty.
           </p>
