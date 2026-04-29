@@ -1,35 +1,84 @@
 import Link from "next/link";
 
-import { footerNavGroups, restaurant } from "@/data/site";
+import { brand, footerGroups } from "@/data/site";
+
+import { ManageCookiesButton } from "./manage-cookies-button";
+import { Wordmark } from "./wordmark";
 
 export function SiteFooter() {
+  const year = new Date().getFullYear();
+
   return (
-    <footer className="mt-16 border-t border-[rgba(255,244,234,0.08)] bg-[color:var(--color-night)] text-[rgba(255,244,234,0.88)]">
-      <div className="container-shell grid gap-10 py-12 lg:grid-cols-3">
+    <footer className="mt-24 bg-[color:var(--color-ink)] text-white">
+      <div className="container-shell grid gap-10 py-14 md:grid-cols-3">
         <div>
-          <p className="text-xs uppercase tracking-[0.22em] text-[rgba(255,244,234,0.62)]">Banthai Heim- & Partyservice</p>
-          <p className="mt-3 text-sm leading-7 text-[rgba(255,244,234,0.78)]">{restaurant.cuisine}</p>
-          <p className="mt-4 text-sm leading-7 text-[rgba(255,244,234,0.78)]">{restaurant.address.street}, {restaurant.address.postalCode} {restaurant.address.city}</p>
-          <a className="mt-3 inline-block text-lg font-semibold" href={`tel:${restaurant.phones[0].href}`}>{restaurant.phones[0].label}</a>
+          <Wordmark size="md" tone="dark" href={null} />
+          <p className="mt-3 text-[0.85rem] tracking-[0.04em] text-white/60">
+            {brand.tagline}
+          </p>
+          <p className="mt-5 text-[0.88rem] text-white/70">
+            <span className="block text-[0.7rem] uppercase tracking-[0.16em] text-white/45">
+              Contact
+            </span>
+            <a
+              href={`mailto:${brand.email}`}
+              className="mt-1 inline-block text-[color:var(--color-spark)] hover:text-white"
+            >
+              {brand.email}
+            </a>
+          </p>
         </div>
 
-        <div>
-          <p className="text-xs uppercase tracking-[0.22em] text-[rgba(255,244,234,0.62)]">Öffnungszeiten</p>
-          <p className="mt-3 text-sm leading-7 text-[rgba(255,244,234,0.78)]">{restaurant.hours.restaurant}</p>
-          <p className="mt-3 text-sm leading-7 text-[rgba(255,244,234,0.78)]">Mittagsmenüzeiten: {restaurant.hours.lunch}</p>
-        </div>
+        {footerGroups.map((group) => (
+          <div key={group.title}>
+            <p className="text-[0.7rem] uppercase tracking-[0.16em] text-white/45">
+              {group.title}
+            </p>
+            <ul className="mt-4 space-y-2.5">
+              {group.links.map((link) => (
+                <li key={link.href + link.label}>
+                  {link.external ? (
+                    <a
+                      href={link.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[0.88rem] text-white/65 hover:text-white"
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      className="text-[0.88rem] text-white/65 hover:text-white"
+                    >
+                      {link.label}
+                    </Link>
+                  )}
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
 
-        <div className="grid gap-6 sm:grid-cols-2">
-          {footerNavGroups.map((group) => (
-            <div key={group.title}>
-              <p className="text-xs uppercase tracking-[0.22em] text-[rgba(255,244,234,0.62)]">{group.title}</p>
-              <nav className="mt-3 grid gap-2">
-                {group.links.map((link) => (
-                  <Link key={link.href} href={link.href} className="text-sm text-[rgba(255,244,234,0.8)] hover:text-white">{link.label}</Link>
-                ))}
-              </nav>
-            </div>
-          ))}
+      <div className="border-t border-white/10">
+        <div className="container-shell flex flex-wrap items-center justify-between gap-4 py-5 text-[0.78rem] text-white/45">
+          <p>© {year} {brand.name}. All rights reserved.</p>
+          <div className="flex flex-wrap items-center gap-x-5 gap-y-2">
+            <Link href="/privacy-policy" className="hover:text-white/80">
+              Privacy
+            </Link>
+            <Link href="/terms-of-use" className="hover:text-white/80">
+              Terms
+            </Link>
+            <Link href="/cookie-policy" className="hover:text-white/80">
+              Cookies
+            </Link>
+            <Link href="/impressum" className="hover:text-white/80">
+              Impressum
+            </Link>
+            <ManageCookiesButton className="text-white/45 hover:text-white/80" />
+          </div>
         </div>
       </div>
     </footer>

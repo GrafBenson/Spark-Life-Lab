@@ -1,26 +1,78 @@
-import { restaurant } from "@/data/site";
+import type { Metadata } from "next";
 
-export const metadata = {
+export const metadata: Metadata = {
   title: "Impressum",
-  description: "Öffentlich verifizierbare Impressumsbasis aus dem Originalsystem.",
+  description: "Legal disclosure for SparkLifeLab.",
+  robots: { index: false, follow: false },
 };
 
 export default function ImpressumPage() {
   return (
-    <main className="flex-1 section-pad">
-      <div className="container-shell section-paper px-7 py-8">
-        <p className="kicker">Impressum</p>
-        <h1 className="display-section mt-3 text-[color:var(--color-ink)]">Öffentlich verifizierte Angaben</h1>
+    <section className="section-pad" style={{ background: "var(--paper)" }}>
+      <div className="container-narrow">
+        <p className="kicker">Legal</p>
+        <span aria-hidden className="section-divider" />
+        <h1 className="display-section">Impressum</h1>
 
-        <div className="mt-6 space-y-4 text-sm leading-7 text-[color:var(--color-muted)]">
-          <p><strong className="text-[color:var(--color-ink)]">Name:</strong> {restaurant.name}</p>
-          <p><strong className="text-[color:var(--color-ink)]">Adresse:</strong> {restaurant.address.street}, {restaurant.address.postalCode} {restaurant.address.city}</p>
-          <p><strong className="text-[color:var(--color-ink)]">Telefon:</strong> {restaurant.phones[0].label}</p>
-          <p><strong className="text-[color:var(--color-ink)]">Inhaberhinweis aus Quelle:</strong> {restaurant.ownerHint}</p>
-          <p>TODO: Vollständige rechtliche Pflichtangaben aus der öffentlich zugänglichen Impressumsseite final verifizieren und ergänzen.</p>
-          <a href={restaurant.legalNoticeSource} target="_blank" rel="noreferrer" className="button-secondary">Quellseite öffnen</a>
+        {/* TODO: Replace with final Impressum once client provides:
+             - Legal entity name and type (e.g. GbR, GmbH, Ltd.)
+             - Registered address
+             - Country of jurisdiction
+             - VAT / company registration number (if applicable)
+             - Responsible person for editorial content (§ 55 Abs. 2 RStV)
+             Do not invent any of the above details. */}
+
+        <div className="mt-10 rounded-sm border px-6 py-5 text-[0.88rem] text-[color:var(--mid-navy)]"
+          style={{ borderColor: "var(--color-line)", background: "var(--cream)" }}>
+          <p className="font-medium text-[color:var(--deep-navy)]">
+            ⚠ Placeholder — client details required
+          </p>
+          <p className="mt-1">
+            The Impressum requires the client&apos;s legal entity details, registered
+            address, and responsible person. These must be confirmed by the
+            client before this site goes live.
+          </p>
+        </div>
+
+        <div className="mt-10 space-y-6 text-[0.95rem] leading-relaxed text-[color:var(--mid-navy)]">
+          <div>
+            <h2 className="display-sub mb-2">Angaben gemäß § 5 TMG</h2>
+            <p className="body-copy">
+              SparkLifeLab
+              <br />
+              <span className="italic text-[color:var(--slate-mist)]">
+                [Legal entity name and type — to be confirmed by client]
+              </span>
+              <br />
+              <span className="italic text-[color:var(--slate-mist)]">
+                [Registered address — to be confirmed by client]
+              </span>
+            </p>
+          </div>
+
+          <div>
+            <h2 className="display-sub mb-2">Kontakt</h2>
+            <p className="body-copy">
+              E-Mail:{" "}
+              <a
+                href="mailto:hello@spark-life-lab.com"
+                className="underline underline-offset-2"
+              >
+                hello@spark-life-lab.com
+              </a>
+            </p>
+          </div>
+
+          <div>
+            <h2 className="display-sub mb-2">Verantwortlich für den Inhalt</h2>
+            <p className="body-copy">
+              <span className="italic text-[color:var(--slate-mist)]">
+                [Responsible person — to be confirmed by client]
+              </span>
+            </p>
+          </div>
         </div>
       </div>
-    </main>
+    </section>
   );
 }

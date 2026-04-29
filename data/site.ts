@@ -1,228 +1,114 @@
-type TrustItem = {
-  source: string;
+// Central, hand-edited site data for SparkLifeLab.
+// Long-form page copy lives in the page files themselves; this file holds only
+// the small structural data that's repeated across pages (nav, footer, founders).
+
+export const brand = {
+  name: "SparkLifeLab",
+  tagline: "Ignite Your Best Life — On Purpose",
+  domain: "spark-life-lab.com",
+  // Used as Next.js metadataBase. Keep in sync with the production domain.
+  siteUrl: "https://spark-life-lab.com",
+  email: "hello@spark-life-lab.com",
+  substackUrl: "https://sparklifelab.substack.com/",
+  // Short SEO description used as the default <meta name="description"> on the home page.
+  description:
+    "A calm, guided space for the midlife threshold. Take the free Midlife Clarity Check and find your next honest step.",
+} as const;
+
+export type NavLink = {
+  href: string;
   label: string;
-  href?: string;
-  iconKey: "service";
-  variant: "link" | "service";
+  external?: boolean;
 };
 
-export const orderingConfig = {
-  enabled: false as const,
-  provider: "hunger-stillen-banthai",
-  externalOrderUrl: "http://www.hunger-stillen.de/cgi-bin/Homepage.fpl?SHOP=Banthai",
-  legacyCartBaseUrl: "http://www.hunger-stillen.de/cgi-bin/Homepage.fpl?SHOP=Banthai",
-  modes: ["delivery", "pickup"] as const,
-};
-
-export function getLegacyCartUrl(legacyId: string) {
-  return `${orderingConfig.legacyCartBaseUrl}&Warenkorb=${legacyId}`;
-}
-
-export const restaurant = {
-  name: "Banthai Heim- & Partyservice",
-  brandContext: "banthaisushi.de",
-  siteUrl: "http://www.banthaisushi.de",
-  sourceSystemUrl: "http://www.hunger-stillen.de/cgi-bin/Homepage.fpl?SHOP=Banthai",
-  cuisine: "Sushi · Thailändisch · Vietnamesisch",
-  address: {
-    street: "Buchhofstr. 2",
-    postalCode: "82319",
-    city: "Percha-Starnberg",
-    country: "DE",
-  },
-  phones: [{ label: "08151 448567", href: "+498151448567" }],
-  ownerHint: "Pham Dinh Dai",
-  hours: {
-    restaurant:
-      "Mo-Fr 11:30-14:00 und 17:30-22:00 · Sa 17:00-22:00 · So 17:30-22:00",
-    delivery:
-      "Mo-Fr 11:30-14:00 und 17:30-22:00 · Sa 17:00-22:00 · So 17:30-22:00",
-    lunch: "Mo-Fr 11:00-14:00",
-    closedDay: "Kein Ruhetag in den Quellen ersichtlich",
-  },
-  rating: {
-    display: "90.50 %",
-    reviewCount: 2384,
-    provider: "Hunger-Stillen / Bringbutler-System",
-    reviewCountVerified: true,
-  },
-  welcomeLine:
-    "Herzlich Willkommen in unserem Onlineshop - hier können Sie kinderleicht online bestellen.",
-  partyNote: "Heim- & Partyservice sowie Lieferdienst laut Originalauftritt.",
-  takeawayNote: "Bei Selbstabholung erhalten Sie 10 % Rabatt.",
-  deliveryHomeNote:
-    "Vorbestellung ist laut Quelle auch außerhalb der Öffnungszeiten möglich.",
-  deliveryAreaNote:
-    "Liefergebiet und Mindestbestellwerte sind im Quellsystem ausgewiesen.",
-  spiceNote:
-    "Mittags-Sushi 11:00-14:00 Uhr: 15 % Rabatt auf ausgewählte Sushi-Bereiche.",
-  openingHoursSpecification: {
-    restaurant: [
-      {
-        days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        opens: "11:30",
-        closes: "14:00",
-      },
-      {
-        days: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        opens: "17:30",
-        closes: "22:00",
-      },
-      { days: ["Saturday"], opens: "17:00", closes: "22:00" },
-      { days: ["Sunday"], opens: "17:30", closes: "22:00" },
-    ],
-  },
-  googleMapsHref: "https://maps.google.com/?q=Buchhofstr.+2,+82319+Percha-Starnberg",
-  legalNoticeSource: "http://www.hunger-stillen.de/cgi-bin/Homepage.fpl?SHOP=Banthai",
-};
-
-export const primaryNavLinks = [
-  { href: "/", label: "Home" },
-  { href: "/bestellen", label: "Bestellen" },
-  { href: "/bewertungen", label: "Bewertungen" },
-  { href: "/liefergebiet", label: "Liefergebiet" },
-  { href: "/kontakt", label: "Kontakt" },
-  { href: "/impressum", label: "Impressum" },
+/**
+ * Primary navigation — homepage anchor links only.
+ * Header component prefixes "/" when rendering from a subpage (e.g. "/#clarity-check").
+ * Resources + Contact are deferred from launch nav per V10.
+ */
+export const primaryNav: NavLink[] = [
+  { href: "#clarity-check", label: "Clarity Check" },
+  { href: "#identity-lab", label: "Identity Lab" },
+  { href: "#about", label: "Our Story" },
 ];
 
-export const footerNavGroups = [
+export const primaryCta = {
+  href: "/clarity-check",
+  label: "Get the Midlife Clarity Check →",
+} as const;
+
+export type FooterGroup = {
+  title: string;
+  links: NavLink[];
+};
+
+export const footerGroups: FooterGroup[] = [
   {
-    title: "Für Gäste",
+    title: "Explore",
     links: [
-      { href: "/bestellen", label: "Bestellen" },
-      { href: "/bewertungen", label: "Bewertungen" },
-      { href: "/liefergebiet", label: "Liefergebiet" },
-      { href: "/kontakt", label: "Kontakt" },
+      { href: "/clarity-check", label: "The Clarity Check" },
+      { href: "/identity-lab", label: "Identity Lab" },
+      { href: "/about", label: "Our Story" },
+      { href: "/contact", label: "Contact" },
     ],
   },
   {
-    title: "Rechtliches",
+    title: "Read",
     links: [
+      { href: "/resources", label: "Resources" },
+      {
+        href: "https://sparklifelab.substack.com/",
+        label: "Essays on Substack ↗",
+        external: true,
+      },
+    ],
+  },
+  {
+    title: "Legal",
+    links: [
+      { href: "/privacy-policy", label: "Privacy Policy" },
+      { href: "/terms-of-use", label: "Terms of Use" },
+      { href: "/cookie-policy", label: "Cookie Policy" },
       { href: "/impressum", label: "Impressum" },
-      { href: "/datenschutz", label: "Datenschutz" },
     ],
   },
 ];
 
-export const homeTrustItems: TrustItem[] = [
-  {
-    source: "Bewertung",
-    label: "90.50 % · 2384 Bewertungen (Quellsystem)",
-    variant: "link",
-    href: restaurant.sourceSystemUrl,
-    iconKey: "service",
-  },
-  {
-    source: "Selbstabholung",
-    label: "10 % Rabatt laut Originalsystem",
-    iconKey: "service",
-    variant: "service",
-  },
-  {
-    source: "Mittag",
-    label: "11:00-14:00 Uhr · 15 % auf ausgewählte Sushi-Bereiche",
-    iconKey: "service",
-    variant: "service",
-  },
-];
+export type Founder = {
+  initials: string;
+  name: string;
+  role: string;
+  /** Filename within /public/images/ — e.g. "founder_barbel.png" */
+  file: string;
+  /** One-line bio shown on founder cards */
+  bio: string;
+  /** Full LinkedIn profile URL */
+  linkedin: string;
+};
 
-export const reviewSources = [
+export const founders: Founder[] = [
   {
-    provider: "Hunger-Stillen / Bringbutler-System",
-    sourceLabel: "Quellsystem-Bewertung",
-    rating: restaurant.rating.display,
-    reviewCountLabel: "2384 Bewertungen",
-    href: restaurant.sourceSystemUrl,
-    actionLabel: "Quelle öffnen",
-    note: "Nicht als Google-Bewertung interpretieren.",
-  },
-];
-
-export const reviewQuotes = [
-  {
-    quote: "Sehr lecker und sehr schönes Restaurant!",
-    author: "Quelleintrag",
-    provider: "Hunger-Stillen",
-    dateLabel: "19.04.2026",
-    href: restaurant.sourceSystemUrl,
+    initials: "BT",
+    name: "Bärbel Tress",
+    role: "Co-founder",
+    file: "founder_barbel.png",
+    bio: "A scientist and maven who spent decades guiding researchers forward — and found her own path forward when she discovered her genius and purpose in midlife.",
+    linkedin: "https://www.linkedin.com/in/baerbeltress",
   },
   {
-    quote: "Seit Jahrzehnten immer perfekt.",
-    author: "Quelleintrag",
-    provider: "Hunger-Stillen",
-    dateLabel: "08.02.2026",
-    href: restaurant.sourceSystemUrl,
+    initials: "GT",
+    name: "Gunther Tress",
+    role: "Co-founder",
+    file: "founder_gunther.png",
+    bio: "A communicator, scientist, and storyteller who built a career making complex ideas come alive — and brings that same clarity, warmth, and lightness to midlife transformation.",
+    linkedin: "https://www.linkedin.com/in/gunthertress",
   },
   {
-    quote: "Schmeckt immer gut",
-    author: "Quelleintrag",
-    provider: "Hunger-Stillen",
-    dateLabel: "04.02.2026",
-    href: restaurant.sourceSystemUrl,
-  },
-];
-
-export const offerWorlds = [
-  {
-    title: "Sushi",
-    text: "Sushi, Sashimi, Nigiri, Temaki, Nori-Makis, Inside-Out-Makis, Spezial Sushi Rolls und Sushi-Menüs.",
-  },
-  {
-    title: "Thailändisch",
-    text: "Thailändische Gerichte als eigener Angebotsbereich im Originalsystem.",
-  },
-  {
-    title: "Vietnamesisch",
-    text: "Vietnamesische Gerichte als eigener Angebotsbereich im Originalsystem.",
-  },
-  {
-    title: "Mittagsangebot",
-    text: "Mittagskarte/Mittagsangebot mit gesonderten Zeiten und Sushi-Mittagsrabatt.",
-  },
-];
-
-export const menuCategoryGroups = [
-  {
-    title: "Hauptkategorien",
-    entries: [
-      "Salat",
-      "Sushi",
-      "Vietnamesisch",
-      "Thailändisch",
-      "Sandwich",
-      "Mittagsangebot",
-      "Vorspeisen",
-      "Suppen",
-      "Getränke",
-    ],
-  },
-  {
-    title: "Sushi-Bereiche",
-    entries: [
-      "Sashimi",
-      "Nigiri",
-      "Temaki",
-      "Inside-Out-Makis",
-      "Nori-Makis",
-      "Sushi-Menüs",
-      "Spezial Sushi Rolls",
-      "Sushi-Sandwich",
-      "Sushi in der Schale",
-    ],
-  },
-];
-
-export const visitDetails = [
-  {
-    label: "Adresse",
-    value: `${restaurant.address.street}, ${restaurant.address.postalCode} ${restaurant.address.city}`,
-  },
-  {
-    label: "Öffnungszeiten",
-    value: restaurant.hours.restaurant,
-  },
-  {
-    label: "Mittagszeit",
-    value: restaurant.hours.lunch,
+    initials: "SB",
+    name: "Scott E. Burton",
+    role: "Co-founder",
+    file: "founder_scott.png",
+    bio: "A strategist and guide with decades in leadership and transformation who found that the most important journey was the one inward.",
+    linkedin: "https://www.linkedin.com/in/scotteburton",
   },
 ];

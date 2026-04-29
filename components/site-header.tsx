@@ -2,81 +2,141 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
-import { primaryNavLinks, restaurant } from "@/data/site";
+import { primaryCta, primaryNav } from "@/data/site";
 
+import { Wordmark } from "./wordmark";
+
+/**
+ * Sticky top navigation.
+ *
+ * Nav links are homepage anchor links (e.g. #clarity-check).
+ * From subpages they are prefixed with / so the browser navigates home first.
+ *
+ * Desktop: wordmark + 3 anchor links + primary CTA button.
+ * Mobile: wordmark + hamburger that opens a stacked panel.
+ */
 export function SiteHeader() {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
+  const isHome = pathname === "/";
+
+  // Reset mobile menu when the route changes (derived-state pattern — no effect needed).
+  const [prevPathname, setPrevPathname] = useState(pathname);
+  if (prevPathname !== pathname) {
+    setPrevPathname(pathname);
+    setOpen(false);
+  }
+
+  // Lock body scroll while the mobile menu is open.
+  useEffect(() => {
+    if (open) {
+      const previous = document.body.style.overflow;
+      document.body.style.overflow = "hidden";
+      return () => {
+        document.body.style.overflow = previous;
+      };
+    }
+  }, [open]);
+
+  // Anchor links scroll on the homepage; from other pages they navigate home first.
+  const navHref = (anchor: string) => (isHome ? anchor : `/${anchor}`);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[color:var(--color-line)] bg-[rgba(255,249,239,0.95)] backdrop-blur-xl">
-      <div className="container-shell flex items-center justify-between gap-4 py-4">
-        <Link href="/" onClick={() => setOpen(false)} className="min-w-0">
-          <p className="text-sm font-semibold uppercase tracking-[0.22em] text-[color:var(--color-spice)]">
-            Banthai
-          </p>
-          <p className="font-[family-name:var(--font-display)] text-2xl leading-none text-[color:var(--color-ink)]">
-            Heim- & Partyservice
-          </p>
-        </Link>
+    <>
+      <a href="#main" className="skip-link">
+        Skip to content
+      </a>
 
-        <nav className="hidden items-center gap-5 lg:flex">
-          {primaryNavLinks.map((link) => {
-            const active = pathname === link.href;
-            return (
+      <header
+        className="sticky top-0 z-50"
+        style={{
+          background: "var(--cream)",
+          borderBottom: "1px solid rgba(139, 143, 166, 0.25)",
+        }}
+      >
+        <div className="container-shell flex h-[68px] items-center justify-between gap-6">
+          <Wordmark size="md" />
+
+          <nav
+            aria-label="Primary"
+            className="hidden items-center gap-7 lg:flex"
+          >
+            {primaryNav.map((link) => (
               <Link
                 key={link.href}
-                href={link.href}
-                className={`border-b px-0 py-2 text-sm font-semibold ${
-                  active
-                    ? "border-[rgba(164,65,43,0.44)] text-[color:var(--color-spice)]"
-                    : "border-transparent text-[color:var(--color-ink)] hover:border-[rgba(164,65,43,0.22)]"
-                }`}
-              >
-                {link.label}
-              </Link>
-            );
-          })}
-        </nav>
-
-        <div className="hidden items-center gap-3 lg:flex">
-          <a href={`tel:${restaurant.phones[0].href}`} className="button-secondary">
-            Anrufen
-          </a>
-          <a href={restaurant.sourceSystemUrl} className="button-primary" target="_blank" rel="noreferrer">
-            Jetzt bestellen
-          </a>
-        </div>
-
-        <button
-          type="button"
-          aria-expanded={open}
-          aria-controls="mobile-nav"
-          onClick={() => setOpen((current) => !current)}
-          className="rounded-full border border-[color:var(--color-line)] bg-white/70 px-4 py-2 text-sm font-semibold text-[color:var(--color-ink)] lg:hidden"
-        >
-          Menü
-        </button>
-      </div>
-
-      {open ? (
-        <div id="mobile-nav" className="border-t border-[color:var(--color-line)] bg-[rgba(255,249,241,0.97)] lg:hidden">
-          <div className="container-shell grid gap-2 py-4">
-            {primaryNavLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                onClick={() => setOpen(false)}
-                className="rounded-2xl bg-white/70 px-4 py-3 text-sm font-semibold text-[color:var(--color-ink)]"
+                href={navHref(link.href)}
+                className="text-[0.78rem] uppercase tracking-[0.14em] text-[color:var(--mid-navy)] transition-colors hover:text-[color:var(--deep-navy)]"
               >
                 {link.label}
               </Link>
             ))}
+          </nav>
+
+          <div className="hidden lg:block">
+            <Link href={primaryCta.href} className="btn-primary">
+              {primaryCta.label}
+            </Link>
           </div>
+
+          {/* Mobile hamburger */}
+          <button
+            type="button"
+            aria-expanded={open}
+            aria-controls="mobile-nav"
+            aria-label={open ? "Close menu" : "Open menu"}
+            onClick={() => setOpen((c) => !c)}
+            className="lg:hidden inline-flex h-10 w-10 items-center justify-center rounded-sm"
+            style={{ border: "1px solid rgba(139, 143, 166, 0.3)" }}
+          >
+            <span aria-hidden className="relative block h-3 w-5">
+              <span
+                className={`absolute left-0 right-0 top-0 h-[1.5px] bg-[color:var(--deep-navy)] transition-transform ${
+                  open ? "translate-y-[5px] rotate-45" : ""
+                }`}
+              />
+              <span
+                className={`absolute left-0 right-0 bottom-0 h-[1.5px] bg-[color:var(--deep-navy)] transition-transform ${
+                  open ? "-translate-y-[6px] -rotate-45" : ""
+                }`}
+              />
+            </span>
+          </button>
         </div>
-      ) : null}
-    </header>
+
+        {open ? (
+          <div
+            id="mobile-nav"
+            className="lg:hidden"
+            style={{
+              background: "var(--cream)",
+              borderTop: "1px solid rgba(139, 143, 166, 0.2)",
+            }}
+          >
+            <nav
+              aria-label="Mobile primary"
+              className="container-shell grid gap-1 py-4"
+            >
+              {primaryNav.map((link) => (
+                <Link
+                  key={link.href}
+                  href={navHref(link.href)}
+                  className="px-2 py-3 text-[0.95rem] text-[color:var(--mid-navy)] hover:text-[color:var(--deep-navy)]"
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <Link
+                href={primaryCta.href}
+                className="btn-primary mt-3 justify-center"
+              >
+                {primaryCta.label}
+              </Link>
+            </nav>
+          </div>
+        ) : null}
+      </header>
+    </>
   );
 }
