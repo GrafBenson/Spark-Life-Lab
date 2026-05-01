@@ -136,6 +136,44 @@ select:focus-visible {
 .section-pad-tight { padding-block: clamp(3rem, 5vw, 5rem); }
 .section-pad-hero  { padding-block: clamp(5rem, 8vw, 7.5rem); }
 
+/* ─── Explicit grid layouts (avoids Tailwind v4 arbitrary-value issues) ─── */
+.hero-grid {
+  display: grid;
+  gap: 3rem;
+  align-items: center;
+}
+@media (min-width: 1024px) {
+  .hero-grid {
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 5rem;
+  }
+}
+
+/* Used by Clarity Check, Identity Lab, and homepage sections */
+.content-grid {
+  display: grid;
+  gap: 3rem;
+  align-items: start;
+}
+@media (min-width: 1024px) {
+  .content-grid {
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 5rem;
+  }
+}
+
+/* Footer: brand column + 3 link columns */
+.footer-grid {
+  display: grid;
+  gap: 3rem;
+}
+@media (min-width: 1024px) {
+  .footer-grid {
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: 3rem;
+  }
+}
+
 /* ─── Ember accent rule ─── */
 .section-divider {
   display: block;
@@ -248,6 +286,7 @@ select:focus-visible {
   border-radius: 2px;
   cursor: pointer;
   white-space: nowrap;
+  max-width: 100%;
 }
 
 /* Deep navy — primary CTA */
@@ -691,6 +730,22 @@ select:focus-visible {
 }
 
 /* ─── Responsive ─── */
+
+/* ── Tablet / small desktop (below 1024px) ── */
+@media (max-width: 1023px) {
+  /* Reduce hero vertical padding so content sits higher */
+  .section-pad-hero {
+    padding-block: clamp(3.5rem, 7vw, 5.5rem);
+  }
+  /* Constrain hero image when stacked below text on tablet.
+     5/6 ratio at full tablet width would be ~864px tall — too much.
+     Cap at a height that reads as editorial without dominating the screen. */
+  .hero-image-frame {
+    max-height: clamp(260px, 50vw, 420px);
+  }
+}
+
+/* ── Tablet portrait (below 900px) ── */
 @media (max-width: 900px) {
   .section-pad {
     padding-block: clamp(4rem, 9vw, 6.5rem);
@@ -708,7 +763,17 @@ select:focus-visible {
   }
 }
 
+/* ── Mobile (below 600px) ── */
 @media (max-width: 600px) {
+  /* Compact vertical rhythm on phones */
+  .section-pad {
+    padding-block: clamp(3.5rem, 8vw, 5rem);
+  }
+  .section-pad-hero {
+    padding-block: 3rem;
+  }
+
+  /* Step timeline: collapse ghost number into inline block */
   .step-row {
     grid-template-columns: 1fr;
     gap: 0.25rem;
@@ -718,6 +783,8 @@ select:focus-visible {
     font-size: 2.5rem;
     color: rgba(32, 40, 65, 0.05);
   }
+
+  /* Founder layouts */
   .founder-card-h {
     flex-direction: column;
     gap: 1.1rem;
@@ -729,5 +796,60 @@ select:focus-visible {
   .founder-strip-avatar {
     width: 72px;
     height: 72px;
+  }
+
+  /* Buttons: allow text to wrap on narrow viewports instead of
+     forcing horizontal scroll. Long CTAs ("Download the Midlife
+     Clarity Check — free") overflow at ~390px with nowrap. */
+  .btn-primary,
+  .btn-secondary {
+    white-space: normal;
+    text-align: center;
+    justify-content: center;
+  }
+
+  /* Hide purely decorative positional marks on mobile — they
+     serve the desktop two-column composition only. */
+  .hero-mark-dot,
+  .hero-mark-line {
+    display: none;
+  }
+
+  /* Cookie banner: stack column layout; 2-col button grid so
+     all three buttons are visible without vertical scrolling. */
+  .cookie-banner {
+    padding: 1rem;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+  }
+  .cookie-banner-text {
+    flex: none;
+    font-size: 0.82rem;
+  }
+  .cookie-banner-actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+  /* Primary accept button spans full width at the bottom */
+  .cookie-btn.primary {
+    grid-column: 1 / -1;
+  }
+}
+
+/* ── Very small phones (below 400px) ── */
+@media (max-width: 400px) {
+  /* Slightly smaller H1 minimum to keep three-line heading
+     from consuming too much of the 568px iPhone SE screen. */
+  .display-hero {
+    font-size: clamp(2.8rem, 9vw, 3.4rem);
+  }
+  /* Tighten section padding further */
+  .section-pad {
+    padding-block: 3rem;
+  }
+  .section-pad-hero {
+    padding-block: 2.5rem;
   }
 }

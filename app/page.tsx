@@ -19,7 +19,7 @@ export default function HomePage() {
         style={{ background: "var(--paper)" }}
       >
         <div className="container-shell">
-          <div className="grid items-center gap-12 lg:grid-cols-[1.15fr,0.85fr] xl:gap-20">
+          <div className="hero-grid">
             {/* Left — copy */}
             <div>
               <p className="kicker">A guided space for midlife clarity</p>
@@ -52,7 +52,7 @@ export default function HomePage() {
             <div className="relative">
               <div
                 className="hero-image-frame"
-                style={{ aspectRatio: "4 / 3" }}
+                style={{ aspectRatio: "5 / 6" }}
               >
                 <Image
                   src="/images/landscape-01.jpeg"
@@ -300,7 +300,7 @@ export default function HomePage() {
           className="section-pad section-ink"
         >
           <div className="container-shell">
-            <div className="grid items-start gap-12 lg:grid-cols-[1.1fr,0.9fr] xl:gap-20">
+            <div className="content-grid">
               {/* Left — copy and bullet list */}
               <div>
                 <p className="kicker">Free — your first honest step.</p>
@@ -424,7 +424,7 @@ export default function HomePage() {
           style={{ background: "var(--paper)" }}
         >
           <div className="container-shell">
-            <div className="grid items-start gap-12 lg:grid-cols-[1.1fr,0.9fr] xl:gap-20">
+            <div className="content-grid">
               {/* Left — copy */}
               <div>
                 <p className="kicker">When you&apos;re ready for the next step.</p>
