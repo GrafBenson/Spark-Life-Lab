@@ -612,7 +612,7 @@ main { min-height: 70vh; }
 
 /* Section 2 — Problem */
 .section-problem {
-  background: var(--authority);
+  background: #2d3d5a;
   padding-bottom: clamp(4.5rem, 6vw, 6.5rem);
   padding-top: clamp(4.5rem, 6vw, 6.5rem);
   padding-left: 5vw;
@@ -862,10 +862,13 @@ main { min-height: 70vh; }
 }
 
 .lab-meta {
-  color: var(--gold);
-  font-size: 0.85rem;
+  color: var(--ember);
+  font-family: var(--serif);
+  font-size: 1.05rem;
   font-style: italic;
-  margin-top: 1.5rem;
+  font-weight: 500;
+  margin-top: 1.75rem;
+  opacity: 0.92;
 }
 
 /* Section 7 — Stakes (styling now in new block above) */
@@ -1112,25 +1115,30 @@ main { min-height: 70vh; }
   border-top: 2px solid var(--ember);
   bottom: 0;
   display: grid;
-  gap: 1.25rem;
+  gap: 1rem;
   grid-template-columns: 1fr auto;
   left: 0;
-  padding: 1.5rem clamp(1.25rem, 4vw, 3rem);
+  padding: 1rem clamp(1.25rem, 4vw, 3rem);
   position: fixed;
   right: 0;
   z-index: 200;
 }
 
+.cookie-copy {
+  min-width: 0;
+}
+
 .cookie-copy p {
   color: rgba(255, 255, 255, 0.75);
-  font-size: 0.9rem;
+  font-size: 0.93rem;
   margin-bottom: 0;
 }
 
 .cookie-title {
   color: var(--white) !important;
+  font-size: 0.95rem;
   font-weight: 600;
-  margin-bottom: 0.25rem !important;
+  margin-bottom: 0.2rem !important;
 }
 
 .cookie-copy a {
@@ -1154,10 +1162,11 @@ main { min-height: 70vh; }
 }
 
 .cookie-actions {
-  align-items: start;
+  align-items: center;
   display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 
 .cookie-actions button {
@@ -1466,14 +1475,14 @@ main { min-height: 70vh; }
 
 .lead-card p {
   color: rgba(255,255,255,0.78);
-  font-size: 0.95rem;
+  font-size: 1rem;
 }
 
 .lead-card .lead-meta {
-  color: rgba(255,255,255,0.55);
-  font-size: 0.8rem;
+  color: rgba(255,255,255,0.6);
+  font-size: 0.88rem;
   font-style: italic;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   margin-bottom: 1.5rem;
   margin-top: 0;
 }
@@ -1538,6 +1547,16 @@ main { min-height: 70vh; }
   .lead-grid {
     grid-template-columns: 1fr;
   }
+
+  /* Cookie banner: stack copy above buttons at tablet width */
+  .cookie-panel {
+    grid-template-columns: 1fr;
+    padding: 1rem clamp(1.25rem, 4vw, 3rem);
+  }
+
+  .cookie-actions {
+    justify-content: flex-start;
+  }
 }
 
 /* ===== Responsive — Mobile (≤600px) ===== */
@@ -1564,7 +1583,16 @@ main { min-height: 70vh; }
   }
 
   .cookie-panel {
-    grid-template-columns: 1fr;
+    padding: 0.85rem 1.25rem;
+  }
+
+  .cookie-copy p {
+    font-size: 0.85rem;
+  }
+
+  .cookie-actions button {
+    font-size: 0.72rem;
+    padding: 0.45rem 0.75rem;
   }
 
   .footer-bottom {

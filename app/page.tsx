@@ -47,12 +47,12 @@ export default function Home() {
 
           <div className="hero-image-wrap">
             <Image
-              src="/images/sll-sunrise-05.jpg"
-              alt="Two people in midlife sharing a reflective conversation at an outdoor table against a coastal sunset, notebooks open, at ease."
+              src="/images/sll-sunrise-01.jpg"
+              alt="A lone figure standing on a mountain ridge above the clouds at sunrise — a sense of quiet orientation and possibility."
               width={700}
               height={520}
               priority
-              style={{ width: "100%", height: "520px", objectFit: "cover", objectPosition: "center 20%", borderRadius: "4px" }}
+              style={{ width: "100%", height: "520px", objectFit: "cover", objectPosition: "center 30%", borderRadius: "4px" }}
             />
           </div>
         </div>
@@ -107,8 +107,8 @@ export default function Home() {
 
           <div>
             <Image
-              src="/images/sll-sunrise-04.jpg"
-              alt="Three fellow travellers walking a coastal path at sunset — a sense of shared journey and forward movement."
+              src="/images/sll-sunrise-05.jpg"
+              alt="Two people sharing a reflective conversation at an outdoor table against a coastal sunset — the warmth of shared understanding."
               width={700}
               height={480}
               className="travelers-image"
@@ -324,9 +324,6 @@ export default function Home() {
             <Link className="button button-primary-light" href="/clarity-check/">
               Get my free Midlife Clarity Check →
             </Link>
-            <p style={{ color: "rgba(255,255,255,0.50)", fontSize: "0.82rem", marginTop: "1rem", marginBottom: 0 }}>
-              It takes 20–30 minutes. It costs nothing. And it starts with honesty.
-            </p>
           </div>
         </div>
       </Reveal>
@@ -389,8 +386,8 @@ export default function Home() {
           </div>
           <div>
             <Image
-              src="/images/sll-sunrise-01.jpg"
-              alt="A lone figure standing on a mountain ridge above the clouds, looking out at a vast sunrise — a moment of quiet orientation."
+              src="/images/sll-sunrise-04.jpg"
+              alt="Three people walking together along a coastal path at sunset — fellow travellers moving forward with intention."
               width={560}
               height={420}
               className="stakes-image"
