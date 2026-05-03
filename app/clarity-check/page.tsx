@@ -95,7 +95,7 @@ export default function ClarityCheckPage() {
           <p className="eyebrow-white">Get your free Clarity Check</p>
           <h2 style={{ color: "var(--white)" }}>Enter your email to receive it.</h2>
           <p style={{ color: "rgba(255,255,255,0.80)", marginBottom: "2rem" }}>
-            We'll send the Midlife Clarity Check directly to your inbox. No spam. You can
+            We&apos;ll send the Midlife Clarity Check directly to your inbox. No spam. You can
             unsubscribe at any time.
           </p>
 
@@ -148,12 +148,12 @@ export default function ClarityCheckPage() {
           <p className="eyebrow">Why it matters</p>
           <h2>A first honest step is worth more than a perfect plan.</h2>
           <p>
-            Most people who sense the Midlife Fog don't need more advice. They need a
+            Most people who sense the Midlife Fog don&apos;t need more advice. They need a
             mirror — something that helps them see where they are with clarity and without
             judgment. The Midlife Clarity Check is that mirror.
           </p>
           <p>
-            It doesn't tell you what to do. It helps you understand where you are. And
+            It doesn&apos;t tell you what to do. It helps you understand where you are. And
             sometimes, that understanding is exactly what a path forward needs.
           </p>
           <div style={{ marginTop: "2rem" }}>

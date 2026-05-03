@@ -36,11 +36,9 @@ export function SiteFooter() {
         <div>
           <p className="footer-heading">Explore</p>
           <ul className="footer-links">
-            <li><a href="/#clarity-check">Clarity Check</a></li>
-            <li><a href="/#identity-lab">Identity Lab</a></li>
-            <li><a href="/#about">Our Story</a></li>
-            <li><Link href="/clarity-check/">Get the Clarity Check</Link></li>
-            <li><Link href="/identity-lab/">Identity Lab page</Link></li>
+            <li><Link href="/clarity-check/">Clarity Check</Link></li>
+            <li><Link href="/identity-lab/">Identity Lab</Link></li>
+            <li><Link href="/about/">Our Story</Link></li>
           </ul>
         </div>
 

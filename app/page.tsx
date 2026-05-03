@@ -26,11 +26,12 @@ export default function Home() {
           <div>
             <p className="eyebrow">A guided space for midlife clarity</p>
             <h1>
-              You've built a good life. So why does something feel off?
+              You&apos;ve built a good life. So why does something feel{" "}
+              <em style={{ color: "var(--ember)" }}>off?</em>
             </h1>
             <p className="hero-copy">
-              That quiet restlessness. The sense that something has shifted but you can't
-              quite name it. You're not lost — you're at a threshold. SparkLifeLab walks
+              That quiet restlessness. The sense that something has shifted but you can&apos;t
+              quite name it. You&apos;re not lost — you&apos;re at a threshold. SparkLifeLab walks
               alongside people in midlife who are ready to find clarity, reconnect with
               what matters, and step into what comes next.
             </p>
@@ -46,12 +47,12 @@ export default function Home() {
 
           <div className="hero-image-wrap">
             <Image
-              src="/images/landscape-01.jpeg"
-              alt="Three figures standing on a mountain summit at golden hour, looking out over an expansive landscape."
+              src="/images/sll-sunrise-05.jpg"
+              alt="Two people in midlife sharing a reflective conversation at an outdoor table against a coastal sunset, notebooks open, at ease."
               width={700}
               height={520}
               priority
-              style={{ width: "100%", height: "520px", objectFit: "cover", borderRadius: "4px" }}
+              style={{ width: "100%", height: "520px", objectFit: "cover", objectPosition: "center 20%", borderRadius: "4px" }}
             />
           </div>
         </div>
@@ -80,11 +81,11 @@ export default function Home() {
         </div>
       </Reveal>
 
-      {/* ─── SECTION 3 — ABOUT + FOUNDERS ─── */}
-      <Reveal as="section" id="about" className="section-about">
-        <div className="section-inner">
-          <p className="eyebrow">We&rsquo;ve walked this path ourselves.</p>
-          <h2>A calm, guided space to regain orientation</h2>
+      {/* ─── SECTION 3A — A CALM GUIDED SPACE (separated from "fellow travelers") ─── */}
+      <Reveal as="section" id="about" className="section-guidance">
+        <div className="section-inner narrow">
+          <p className="eyebrow">A calm guided space to regain orientation</p>
+          <h2>You don&rsquo;t have to figure this out alone.</h2>
           <p className="lead founders-lead">
             SparkLifeLab exists for people in midlife who sense that something in their
             life no longer fits — even if, from the outside, everything looks fine. We
@@ -93,45 +94,62 @@ export default function Home() {
           </p>
           <p className="lead founders-lead" style={{ marginTop: "1rem" }}>
             Feeling stuck or uncertain is not a flaw. It is often a signal that growth is
-            asking for attention. We don't promise quick fixes or dramatic reinvention. We
+            asking for attention. We don&rsquo;t promise quick fixes or dramatic reinvention. We
             walk alongside people as guides — offering structure, reflection, and
             companionship as they find their own direction forward.
           </p>
+        </div>
+      </Reveal>
 
-          <h3 style={{ marginTop: "3rem", marginBottom: "0.4rem" }}>
-            Why we built SparkLifeLab
-          </h3>
-          <p style={{ fontStyle: "italic", color: "var(--muted)", marginBottom: "1.5rem" }}>
-            We're fellow travellers — not experts standing apart.
-          </p>
-          <p className="lead">
-            SparkLifeLab began with a quiet question many people reach in midlife: Is this
-            really it — or is something else trying to emerge?
-          </p>
-          <p>
-            The three of us — Bärbel, Gunther, and Scott — met during an online course on
-            life purpose. None of us was in a difficult place. Our careers were
-            established, our lives looked solid and successful from the outside. Yet each
-            of us felt a growing sense that the stories we were living no longer quite fit.
-            Something had shifted — subtle, persistent, hard to name.
-          </p>
-          <p>
-            What helped us most wasn't quick advice or ready-made solutions, but the
-            chance to slow down together. Space, time, and companionship. Conversations
-            that didn't rush us toward answers, but helped us listen more closely to what
-            mattered now. Gradually, clarity emerged.
-          </p>
-          <p>
-            We realised this wasn't a personal failure. It was a threshold — a meaningful
-            crossing many people reach in midlife, often alone and without support.
-            SparkLifeLab grew from the wish that something like this had existed when we
-            first felt that quiet restlessness. We're still on that path ourselves — and
-            we're glad to walk it with you.
-          </p>
+      {/* ─── SECTION 3B — FELLOW TRAVELERS — image + co-founders ─── */}
+      <Reveal as="section" id="travelers" className="section-travelers">
+        <div className="travelers-grid section-inner" style={{ maxWidth: "var(--max)", margin: "0 auto" }}>
 
-          {/* Founder cards */}
+          <div>
+            <Image
+              src="/images/sll-sunrise-04.jpg"
+              alt="Three fellow travellers walking a coastal path at sunset — a sense of shared journey and forward movement."
+              width={700}
+              height={480}
+              className="travelers-image"
+            />
+          </div>
+
+          <div>
+            <p className="eyebrow">We&rsquo;re fellow travellers</p>
+            <h2>Why we built SparkLifeLab</h2>
+            <p style={{ fontStyle: "italic", color: "var(--muted)", marginBottom: "1.25rem" }}>
+              Not experts standing apart — companions on the same path.
+            </p>
+            <p>
+              SparkLifeLab began with a quiet question many people reach in midlife: Is this
+              really it — or is something else trying to emerge?
+            </p>
+            <p>
+              The three of us — Bärbel, Gunther, and Scott — met during an online course on
+              life purpose. Our careers were established, our lives looked solid from the
+              outside. Yet each of us felt a growing sense that the stories we were living
+              no longer quite fit. Something had shifted — subtle, persistent, hard to name.
+            </p>
+            <p>
+              What helped us most was the chance to slow down together. Space, time, and
+              companionship. Gradually, clarity emerged. We realised this was a threshold —
+              a meaningful crossing many people reach in midlife, often alone.
+              SparkLifeLab grew from the wish that something like this had existed when we
+              first felt that quiet restlessness.
+            </p>
+            <p style={{ marginTop: "1.5rem" }}>
+              <Link className="button-text" href="/about/">
+                Read our full story →
+              </Link>
+            </p>
+          </div>
+        </div>
+
+        {/* Founder cards */}
+        <div className="section-inner" style={{ marginTop: "4rem" }}>
           <div className="founder-grid">
-            {/* Bärbel */}
+
             <article className="founder-card">
               <Image
                 src="/images/founder_barbel.png"
@@ -154,11 +172,11 @@ export default function Home() {
                 rel="noopener noreferrer"
                 aria-label="Bärbel Tress on LinkedIn (opens in new tab)"
               >
-                LinkedIn →
+                <LinkedInIcon />
+                <span>LinkedIn</span>
               </a>
             </article>
 
-            {/* Gunther */}
             <article className="founder-card">
               <Image
                 src="/images/founder_gunther.png"
@@ -181,11 +199,11 @@ export default function Home() {
                 rel="noopener noreferrer"
                 aria-label="Gunther Tress on LinkedIn (opens in new tab)"
               >
-                LinkedIn →
+                <LinkedInIcon />
+                <span>LinkedIn</span>
               </a>
             </article>
 
-            {/* Scott */}
             <article className="founder-card">
               <Image
                 src="/images/founder_scott.png"
@@ -207,22 +225,17 @@ export default function Home() {
                 rel="noopener noreferrer"
                 aria-label="Scott E. Burton on LinkedIn (opens in new tab)"
               >
-                LinkedIn →
+                <LinkedInIcon />
+                <span>LinkedIn</span>
               </a>
             </article>
           </div>
 
           <p className="founders-closing">Co-founders. Fellow travellers. Still becoming.</p>
-
-          <p style={{ marginTop: "1.5rem" }}>
-            <Link className="button-text" href="/about/">
-              Read our full story →
-            </Link>
-          </p>
         </div>
       </Reveal>
 
-      {/* ─── SECTION 4 — THE SPARKLIFE PLAN ─── */}
+      {/* ─── SECTION 4 — HOW WE WALK ALONGSIDE YOU ─── */}
       <Reveal as="section" id="plan" className="section-plan">
         <div className="section-inner">
           <p className="eyebrow">A clear path forward</p>
@@ -264,46 +277,57 @@ export default function Home() {
             </Link>
           </div>
           <p className="plan-closing">
-            The path forward doesn't need to be clear all at once. It only needs to begin.
+            The path forward doesn&rsquo;t need to be clear all at once. It only needs to begin.
           </p>
         </div>
       </Reveal>
 
       {/* ─── SECTION 5 — LEAD MAGNET / MIDLIFE CLARITY CHECK ─── */}
       <Reveal as="section" id="clarity-check" className="section-lead">
-        <div className="section-inner narrow">
-          <p className="eyebrow-white">Free — your first honest step.</p>
-          <h2>The Midlife Clarity Check</h2>
-          <p className="lead-white">
-            A free self-assessment to help you understand where you are — and what may be
-            ready to change.
-          </p>
-          <p style={{ color: "rgba(255,255,255,0.80)", marginTop: "1rem" }}>
-            Many people in midlife sense that something has shifted — but struggle to find
-            words for it. The Midlife Clarity Check gives you language and structure for
-            that experience.
-          </p>
-          <p style={{ color: "rgba(255,255,255,0.80)" }}>
-            Six honest questions. Your answers reveal exactly where you are in the
-            Midlife Fog.
-          </p>
-          <p style={{ color: "rgba(255,255,255,0.80)", marginBottom: "0.5rem" }}>
-            In around 20–30 minutes, you will:
-          </p>
-          <ul className="lead-benefits">
-            <li>Recognise the signals that something in your life is ready to shift</li>
-            <li>Understand where you are in your midlife passage</li>
-            <li>Receive a personalised reflection based on your answers</li>
-            <li>Take a first step toward clarity — gently, at your own pace</li>
-          </ul>
+        <div className="lead-grid">
+          {/* Left — content / text */}
+          <div>
+            <p className="eyebrow-white">Free — your first honest step.</p>
+            <h2 style={{ color: "var(--white)" }}>The Midlife Clarity Check</h2>
+            <p className="lead-white">
+              A free self-assessment to help you understand where you are — and what may be
+              ready to change.
+            </p>
+            <p style={{ color: "rgba(255,255,255,0.80)", marginTop: "1rem" }}>
+              Many people in midlife sense that something has shifted — but struggle to find
+              words for it. The Midlife Clarity Check gives you language and structure for
+              that experience.
+            </p>
+            <p style={{ color: "rgba(255,255,255,0.80)" }}>
+              Six honest questions. Your answers reveal exactly where you are in the
+              Midlife Fog.
+            </p>
+            <p style={{ color: "rgba(255,255,255,0.80)", marginBottom: "0.5rem" }}>
+              In around 20–30 minutes, you will:
+            </p>
+            <ul className="lead-benefits">
+              <li>Recognise the signals that something in your life is ready to shift</li>
+              <li>Understand where you are in your midlife passage</li>
+              <li>Receive a personalised reflection based on your answers</li>
+              <li>Take a first step toward clarity — gently, at your own pace</li>
+            </ul>
+          </div>
 
-          <Link className="button button-primary" href="/clarity-check/">
-            Get my free Midlife Clarity Check →
-          </Link>
-
-          <p className="lead-closing">
-            It takes 20–30 minutes. It costs nothing. And it starts with honesty.
-          </p>
+          {/* Right — card / download prompt */}
+          <div className="lead-card">
+            <h3>Get your free Clarity Check</h3>
+            <p className="lead-meta">6 questions · 3 scored profiles · 20–30 min · free</p>
+            <p>
+              Enter your name and email and we&rsquo;ll send it straight to your inbox.
+              No spam. No commitment.
+            </p>
+            <Link className="button button-primary-light" href="/clarity-check/">
+              Get my free Midlife Clarity Check →
+            </Link>
+            <p style={{ color: "rgba(255,255,255,0.50)", fontSize: "0.82rem", marginTop: "1rem", marginBottom: 0 }}>
+              It takes 20–30 minutes. It costs nothing. And it starts with honesty.
+            </p>
+          </div>
         </div>
       </Reveal>
 
@@ -329,9 +353,6 @@ export default function Home() {
             course. Not coaching.
           </p>
           <p style={{ maxWidth: "680px" }}>
-            A guided crossing — with others who understand what this passage feels like.
-          </p>
-          <p style={{ maxWidth: "680px" }}>
             The journey ends with your personal <strong>IdentityMap</strong>: a
             beautifully designed document that brings together everything you discovered —
             your values, strengths, purpose, and emerging future. A compass you keep.
@@ -346,24 +367,35 @@ export default function Home() {
         </div>
       </Reveal>
 
-      {/* ─── SECTION 7 — STAKES ─── */}
+      {/* ─── SECTION 7 — A QUIET TRUTH WORTH NAMING (with image) ─── */}
       <Reveal as="section" id="stakes" className="section-stakes">
-        <div className="section-inner narrow">
-          <h2>A quiet truth worth naming.</h2>
-          <p>
-            The Midlife Fog doesn't lift on its own. The gap between who you are and how
-            you're living tends to widen, not close, without attention. Not dramatically
-            — just slowly, quietly.
-          </p>
-          <p className="stakes-key">
-            The people who find their way through are rarely the ones who had all the
-            answers. They're the ones who took one honest step.
-          </p>
-          <p style={{ marginTop: "1.5rem" }}>
-            <Link className="button-text" href="/clarity-check/">
-              Start with the free Clarity Check →
-            </Link>
-          </p>
+        <div className="stakes-grid">
+          <div>
+            <h2 style={{ color: "var(--navy)" }}>A quiet truth worth naming.</h2>
+            <p style={{ color: "rgba(32,43,65,0.82)" }}>
+              The Midlife Fog doesn&rsquo;t lift on its own. The gap between who you are and how
+              you&rsquo;re living tends to widen, not close, without attention. Not dramatically
+              — just slowly, quietly.
+            </p>
+            <p className="stakes-key">
+              The people who find their way through are rarely the ones who had all the
+              answers. They&rsquo;re the ones who took one honest step.
+            </p>
+            <p style={{ marginTop: "1.5rem" }}>
+              <Link className="button-text" href="/clarity-check/">
+                Start with the free Clarity Check →
+              </Link>
+            </p>
+          </div>
+          <div>
+            <Image
+              src="/images/sll-sunrise-01.jpg"
+              alt="A lone figure standing on a mountain ridge above the clouds, looking out at a vast sunrise — a moment of quiet orientation."
+              width={560}
+              height={420}
+              className="stakes-image"
+            />
+          </div>
         </div>
       </Reveal>
 
@@ -371,16 +403,29 @@ export default function Home() {
       <Reveal as="section" id="closing-cta" className="section-closing">
         <div className="section-inner narrow">
           <h2>Start with a free, honest check-in.</h2>
-          <p className="closing-tagline">Ignite Your Best Life — On Purpose</p>
-          <p className="lead" style={{ marginBottom: "2rem" }}>
-            20–30 minutes. No commitment. Just clarity.
-          </p>
+          <p className="closing-tagline">Ignite your best life — on purpose.</p>
           <Link className="button button-primary" href="/clarity-check/">
             Get the free Midlife Clarity Check →
           </Link>
+          <p className="closing-sub">20–30 minutes. No commitment. Just clarity.</p>
         </div>
       </Reveal>
 
     </main>
+  );
+}
+
+/* Inline LinkedIn SVG icon — no external dependency */
+function LinkedInIcon() {
+  return (
+    <svg
+      className="founder-linkedin-icon"
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      aria-hidden="true"
+      focusable="false"
+    >
+      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+    </svg>
   );
 }

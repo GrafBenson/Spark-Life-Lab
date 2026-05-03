@@ -1,31 +1,39 @@
 /* ============================================================
-   SparkLifeLab — Global Design System V10
-   Tokens: #FEFDF8 page bg · #1B2A41 navy · #BFA269 gold
-           #EFEAD8 sand · #94A6B8 slate · #1B3A6B authority
-   NO orange. NO gradients.
+   SparkLifeLab — Global Design System V11
+   Palette: Paper #FEFDF8 · Deep Navy #202B41 · Mid Navy #4D5772
+            Slate Mist #8B87A6 · Light Lavender #C5C7D3
+            Cream #EFEAD8 · Ember Red #EF7C62
    ============================================================ */
 
 :root {
-  /* V10 colour tokens */
-  --page-bg:   #FEFDF8;
-  --navy:      #1B2A41;
-  --gold:      #BFA269;
-  --gold-deep: #A08A50;
-  --sand:      #EFEAD8;
-  --slate:     #94A6B8;
-  --authority: #1B3A6B;
+  /* Colour tokens */
+  --page-bg:    #FEFDF8;
+  --cream:      #EFEAD8;
+  --navy:       #202B41;       /* Deep Navy — primary text / headings */
+  --mid-navy:   #4D5772;       /* Mid Navy — secondary headings, strong CTA bg */
+  --slate-mist: #8B87A6;       /* Slate Mist — subtle section differentiation */
+  --lavender:   #C5C7D3;       /* Light Lavender — very soft differentiation */
+  --ember:      #EF7C62;       /* Ember Red — intentional accent only */
+  --ember-deep: #D4624A;
+
+  /* Legacy aliases so existing class names keep working */
+  --authority:  #202B41;       /* = --navy */
+  --sand:       #EFEAD8;       /* = --cream */
+  --gold:       #EF7C62;       /* Redirect gold → ember for existing references */
+  --gold-deep:  #D4624A;
+  --slate:      #8B87A6;       /* = --slate-mist */
 
   /* Utility shades */
-  --white:     #ffffff;
-  --muted:     rgba(27, 42, 65, 0.65);
-  --soft:      rgba(27, 42, 65, 0.45);
-  --line:      rgba(27, 42, 65, 0.12);
-  --line-strong: rgba(27, 42, 65, 0.22);
+  --white:      #ffffff;
+  --muted:      rgba(32, 43, 65, 0.65);
+  --soft:       rgba(32, 43, 65, 0.45);
+  --line:       rgba(32, 43, 65, 0.12);
+  --line-strong: rgba(32, 43, 65, 0.22);
 
   /* Shadows */
-  --shadow:      0 4px 20px rgba(27, 42, 65, 0.10);
-  --shadow-soft: 0 2px 10px rgba(27, 42, 65, 0.07);
-  --shadow-btn:  0 2px 6px rgba(27, 42, 65, 0.18);
+  --shadow:      0 4px 20px rgba(32, 43, 65, 0.10);
+  --shadow-soft: 0 2px 10px rgba(32, 43, 65, 0.07);
+  --shadow-btn:  0 2px 6px rgba(32, 43, 65, 0.18);
 
   /* Typography */
   --serif: var(--font-serif), "Cormorant Garamond", Georgia, "Times New Roman", serif;
@@ -100,17 +108,17 @@ a { color: inherit; text-decoration: none; }
 
 button, input { font: inherit; }
 
-/* Focus visible — gold ring, accessible */
+/* Focus visible — ember ring, accessible */
 button:focus-visible,
 a:focus-visible,
 input:focus-visible,
 [tabindex]:focus-visible {
-  outline: 2px solid var(--gold);
+  outline: 2px solid var(--ember);
   outline-offset: 3px;
   border-radius: 2px;
 }
 
-::selection { background: rgba(191, 162, 105, 0.22); }
+::selection { background: rgba(239, 124, 98, 0.18); }
 
 main { min-height: 70vh; }
 
@@ -205,9 +213,9 @@ main { min-height: 70vh; }
 .desktop-nav a:focus { outline: 0; }
 .desktop-nav a:focus-visible { color: var(--white); }
 
-/* Header CTA — gold button */
+/* Header CTA — Ember Red accent button */
 .header-cta {
-  background: var(--gold);
+  background: var(--ember);
   border: none;
   border-radius: 3px;
   box-shadow: var(--shadow-btn);
@@ -225,8 +233,8 @@ main { min-height: 70vh; }
 }
 
 .header-cta:hover {
-  background: var(--gold-deep);
-  box-shadow: 0 4px 12px rgba(27, 42, 65, 0.25);
+  background: var(--ember-deep);
+  box-shadow: 0 4px 12px rgba(32, 43, 65, 0.25);
 }
 
 /* Mobile hamburger */
@@ -289,7 +297,7 @@ main { min-height: 70vh; }
 }
 
 .mobile-nav-cta {
-  background: var(--gold);
+  background: var(--ember);
   border-radius: 3px;
   box-shadow: var(--shadow-btn);
   color: var(--white) !important;
@@ -332,16 +340,43 @@ main { min-height: 70vh; }
               border-color var(--t-quick) var(--ease-soft);
 }
 
-/* Primary — gold fill */
+/* Primary — Deep Navy fill */
 .button-primary {
-  background: var(--gold);
+  background: var(--navy);
   box-shadow: var(--shadow-btn);
   color: var(--white);
 }
 
 .button-primary:hover {
-  background: var(--gold-deep);
-  box-shadow: 0 4px 14px rgba(27, 42, 65, 0.22);
+  background: var(--mid-navy);
+  box-shadow: 0 4px 14px rgba(32, 43, 65, 0.28);
+}
+
+/* Primary on dark backgrounds — inverted/light */
+.button-primary-light {
+  background: var(--white);
+  box-shadow: var(--shadow-btn);
+  color: var(--navy);
+  align-items: center;
+  border: 1px solid transparent;
+  border-radius: 3px;
+  display: inline-flex;
+  font-size: 0.8rem;
+  font-weight: 500;
+  justify-content: center;
+  letter-spacing: 0.1em;
+  min-height: 50px;
+  padding: 0.9rem 1.6rem;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: background var(--t-quick) var(--ease-soft),
+              box-shadow var(--t-quick) var(--ease-soft),
+              color var(--t-quick) var(--ease-soft);
+}
+
+.button-primary-light:hover {
+  background: rgba(255,255,255,0.9);
+  box-shadow: 0 4px 14px rgba(32, 43, 65, 0.22);
 }
 
 /* Secondary — outline navy */
@@ -414,10 +449,10 @@ main { min-height: 70vh; }
 /* ===== Eyebrow label ===== */
 
 .eyebrow {
-  color: var(--gold);
-  font-size: 0.74rem;
+  color: var(--ember);
+  font-size: 0.8rem;
   font-weight: 600;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
   margin-bottom: 1rem;
   position: relative;
   padding-left: 2.4rem;
@@ -425,7 +460,7 @@ main { min-height: 70vh; }
 }
 
 .eyebrow::before {
-  background: var(--gold);
+  background: var(--ember);
   content: "";
   height: 1px;
   left: 0;
@@ -436,10 +471,10 @@ main { min-height: 70vh; }
 
 /* Eyebrow on dark/navy backgrounds */
 .eyebrow-white {
-  color: var(--gold);
-  font-size: 0.74rem;
+  color: rgba(239, 124, 98, 0.9);
+  font-size: 0.8rem;
   font-weight: 600;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
   margin-bottom: 1rem;
   position: relative;
   padding-left: 2.4rem;
@@ -447,7 +482,7 @@ main { min-height: 70vh; }
 }
 
 .eyebrow-white::before {
-  background: var(--gold);
+  background: rgba(239, 124, 98, 0.9);
   content: "";
   height: 1px;
   left: 0;
@@ -458,10 +493,10 @@ main { min-height: 70vh; }
 
 /* Centred eyebrow (no leading rule) */
 .eyebrow-center {
-  color: var(--gold);
-  font-size: 0.74rem;
+  color: var(--ember);
+  font-size: 0.8rem;
   font-weight: 600;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.18em;
   margin-bottom: 1rem;
   text-align: center;
   text-transform: uppercase;
@@ -536,7 +571,7 @@ main { min-height: 70vh; }
 }
 
 .hero h1 {
-  font-size: clamp(2.6rem, 4.2vw, 4.4rem);
+  font-size: clamp(2.85rem, 4.5vw, 4.75rem);
   font-weight: 500;
   letter-spacing: -0.015em;
   margin-bottom: 1.4rem;
@@ -589,10 +624,10 @@ main { min-height: 70vh; }
 .section-problem p        { color: rgba(255, 255, 255, 0.82); }
 
 .pull-quote {
-  border-left: 3px solid var(--gold);
+  border-left: 3px solid var(--ember);
   color: rgba(255, 255, 255, 0.95);
   font-family: var(--serif);
-  font-size: clamp(1.3rem, 2vw, 1.65rem);
+  font-size: clamp(1.45rem, 2.2vw, 1.85rem);
   font-style: italic;
   font-weight: 400;
   line-height: 1.5;
@@ -679,8 +714,8 @@ main { min-height: 70vh; }
 }
 
 .founder-role {
-  color: var(--gold);
-  font-size: 0.78rem;
+  color: var(--ember);
+  font-size: 0.8rem;
   font-weight: 600;
   letter-spacing: 0.12em;
   margin-bottom: 0.75rem;
@@ -688,21 +723,37 @@ main { min-height: 70vh; }
 }
 
 .founder-card p {
-  font-size: 0.92rem;
-  line-height: 1.65;
+  color: var(--muted);
+  font-size: 0.96rem;
+  line-height: 1.68;
   margin-bottom: 0.75rem;
 }
 
+/* LinkedIn icon link — navy/neutral */
 .founder-linkedin {
-  color: var(--authority);
-  font-size: 0.8rem;
+  align-items: center;
+  background: var(--navy);
+  border-radius: 3px;
+  color: var(--white);
+  display: inline-flex;
+  font-size: 0.75rem;
   font-weight: 500;
+  gap: 0.4rem;
   letter-spacing: 0.06em;
+  padding: 0.4rem 0.85rem;
   text-decoration: none;
-  transition: color var(--t-quick);
+  transition: background var(--t-quick);
 }
 
-.founder-linkedin:hover { color: var(--gold-deep); }
+.founder-linkedin:hover { background: var(--mid-navy); }
+
+.founder-linkedin-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 14px;
+  height: 14px;
+}
 
 .founders-closing {
   color: var(--navy);
@@ -740,23 +791,28 @@ main { min-height: 70vh; }
 }
 
 .step-card-featured {
-  background: var(--authority);
-  border: 1px solid var(--authority);
+  background: var(--navy);
+  border: 1px solid var(--navy);
 }
 
 .step-card-featured h3 { color: var(--white); }
-.step-card-featured p  { color: rgba(255, 255, 255, 0.80); }
+.step-card-featured p  { color: rgba(255, 255, 255, 0.82); }
+.step-card-featured .step-card-cta {
+  color: rgba(255,255,255,0.65);
+  font-size: 0.88rem;
+  margin-top: 0.75rem;
+}
 
 .step-number {
   font-family: var(--serif);
-  font-size: 2rem;
+  font-size: 2.8rem;
   font-weight: 500;
   line-height: 1;
   margin-bottom: 1rem;
 }
 
-.step-card-default  .step-number { color: var(--gold); }
-.step-card-featured .step-number { color: var(--gold); }
+.step-card-default  .step-number { color: var(--ember); }
+.step-card-featured .step-number { color: rgba(239,124,98,0.85); }
 
 .plan-closing {
   color: var(--navy);
@@ -766,18 +822,6 @@ main { min-height: 70vh; }
   margin-top: 2rem;
   opacity: 0.75;
 }
-
-/* Section 5 — Lead Magnet */
-.section-lead {
-  background: var(--authority);
-  padding-bottom: clamp(4.5rem, 6vw, 6.5rem);
-  padding-top: clamp(4.5rem, 6vw, 6.5rem);
-  padding-left: 5vw;
-  padding-right: 5vw;
-}
-
-.section-lead h2 { color: var(--white); }
-.section-lead p  { color: rgba(255, 255, 255, 0.82); }
 
 .lead-benefits {
   list-style: none;
@@ -824,17 +868,7 @@ main { min-height: 70vh; }
   margin-top: 1.5rem;
 }
 
-/* Section 7 — Stakes */
-.section-stakes {
-  background: var(--slate);
-  padding-bottom: clamp(3.5rem, 5vw, 5rem);
-  padding-top: clamp(3.5rem, 5vw, 5rem);
-  padding-left: 5vw;
-  padding-right: 5vw;
-}
-
-.section-stakes h2 { color: var(--navy); }
-.section-stakes p  { color: rgba(27, 42, 65, 0.82); }
+/* Section 7 — Stakes (styling now in new block above) */
 
 .stakes-key {
   color: var(--navy);
@@ -860,12 +894,19 @@ main { min-height: 70vh; }
 .closing-tagline {
   color: var(--navy);
   font-family: var(--serif);
-  font-size: clamp(1.5rem, 2.5vw, 2.2rem);
+  font-size: clamp(2.1rem, 3.5vw, 3.2rem);
   font-style: italic;
   font-weight: 500;
   letter-spacing: -0.01em;
-  margin: 1rem 0 1.5rem;
-  opacity: 0.88;
+  margin: 0.5rem 0 2rem;
+  line-height: 1.2;
+}
+
+.closing-sub {
+  color: var(--muted);
+  font-size: 0.98rem;
+  margin-top: 1rem;
+  margin-bottom: 0;
 }
 
 /* ===== Footer ===== */
@@ -876,13 +917,13 @@ main { min-height: 70vh; }
 }
 
 .footer-grid {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
   display: grid;
-  gap: 2.5rem;
-  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 2rem;
+  grid-template-columns: 1.4fr 1fr 1fr;
   margin: 0 auto;
   max-width: var(--max);
-  padding-bottom: 2.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  padding-bottom: 2rem;
 }
 
 .footer-wordmark {
@@ -947,18 +988,18 @@ main { min-height: 70vh; }
 .footer-links a:hover { color: var(--white); }
 
 .footer-bottom {
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.5);
   display: flex;
   font-size: 0.82rem;
   gap: 1.5rem;
   justify-content: space-between;
   margin: 0 auto;
   max-width: var(--max);
-  padding-top: 1.5rem;
+  padding-top: 1.25rem;
 }
 
 .footer-bottom p {
-  color: rgba(255, 255, 255, 0.4);
+  color: rgba(255, 255, 255, 0.5);
   margin-bottom: 0;
 }
 
@@ -1068,7 +1109,7 @@ main { min-height: 70vh; }
 
 .cookie-panel {
   background: var(--navy);
-  border-top: 2px solid var(--gold);
+  border-top: 2px solid var(--ember);
   bottom: 0;
   display: grid;
   gap: 1.25rem;
@@ -1093,8 +1134,8 @@ main { min-height: 70vh; }
 }
 
 .cookie-copy a {
-  color: var(--gold);
-  border-bottom: 1px solid rgba(191, 162, 105, 0.35);
+  color: var(--ember);
+  border-bottom: 1px solid rgba(239, 124, 98, 0.35);
 }
 
 .cookie-manage {
@@ -1140,14 +1181,14 @@ main { min-height: 70vh; }
 }
 
 .cookie-primary {
-  background: var(--gold) !important;
-  border-color: var(--gold) !important;
+  background: var(--ember) !important;
+  border-color: var(--ember) !important;
   color: var(--white) !important;
 }
 
 .cookie-primary:hover {
-  background: var(--gold-deep) !important;
-  border-color: var(--gold-deep) !important;
+  background: var(--ember-deep) !important;
+  border-color: var(--ember-deep) !important;
 }
 
 /* ===== Page hero (subpages) ===== */
@@ -1319,6 +1360,124 @@ main { min-height: 70vh; }
   z-index: 100;
 }
 
+/* ===== Section: Calm Guidance (split from about) ===== */
+
+.section-guidance {
+  background: var(--cream);
+  padding-bottom: clamp(4.5rem, 6vw, 6.5rem);
+  padding-top: clamp(4.5rem, 6vw, 6.5rem);
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
+.section-guidance h2 { color: var(--navy); }
+.section-guidance p  { color: var(--muted); }
+
+/* ===== Section: Fellow Travelers — image + text split ===== */
+
+.section-travelers {
+  background: var(--page-bg);
+  padding-bottom: clamp(4.5rem, 6vw, 6.5rem);
+  padding-top: clamp(4.5rem, 6vw, 6.5rem);
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
+.travelers-grid {
+  align-items: center;
+  display: grid;
+  gap: clamp(3rem, 6vw, 5rem);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  margin: 0 auto;
+  max-width: var(--max);
+}
+
+.travelers-image {
+  border-radius: 4px;
+  box-shadow: 0 8px 40px rgba(32, 43, 65, 0.15);
+  display: block;
+  height: 480px;
+  object-fit: cover;
+  width: 100%;
+}
+
+/* ===== Section: Stakes / Quiet Truth — with image ===== */
+
+.section-stakes {
+  background: var(--slate-mist);
+  padding-bottom: clamp(3.5rem, 5vw, 5rem);
+  padding-top: clamp(3.5rem, 5vw, 5rem);
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
+.stakes-grid {
+  align-items: center;
+  display: grid;
+  gap: clamp(3rem, 6vw, 5rem);
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.75fr);
+  margin: 0 auto;
+  max-width: var(--max);
+  width: 100%;
+}
+
+.stakes-image {
+  border-radius: 4px;
+  box-shadow: 0 8px 40px rgba(32, 43, 65, 0.20);
+  display: block;
+  height: 420px;
+  object-fit: cover;
+  object-position: center 30%;
+  width: 100%;
+}
+
+/* ===== Section: Lead Magnet — Mid Navy background ===== */
+
+.section-lead {
+  background: var(--navy);
+  padding-bottom: clamp(4.5rem, 6vw, 6.5rem);
+  padding-top: clamp(4.5rem, 6vw, 6.5rem);
+  padding-left: 5vw;
+  padding-right: 5vw;
+}
+
+.lead-grid {
+  align-items: start;
+  display: grid;
+  gap: clamp(3rem, 6vw, 5rem);
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.85fr);
+  margin: 0 auto;
+  max-width: var(--max);
+  width: 100%;
+}
+
+.lead-card {
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.15);
+  border-radius: 4px;
+  padding: 2.5rem 2rem;
+}
+
+.lead-card h3 {
+  color: var(--white);
+  font-size: clamp(1.4rem, 2vw, 1.75rem);
+  margin-bottom: 0.75rem;
+}
+
+.lead-card p {
+  color: rgba(255,255,255,0.78);
+  font-size: 0.95rem;
+}
+
+.lead-card .lead-meta {
+  color: rgba(255,255,255,0.55);
+  font-size: 0.8rem;
+  font-style: italic;
+  letter-spacing: 0.08em;
+  margin-bottom: 1.5rem;
+  margin-top: 0;
+}
+
 /* ===== Responsive — Tablet (≤900px) ===== */
 
 @media (max-width: 900px) {
@@ -1355,6 +1514,28 @@ main { min-height: 70vh; }
   }
 
   .cta-band {
+    grid-template-columns: 1fr;
+  }
+
+  .travelers-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .travelers-image {
+    height: 320px;
+    order: -1;
+  }
+
+  .stakes-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stakes-image {
+    height: 260px;
+    order: -1;
+  }
+
+  .lead-grid {
     grid-template-columns: 1fr;
   }
 }

@@ -46,7 +46,7 @@ export default function AboutPage() {
           </p>
           <p>
             Feeling stuck or uncertain is not a flaw. It is often a signal that growth is
-            asking for attention. We don't promise quick fixes or dramatic reinvention. We
+            asking for attention. We don&apos;t promise quick fixes or dramatic reinvention. We
             walk alongside people as guides — offering structure, reflection, and
             companionship as they find their own direction forward.
           </p>
@@ -74,17 +74,17 @@ export default function AboutPage() {
             Something had shifted — subtle, persistent, hard to name.
           </p>
           <p>
-            What helped us most wasn't quick advice or ready-made solutions, but the
+            What helped us most wasn&apos;t quick advice or ready-made solutions, but the
             chance to slow down together. Space, time, and companionship. Conversations
-            that didn't rush us toward answers, but helped us listen more closely to what
+            that didn&apos;t rush us toward answers, but helped us listen more closely to what
             mattered now. Gradually, clarity emerged.
           </p>
           <p>
-            We realised this wasn't a personal failure. It was a threshold — a meaningful
+            We realised this wasn&apos;t a personal failure. It was a threshold — a meaningful
             crossing many people reach in midlife, often alone and without support.
             SparkLifeLab grew from the wish that something like this had existed when we
-            first felt that quiet restlessness. We're still on that path ourselves — and
-            we're glad to walk it with you.
+            first felt that quiet restlessness. We&apos;re still on that path ourselves — and
+            we&apos;re glad to walk it with you.
           </p>
         </div>
       </section>
