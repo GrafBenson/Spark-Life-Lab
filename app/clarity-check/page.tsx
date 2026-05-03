@@ -134,7 +134,7 @@ export default function ClarityCheckPage() {
             }}
           >
             Your privacy matters. We will never share your email. Read our{" "}
-            <Link href="/privacy-policy/" style={{ color: "var(--gold)", borderBottom: "1px solid rgba(191,162,105,0.4)" }}>
+            <Link href="/privacy-policy/" style={{ color: "var(--ember)", borderBottom: "1px solid rgba(239,124,98,0.35)" }}>
               Privacy Policy
             </Link>
             .

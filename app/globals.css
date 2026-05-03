@@ -145,7 +145,7 @@ main { min-height: 70vh; }
 
 .site-header.is-scrolled {
   height: 62px;
-  box-shadow: 0 2px 16px rgba(27, 42, 65, 0.28);
+  box-shadow: 0 2px 16px rgba(32, 43, 65, 0.28);
 }
 
 /* Wordmark */
@@ -541,7 +541,7 @@ main { min-height: 70vh; }
 
 .bg-slate h2,
 .bg-slate h3 { color: var(--navy); }
-.bg-slate p  { color: rgba(27, 42, 65, 0.80); }
+.bg-slate p  { color: rgba(32, 43, 65, 0.80); }
 
 /* ===== Section vertical rhythm ===== */
 
@@ -601,7 +601,7 @@ main { min-height: 70vh; }
 
 .hero-image-wrap img {
   border-radius: 4px;
-  box-shadow: 0 8px 40px rgba(27, 42, 65, 0.18);
+  box-shadow: 0 8px 40px rgba(32, 43, 65, 0.18);
   display: block;
   height: 520px;
   object-fit: cover;
@@ -612,7 +612,7 @@ main { min-height: 70vh; }
 
 /* Section 2 — Problem */
 .section-problem {
-  background: #2d3d5a;
+  background: var(--mid-navy);
   padding-bottom: clamp(4.5rem, 6vw, 6.5rem);
   padding-top: clamp(4.5rem, 6vw, 6.5rem);
   padding-left: 5vw;
@@ -1414,8 +1414,8 @@ main { min-height: 70vh; }
 
 .section-stakes {
   background: var(--slate-mist);
-  padding-bottom: clamp(3.5rem, 5vw, 5rem);
-  padding-top: clamp(3.5rem, 5vw, 5rem);
+  padding-bottom: clamp(4.5rem, 6vw, 6.5rem);
+  padding-top: clamp(4.5rem, 6vw, 6.5rem);
   padding-left: 5vw;
   padding-right: 5vw;
 }
@@ -1490,6 +1490,12 @@ main { min-height: 70vh; }
 /* ===== Responsive — Tablet (≤900px) ===== */
 
 @media (max-width: 900px) {
+  /* Nav: collapse to hamburger at tablet */
+  .desktop-nav { display: none; }
+  .header-cta  { display: none; }
+  .menu-toggle { display: flex; grid-column: 3; }
+  .mobile-nav-panel.is-open { display: block; }
+
   .hero-grid {
     grid-template-columns: 1fr;
   }
@@ -1564,12 +1570,6 @@ main { min-height: 70vh; }
 @media (max-width: 600px) {
   body { font-size: 16px; }
 
-  .desktop-nav { display: none; }
-  .header-cta  { display: none; }
-  .menu-toggle { display: flex; }
-
-  .mobile-nav-panel.is-open { display: block; }
-
   .founder-grid {
     grid-template-columns: 1fr;
   }
@@ -1601,9 +1601,9 @@ main { min-height: 70vh; }
   }
 }
 
-/* ===== Medium (601–900) — keep desktop nav ===== */
+/* ===== Desktop (>900px) — show desktop nav ===== */
 
-@media (min-width: 601px) {
+@media (min-width: 901px) {
   .menu-toggle       { display: none; }
   .mobile-nav-panel  { display: none !important; }
 }
