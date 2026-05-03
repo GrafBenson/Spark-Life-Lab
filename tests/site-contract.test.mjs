@@ -74,6 +74,9 @@ test("keeps the mobile homepage hero text before the image", () => {
 test("keeps the footer anchored cleanly at the bottom of short mobile pages", () => {
   const styles = read("app/globals.css");
 
+  assert.match(styles, /html\s*{[^}]*background:\s*var\(--navy\);/s);
+  assert.match(styles, /body\s*{[^}]*background:\s*var\(--navy\);/s);
+  assert.match(styles, /main\s*{[^}]*background:\s*var\(--page-bg\);/s);
   assert.match(styles, /body\s*{[^}]*display:\s*flex;[^}]*flex-direction:\s*column;[^}]*min-height:\s*100dvh;/s);
   assert.match(styles, /main\s*{[^}]*flex:\s*1\s+0\s+auto;/s);
 });

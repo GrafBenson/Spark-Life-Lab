@@ -271,7 +271,7 @@ export default function Home() {
             </article>
           </div>
 
-          <div style={{ marginTop: "2.5rem" }}>
+          <div className="plan-cta">
             <Link className="button button-primary" href="/clarity-check/">
               Start with the Midlife Clarity Check — it&rsquo;s free →
             </Link>

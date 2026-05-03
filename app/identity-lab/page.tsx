@@ -109,9 +109,11 @@ export default function IdentityLabPage() {
             </Link>
             <p
               style={{
-                color: "var(--gold)",
+                color: "var(--ember-deep)",
                 fontStyle: "italic",
-                fontSize: "1.05rem",
+                fontSize: "1.18rem",
+                fontWeight: 600,
+                lineHeight: 1.35,
                 marginTop: "1rem",
               }}
             >
