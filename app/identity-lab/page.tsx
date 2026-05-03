@@ -111,7 +111,7 @@ export default function IdentityLabPage() {
               style={{
                 color: "var(--gold)",
                 fontStyle: "italic",
-                fontSize: "0.9rem",
+                fontSize: "1.05rem",
                 marginTop: "1rem",
               }}
             >
