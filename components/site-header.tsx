@@ -35,7 +35,7 @@ export function SiteHeader() {
   }
 
   return (
-    <header className={`site-header${scrolled ? " is-scrolled" : ""}`}>
+    <header className={`site-header${scrolled ? " is-scrolled" : ""}${menuOpen ? " is-menu-open" : ""}`}>
       <Link className="wordmark" href="/" aria-label="SparkLifeLab — home">
         <span>Spark</span>LifeLab
       </Link>

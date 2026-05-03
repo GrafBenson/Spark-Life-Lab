@@ -400,7 +400,10 @@ export default function Home() {
       <Reveal as="section" id="closing-cta" className="section-closing">
         <div className="section-inner narrow">
           <h2>Start with a free, honest check-in.</h2>
-          <p className="closing-tagline">Ignite your best life — on purpose.</p>
+          <p className="closing-tagline">
+            <span className="closing-tagline-lead">Ignite your best life —</span>{" "}
+            <span className="closing-tagline-tail">on purpose.</span>
+          </p>
           <Link className="button button-primary" href="/clarity-check/">
             Get the free Midlife Clarity Check →
           </Link>

@@ -285,12 +285,16 @@ main {
 .mobile-nav-panel {
   background: var(--authority);
   border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 10px 24px rgba(32, 43, 65, 0.24);
   display: none;
   left: 0;
-  padding: 1.25rem clamp(1.25rem, 5vw, 3.4rem) 1.75rem;
+  max-height: calc(100dvh - 72px);
+  overflow-y: auto;
+  padding: 1.25rem clamp(1.25rem, 5vw, 3.4rem) 1.5rem;
   position: absolute;
   right: 0;
-  top: 72px;
+  top: 100%;
+  z-index: 60;
 }
 
 .mobile-nav-panel nav {
@@ -300,9 +304,11 @@ main {
 
 .mobile-nav-panel a {
   color: rgba(255, 255, 255, 0.82);
+  display: block;
   font-size: 0.8rem;
   font-weight: 500;
   letter-spacing: 0.12em;
+  padding: 0.15rem 0;
   text-transform: uppercase;
 }
 
@@ -926,14 +932,23 @@ main {
 
 .closing-tagline {
   color: var(--navy);
+  display: flex;
+  flex-wrap: wrap;
   font-family: var(--serif);
-  font-size: clamp(2.65rem, 5vw, 4.6rem);
+  font-size: clamp(2.35rem, 5vw, 4.6rem);
   font-style: italic;
   font-weight: 600;
+  justify-content: center;
   letter-spacing: -0.01em;
+  column-gap: 0.28ch;
+  row-gap: 0.08em;
   margin: 0.75rem auto 2.6rem;
   max-width: 980px;
   line-height: 1.08;
+}
+
+.closing-tagline span {
+  white-space: nowrap;
 }
 
 .closing-sub {
@@ -1526,6 +1541,11 @@ main {
   .desktop-nav { display: none; }
   .header-cta  { display: none; }
   .menu-toggle { display: flex; grid-column: 3; }
+
+  .site-header {
+    overflow: visible;
+  }
+
   .mobile-nav-panel.is-open { display: block; }
 
   .hero-grid {
@@ -1597,6 +1617,10 @@ main {
 
 @media (max-width: 600px) {
   body { font-size: 16px; }
+
+  .closing-tagline {
+    font-size: clamp(2.1rem, 10.8vw, 2.45rem);
+  }
 
   .founder-grid {
     grid-template-columns: 1fr;

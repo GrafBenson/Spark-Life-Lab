@@ -80,3 +80,22 @@ test("keeps the footer anchored cleanly at the bottom of short mobile pages", ()
   assert.match(styles, /body\s*{[^}]*display:\s*flex;[^}]*flex-direction:\s*column;[^}]*min-height:\s*100dvh;/s);
   assert.match(styles, /main\s*{[^}]*flex:\s*1\s+0\s+auto;/s);
 });
+
+test("keeps the mobile navigation dropdown visible below the header", () => {
+  const styles = read("app/globals.css");
+  const header = read("components/site-header.tsx");
+
+  assert.match(styles, /@media \(max-width: 900px\)[\s\S]*\.site-header\s*{[\s\S]*overflow:\s*visible;/);
+  assert.match(styles, /\.mobile-nav-panel\s*{[\s\S]*top:\s*100%;/);
+  assert.match(header, /onClick=\{\(\) => setMenuOpen\(\(o\) => !o\)\}/);
+  assert.match(header, /onClick=\{\(\) => setMenuOpen\(false\)\}/);
+});
+
+test("controls the closing tagline wrap point", () => {
+  const home = read("app/page.tsx");
+  const styles = read("app/globals.css");
+
+  assert.match(home, /closing-tagline-lead/);
+  assert.match(home, /closing-tagline-tail/);
+  assert.match(styles, /\.closing-tagline span\s*{[\s\S]*white-space:\s*nowrap;/);
+});
