@@ -1634,6 +1634,10 @@ main {
     grid-template-columns: 1fr;
   }
 
+  .clarity-profile-steps {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+
   .cookie-panel {
     padding: 0.85rem 1.25rem;
   }

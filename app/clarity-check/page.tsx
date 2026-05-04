@@ -54,7 +54,7 @@ export default function ClarityCheckPage() {
 
           {/* 3 result profiles */}
           <div
-            className="steps"
+            className="steps clarity-profile-steps"
             style={{ gridTemplateColumns: "repeat(3, minmax(0,1fr))", marginTop: "2.5rem" }}
           >
             <article className="step-card step-card-default">

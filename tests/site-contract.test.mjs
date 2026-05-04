@@ -99,3 +99,11 @@ test("controls the closing tagline wrap point", () => {
   assert.match(home, /closing-tagline-tail/);
   assert.match(styles, /\.closing-tagline span\s*{[\s\S]*white-space:\s*nowrap;/);
 });
+
+test("stacks the Clarity Check profile cards on phone widths", () => {
+  const clarity = read("app/clarity-check/page.tsx");
+  const styles = read("app/globals.css");
+
+  assert.match(clarity, /className="steps clarity-profile-steps"/);
+  assert.match(styles, /@media \(max-width: 600px\)[\s\S]*\.clarity-profile-steps\s*{[\s\S]*grid-template-columns:\s*minmax\(0,\s*1fr\)\s*!important;/);
+});
