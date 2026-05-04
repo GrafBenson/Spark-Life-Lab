@@ -429,6 +429,18 @@ main {
   border-color: var(--white);
 }
 
+/* Lavender — for use on dark/navy section backgrounds */
+.button-lavender {
+  background: var(--lavender);
+  box-shadow: var(--shadow-btn);
+  color: var(--navy);
+}
+
+.button-lavender:hover {
+  background: #b4b6c6;
+  box-shadow: 0 4px 14px rgba(32, 43, 65, 0.28);
+}
+
 /* Text link style */
 .button-text {
   border-bottom: 1px solid var(--line-strong);
@@ -802,6 +814,13 @@ main {
 .step-card {
   border-radius: 4px;
   padding: 2.2rem;
+  transition: box-shadow var(--t-medium) var(--ease-soft),
+              transform var(--t-medium) var(--ease-soft);
+}
+
+.step-card:hover {
+  box-shadow: var(--shadow);
+  transform: translateY(-3px);
 }
 
 .step-card-default {
@@ -824,7 +843,7 @@ main {
 
 .step-number {
   font-family: var(--serif);
-  font-size: 2.8rem;
+  font-size: 3.4rem;
   font-weight: 500;
   line-height: 1;
   margin-bottom: 1rem;
@@ -916,7 +935,7 @@ main {
 
 /* Section 8 — Closing CTA */
 .section-closing {
-  background: var(--cream);
+  background: var(--page-bg);
   padding-bottom: clamp(5.25rem, 7vw, 8rem);
   padding-top: clamp(5.25rem, 7vw, 8rem);
   padding-left: 5vw;
@@ -1460,7 +1479,7 @@ main {
 /* ===== Section: Stakes / Quiet Truth — with image ===== */
 
 .section-stakes {
-  background: var(--slate-mist);
+  background: var(--lavender);
   padding-bottom: clamp(4.5rem, 6vw, 6.5rem);
   padding-top: clamp(4.5rem, 6vw, 6.5rem);
   padding-left: 5vw;
@@ -1490,7 +1509,7 @@ main {
 /* ===== Section: Lead Magnet — Mid Navy background ===== */
 
 .section-lead {
-  background: var(--navy);
+  background: var(--mid-navy);
   padding-bottom: clamp(4.5rem, 6vw, 6.5rem);
   padding-top: clamp(4.5rem, 6vw, 6.5rem);
   padding-left: 5vw;

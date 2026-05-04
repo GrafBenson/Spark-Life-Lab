@@ -147,7 +147,7 @@ export default function Home() {
         </div>
 
         {/* Founder cards */}
-        <div className="section-inner" style={{ marginTop: "4rem" }}>
+        <div className="section-inner" style={{ marginTop: "4rem", borderTop: "1px solid var(--line)", paddingTop: "3.5rem" }}>
           <div className="founder-grid">
 
             <article className="founder-card">
@@ -251,7 +251,7 @@ export default function Home() {
               </p>
             </article>
 
-            <article className="step-card step-card-featured">
+            <article className="step-card step-card-default">
               <div className="step-number">02</div>
               <h3>Join a guided experience</h3>
               <p>
@@ -321,7 +321,7 @@ export default function Home() {
               Enter your name and email and we&rsquo;ll send it straight to your inbox.
               No spam. No commitment.
             </p>
-            <Link className="button button-primary-light" href="/clarity-check/">
+            <Link className="button button-lavender" href="/clarity-check/">
               Get my free Midlife Clarity Check →
             </Link>
           </div>
