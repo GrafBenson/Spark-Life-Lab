@@ -1502,12 +1502,13 @@ main {
 }
 
 .guidance-image {
+  aspect-ratio: 3 / 2;
   border-radius: 4px;
   box-shadow: 0 8px 40px rgba(32, 43, 65, 0.15);
   display: block;
-  height: 460px;
+  height: auto;
   object-fit: cover;
-  object-position: center 30%;
+  object-position: center center;
   width: 100%;
 }
 
@@ -1671,7 +1672,7 @@ main {
   }
 
   .guidance-image {
-    height: 300px;
+    /* aspect-ratio handles sizing; no fixed height override needed */
   }
 
   .travelers-grid {
