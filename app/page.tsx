@@ -80,21 +80,32 @@ export default function Home() {
 
       {/* ─── SECTION 3A — A CALM GUIDED SPACE (separated from "fellow travelers") ─── */}
       <Reveal as="section" id="about" className="section-guidance">
-        <div className="section-inner narrow">
-          <p className="eyebrow">A calm guided space to regain orientation</p>
-          <h2>You don&rsquo;t have to figure this out alone.</h2>
-          <p className="lead founders-lead">
-            SparkLifeLab exists for people in midlife who sense that something in their
-            life no longer fits — even if, from the outside, everything looks fine. We
-            exist because midlife deserves a more thoughtful, humane framing — as a
-            meaningful threshold where experience, longing, and possibility meet.
-          </p>
-          <p className="lead founders-lead" style={{ marginTop: "1rem" }}>
-            Feeling stuck or uncertain is not a flaw. It is often a signal that growth is
-            asking for attention. We don&rsquo;t promise quick fixes or dramatic reinvention. We
-            walk alongside people as guides — offering structure, reflection, and
-            companionship as they find their own direction forward.
-          </p>
+        <div className="guidance-grid section-inner">
+          <div className="guidance-text">
+            <p className="eyebrow">A calm guided space to regain orientation</p>
+            <h2>You don&rsquo;t have to figure this out alone.</h2>
+            <p className="lead founders-lead">
+              SparkLifeLab exists for people in midlife who sense that something in their
+              life no longer fits — even if, from the outside, everything looks fine. We
+              exist because midlife deserves a more thoughtful, humane framing — as a
+              meaningful threshold where experience, longing, and possibility meet.
+            </p>
+            <p className="lead founders-lead" style={{ marginTop: "1rem" }}>
+              Feeling stuck or uncertain is not a flaw. It is often a signal that growth is
+              asking for attention. We don&rsquo;t promise quick fixes or dramatic reinvention. We
+              walk alongside people as guides — offering structure, reflection, and
+              companionship as they find their own direction forward.
+            </p>
+          </div>
+          <div>
+            <Image
+              src="/images/sll-people-07.jpg"
+              alt="A small group in warm, unhurried conversation — the feeling of being heard and accompanied."
+              width={600}
+              height={460}
+              className="guidance-image"
+            />
+          </div>
         </div>
       </Reveal>
 

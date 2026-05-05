@@ -1494,6 +1494,23 @@ main {
 .section-guidance h2 { color: var(--navy); }
 .section-guidance p  { color: var(--muted); }
 
+.guidance-grid {
+  align-items: center;
+  display: grid;
+  gap: clamp(3rem, 6vw, 5rem);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+}
+
+.guidance-image {
+  border-radius: 4px;
+  box-shadow: 0 8px 40px rgba(32, 43, 65, 0.15);
+  display: block;
+  height: 460px;
+  object-fit: cover;
+  object-position: center 30%;
+  width: 100%;
+}
+
 /* ===== Section: Fellow Travelers — image + text split ===== */
 
 .section-travelers {
@@ -1647,6 +1664,14 @@ main {
 
   .cta-band {
     grid-template-columns: 1fr;
+  }
+
+  .guidance-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .guidance-image {
+    height: 300px;
   }
 
   .travelers-grid {
