@@ -656,7 +656,7 @@ main {
   width: 100%;
 }
 
-/* Final-frame overlay — same crop as the video, fades in over last 0.8 s */
+/* Final-frame overlay — same crop as the video, fades in over last ~0.4 s */
 .hero-video-final-overlay {
   display: block;
   height: 100%;
@@ -666,7 +666,7 @@ main {
   opacity: 0;
   pointer-events: none;
   position: absolute;
-  transition: opacity 800ms ease-out;
+  transition: opacity 450ms ease-out;
   width: 100%;
 }
 
