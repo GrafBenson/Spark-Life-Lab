@@ -80,7 +80,7 @@ export default function Home() {
 
       {/* ─── SECTION 3A — A CALM GUIDED SPACE (separated from "fellow travelers") ─── */}
       <Reveal as="section" id="about" className="section-guidance">
-        <div className="guidance-grid section-inner">
+        <div className="section-inner">
           <div className="guidance-text">
             <p className="eyebrow">A calm guided space to regain orientation</p>
             <h2>You don&rsquo;t have to figure this out alone.</h2>
@@ -97,15 +97,13 @@ export default function Home() {
               companionship as they find their own direction forward.
             </p>
           </div>
-          <div>
-            <Image
-              src="/images/sll-people-07.jpg"
-              alt="A small group in warm, unhurried conversation — the feeling of being heard and accompanied."
-              width={600}
-              height={460}
-              className="guidance-image"
-            />
-          </div>
+          <Image
+            src="/images/sll-people-07.jpg"
+            alt="A small group in warm, unhurried conversation — the feeling of being heard and accompanied."
+            width={1536}
+            height={1024}
+            className="guidance-image"
+          />
         </div>
       </Reveal>
 

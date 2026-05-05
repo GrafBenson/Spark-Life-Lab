@@ -1494,21 +1494,20 @@ main {
 .section-guidance h2 { color: var(--navy); }
 .section-guidance p  { color: var(--muted); }
 
-.guidance-grid {
-  align-items: center;
-  display: grid;
-  gap: clamp(3rem, 6vw, 5rem);
-  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+.guidance-text {
+  margin-bottom: clamp(2.5rem, 4vw, 3.5rem);
+  max-width: 750px;
 }
 
 .guidance-image {
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 21 / 9;
   border-radius: 4px;
   box-shadow: 0 8px 40px rgba(32, 43, 65, 0.15);
   display: block;
   height: auto;
   object-fit: cover;
-  object-position: center center;
+  /* center vertically in the frame to keep faces visible; crops table/sky */
+  object-position: center 45%;
   width: 100%;
 }
 
@@ -1667,12 +1666,9 @@ main {
     grid-template-columns: 1fr;
   }
 
-  .guidance-grid {
-    grid-template-columns: 1fr;
-  }
-
   .guidance-image {
-    /* aspect-ratio: 3/2 scales naturally with full-width mobile column */
+    /* Narrow to 16:9 on mobile so it's not a tall banner */
+    aspect-ratio: 16 / 9;
   }
 
   .travelers-grid {
