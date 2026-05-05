@@ -1495,20 +1495,20 @@ main {
 .section-guidance p  { color: var(--muted); }
 
 .guidance-grid {
-  align-items: stretch;
+  align-items: center;
   display: grid;
   gap: clamp(3rem, 6vw, 5rem);
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
 }
 
 .guidance-image {
+  aspect-ratio: 3 / 2;
   border-radius: 4px;
   box-shadow: 0 8px 40px rgba(32, 43, 65, 0.15);
   display: block;
-  height: 100%;
-  min-height: 320px;
+  height: auto;
   object-fit: cover;
-  object-position: 35% center;
+  object-position: center center;
   width: 100%;
 }
 
@@ -1672,7 +1672,7 @@ main {
   }
 
   .guidance-image {
-    min-height: 260px;
+    /* aspect-ratio: 3/2 scales naturally with full-width mobile column */
   }
 
   .travelers-grid {
