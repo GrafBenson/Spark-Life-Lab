@@ -636,6 +636,33 @@ main {
   width: 100%;
 }
 
+/* Hero video — same card shape as image, watermark cropped via overflow */
+.hero-video-wrap {
+  border-radius: 4px;
+  box-shadow: 0 8px 40px rgba(32, 43, 65, 0.18);
+  height: 520px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+.hero-video {
+  display: block;
+  height: 100%;
+  object-fit: cover;
+  /* Push visible window down to ensure watermark (top-left of source)
+     stays cropped while keeping sky/person/mountains in frame */
+  object-position: center 35%;
+  width: 100%;
+}
+
+/* Reduced-motion: JS pauses autoplay immediately; poster attribute shows the static frame */
+@media (prefers-reduced-motion: reduce) {
+  .hero-video {
+    animation: none;
+  }
+}
+
 /* ===== V10 Homepage Sections ===== */
 
 /* Section 2 — Problem */
@@ -1403,6 +1430,7 @@ main {
 .hero .hero-copy,
 .hero .hero-actions,
 .hero .hero-image-wrap,
+.hero-video-wrap,
 .hero .eyebrow,
 .hero .eyebrow-white {
   animation: rise 900ms var(--ease-soft) both;
@@ -1413,7 +1441,8 @@ main {
 .hero h1             { animation-delay: 160ms; }
 .hero .hero-copy     { animation-delay: 300ms; }
 .hero .hero-actions  { animation-delay: 440ms; }
-.hero .hero-image-wrap { animation-delay: 240ms; }
+.hero .hero-image-wrap,
+.hero-video-wrap { animation-delay: 240ms; }
 
 @keyframes rise {
   from { opacity: 0; transform: translate3d(0, 14px, 0); }
@@ -1572,6 +1601,10 @@ main {
   }
 
   .hero-image-wrap img {
+    height: 360px;
+  }
+
+  .hero-video-wrap {
     height: 360px;
   }
 

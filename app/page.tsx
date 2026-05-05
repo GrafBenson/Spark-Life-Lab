@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Reveal } from "@/components/motion/reveal";
+import { HeroVideo } from "@/components/hero-video";
 
 export const metadata: Metadata = {
   title: "SparkLifeLab — Midlife Clarity Coaching & Reflection",
@@ -45,16 +46,11 @@ export default function Home() {
             </div>
           </div>
 
-          <div className="hero-image-wrap">
-            <Image
-              src="/images/sll-sunrise-01.jpg"
-              alt="A lone figure standing on a mountain ridge above the clouds at sunrise — a sense of quiet orientation and possibility."
-              width={700}
-              height={520}
-              priority
-              style={{ width: "100%", height: "520px", objectFit: "cover", objectPosition: "center 30%", borderRadius: "4px" }}
-            />
-          </div>
+          <HeroVideo
+            src="/videos/sll-hero-sunrise.mp4"
+            poster="/images/sll-hero-sunrise-poster.jpeg"
+            alt="A lone figure standing on a mountain ridge above the clouds at sunrise — a sense of quiet orientation and possibility."
+          />
         </div>
       </section>
 
