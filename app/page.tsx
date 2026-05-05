@@ -49,6 +49,7 @@ export default function Home() {
           <HeroVideo
             src="/videos/sll-hero-sunrise.mp4"
             poster="/images/sll-hero-sunrise-start-poster.png"
+            finalPoster="/images/sll-hero-sunrise-poster.jpeg"
             alt="A lone figure standing on a mountain ridge above the clouds at sunrise — a sense of quiet orientation and possibility."
           />
         </div>

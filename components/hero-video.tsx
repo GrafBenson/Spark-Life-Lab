@@ -5,32 +5,46 @@ import { useEffect, useRef } from "react";
 interface HeroVideoProps {
   src: string;
   poster: string;
+  finalPoster: string;
   alt: string;
 }
 
-export function HeroVideo({ src, poster, alt }: HeroVideoProps) {
+export function HeroVideo({ src, poster, finalPoster, alt }: HeroVideoProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const overlayRef = useRef<HTMLImageElement>(null);
 
   useEffect(() => {
     const video = videoRef.current;
-    if (!video) return;
+    const overlay = overlayRef.current;
+    if (!video || !overlay) return;
 
-    // Respect prefers-reduced-motion — pause immediately and let poster show
+    // Reduced-motion: skip autoplay, show final poster immediately (no transition)
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       video.pause();
+      overlay.style.transition = "none";
+      overlay.style.opacity = "1";
       return;
     }
 
-    const handleEnded = () => {
-      video.pause();
-      // Seek slightly before the true end so the final frame stays visible
-      if (video.duration > 0) {
-        video.currentTime = Math.max(video.duration - 0.05, 0);
+    const handleTimeUpdate = () => {
+      if (video.duration > 0 && video.duration - video.currentTime <= 0.8) {
+        overlay.style.opacity = "1";
       }
     };
 
+    const handleEnded = () => {
+      video.pause();
+      // Keep final frame visible underneath overlay (belt-and-suspenders)
+      if (video.duration > 0) {
+        video.currentTime = Math.max(video.duration - 0.05, 0);
+      }
+      overlay.style.opacity = "1";
+    };
+
+    video.addEventListener("timeupdate", handleTimeUpdate);
     video.addEventListener("ended", handleEnded);
     return () => {
+      video.removeEventListener("timeupdate", handleTimeUpdate);
       video.removeEventListener("ended", handleEnded);
     };
   }, []);
@@ -49,6 +63,14 @@ export function HeroVideo({ src, poster, alt }: HeroVideoProps) {
       >
         <source src={src} type="video/mp4" />
       </video>
+      {/* Final-frame overlay — fades in during the last 0.8 s of playback */}
+      <img
+        ref={overlayRef}
+        src={finalPoster}
+        alt=""
+        aria-hidden="true"
+        className="hero-video-final-overlay"
+      />
     </div>
   );
 }

@@ -656,10 +656,27 @@ main {
   width: 100%;
 }
 
-/* Reduced-motion: JS pauses autoplay immediately; poster attribute shows the static frame */
+/* Final-frame overlay — same crop as the video, fades in over last 0.8 s */
+.hero-video-final-overlay {
+  display: block;
+  height: 100%;
+  inset: 0;
+  object-fit: cover;
+  object-position: center 35%;
+  opacity: 0;
+  pointer-events: none;
+  position: absolute;
+  transition: opacity 800ms ease-out;
+  width: 100%;
+}
+
+/* Reduced-motion: JS pauses autoplay immediately; final poster shown at full opacity, no transition */
 @media (prefers-reduced-motion: reduce) {
   .hero-video {
     animation: none;
+  }
+  .hero-video-final-overlay {
+    transition: none;
   }
 }
 
