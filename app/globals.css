@@ -1502,7 +1502,7 @@ main {
 }
 
 .guidance-image {
-  aspect-ratio: 3 / 2;
+  aspect-ratio: 4 / 3;
   border-radius: 4px;
   box-shadow: 0 8px 40px rgba(32, 43, 65, 0.15);
   display: block;
