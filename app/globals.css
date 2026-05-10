@@ -1831,3 +1831,15 @@ main {
   .mobile-nav-panel  { display: none !important; }
 }
 
+/* ===== Custom ember cursor — hide native cursor when active =====
+   The JS component adds `ember-cursor-active` to <html> only on desktop
+   hover-capable devices where the custom cursor is enabled. The `* `
+   selector is needed because UA stylesheets set `cursor: pointer` on
+   <a>, <button> etc., which would override an inherited cursor:none.
+   This rule has no effect on touch/mobile (class never added). ===== */
+
+html.ember-cursor-active,
+html.ember-cursor-active * {
+  cursor: none !important;
+}
+
