@@ -64,8 +64,7 @@ export function GuidingSpark() {
       const path = buildSparkPath();
       if (!path) return;
       sparkPathRef.current = path;
-      // Fade the spark head in once we know where it lives
-      if (headRef.current) headRef.current.style.opacity = "1";
+      // rAF loop will position and fade in the head on next frame
     }
 
     if (document.readyState === "complete") {
@@ -102,10 +101,11 @@ export function GuidingSpark() {
 
         // ── Spark head ────────────────────────────────────────────────────
         // Page-absolute Y → viewport Y by subtracting current scroll.
-        head.setAttribute(
-          "transform",
-          `translate(${pos.x.toFixed(1)},${(pos.y - scrollY).toFixed(1)})`,
-        );
+        // Use style.transform (not SVG transform attribute) because React's
+        // initial style prop sets style.transform and CSS overrides the attr.
+        head.style.transform = `translate(${pos.x.toFixed(1)}px,${(pos.y - scrollY).toFixed(1)}px)`;
+        // Fade in on first frame after path resolves
+        if (head.style.opacity !== "1") head.style.opacity = "1";
 
         // ── Trail ─────────────────────────────────────────────────────────
         if (pos.isResting) {
@@ -189,8 +189,7 @@ export function GuidingSpark() {
           ref={headRef}
           style={{
             opacity: 0,
-            transform: "translate(-999px, -999px)",
-            transition: "opacity 400ms ease",
+            transition: "opacity 500ms ease",
             willChange: "transform",
           }}
         >
