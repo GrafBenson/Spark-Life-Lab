@@ -27,9 +27,10 @@ import { useEffect, useRef } from "react";
 
 // ── Constants ─────────────────────────────────────────────────────────────────
 const EMBER      = "#EF7C62";
-const TRAIL_MS   = 500;     // ms — trail lifetime / fade duration
-const TRAIL_PTS  = 28;      // history cap (fewer pts needed — spaced further apart)
-const PEAK_A     = 0.48;    // max stroke opacity at the head
+const TRAIL_MS     = 500;   // ms — trail lifetime / fade duration
+const TRAIL_PTS    = 28;    // history cap
+const MAX_TRAIL_PX = 90;    // px — max rendered path length (keeps trail a short spark tail)
+const PEAK_A       = 0.48;  // max stroke opacity at the head
 const HOVER_SCL  = 1.22;    // spark scale multiplier on hover
 const LERP_SCL   = 0.18;    // per-frame lerp speed for hover scale
 const MIN_DIST   = 5;       // px — minimum travel before recording a new trail point
@@ -197,6 +198,22 @@ export function EmberCursor() {
         // ── Trail ───────────────────────────────────────────────────────────
         // Remove points older than TRAIL_MS (keeps at least 1 for continuity)
         while (trail.length > 1 && trail[0].t < cutoff) trail.shift();
+
+        // Distance cap: trim oldest points until polyline length ≤ MAX_TRAIL_PX.
+        // Computed in O(n) — total first, then trim one segment at a time.
+        // Prevents fast sweeps from leaving a long trail across the screen.
+        let trailLen = 0;
+        for (let i = 1; i < trail.length; i++) {
+          const dx = trail[i].x - trail[i - 1].x;
+          const dy = trail[i].y - trail[i - 1].y;
+          trailLen += Math.sqrt(dx * dx + dy * dy);
+        }
+        while (trail.length > 1 && trailLen > MAX_TRAIL_PX) {
+          const dx = trail[1].x - trail[0].x;
+          const dy = trail[1].y - trail[0].y;
+          trailLen -= Math.sqrt(dx * dx + dy * dy);
+          trail.shift();
+        }
 
         if (trail.length >= 1) {
           const tail = trail[0];
