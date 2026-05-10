@@ -3,9 +3,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { Reveal } from "@/components/motion/reveal";
 import { HeroVideo } from "@/components/hero-video";
-import { SparkLine } from "@/components/spark-line";
-import { IdentityMapSymbol } from "@/components/identity-map-symbol";
 import { ClarityCheckCard } from "@/components/clarity-check-card";
+import { GuidingSpark } from "@/components/guiding-spark/GuidingSpark";
 
 export const metadata: Metadata = {
   title: "SparkLifeLab — Midlife Clarity Coaching & Reflection",
@@ -22,6 +21,7 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
+    <>
     <main>
 
       {/* ─── SECTION 1 — HERO ─── */}
@@ -87,7 +87,6 @@ export default function Home() {
           <div className="guidance-text">
             <p className="eyebrow">A calm guided space to regain orientation</p>
             <h2>You don&rsquo;t have to figure this out alone.</h2>
-            <SparkLine variant="underline" />
             <p className="lead founders-lead">
               SparkLifeLab exists for people in midlife who sense that something in their
               life no longer fits — even if, from the outside, everything looks fine. We
@@ -326,7 +325,6 @@ export default function Home() {
         <div className="section-inner">
           <p className="eyebrow">When you&rsquo;re ready for the next step.</p>
           <h2>The SparkLife Identity Lab</h2>
-          <IdentityMapSymbol />
           <p
             className="lead"
             style={{ fontStyle: "italic", maxWidth: "600px", marginBottom: "1.25rem", marginTop: "1.25rem" }}
@@ -363,7 +361,6 @@ export default function Home() {
         <div className="stakes-grid">
           <div>
             <h2 style={{ color: "var(--navy)" }}>A quiet truth worth naming.</h2>
-            <SparkLine variant="underline" />
             <p style={{ color: "rgba(32,43,65,0.82)" }}>
               The Midlife Fog doesn&rsquo;t lift on its own. The gap between who you are and how
               you&rsquo;re living tends to widen, not close, without attention. Not dramatically
@@ -399,7 +396,6 @@ export default function Home() {
             <span className="closing-tagline-lead">Ignite your best life —</span>{" "}
             <span className="closing-tagline-tail">on purpose.</span>
           </p>
-          <SparkLine variant="tagline" className="spark-line--closing" />
           <Link className="button button-primary" href="/clarity-check/">
             Get the free Midlife Clarity Check →
           </Link>
@@ -408,6 +404,8 @@ export default function Home() {
       </Reveal>
 
     </main>
+    <GuidingSpark />
+    </>
   );
 }
 
