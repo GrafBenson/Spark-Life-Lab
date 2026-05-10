@@ -3,6 +3,9 @@ import Link from "next/link";
 import Image from "next/image";
 import { Reveal } from "@/components/motion/reveal";
 import { HeroVideo } from "@/components/hero-video";
+import { SparkLine } from "@/components/spark-line";
+import { IdentityMapSymbol } from "@/components/identity-map-symbol";
+import { ClarityCheckCard } from "@/components/clarity-check-card";
 
 export const metadata: Metadata = {
   title: "SparkLifeLab — Midlife Clarity Coaching & Reflection",
@@ -84,6 +87,7 @@ export default function Home() {
           <div className="guidance-text">
             <p className="eyebrow">A calm guided space to regain orientation</p>
             <h2>You don&rsquo;t have to figure this out alone.</h2>
+            <SparkLine variant="underline" />
             <p className="lead founders-lead">
               SparkLifeLab exists for people in midlife who sense that something in their
               life no longer fits — even if, from the outside, everything looks fine. We
@@ -97,7 +101,7 @@ export default function Home() {
               companionship as they find their own direction forward.
             </p>
           </div>
-          <Reveal delay={150}>
+          <Reveal delay={150} className="guidance-image-reveal">
             <Image
               src="/images/sll-people-07.jpg"
               alt="A small group in warm, unhurried conversation — the feeling of being heard and accompanied."
@@ -145,6 +149,9 @@ export default function Home() {
               a meaningful crossing many people reach in midlife, often alone.
               SparkLifeLab grew from the wish that something like this had existed when we
               first felt that quiet restlessness.
+            </p>
+            <p>
+              We&rsquo;re still on that path ourselves, and we&rsquo;re glad to walk it with you.
             </p>
             <p style={{ marginTop: "1.5rem" }}>
               <Link className="button-text" href="/about/">
@@ -301,18 +308,6 @@ export default function Home() {
               A free self-assessment to help you understand where you are — and what may be
               ready to change.
             </p>
-            <p style={{ color: "rgba(255,255,255,0.80)", marginTop: "1rem" }}>
-              Many people in midlife sense that something has shifted — but struggle to find
-              words for it. The Midlife Clarity Check gives you language and structure for
-              that experience.
-            </p>
-            <p style={{ color: "rgba(255,255,255,0.80)" }}>
-              Six honest questions. Your answers reveal exactly where you are in the
-              Midlife Fog.
-            </p>
-            <p style={{ color: "rgba(255,255,255,0.80)", marginBottom: "0.5rem" }}>
-              In around 20–30 minutes, you will:
-            </p>
             <ul className="lead-benefits">
               <li>Recognise the signals that something in your life is ready to shift</li>
               <li>Understand where you are in your midlife passage</li>
@@ -321,18 +316,8 @@ export default function Home() {
             </ul>
           </div>
 
-          {/* Right — card / download prompt */}
-          <div className="lead-card">
-            <h3>Get your free Clarity Check</h3>
-            <p className="lead-meta">6 questions · 3 scored profiles · 20–30 min · free</p>
-            <p>
-              Enter your name and email and we&rsquo;ll send it straight to your inbox.
-              No spam. No commitment.
-            </p>
-            <Link className="button button-lavender" href="/clarity-check/">
-              Get my free Midlife Clarity Check →
-            </Link>
-          </div>
+          {/* Right — premium resource preview (swap zone: replace with KIT form when ready) */}
+          <ClarityCheckCard />
         </div>
       </Reveal>
 
@@ -341,9 +326,10 @@ export default function Home() {
         <div className="section-inner">
           <p className="eyebrow">When you&rsquo;re ready for the next step.</p>
           <h2>The SparkLife Identity Lab</h2>
+          <IdentityMapSymbol />
           <p
             className="lead"
-            style={{ fontStyle: "italic", maxWidth: "600px", marginBottom: "1.25rem" }}
+            style={{ fontStyle: "italic", maxWidth: "600px", marginBottom: "1.25rem", marginTop: "1.25rem" }}
           >
             Your guided first step into clarity
           </p>
@@ -368,7 +354,7 @@ export default function Home() {
               Learn more about the SparkLife Identity Lab →
             </Link>
           </div>
-          <p className="lab-meta">First cohort launching May 2026. Places are limited.</p>
+          <p className="lab-meta">First cohort launching in June 2026. Places are limited.</p>
         </div>
       </Reveal>
 
@@ -377,6 +363,7 @@ export default function Home() {
         <div className="stakes-grid">
           <div>
             <h2 style={{ color: "var(--navy)" }}>A quiet truth worth naming.</h2>
+            <SparkLine variant="underline" />
             <p style={{ color: "rgba(32,43,65,0.82)" }}>
               The Midlife Fog doesn&rsquo;t lift on its own. The gap between who you are and how
               you&rsquo;re living tends to widen, not close, without attention. Not dramatically
@@ -412,6 +399,7 @@ export default function Home() {
             <span className="closing-tagline-lead">Ignite your best life —</span>{" "}
             <span className="closing-tagline-tail">on purpose.</span>
           </p>
+          <SparkLine variant="tagline" className="spark-line--closing" />
           <Link className="button button-primary" href="/clarity-check/">
             Get the free Midlife Clarity Check →
           </Link>

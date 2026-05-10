@@ -117,7 +117,7 @@ export default function IdentityLabPage() {
                 marginTop: "1rem",
               }}
             >
-              First cohort launching May 2026. Places are limited.
+              First cohort launching in June 2026. Places are limited.
             </p>
             <p style={{ color: "var(--muted)", fontSize: "0.85rem", marginTop: "0.25rem" }}>
               {/* TODO: Update status text and CTA link when registration opens. */}

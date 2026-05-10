@@ -9,10 +9,16 @@ import { useEffect, useState } from "react";
 // On subpages  → anchors point to /#section-id
 // CTA always   → /clarity-check/
 
-const navLinks = [
-  { label: "Clarity Check",  anchor: "clarity-check" },
-  { label: "Identity Lab",   anchor: "identity-lab" },
-  { label: "Our Story",      anchor: "about" },
+type NavLink =
+  | { label: string; anchor: string }
+  | { label: string; href: string };
+
+// anchor → scrolls to #section on homepage, /#section on subpages
+// href   → always navigates to that page
+const navLinks: NavLink[] = [
+  { label: "Clarity Check", anchor: "clarity-check" },
+  { label: "Identity Lab",  href: "/identity-lab/" },
+  { label: "Our Story",     href: "/about/" },
 ];
 
 export function SiteHeader() {
@@ -42,9 +48,11 @@ export function SiteHeader() {
 
       <nav className="desktop-nav" aria-label="Primary navigation">
         {navLinks.map((item) => (
-          <a key={item.anchor} href={anchorHref(item.anchor)}>
-            {item.label}
-          </a>
+          "href" in item ? (
+            <Link key={item.label} href={item.href}>{item.label}</Link>
+          ) : (
+            <a key={item.label} href={anchorHref(item.anchor)}>{item.label}</a>
+          )
         ))}
       </nav>
 
@@ -75,13 +83,23 @@ export function SiteHeader() {
       >
         <nav aria-label="Mobile navigation">
           {navLinks.map((item) => (
-            <a
-              key={item.anchor}
-              href={anchorHref(item.anchor)}
-              onClick={() => setMenuOpen(false)}
-            >
-              {item.label}
-            </a>
+            "href" in item ? (
+              <Link
+                key={item.label}
+                href={item.href}
+                onClick={() => setMenuOpen(false)}
+              >
+                {item.label}
+              </Link>
+            ) : (
+              <a
+                key={item.label}
+                href={anchorHref(item.anchor)}
+                onClick={() => setMenuOpen(false)}
+              >
+                {item.label}
+              </a>
+            )
           ))}
           {onClarityPage ? null : (
             <Link
