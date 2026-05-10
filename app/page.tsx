@@ -4,7 +4,6 @@ import Image from "next/image";
 import { Reveal } from "@/components/motion/reveal";
 import { HeroVideo } from "@/components/hero-video";
 import { ClarityCheckCard } from "@/components/clarity-check-card";
-import { GuidingSpark } from "@/components/guiding-spark/GuidingSpark";
 
 export const metadata: Metadata = {
   title: "SparkLifeLab — Midlife Clarity Coaching & Reflection",
@@ -21,7 +20,6 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <>
     <main>
 
       {/* ─── SECTION 1 — HERO ─── */}
@@ -404,8 +402,6 @@ export default function Home() {
       </Reveal>
 
     </main>
-    <GuidingSpark />
-    </>
   );
 }
 

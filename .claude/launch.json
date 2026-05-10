@@ -1,0 +1,12 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "sll-main",
+      "runtimeExecutable": "/opt/homebrew/opt/node@22/bin/node",
+      "runtimeArgs": ["node_modules/.bin/next", "start"],
+      "port": 3040,
+      "autoPort": true
+    }
+  ]
+}

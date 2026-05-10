@@ -582,7 +582,7 @@ main {
 /* ===== Hero ===== */
 
 .hero {
-  background: linear-gradient(168deg, #FEFDF8 0%, #F9F6F0 100%);
+  background: var(--page-bg);
   padding-bottom: clamp(4.5rem, 6vw, 6.5rem);
   padding-top: clamp(4.5rem, 6vw, 6.75rem);
   position: relative;
@@ -979,7 +979,7 @@ main {
 
 /* Section 8 — Closing CTA */
 .section-closing {
-  background: linear-gradient(180deg, var(--page-bg) 0%, #FAF5F0 100%);
+  background: var(--page-bg);
   padding-bottom: clamp(5.25rem, 7vw, 8rem);
   padding-top: clamp(5.25rem, 7vw, 8rem);
   padding-left: 5vw;
@@ -1466,58 +1466,6 @@ main {
   to   { opacity: 1; transform: translate3d(0, 0, 0); }
 }
 
-/* ===== Spark motif — guiding ember accent system ===== */
-
-.spark-line {
-  display: block;
-  line-height: 0;
-  margin-top: 0.55rem;
-  pointer-events: none;
-  user-select: none;
-}
-
-.spark-line--tagline {
-  display: inline-block;
-  margin: 0.4rem auto 0;
-  opacity: 0.9;
-}
-
-.spark-line--arc {
-  margin-top: 0.75rem;
-}
-
-/* SVG path: starts fully hidden (drawn from nothing) */
-.spark-line path {
-  stroke-dasharray: 160;
-  stroke-dashoffset: 160;
-  transition: stroke-dashoffset 1.4s cubic-bezier(0.22, 1, 0.36, 1) 0.2s;
-}
-
-/* Tagline spark gets a longer path + slightly warmer delay */
-.spark-line--tagline path {
-  stroke-dasharray: 280;
-  stroke-dashoffset: 280;
-  transition: stroke-dashoffset 1.6s cubic-bezier(0.22, 1, 0.36, 1) 0.35s;
-}
-
-/* Triggered when parent reveal enters viewport */
-.reveal.is-in .spark-line path {
-  stroke-dashoffset: 0;
-}
-
-/* For sparks used in always-visible closing section */
-.spark-line--visible path {
-  stroke-dashoffset: 0;
-}
-
-/* Respect prefers-reduced-motion: show instantly, no draw animation */
-@media (prefers-reduced-motion: reduce) {
-  .spark-line path {
-    stroke-dashoffset: 0;
-    transition: none;
-  }
-}
-
 /* ===== Scroll progress bar ===== */
 
 .scroll-progress {
@@ -1743,21 +1691,6 @@ main {
   max-width: 280px;
 }
 
-/* ===== Identity Map Symbol (topographic contour motif) ===== */
-
-.identity-map-symbol {
-  display: block;
-  line-height: 0;
-  margin: 1.5rem 0 0.5rem;
-  opacity: 0.88;
-  pointer-events: none;
-  user-select: none;
-}
-
-.identity-map-symbol svg {
-  display: block;
-}
-
 /* ===== Responsive — Tablet (≤900px) ===== */
 
 @media (max-width: 900px) {
@@ -1898,58 +1831,3 @@ main {
   .mobile-nav-panel  { display: none !important; }
 }
 
-/* ===== Phase E — Premium Visual Elevation ===== */
-
-/* Hero scroll hint — quieter, more intentional than a standard text link */
-.hero .button-text {
-  border-bottom: none;
-  color: var(--mid-navy);
-  font-size: 0.9rem;
-  font-weight: 500;
-  letter-spacing: 0.07em;
-  opacity: 0.58;
-  text-transform: uppercase;
-}
-
-.hero .button-text:hover {
-  border-bottom: none;
-  color: var(--ember);
-  opacity: 1;
-}
-
-/* Section lead — thin ember accent rule at the top of the dark section */
-.section-lead {
-  position: relative;
-}
-
-.section-lead::before {
-  content: "";
-  display: block;
-  height: 2px;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    var(--ember) 20%,
-    var(--ember) 80%,
-    transparent 100%
-  );
-  opacity: 0.45;
-}
-
-/* Closing CTA — ember-coloured button as the final conversion point */
-.section-closing .button-primary {
-  background: var(--ember);
-  box-shadow: 0 4px 20px rgba(239, 124, 98, 0.26);
-  color: var(--white);
-}
-
-.section-closing .button-primary:hover {
-  background: var(--ember-deep);
-  box-shadow: 0 6px 26px rgba(239, 124, 98, 0.36);
-}
-
-/* Step cards — ember number glow on hover */
-.step-card-default:hover {
-  border-color: rgba(239, 124, 98, 0.30);
-  box-shadow: 0 6px 28px rgba(32, 43, 65, 0.10), 0 0 0 1px rgba(239, 124, 98, 0.18);
-}

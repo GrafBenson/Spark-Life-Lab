@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cormorant_Garamond, Jost } from "next/font/google";
 import "./globals.css";
 import { CookieConsent } from "@/components/cookie-consent";
+import { EmberCursor } from "@/components/ember-cursor";
 import { ScrollProgress } from "@/components/motion/scroll-progress";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
@@ -92,6 +93,7 @@ export default function RootLayout({
         {children}
         <SiteFooter />
         <CookieConsent />
+        <EmberCursor />
       </body>
     </html>
   );
