@@ -870,14 +870,15 @@ main {
 }
 
 .step-card-featured {
-  background: var(--navy);
-  border: 1px solid var(--navy);
+  background: var(--lavender);
+  border: 1px solid rgba(32, 43, 65, 0.20);
+  box-shadow: 0 4px 18px rgba(32, 43, 65, 0.10);
 }
 
-.step-card-featured h3 { color: var(--white); }
-.step-card-featured p  { color: rgba(255, 255, 255, 0.82); }
+.step-card-featured h3 { color: var(--navy); }
+.step-card-featured p  { color: rgba(32, 43, 65, 0.78); }
 .step-card-featured .step-card-cta {
-  color: rgba(255,255,255,0.65);
+  color: rgba(32, 43, 65, 0.55);
   font-size: 1rem;
   margin-top: 0.75rem;
 }
@@ -891,7 +892,7 @@ main {
 }
 
 .step-card-default  .step-number { color: var(--ember); }
-.step-card-featured .step-number { color: rgba(239,124,98,0.85); }
+.step-card-featured .step-number { color: var(--ember); }
 
 .plan-cta {
   display: flex;
@@ -1494,7 +1495,9 @@ main {
   margin-bottom: 1.25rem;
 }
 
-.section-guidance p  { color: var(--muted); }
+.section-guidance p          { color: var(--muted); }
+/* Eyebrow uses Ember regardless of the section p override */
+.section-guidance .eyebrow  { color: var(--ember); }
 
 .guidance-inner {
   align-items: center;
@@ -1512,7 +1515,7 @@ main {
 }
 
 .section-guidance .founders-lead {
-  font-size: clamp(1.24rem, 0.5vw + 1.14rem, 1.42rem);
+  /* font-size inherits from .lead (1.22rem) — keeps guidance copy in sync with the rest of the page */
   line-height: 1.76;
   max-width: 820px;
 }
@@ -1850,20 +1853,19 @@ html.ember-cursor-active * {
   max-width: 520px;
 }
 
-/* Hero secondary text link — light, integrated */
+/* Hero secondary text link — plain text, no border/frame, integrated with CTA row */
 .hero-learn-more {
   color: var(--soft);
-  font-size: 1.05rem;
+  font-size: 1.1rem;
   font-weight: 400;
   text-decoration: none;
-  border-bottom: 1px solid var(--line);
-  padding-bottom: 1px;
-  transition: color var(--t-quick), border-color var(--t-quick);
+  letter-spacing: 0;
+  transition: color var(--t-quick);
+  align-self: center;
 }
 
 .hero-learn-more:hover {
   color: var(--navy);
-  border-bottom-color: var(--line-strong);
 }
 
 /* ===== Footer descriptor line ===== */
