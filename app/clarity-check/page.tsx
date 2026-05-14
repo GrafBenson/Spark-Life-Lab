@@ -5,11 +5,11 @@ import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 export const metadata: Metadata = {
   title: "Free Midlife Clarity Check — SparkLifeLab",
   description:
-    "A free 6-question self-assessment with 3 scored result profiles to help you understand where you are in your midlife passage. 20–30 minutes. No cost.",
+    "A free self-reflection to help you locate yourself in midlife — and understand where you truly stand. 20–30 minutes. No cost.",
   openGraph: {
     title: "Free Midlife Clarity Check — SparkLifeLab",
     description:
-      "Six honest questions. Three scored result profiles. Understand where you are and what may be ready to change. Free. 20–30 minutes.",
+      "A free self-reflection to help you locate yourself in midlife — and understand where you truly stand. 20–30 minutes.",
   },
 };
 
@@ -28,9 +28,8 @@ export default function ClarityCheckPage() {
           <p className="eyebrow">Free — your first honest step.</p>
           <h1>The Midlife Clarity Check</h1>
           <p className="page-intro">
-            A free self-assessment to help you understand where you are — and what may be
-            ready to change. Six honest questions. Three scored result profiles.
-            20–30 minutes.
+            A free self-reflection to help you locate yourself — and understand where you
+            truly stand. 20–30 minutes.
           </p>
         </div>
       </section>
@@ -39,50 +38,17 @@ export default function ClarityCheckPage() {
       <section className="section" style={{ background: "var(--sand)", paddingLeft: "5vw", paddingRight: "5vw" }}>
         <div className="section-inner mid">
           <p className="eyebrow">What it is</p>
-          <h2>Six questions. Your honest answers.</h2>
+          <h2>A quiet self-reflection. Your honest answers.</h2>
           <p className="lead" style={{ maxWidth: "680px", marginBottom: "1.5rem" }}>
             Many people in midlife sense that something has shifted — but struggle to find
             words for it. The Midlife Clarity Check gives you language and structure for
             that experience.
           </p>
           <p>
-            The assessment covers six areas of midlife experience. Your answers are scored
-            and matched to one of three result profiles — each designed to describe where
-            you are in your midlife passage and what kind of support might help most.
+            It guides you through honest prompts designed to help you locate yourself in
+            this passage — and understand where you truly stand right now.
           </p>
           <p>It takes around 20–30 minutes when done with honest reflection.</p>
-
-          {/* 3 result profiles */}
-          <div
-            className="steps clarity-profile-steps"
-            style={{ gridTemplateColumns: "repeat(3, minmax(0,1fr))", marginTop: "2.5rem" }}
-          >
-            <article className="step-card step-card-default">
-              <div className="step-number">01</div>
-              <h3>The Restless Achiever</h3>
-              <p>
-                You have built something solid. Life looks successful. And yet something
-                feels hollow. This profile points toward values reconnection and purpose
-                reorientation.
-              </p>
-            </article>
-            <article className="step-card step-card-featured">
-              <div className="step-number">02</div>
-              <h3>The Quiet Crossroads</h3>
-              <p>
-                You are at a pause — not in crisis, but sensing a shift. This profile
-                points toward deeper reflection and structured clarity work.
-              </p>
-            </article>
-            <article className="step-card step-card-default">
-              <div className="step-number">03</div>
-              <h3>The Threshold Seeker</h3>
-              <p>
-                You know something needs to change. The fog is thick. This profile points
-                toward guided companionship and the next concrete step.
-              </p>
-            </article>
-          </div>
         </div>
       </section>
 

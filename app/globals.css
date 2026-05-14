@@ -2022,6 +2022,16 @@ html.ember-cursor-active * {
   /* Guidance section: image above text on tablet/mobile */
   .guidance-image-reveal {
     order: -1;
+    margin-bottom: clamp(1.75rem, 4vw, 2.5rem);
+  }
+
+  /* Tighten image-to-text rhythm — text follows the image as one continuous breath */
+  .guidance-inner {
+    gap: 0;
+  }
+
+  .guidance-text {
+    margin-bottom: 0;
   }
 
   /* Identity Lab: map below text → flip to above */
@@ -2033,6 +2043,11 @@ html.ember-cursor-active * {
     order: -1;
   }
 
+  /* Travelers: tighten image-to-text rhythm on tablet+mobile */
+  .travelers-grid {
+    gap: clamp(1.75rem, 4vw, 2.75rem);
+  }
+
   /* Clarity Check card: cover beside form on tablet+ is already single col */
 }
 
@@ -2040,6 +2055,38 @@ html.ember-cursor-active * {
   /* Clarity cover: slightly smaller on small phones */
   .clarity-cover-img {
     max-width: 180px;
+  }
+
+  /* Guidance: tighter section padding on phones so image+text feels like one band */
+  .section-guidance {
+    padding-top: clamp(3rem, 9vw, 4rem);
+    padding-bottom: clamp(3rem, 9vw, 4rem);
+  }
+
+  .guidance-image-reveal {
+    margin-bottom: 1.5rem;
+  }
+
+  .guidance-image {
+    /* Slightly taller crop on phone — the faces need room to breathe */
+    aspect-ratio: 4 / 3;
+    border-radius: 6px;
+  }
+
+  /* Travelers: matched rhythm with guidance for visual continuity */
+  .section-travelers {
+    padding-top: clamp(3rem, 9vw, 4rem);
+    padding-bottom: clamp(3rem, 9vw, 4rem);
+  }
+
+  .travelers-grid {
+    gap: 1.5rem;
+  }
+
+  .travelers-image {
+    height: auto;
+    aspect-ratio: 4 / 3;
+    border-radius: 6px;
   }
 }
 

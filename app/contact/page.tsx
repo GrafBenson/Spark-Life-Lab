@@ -6,11 +6,11 @@ import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { site } from "@/data/site";
 
 export const metadata: Metadata = {
-  title: "Contact SparkLifeLab — Midlife Coaching Questions",
+  title: "Contact SparkLifeLab — Questions Welcome",
   description:
     "Email SparkLifeLab with questions about the free Clarity Check, the Identity Lab programme, or potential collaboration.",
   openGraph: {
-    title: "Contact SparkLifeLab — Midlife Coaching Questions",
+    title: "Contact SparkLifeLab — Questions Welcome",
     description:
       "Reach SparkLifeLab by email for practical questions and thoughtful next steps.",
   },
@@ -31,7 +31,7 @@ export default function ContactPage() {
         <Reveal as="section" className="section">
           <div className="section-inner">
             <p style={{ marginBottom: "2rem", lineHeight: 1.7 }}>
-              SparkLifeLab offers two ways to start: the free Midlife Clarity Check (a 20–30 minute PDF reflection) and the SparkLife Identity Lab (a small-group coaching programme). If you have questions about either, or want to talk about collaboration, write to us.
+              SparkLifeLab offers two ways to start: the free Midlife Clarity Check (a 20–30 minute self-reflection) and the SparkLife Identity Lab (a small-group guided transformation). If you have questions about either, or want to talk about collaboration, write to us.
             </p>
           </div>
         </Reveal>
