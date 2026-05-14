@@ -1883,7 +1883,7 @@ html.ember-cursor-active * {
   align-items: center;
   display: grid;
   gap: clamp(3rem, 6vw, 5rem);
-  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.6fr);
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 44%);
 }
 
 .lab-map-wrap {
@@ -1898,7 +1898,7 @@ html.ember-cursor-active * {
   display: block;
   height: auto;
   width: 100%;
-  object-fit: cover;
+  object-fit: contain;
 }
 
 /* ===== Clarity Check V2 — cover + form placeholder ===== */

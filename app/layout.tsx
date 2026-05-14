@@ -55,7 +55,7 @@ const organizationJsonLd = {
   url: site.url,
   email: site.email,
   description:
-    "SparkLifeLab offers midlife clarity coaching through the free Midlife Clarity Check and the SparkLife Identity Lab small-group programme.",
+    "SparkLifeLab offers midlife clarity tools — the free Midlife Clarity Check and the SparkLife Identity Lab small-group guided transformation.",
   founder: [
     { "@type": "Person", name: "Bärbel" },
     { "@type": "Person", name: "Gunther" },
