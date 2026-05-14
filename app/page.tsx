@@ -320,7 +320,7 @@ export default function Home() {
             <p style={{ color: "rgba(255,255,255,0.65)", fontSize: "0.82rem", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: "0.75rem" }}>
               What you&rsquo;ll discover:
             </p>
-            <ol className="lead-benefits lead-benefits-numbered">
+            <ol className="lead-benefits-numbered">
               <li>Where you are in your midlife transition — from early fog to emerging clarity</li>
               <li>Which area of your life feels most out of sync right now</li>
               <li>A short, honest reflection on your current experience — written for where you are</li>
