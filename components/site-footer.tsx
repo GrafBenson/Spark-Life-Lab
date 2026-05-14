@@ -18,6 +18,10 @@ export function SiteFooter() {
             <span>Spark</span>LifeLab
           </Link>
           <p className="footer-tagline">Ignite your best life — on purpose</p>
+          <p className="footer-descriptor">
+            A self-assessment, a guided transformation, and a community — for people
+            ready to move forward.
+          </p>
           <div className="footer-contact">
             <a href={`mailto:${site.email}`}>{site.email}</a>
           </div>

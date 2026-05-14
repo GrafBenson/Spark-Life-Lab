@@ -16,9 +16,8 @@ type NavLink =
 // anchor → scrolls to #section on homepage, /#section on subpages
 // href   → always navigates to that page
 const navLinks: NavLink[] = [
-  { label: "Clarity Check", anchor: "clarity-check" },
-  { label: "Identity Lab",  href: "/identity-lab/" },
-  { label: "Our Story",     href: "/about/" },
+  { label: "Identity Lab", anchor: "identity-lab" },
+  { label: "Our Story",    anchor: "about" },
 ];
 
 export function SiteHeader() {
@@ -27,7 +26,6 @@ export function SiteHeader() {
   const [scrolled, setScrolled] = useState(false);
 
   const isHome = pathname === "/" || pathname === "";
-  const onClarityPage = pathname === "/clarity-check/" || pathname === "/clarity-check";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -56,13 +54,9 @@ export function SiteHeader() {
         ))}
       </nav>
 
-      {onClarityPage ? (
-        <span aria-hidden="true" />
-      ) : (
-        <Link className="header-cta" href="/clarity-check/">
-          Get the Midlife Clarity Check →
-        </Link>
-      )}
+      <a className="header-cta" href={anchorHref("clarity-check")}>
+        Get the Midlife Clarity Check →
+      </a>
 
       <button
         className="menu-toggle"
@@ -101,15 +95,13 @@ export function SiteHeader() {
               </a>
             )
           ))}
-          {onClarityPage ? null : (
-            <Link
-              className="mobile-nav-cta"
-              href="/clarity-check/"
-              onClick={() => setMenuOpen(false)}
-            >
-              Get the Midlife Clarity Check →
-            </Link>
-          )}
+          <a
+            className="mobile-nav-cta"
+            href={anchorHref("clarity-check")}
+            onClick={() => setMenuOpen(false)}
+          >
+            Get the Midlife Clarity Check →
+          </a>
         </nav>
       </div>
     </header>

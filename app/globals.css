@@ -8,17 +8,17 @@
 :root {
   /* Colour tokens */
   --page-bg:    #FEFDF8;
-  --cream:      #EFEAD8;
-  --navy:       #202B41;       /* Deep Navy — primary text / headings */
+  --cream:      #EEEAE5;       /* Approved V1.3 Cream */
+  --navy:       #202841;       /* Deep Navy — primary text / headings */
   --mid-navy:   #4D5772;       /* Mid Navy — secondary headings, strong CTA bg */
-  --slate-mist: #8B87A6;       /* Slate Mist — subtle section differentiation */
+  --slate-mist: #8B8FA6;       /* Slate Mist — subtle section differentiation */
   --lavender:   #C5C7D3;       /* Light Lavender — very soft differentiation */
   --ember:      #EF7C62;       /* Ember Red — intentional accent only */
   --ember-deep: #D4624A;
 
   /* Legacy aliases so existing class names keep working */
-  --authority:  #202B41;       /* = --navy */
-  --sand:       #EFEAD8;       /* = --cream */
+  --authority:  #202841;       /* = --navy */
+  --sand:       #EEEAE5;       /* = --cream */
   --gold:       #EF7C62;       /* Redirect gold → ember for existing references */
   --gold-deep:  #D4624A;
   --slate:      #8B87A6;       /* = --slate-mist */
@@ -801,23 +801,20 @@ main {
   margin-bottom: 0.75rem;
 }
 
-/* LinkedIn icon link — navy/neutral */
+/* LinkedIn icon link — subtle text link */
 .founder-linkedin {
   align-items: center;
-  background: var(--navy);
-  border-radius: 3px;
-  color: var(--white);
+  color: var(--soft);
   display: inline-flex;
-  font-size: 0.75rem;
-  font-weight: 500;
-  gap: 0.4rem;
-  letter-spacing: 0.06em;
-  padding: 0.4rem 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 400;
+  gap: 0.35rem;
+  letter-spacing: 0;
   text-decoration: none;
-  transition: background var(--t-quick);
+  transition: color var(--t-quick);
 }
 
-.founder-linkedin:hover { background: var(--mid-navy); }
+.founder-linkedin:hover { color: var(--mid-navy); }
 
 .founder-linkedin-icon {
   display: inline-flex;
@@ -857,7 +854,7 @@ main {
 
 .step-card {
   border-radius: 4px;
-  padding: 2.2rem;
+  padding: 2.75rem 2.5rem;
   transition: box-shadow var(--t-medium) var(--ease-soft),
               transform var(--t-medium) var(--ease-soft);
 }
@@ -887,10 +884,10 @@ main {
 
 .step-number {
   font-family: var(--serif);
-  font-size: 3.4rem;
+  font-size: 5rem;
   font-weight: 500;
   line-height: 1;
-  margin-bottom: 1rem;
+  margin-bottom: 1.1rem;
 }
 
 .step-card-default  .step-number { color: var(--ember); }
@@ -1841,5 +1838,208 @@ main {
 html.ember-cursor-active,
 html.ember-cursor-active * {
   cursor: none !important;
+}
+
+/* ===== Hero descriptor line ===== */
+
+.hero-descriptor {
+  color: var(--soft);
+  font-size: clamp(0.96rem, 0.4vw + 0.88rem, 1.06rem);
+  line-height: 1.65;
+  margin-top: 1rem;
+  max-width: 520px;
+}
+
+/* Hero secondary text link — light, integrated */
+.hero-learn-more {
+  color: var(--soft);
+  font-size: 0.88rem;
+  font-weight: 400;
+  text-decoration: none;
+  border-bottom: 1px solid var(--line);
+  padding-bottom: 1px;
+  transition: color var(--t-quick), border-color var(--t-quick);
+}
+
+.hero-learn-more:hover {
+  color: var(--navy);
+  border-bottom-color: var(--line-strong);
+}
+
+/* ===== Footer descriptor line ===== */
+
+.footer-descriptor {
+  color: rgba(255, 255, 255, 0.42);
+  font-size: 0.78rem;
+  font-style: italic;
+  line-height: 1.55;
+  margin-bottom: 0.75rem;
+  max-width: 280px;
+}
+
+/* ===== Identity Lab — grid with map visual ===== */
+
+.lab-grid {
+  align-items: center;
+  display: grid;
+  gap: clamp(3rem, 6vw, 5rem);
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.6fr);
+}
+
+.lab-map-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lab-map-image {
+  border-radius: 4px;
+  box-shadow: 0 8px 40px rgba(32, 43, 65, 0.18);
+  display: block;
+  height: auto;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* ===== Clarity Check V2 — cover + form placeholder ===== */
+
+.clarity-card-v2 {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+/* Cover image — uses drop-shadow (not box-shadow) so it follows
+   the transparent PNG outline, not the bounding rectangle. */
+.clarity-cover-wrap {
+  display: flex;
+  justify-content: center;
+}
+
+.clarity-cover-img {
+  display: block;
+  filter:
+    drop-shadow(0 6px 24px rgba(32, 43, 65, 0.40))
+    drop-shadow(0 2px 8px rgba(32, 43, 65, 0.20));
+  height: auto;
+  max-width: 220px;
+  width: 100%;
+}
+
+/* Form placeholder — visual only, no real submission */
+.clarity-form-placeholder {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.clarity-form-label {
+  color: var(--white);
+  font-family: var(--serif);
+  font-size: clamp(1.15rem, 1.5vw, 1.4rem);
+  font-weight: 500;
+  line-height: 1.35;
+  margin: 0;
+}
+
+.clarity-form-fields {
+  display: grid;
+  gap: 0.55rem;
+}
+
+.clarity-form-input {
+  background: rgba(255, 255, 255, 0.09);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 3px;
+  color: var(--white);
+  font-family: var(--sans);
+  font-size: 1rem;
+  min-height: 50px;
+  padding: 0.85rem 1rem;
+  transition: border-color var(--t-quick);
+  width: 100%;
+}
+
+.clarity-form-input::placeholder { color: rgba(255, 255, 255, 0.42); }
+
+.clarity-form-input:focus,
+.clarity-form-input:focus-visible {
+  border-color: var(--ember);
+  outline: 0;
+}
+
+.clarity-form-submit {
+  background: var(--ember);
+  border: none;
+  border-radius: 3px;
+  box-shadow: 0 2px 10px rgba(239, 124, 98, 0.28);
+  color: var(--white);
+  cursor: pointer;
+  display: block;
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  min-height: 50px;
+  padding: 0.9rem 1.6rem;
+  text-align: center;
+  text-transform: uppercase;
+  transition: background var(--t-quick), box-shadow var(--t-quick);
+  width: 100%;
+}
+
+.clarity-form-submit:hover {
+  background: var(--ember-deep);
+  box-shadow: 0 4px 16px rgba(239, 124, 98, 0.36);
+}
+
+.clarity-form-reassurance {
+  color: rgba(255, 255, 255, 0.48);
+  font-size: 0.84rem;
+  font-style: italic;
+  margin: 0;
+  text-align: center;
+}
+
+/* Lead benefits — numbered variant (Clarity Check "What you'll discover") */
+.lead-benefits-numbered {
+  counter-reset: none;
+  list-style: decimal;
+  padding-left: 1.2rem;
+}
+
+.lead-benefits-numbered li {
+  border-top: 1px solid rgba(255, 255, 255, 0.10);
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1rem;
+  line-height: 1.65;
+  padding: 0.75rem 0 0.75rem 0.4rem;
+}
+
+/* ===== Responsive additions ===== */
+
+@media (max-width: 900px) {
+  /* Guidance section: image above text on tablet/mobile */
+  .guidance-image-reveal {
+    order: -1;
+  }
+
+  /* Identity Lab: map below text → flip to above */
+  .lab-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .lab-map-wrap {
+    order: -1;
+  }
+
+  /* Clarity Check card: cover beside form on tablet+ is already single col */
+}
+
+@media (max-width: 600px) {
+  /* Clarity cover: slightly smaller on small phones */
+  .clarity-cover-img {
+    max-width: 180px;
+  }
 }
 

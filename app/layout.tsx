@@ -26,25 +26,25 @@ const sans = Jost({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: "SparkLifeLab — Midlife Clarity Coaching & Reflection",
+    default: "SparkLifeLab — Midlife Clarity & Guided Transformation",
     template: "%s | SparkLifeLab",
   },
   description:
-    "A calm, guided space for people in midlife who sense something has shifted. Free Midlife Clarity Check and SparkLife Identity Lab.",
+    "A calm, guided space for people in midlife who sense something has shifted. Take the free Midlife Clarity Check or explore the SparkLife Identity Lab.",
   applicationName: "SparkLifeLab",
   openGraph: {
     type: "website",
     url: site.url,
     siteName: "SparkLifeLab",
-    title: "SparkLifeLab — Midlife Clarity Coaching & Reflection",
+    title: "SparkLifeLab — Find Your Way Through Midlife",
     description:
       "A calm, guided space for people in midlife who sense something has shifted. Free Midlife Clarity Check and SparkLife Identity Lab.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "SparkLifeLab — Midlife Clarity Coaching & Reflection",
+    title: "SparkLifeLab — Find Your Way Through Midlife",
     description:
-      "SparkLifeLab helps professionals in their 40s and 50s find clarity, reconnect with what matters, and step into what comes next.",
+      "SparkLifeLab walks alongside people in midlife — from their 40s through their 70s — who are ready to find clarity, reconnect with what matters, and step into what comes next.",
   },
 };
 

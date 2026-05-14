@@ -6,12 +6,12 @@ import { HeroVideo } from "@/components/hero-video";
 import { ClarityCheckCard } from "@/components/clarity-check-card";
 
 export const metadata: Metadata = {
-  title: "SparkLifeLab — Midlife Clarity Coaching & Reflection",
+  title: "SparkLifeLab — Midlife Clarity & Guided Transformation",
   description:
     "A calm, guided space for people in midlife who sense something has shifted. Take the free Midlife Clarity Check or explore the SparkLife Identity Lab.",
   openGraph: {
     type: "website",
-    title: "SparkLifeLab — Midlife Clarity Coaching & Reflection",
+    title: "SparkLifeLab — Find Your Way Through Midlife",
     description:
       "A calm, guided space for people in midlife who sense something has shifted. Free Midlife Clarity Check and SparkLife Identity Lab.",
     siteName: "SparkLifeLab",
@@ -37,11 +37,15 @@ export default function Home() {
               alongside people in midlife who are ready to find clarity, reconnect with
               what matters, and step into what comes next.
             </p>
+            <p className="hero-descriptor">
+              Start with the free Midlife Clarity Check — a 6-question self-assessment
+              with personalised results.
+            </p>
             <div className="hero-actions">
               <Link className="button button-primary" href="#clarity-check">
-                Download the Midlife Clarity Check — free
+                Get my free Midlife Clarity Check →
               </Link>
-              <a className="button-text" href="#problem">
+              <a className="hero-learn-more" href="#problem">
                 Learn more ↓
               </a>
             </div>
@@ -170,7 +174,7 @@ export default function Home() {
                 height={100}
                 className="founder-photo"
               />
-              <h3>Bärbel Tress</h3>
+              <h3>Bärbel Tress, PhD</h3>
               <p className="founder-role">Co-founder</p>
               <p>
                 A scientist and maven who spent decades guiding researchers forward — and
@@ -197,7 +201,7 @@ export default function Home() {
                 height={100}
                 className="founder-photo"
               />
-              <h3>Gunther Tress</h3>
+              <h3>Gunther Tress, PhD</h3>
               <p className="founder-role">Co-founder</p>
               <p>
                 A communicator, scientist, and storyteller who built a career making
@@ -263,7 +267,7 @@ export default function Home() {
               </p>
             </article>
 
-            <article className="step-card step-card-default">
+            <article className="step-card step-card-featured">
               <div className="step-number">02</div>
               <h3>Join a guided experience</h3>
               <p>
@@ -284,7 +288,7 @@ export default function Home() {
           </div>
 
           <div className="plan-cta">
-            <Link className="button button-primary" href="/clarity-check/">
+            <Link className="button button-primary" href="#clarity-check">
               Start with the Midlife Clarity Check — it&rsquo;s free →
             </Link>
           </div>
@@ -294,26 +298,39 @@ export default function Home() {
         </div>
       </Reveal>
 
-      {/* ─── SECTION 5 — LEAD MAGNET / MIDLIFE CLARITY CHECK ─── */}
+      {/* ─── SECTION 5 — MIDLIFE CLARITY CHECK ─── */}
       <Reveal as="section" id="clarity-check" className="section-lead">
         <div className="lead-grid">
-          {/* Left — content / text */}
+          {/* Left — approved V1.3 copy */}
           <div>
             <p className="eyebrow-white">Free — your first honest step.</p>
             <h2 style={{ color: "var(--white)" }}>The Midlife Clarity Check</h2>
-            <p className="lead-white">
-              A free self-assessment to help you understand where you are — and what may be
-              ready to change.
+            <p className="lead-white" style={{ marginBottom: "1.25rem" }}>
+              A free self-reflection to help you locate yourself — and understand where
+              you truly stand.
             </p>
-            <ul className="lead-benefits">
-              <li>Recognise the signals that something in your life is ready to shift</li>
-              <li>Understand where you are in your midlife passage</li>
-              <li>Receive a personalised reflection based on your answers</li>
-              <li>Take a first step toward clarity — gently, at your own pace</li>
-            </ul>
+            <p style={{ color: "rgba(255,255,255,0.78)", lineHeight: 1.72, marginBottom: "0.65rem" }}>
+              Many people in midlife sense that something has shifted — but can&rsquo;t quite
+              find words for it. The Midlife Clarity Check gives you language and structure
+              for that experience.
+            </p>
+            <p style={{ color: "rgba(255,255,255,0.78)", lineHeight: 1.72, marginBottom: "1.5rem" }}>
+              Six honest questions. About 20–30 minutes when done with care.
+            </p>
+            <p style={{ color: "rgba(255,255,255,0.65)", fontSize: "0.82rem", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: "0.75rem" }}>
+              What you&rsquo;ll discover:
+            </p>
+            <ol className="lead-benefits lead-benefits-numbered">
+              <li>Where you are in your midlife transition — from early fog to emerging clarity</li>
+              <li>Which area of your life feels most out of sync right now</li>
+              <li>A short, honest reflection on your current experience — written for where you are</li>
+            </ol>
+            <p className="lead-closing" style={{ marginTop: "1.75rem", fontStyle: "normal", color: "rgba(255,255,255,0.55)" }}>
+              It takes 20–30 minutes. It costs nothing. And it starts with honesty.
+            </p>
           </div>
 
-          {/* Right — premium resource preview (swap zone: replace with KIT form when ready) */}
+          {/* Right — Kit form placeholder (swap with real Kit embed when configured) */}
           <ClarityCheckCard />
         </div>
       </Reveal>
@@ -321,55 +338,74 @@ export default function Home() {
       {/* ─── SECTION 6 — SPARKLIFE IDENTITY LAB ─── */}
       <Reveal as="section" id="identity-lab" className="section-lab">
         <div className="section-inner">
-          <p className="eyebrow">When you&rsquo;re ready for the next step.</p>
-          <h2>The SparkLife Identity Lab</h2>
-          <p
-            className="lead"
-            style={{ fontStyle: "italic", maxWidth: "600px", marginBottom: "1.25rem", marginTop: "1.25rem" }}
-          >
-            Your guided first step into clarity
-          </p>
-          <p style={{ maxWidth: "680px" }}>
-            Once you have a clearer sense of where you are, the SparkLife Identity Lab
-            offers the next step — a guided transformation journey to help you understand
-            who you are now, what truly matters, and how to move forward with intention.
-          </p>
-          <p style={{ maxWidth: "680px" }}>
-            In a small, supported group, you will explore your values, your strengths,
-            and the direction that feels most aligned with who you are becoming. Not a
-            course. Not coaching.
-          </p>
-          <p style={{ maxWidth: "680px" }}>
-            The journey ends with your personal <strong>IdentityMap</strong>: a
-            beautifully designed document that brings together everything you discovered —
-            your values, strengths, purpose, and emerging future. A compass you keep.
-          </p>
+          <div className="lab-grid">
+            {/* Text + CTA */}
+            <div>
+              <p className="eyebrow">When you&rsquo;re ready for the next step.</p>
+              <h2>The SparkLife Identity Lab</h2>
+              <p
+                className="lead"
+                style={{ fontStyle: "italic", maxWidth: "600px", marginBottom: "1.25rem", marginTop: "1.25rem" }}
+              >
+                Your guided first step into clarity
+              </p>
+              <p style={{ maxWidth: "680px" }}>
+                Once you have a clearer sense of where you are, the SparkLife Identity Lab
+                offers the next step — a guided transformation journey to help you understand
+                who you are now, what truly matters, and how to move forward with intention.
+              </p>
+              <p style={{ maxWidth: "680px" }}>
+                In a small, supported group, you will explore your values, your strengths,
+                and the direction that feels most aligned with who you are becoming. Not a
+                course. Not coaching.
+              </p>
+              <p style={{ maxWidth: "680px" }}>
+                The journey ends with your personal <strong>IdentityMap</strong>: a
+                beautifully designed document that brings together everything you discovered —
+                your values, strengths, purpose, and emerging future. A compass you keep.
+              </p>
 
-          <div style={{ marginTop: "2rem" }}>
-            <Link className="button button-primary" href="/identity-lab/">
-              Learn more about the SparkLife Identity Lab →
-            </Link>
+              <div style={{ marginTop: "2rem" }}>
+                <Link className="button button-secondary" href="/identity-lab/">
+                  Learn more about the SparkLife Identity Lab →
+                </Link>
+              </div>
+              <p className="lab-meta">Places are limited. Applications are now open.</p>
+            </div>
+
+            {/* Identity Map visual */}
+            <div className="lab-map-wrap">
+              <Image
+                src="/images/sll-map-005.jpg"
+                alt="The SparkLife IdentityMap — a personal compass bringing together values, strengths, purpose, and emerging direction."
+                width={560}
+                height={420}
+                className="lab-map-image"
+              />
+            </div>
           </div>
-          <p className="lab-meta">First cohort launching in June 2026. Places are limited.</p>
         </div>
       </Reveal>
 
-      {/* ─── SECTION 7 — A QUIET TRUTH WORTH NAMING (with image) ─── */}
+      {/* ─── SECTION 7 — A QUIET TRUTH WORTH NAMING (contemplative pause) ─── */}
       <Reveal as="section" id="stakes" className="section-stakes">
         <div className="stakes-grid">
           <div>
-            <h2 style={{ color: "var(--navy)" }}>A quiet truth worth naming.</h2>
+            <p className="eyebrow">A quiet truth worth naming.</p>
+            <h2 style={{ color: "var(--navy)" }}>The fog doesn&rsquo;t lift on its own.</h2>
             <p style={{ color: "rgba(32,43,65,0.82)" }}>
-              The Midlife Fog doesn&rsquo;t lift on its own. The gap between who you are and how
-              you&rsquo;re living tends to widen, not close, without attention. Not dramatically
-              — just slowly, quietly.
+              The gap between who you are and how you&rsquo;re living tends to widen, not
+              close, without attention. Not dramatically — just slowly, quietly.
+            </p>
+            <p style={{ color: "rgba(32,43,65,0.82)" }}>
+              And the longer the gap stays unnamed, the harder it becomes to cross.
             </p>
             <p className="stakes-key">
               The people who find their way through are rarely the ones who had all the
               answers. They&rsquo;re the ones who took one honest step.
             </p>
             <p style={{ marginTop: "1.5rem" }}>
-              <Link className="button-text" href="/clarity-check/">
+              <Link className="button-text" href="#clarity-check">
                 Start with the free Clarity Check →
               </Link>
             </p>
