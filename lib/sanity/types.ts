@@ -15,10 +15,12 @@ export type SanityImageRef = {
     _type?: string;
   };
   alt?: string;
+  /** Sanity auto-generated base64 LQIP (Low Quality Image Placeholder) for blur-up loading. */
+  lqip?: string;
 };
 
 /**
- * Homepage image field — image with embedded alt text subfield.
+ * Homepage image field — image with embedded alt text and LQIP subfields.
  * Used for guidanceImage, travelersImage, identityMapImage, stakesImage.
  */
 export type SanityImageField = {
@@ -34,6 +36,8 @@ export type SanityImageField = {
     height?: number;
     width?: number;
   };
+  /** Sanity auto-generated base64 LQIP — passed as blurDataURL to next/image. */
+  lqip?: string;
 };
 
 // ─── Documents ─────────────────────────────────────────────────────────────
@@ -57,7 +61,7 @@ export type SanityHomepageImages = {
  */
 export type SanityFounderPhoto = {
   _id: string;
-  photo?: SanityImageRef;
+  photo?: SanityImageRef & { lqip?: string };
 };
 
 export type SanityLegalLink = {

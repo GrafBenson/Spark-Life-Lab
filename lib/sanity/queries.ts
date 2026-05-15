@@ -11,15 +11,19 @@
 /**
  * Homepage image slots only.
  * Text fields are no longer fetched — they are hardcoded in app/page.tsx.
+ *
+ * "lqip": asset->metadata.lqip fetches Sanity's auto-generated base64 blur hash
+ * (Low Quality Image Placeholder). Passed as blurDataURL to next/image for a
+ * smooth blur-up reveal instead of a blank/cream placeholder while images load.
  */
 export const homepageImagesQuery = `
   *[_type == "homepage" && _id == "singleton-homepage"][0]{
     _id,
     _type,
-    guidanceImage { asset, alt },
-    travelersImage { asset, alt },
-    identityMapImage { asset, alt },
-    stakesImage { asset, alt },
+    guidanceImage    { asset, alt, "lqip": asset->metadata.lqip },
+    travelersImage   { asset, alt, "lqip": asset->metadata.lqip },
+    identityMapImage { asset, alt, "lqip": asset->metadata.lqip },
+    stakesImage      { asset, alt, "lqip": asset->metadata.lqip },
   }
 `;
 
@@ -30,7 +34,7 @@ export const homepageImagesQuery = `
 export const foundersQuery = `
   *[_type == "founder"] | order(order asc) {
     _id,
-    photo,
+    photo { asset, "lqip": asset->metadata.lqip },
   }
 `;
 

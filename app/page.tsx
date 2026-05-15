@@ -7,7 +7,8 @@ import { HeroVideo } from "@/components/hero-video";
 import { ClarityCheckCard } from "@/components/clarity-check-card";
 import { safeFetch } from "@/lib/sanity/client";
 import { homepageImagesQuery, foundersQuery } from "@/lib/sanity/queries";
-import { urlForFounderPhoto, urlForHomepageImage } from "@/lib/sanity/image";
+import { urlForFounderPhoto, urlForSanityLoader } from "@/lib/sanity/image";
+import { SanityImage } from "@/components/sanity-image";
 import type { SanityHomepageImages, SanityFounderPhoto } from "@/lib/sanity/types";
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
@@ -74,42 +75,54 @@ export default async function Home() {
 
   // ── Image slots — falls back to local /images if not yet uploaded to Sanity ──
   //
-  // Dimensions match the actual display crop (not the original upload size).
-  // guidanceImage: CSS aspect-ratio 16/6.5, max display ~820px → request 1200×490 (2x buffer)
-  // travelersImage: CSS height 480px fixed, column ~550px wide → 700×480
-  // identityMapImage: CSS width 100%, max column ~560px → 640×480
-  // stakesImage: CSS height 420px fixed, column ~560px wide → 640×420
-  const guidanceImageUrl = urlForHomepageImage(images.guidanceImage ?? null, 1200, 490);
+  // urlForSanityLoader returns a base Sanity CDN URL (quality 80 + auto=format,
+  // no fixed width). The sanityImageLoader then appends ?w= at each srcset breakpoint,
+  // serving images directly from Sanity's CDN and bypassing Next.js re-optimization.
+  //
+  // width/height props on <Image> are for layout (aspect ratio / CLS prevention) only.
+  // Actual delivered dimensions are determined by the sizes prop + loader srcset.
+  //
+  // lqip (Low Quality Image Placeholder): Sanity auto-generates a tiny base64 blur
+  // thumbnail for every uploaded image. We pass it as blurDataURL so the image
+  // fades in from a brand-accurate blur instead of a blank box.
+  const guidanceImageUrl = urlForSanityLoader(images.guidanceImage ?? null);
   const guidanceImageAlt =
     images.guidanceImage?.alt?.trim() ||
     "A small group in warm, unhurried conversation — the feeling of being heard and accompanied.";
 
-  const travelersImageUrl = urlForHomepageImage(images.travelersImage ?? null, 700, 480);
+  const travelersImageUrl = urlForSanityLoader(images.travelersImage ?? null);
   const travelersImageAlt =
     images.travelersImage?.alt?.trim() ||
     "Two people sharing a reflective conversation at an outdoor table against a coastal sunset — the warmth of shared understanding.";
 
-  const identityMapImageUrl = urlForHomepageImage(images.identityMapImage ?? null, 640, 480);
+  const identityMapImageUrl = urlForSanityLoader(images.identityMapImage ?? null);
   const identityMapImageAlt =
     images.identityMapImage?.alt?.trim() ||
     "The SparkLife IdentityMap — a personal compass bringing together values, strengths, purpose, and emerging direction.";
 
-  const stakesImageUrl = urlForHomepageImage(images.stakesImage ?? null, 640, 420);
+  const stakesImageUrl = urlForSanityLoader(images.stakesImage ?? null);
   const stakesImageAlt =
     images.stakesImage?.alt?.trim() ||
     "Three people walking together along a coastal path at sunset — fellow travellers moving forward with intention.";
 
   // ── Founders — overlay Sanity photo URLs onto fully hardcoded static copy ──
-  const founderPhotoMap = new Map<string, string | null>();
+  const founderPhotoMap = new Map<string, { src: string | null; lqip?: string }>();
   if (rawFounders) {
     for (const f of rawFounders) {
-      founderPhotoMap.set(f._id, urlForFounderPhoto(f.photo ?? null));
+      founderPhotoMap.set(f._id, {
+        src: urlForFounderPhoto(f.photo ?? null),
+        lqip: f.photo?.lqip,
+      });
     }
   }
-  const founders = STATIC_FOUNDERS.map((f) => ({
-    ...f,
-    photoSrc: founderPhotoMap.get(f.id) ?? f.fallbackPhoto,
-  }));
+  const founders = STATIC_FOUNDERS.map((f) => {
+    const sanity = founderPhotoMap.get(f.id);
+    return {
+      ...f,
+      photoSrc: sanity?.src ?? f.fallbackPhoto,
+      photoLqip: sanity?.src ? (sanity.lqip ?? undefined) : undefined,
+    };
+  });
 
   return (
     <main>
@@ -195,7 +208,7 @@ export default async function Home() {
             </p>
           </div>
           <Reveal delay={150} className="guidance-image-reveal">
-            <Image
+            <SanityImage
               src={guidanceImageUrl ?? "/images/sll-people-07.jpg"}
               alt={guidanceImageAlt}
               width={1200}
@@ -203,6 +216,9 @@ export default async function Home() {
               className="guidance-image"
               sizes="(max-width: 1024px) 100vw, 820px"
               priority
+              {...(guidanceImageUrl && images.guidanceImage?.lqip
+                ? { placeholder: "blur" as const, blurDataURL: images.guidanceImage.lqip }
+                : {})}
             />
           </Reveal>
         </div>
@@ -213,13 +229,16 @@ export default async function Home() {
         <div className="travelers-grid section-inner" style={{ maxWidth: "var(--max)", margin: "0 auto" }}>
 
           <div>
-            <Image
+            <SanityImage
               src={travelersImageUrl ?? "/images/sll-sunrise-05.jpg"}
               alt={travelersImageAlt}
               width={700}
               height={480}
               className="travelers-image"
               sizes="(max-width: 768px) 100vw, 560px"
+              {...(travelersImageUrl && images.travelersImage?.lqip
+                ? { placeholder: "blur" as const, blurDataURL: images.travelersImage.lqip }
+                : {})}
             />
           </div>
 
@@ -268,6 +287,9 @@ export default async function Home() {
                   width={100}
                   height={100}
                   className="founder-photo"
+                  {...(founder.photoLqip
+                    ? { placeholder: "blur" as const, blurDataURL: founder.photoLqip }
+                    : {})}
                 />
                 <h3>{founder.name}</h3>
                 <p className="founder-role">{founder.role}</p>
@@ -416,13 +438,16 @@ export default async function Home() {
 
             {/* Identity Map visual */}
             <div className="lab-map-wrap">
-              <Image
+              <SanityImage
                 src={identityMapImageUrl ?? "/images/sll-map-005.jpg"}
                 alt={identityMapImageAlt}
                 width={640}
                 height={480}
                 className="lab-map-image"
                 sizes="(max-width: 768px) 100vw, 560px"
+                {...(identityMapImageUrl && images.identityMapImage?.lqip
+                  ? { placeholder: "blur" as const, blurDataURL: images.identityMapImage.lqip }
+                  : {})}
               />
             </div>
           </div>
@@ -453,13 +478,16 @@ export default async function Home() {
             </p>
           </div>
           <div>
-            <Image
+            <SanityImage
               src={stakesImageUrl ?? "/images/sll-sunrise-04.jpg"}
               alt={stakesImageAlt}
               width={640}
               height={420}
               className="stakes-image"
               sizes="(max-width: 768px) 100vw, 560px"
+              {...(stakesImageUrl && images.stakesImage?.lqip
+                ? { placeholder: "blur" as const, blurDataURL: images.stakesImage.lqip }
+                : {})}
             />
           </div>
         </div>

@@ -67,3 +67,24 @@ export function urlForHomepageImage(
     return null;
   }
 }
+
+/**
+ * Build a base Sanity CDN URL for use with the custom sanityImageLoader.
+ *
+ * Returns a URL without explicit width/height so the custom loader can append
+ * responsive `?w=` values at each srcset breakpoint — serving images directly
+ * from Sanity's global CDN and bypassing the Next.js image optimizer overhead.
+ *
+ * Only quality and auto=format are set here. The loader adds the width per breakpoint.
+ * Returns null if source is falsy.
+ */
+export function urlForSanityLoader(
+  source: SanityImageSource | null | undefined,
+): string | null {
+  if (!source) return null;
+  try {
+    return builder.image(source).quality(80).auto("format").url();
+  } catch {
+    return null;
+  }
+}
