@@ -1,10 +1,21 @@
 import {defineConfig} from 'sanity'
 import {structureTool} from 'sanity/structure'
-import {defineLocations, presentationTool} from 'sanity/presentation'
 import {schemaTypes} from './schemaTypes'
 
-const PREVIEW_URL = process.env.SANITY_STUDIO_PREVIEW_ORIGIN ?? 'http://localhost:3000'
-
+/**
+ * SparkLifeLab Studio — image replacement MVP.
+ *
+ * Structure:
+ *   📷 Homepage — Site Photos   → singleton-homepage (the document the live site reads)
+ *   👤 Founders                 → one card per founder; upload photo here
+ *   ⚙️  Site Settings           → footer contact email, legal links, etc.
+ *
+ * Presentation Tool is intentionally removed for this MVP.
+ * The client edits images directly in the document panel — no preview overlay needed.
+ *
+ * To set site photos: click "Homepage — Site Photos", upload an image, click Publish.
+ * To set a founder photo: click "Founders", open a founder card, upload a photo, click Publish.
+ */
 export default defineConfig({
   name: 'default',
   title: 'SparkLifeLab',
@@ -13,36 +24,42 @@ export default defineConfig({
   dataset: 'production',
 
   plugins: [
-    structureTool(),
-    presentationTool({
-      previewUrl: {
-        origin: PREVIEW_URL,
-        previewMode: {
-          enable: '/api/draft-mode/enable',
-        },
-      },
-      // Document-to-route mapping — tells the Presentation Tool which URL to load
-      // when a particular document is open. Without this, clicking between documents
-      // won't update the preview URL.
-      // Each key is a document _type; resolve() must return a DocumentLocationsState.
-      resolve: {
-        locations: {
-          homepage: defineLocations({
-            select: {title: 'heroHeadline'},
-            resolve: () => ({locations: [{title: 'Homepage', href: '/'}]}),
-          }),
-          founder: defineLocations({
-            select: {name: 'name'},
-            resolve: (doc) => ({
-              locations: [{title: doc?.name ?? 'Founder', href: '/#travelers'}],
-            }),
-          }),
-          siteSettings: defineLocations({
-            select: {siteTitle: 'siteTitle'},
-            resolve: () => ({locations: [{title: 'Site Settings (footer)', href: '/'}]}),
-          }),
-        },
-      },
+    structureTool({
+      structure: (S) =>
+        S.list()
+          .title('SparkLifeLab')
+          .items([
+            // ── Homepage singleton ─────────────────────────────────────────
+            // Always opens the specific singleton-homepage document.
+            // The client cannot accidentally create a second homepage document.
+            S.listItem()
+              .title('📷 Homepage — Site Photos')
+              .id('singleton-homepage')
+              .child(
+                S.document()
+                  .schemaType('homepage')
+                  .documentId('singleton-homepage')
+                  .title('Homepage — Site Photos'),
+              ),
+
+            S.divider(),
+
+            // ── Founders list ──────────────────────────────────────────────
+            S.documentTypeListItem('founder').title('👤 Founders'),
+
+            S.divider(),
+
+            // ── Site Settings singleton ────────────────────────────────────
+            S.listItem()
+              .title('⚙️ Site Settings')
+              .id('singleton-site-settings')
+              .child(
+                S.document()
+                  .schemaType('siteSettings')
+                  .documentId('singleton-site-settings')
+                  .title('Site Settings'),
+              ),
+          ]),
     }),
   ],
 
