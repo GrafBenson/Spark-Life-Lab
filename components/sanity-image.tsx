@@ -27,9 +27,13 @@ export function SanityImage(props: ImageProps) {
     typeof props.src === "string" &&
     props.src.startsWith("https://cdn.sanity.io/");
 
+  // alt is required on ImageProps and always passed by callers — ESLint can't
+  // see it through the spread, so suppress the false-positive here.
+  /* eslint-disable jsx-a11y/alt-text */
   return isSanityUrl ? (
     <Image {...props} loader={sanityImageLoader} />
   ) : (
     <Image {...props} />
   );
+  /* eslint-enable jsx-a11y/alt-text */
 }
