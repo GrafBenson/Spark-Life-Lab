@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Jost } from "next/font/google";
 import "./globals.css";
+import { draftMode } from "next/headers";
+import { VisualEditing } from "next-sanity/visual-editing";
 import { CookieConsent } from "@/components/cookie-consent";
 import { EmberCursor } from "@/components/ember-cursor";
 import { ScrollProgress } from "@/components/motion/scroll-progress";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { site } from "@/data/site";
+import { safeFetch } from "@/lib/sanity/client";
+import { siteSettingsQuery } from "@/lib/sanity/queries";
+import type { SanitySiteSettings } from "@/lib/sanity/types";
 
 const serif = Cormorant_Garamond({
   subsets: ["latin"],
@@ -70,11 +75,19 @@ const websiteJsonLd = {
   url: site.url,
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  // draftMode() opts this layout (and all child routes) out of static rendering.
+  // In production on Vercel this costs nothing meaningful — all pages become
+  // dynamically server-rendered, which is acceptable.
+  const { isEnabled: isDraft } = await draftMode();
+
+  // Fetch site settings — null if Sanity unavailable; SiteFooter has static fallbacks
+  const settings = await safeFetch<SanitySiteSettings>(siteSettingsQuery, {}, isDraft);
+
   return (
     <html lang="en" className={`${serif.variable} ${sans.variable}`}>
       <head>
@@ -91,9 +104,16 @@ export default function RootLayout({
         <ScrollProgress />
         <SiteHeader />
         {children}
-        <SiteFooter />
+        <SiteFooter
+          footerDescriptor={settings?.footerDescriptor}
+          contactEmail={settings?.contactEmail}
+          substackUrl={settings?.substackUrl}
+          legalLinks={settings?.legalLinks as { label: string; href: string }[] | undefined}
+        />
         <CookieConsent />
         <EmberCursor />
+        {/* Visual Editing overlay — only rendered in Draft Mode (Presentation Tool) */}
+        {isDraft && <VisualEditing />}
       </body>
     </html>
   );

@@ -1,9 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
+import { draftMode } from "next/headers";
 import { Reveal } from "@/components/motion/reveal";
 import { HeroVideo } from "@/components/hero-video";
 import { ClarityCheckCard } from "@/components/clarity-check-card";
+import { safeFetch } from "@/lib/sanity/client";
+import { homepageImagesQuery, foundersQuery } from "@/lib/sanity/queries";
+import { urlForFounderPhoto, urlForHomepageImage } from "@/lib/sanity/image";
+import type { SanityHomepageImages, SanityFounderPhoto } from "@/lib/sanity/types";
+
+// ─── Metadata ────────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
   title: "SparkLifeLab — Midlife Clarity & Guided Transformation",
@@ -18,7 +25,86 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Home() {
+// ─── Static founder data (approved V1.3 copy — text is always hardcoded) ────
+
+const STATIC_FOUNDERS = [
+  {
+    id: "founder-barbel",
+    name: "Bärbel Tress, PhD",
+    role: "Co-founder",
+    bio: "A scientist and maven who spent decades guiding researchers forward — and found her own path forward when she discovered her genius and purpose in midlife.",
+    linkedinUrl: "https://www.linkedin.com/in/baerbeltress",
+    linkedinAriaLabel: "Bärbel Tress on LinkedIn (opens in new tab)",
+    fallbackPhoto: "/images/founder_barbel.png",
+    photoAlt: "Bärbel Tress, Co-founder of SparkLifeLab",
+  },
+  {
+    id: "founder-gunther",
+    name: "Gunther Tress, PhD",
+    role: "Co-founder",
+    bio: "A communicator, scientist, and storyteller who built a career making complex ideas come alive — and brings that same clarity, warmth, and lightness to midlife transformation.",
+    linkedinUrl: "https://www.linkedin.com/in/gunthertress",
+    linkedinAriaLabel: "Gunther Tress on LinkedIn (opens in new tab)",
+    fallbackPhoto: "/images/founder_gunther.png",
+    photoAlt: "Gunther Tress, Co-founder of SparkLifeLab",
+  },
+  {
+    id: "founder-scott",
+    name: "Scott E. Burton",
+    role: "Co-founder",
+    bio: "A strategist and guide with decades in leadership and transformation who found that the most important journey was the one inward.",
+    linkedinUrl: "https://www.linkedin.com/in/scotteburton",
+    linkedinAriaLabel: "Scott E. Burton on LinkedIn (opens in new tab)",
+    fallbackPhoto: "/images/founder_scott.png",
+    photoAlt: "Scott E. Burton, Co-founder of SparkLifeLab",
+  },
+];
+
+// ─── Page ─────────────────────────────────────────────────────────────────────
+
+export default async function Home() {
+  const { isEnabled: isDraft } = await draftMode();
+
+  const [rawImages, rawFounders] = await Promise.all([
+    safeFetch<SanityHomepageImages>(homepageImagesQuery, {}, isDraft),
+    safeFetch<SanityFounderPhoto[]>(foundersQuery, {}, isDraft),
+  ]);
+
+  const images = rawImages ?? {};
+
+  // ── Image slots — falls back to local /images if not yet uploaded to Sanity ──
+  const guidanceImageUrl = urlForHomepageImage(images.guidanceImage ?? null, 1536, 1024);
+  const guidanceImageAlt =
+    images.guidanceImage?.alt?.trim() ||
+    "A small group in warm, unhurried conversation — the feeling of being heard and accompanied.";
+
+  const travelersImageUrl = urlForHomepageImage(images.travelersImage ?? null, 700, 480);
+  const travelersImageAlt =
+    images.travelersImage?.alt?.trim() ||
+    "Two people sharing a reflective conversation at an outdoor table against a coastal sunset — the warmth of shared understanding.";
+
+  const identityMapImageUrl = urlForHomepageImage(images.identityMapImage ?? null, 560, 420);
+  const identityMapImageAlt =
+    images.identityMapImage?.alt?.trim() ||
+    "The SparkLife IdentityMap — a personal compass bringing together values, strengths, purpose, and emerging direction.";
+
+  const stakesImageUrl = urlForHomepageImage(images.stakesImage ?? null, 560, 420);
+  const stakesImageAlt =
+    images.stakesImage?.alt?.trim() ||
+    "Three people walking together along a coastal path at sunset — fellow travellers moving forward with intention.";
+
+  // ── Founders — overlay Sanity photo URLs onto fully hardcoded static copy ──
+  const founderPhotoMap = new Map<string, string | null>();
+  if (rawFounders) {
+    for (const f of rawFounders) {
+      founderPhotoMap.set(f._id, urlForFounderPhoto(f.photo ?? null));
+    }
+  }
+  const founders = STATIC_FOUNDERS.map((f) => ({
+    ...f,
+    photoSrc: founderPhotoMap.get(f.id) ?? f.fallbackPhoto,
+  }));
+
   return (
     <main>
 
@@ -32,14 +118,14 @@ export default function Home() {
               <em style={{ color: "var(--ember)" }}>off?</em>
             </h1>
             <p className="hero-copy">
-              That quiet restlessness. The sense that something has shifted but you can&apos;t
-              quite name it. You&apos;re not lost — you&apos;re at a threshold. SparkLifeLab walks
-              alongside people in midlife who are ready to find clarity, reconnect with
+              That quiet restlessness. The sense that something has shifted but you can&rsquo;t
+              quite name it. You&rsquo;re not lost — you&rsquo;re at a threshold. SparkLifeLab
+              walks alongside people in midlife who are ready to find clarity, reconnect with
               what matters, and step into what comes next.
             </p>
             <p className="hero-descriptor">
-              Start with the free Midlife Clarity Check — a 6-question self-assessment
-              with personalised results.
+              Start with the free Midlife Clarity Check — a 6-question self-assessment with
+              personalised results.
             </p>
             <div className="hero-actions">
               <Link className="button button-primary" href="#clarity-check">
@@ -83,7 +169,7 @@ export default function Home() {
         </div>
       </Reveal>
 
-      {/* ─── SECTION 3A — A CALM GUIDED SPACE (separated from "fellow travelers") ─── */}
+      {/* ─── SECTION 3A — A CALM GUIDED SPACE ─── */}
       <Reveal as="section" id="about" className="section-guidance">
         <div className="guidance-inner">
           <div className="guidance-text">
@@ -104,8 +190,8 @@ export default function Home() {
           </div>
           <Reveal delay={150} className="guidance-image-reveal">
             <Image
-              src="/images/sll-people-07.jpg"
-              alt="A small group in warm, unhurried conversation — the feeling of being heard and accompanied."
+              src={guidanceImageUrl ?? "/images/sll-people-07.jpg"}
+              alt={guidanceImageAlt}
               width={1536}
               height={1024}
               className="guidance-image"
@@ -114,14 +200,14 @@ export default function Home() {
         </div>
       </Reveal>
 
-      {/* ─── SECTION 3B — FELLOW TRAVELERS — image + co-founders ─── */}
+      {/* ─── SECTION 3B — FELLOW TRAVELERS ─── */}
       <Reveal as="section" id="travelers" className="section-travelers">
         <div className="travelers-grid section-inner" style={{ maxWidth: "var(--max)", margin: "0 auto" }}>
 
           <div>
             <Image
-              src="/images/sll-sunrise-05.jpg"
-              alt="Two people sharing a reflective conversation at an outdoor table against a coastal sunset — the warmth of shared understanding."
+              src={travelersImageUrl ?? "/images/sll-sunrise-05.jpg"}
+              alt={travelersImageAlt}
               width={700}
               height={480}
               className="travelers-image"
@@ -165,93 +251,39 @@ export default function Home() {
         {/* Founder cards */}
         <div className="section-inner" style={{ marginTop: "4rem", borderTop: "1px solid var(--line)", paddingTop: "3.5rem" }}>
           <div className="founder-grid">
-
-            <article className="founder-card">
-              <Image
-                src="/images/founder_barbel.png"
-                alt="Bärbel Tress, Co-founder of SparkLifeLab"
-                width={100}
-                height={100}
-                className="founder-photo"
-              />
-              <h3>Bärbel Tress, PhD</h3>
-              <p className="founder-role">Co-founder</p>
-              <p>
-                A scientist and maven who spent decades guiding researchers forward — and
-                found her own path forward when she discovered her genius and purpose in
-                midlife.
-              </p>
-              <a
-                className="founder-linkedin"
-                href="https://www.linkedin.com/in/baerbeltress"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Bärbel Tress on LinkedIn (opens in new tab)"
-              >
-                <LinkedInIcon />
-                <span>LinkedIn</span>
-              </a>
-            </article>
-
-            <article className="founder-card">
-              <Image
-                src="/images/founder_gunther.png"
-                alt="Gunther Tress, Co-founder of SparkLifeLab"
-                width={100}
-                height={100}
-                className="founder-photo"
-              />
-              <h3>Gunther Tress, PhD</h3>
-              <p className="founder-role">Co-founder</p>
-              <p>
-                A communicator, scientist, and storyteller who built a career making
-                complex ideas come alive — and brings that same clarity, warmth, and
-                lightness to midlife transformation.
-              </p>
-              <a
-                className="founder-linkedin"
-                href="https://www.linkedin.com/in/gunthertress"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Gunther Tress on LinkedIn (opens in new tab)"
-              >
-                <LinkedInIcon />
-                <span>LinkedIn</span>
-              </a>
-            </article>
-
-            <article className="founder-card">
-              <Image
-                src="/images/founder_scott.png"
-                alt="Scott E. Burton, Co-founder of SparkLifeLab"
-                width={100}
-                height={100}
-                className="founder-photo"
-              />
-              <h3>Scott E. Burton</h3>
-              <p className="founder-role">Co-founder</p>
-              <p>
-                A strategist and guide with decades in leadership and transformation who
-                found that the most important journey was the one inward.
-              </p>
-              <a
-                className="founder-linkedin"
-                href="https://www.linkedin.com/in/scotteburton"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Scott E. Burton on LinkedIn (opens in new tab)"
-              >
-                <LinkedInIcon />
-                <span>LinkedIn</span>
-              </a>
-            </article>
+            {founders.map((founder) => (
+              <article className="founder-card" key={founder.id}>
+                <Image
+                  src={founder.photoSrc}
+                  alt={founder.photoAlt}
+                  width={100}
+                  height={100}
+                  className="founder-photo"
+                />
+                <h3>{founder.name}</h3>
+                <p className="founder-role">{founder.role}</p>
+                <p>{founder.bio}</p>
+                {founder.linkedinUrl && (
+                  <a
+                    className="founder-linkedin"
+                    href={founder.linkedinUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={founder.linkedinAriaLabel}
+                  >
+                    <LinkedInIcon />
+                    <span>LinkedIn</span>
+                  </a>
+                )}
+              </article>
+            ))}
           </div>
 
           <p className="founders-closing">Co-founders. Fellow travellers. Still becoming.</p>
         </div>
       </Reveal>
 
-      {/* ─── SECTION 4 — HOW WE WALK ALONGSIDE YOU ─── */}
+      {/* ─── SECTION 4 — HOW IT WORKS ─── */}
       <Reveal as="section" id="plan" className="section-plan">
         <div className="section-inner">
           <p className="eyebrow">A clear path forward</p>
@@ -301,13 +333,13 @@ export default function Home() {
       {/* ─── SECTION 5 — MIDLIFE CLARITY CHECK ─── */}
       <Reveal as="section" id="clarity-check" className="section-lead">
         <div className="lead-grid">
-          {/* Left — approved V1.3 copy */}
+          {/* Left — content */}
           <div>
             <p className="eyebrow-white">Free — your first honest step.</p>
             <h2 style={{ color: "var(--white)" }}>The Midlife Clarity Check</h2>
             <p className="lead-white" style={{ marginBottom: "1.25rem" }}>
-              A free self-reflection to help you locate yourself — and understand where
-              you truly stand.
+              A free self-reflection to help you locate yourself — and understand where you
+              truly stand.
             </p>
             <p style={{ color: "rgba(255,255,255,0.78)", lineHeight: 1.72, marginBottom: "0.65rem" }}>
               Many people in midlife sense that something has shifted — but can&rsquo;t quite
@@ -330,7 +362,7 @@ export default function Home() {
             </p>
           </div>
 
-          {/* Right — Kit form placeholder (swap with real Kit embed when configured) */}
+          {/* Right — Kit form */}
           <ClarityCheckCard />
         </div>
       </Reveal>
@@ -376,8 +408,8 @@ export default function Home() {
             {/* Identity Map visual */}
             <div className="lab-map-wrap">
               <Image
-                src="/images/sll-map-005.jpg"
-                alt="The SparkLife IdentityMap — a personal compass bringing together values, strengths, purpose, and emerging direction."
+                src={identityMapImageUrl ?? "/images/sll-map-005.jpg"}
+                alt={identityMapImageAlt}
                 width={560}
                 height={420}
                 className="lab-map-image"
@@ -387,7 +419,7 @@ export default function Home() {
         </div>
       </Reveal>
 
-      {/* ─── SECTION 7 — A QUIET TRUTH WORTH NAMING (contemplative pause) ─── */}
+      {/* ─── SECTION 7 — A QUIET TRUTH WORTH NAMING ─── */}
       <Reveal as="section" id="stakes" className="section-stakes">
         <div className="stakes-grid">
           <div>
@@ -412,8 +444,8 @@ export default function Home() {
           </div>
           <div>
             <Image
-              src="/images/sll-sunrise-04.jpg"
-              alt="Three people walking together along a coastal path at sunset — fellow travellers moving forward with intention."
+              src={stakesImageUrl ?? "/images/sll-sunrise-04.jpg"}
+              alt={stakesImageAlt}
               width={560}
               height={420}
               className="stakes-image"

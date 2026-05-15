@@ -1,12 +1,48 @@
 "use client";
 
 import Link from "next/link";
-import { site } from "@/data/site";
+import { site, legalItems } from "@/data/site";
 
-export function SiteFooter() {
+// Static fallbacks — used when Sanity settings are unavailable
+const FALLBACK_DESCRIPTOR =
+  "A self-assessment, a guided transformation, and a community — for people ready to move forward.";
+const FALLBACK_SUBSTACK = "https://sparklifelab.substack.com/";
+
+type LegalLink = { label: string; href: string };
+
+type SiteFooterProps = {
+  footerDescriptor?: string;
+  contactEmail?: string;
+  substackUrl?: string;
+  legalLinks?: LegalLink[];
+};
+
+export function SiteFooter({
+  footerDescriptor,
+  contactEmail,
+  substackUrl,
+  legalLinks,
+}: SiteFooterProps = {}) {
   function openCookiePreferences() {
     window.dispatchEvent(new Event("sparklifelab:open-cookie-preferences"));
   }
+
+  const descriptor =
+    footerDescriptor && footerDescriptor.trim().length > 0
+      ? footerDescriptor
+      : FALLBACK_DESCRIPTOR;
+
+  const email =
+    contactEmail && contactEmail.trim().length > 0 ? contactEmail : site.email;
+
+  const substackHref =
+    substackUrl && substackUrl.trim().length > 0 ? substackUrl : FALLBACK_SUBSTACK;
+
+  // Use Sanity legalLinks if present and non-empty; otherwise use static legalItems
+  const resolvedLegalLinks: LegalLink[] =
+    legalLinks && legalLinks.length > 0
+      ? legalLinks.filter((l) => l.label && l.href)
+      : legalItems;
 
   return (
     <footer className="site-footer">
@@ -18,19 +54,12 @@ export function SiteFooter() {
             <span>Spark</span>LifeLab
           </Link>
           <p className="footer-tagline">Ignite your best life — on purpose</p>
-          <p className="footer-descriptor">
-            A self-assessment, a guided transformation, and a community — for people
-            ready to move forward.
-          </p>
+          <p className="footer-descriptor">{descriptor}</p>
           <div className="footer-contact">
-            <a href={`mailto:${site.email}`}>{site.email}</a>
+            <a href={`mailto:${email}`}>{email}</a>
           </div>
           <div className="footer-contact" style={{ marginTop: "0.5rem" }}>
-            <a
-              href="https://sparklifelab.substack.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
+            <a href={substackHref} target="_blank" rel="noopener noreferrer">
               Read our essays on Substack →
             </a>
           </div>
@@ -50,10 +79,11 @@ export function SiteFooter() {
         <div>
           <p className="footer-heading">Legal</p>
           <ul className="footer-links">
-            <li><Link href="/privacy-policy/">Privacy Policy</Link></li>
-            <li><Link href="/terms-of-use/">Terms of Use</Link></li>
-            <li><Link href="/cookie-policy/">Cookie Policy</Link></li>
-            <li><Link href="/impressum/">Impressum</Link></li>
+            {resolvedLegalLinks.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href}>{item.label}</Link>
+              </li>
+            ))}
             <li>
               <button
                 type="button"
