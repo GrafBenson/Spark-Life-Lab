@@ -73,7 +73,13 @@ export default async function Home() {
   const images = rawImages ?? {};
 
   // ── Image slots — falls back to local /images if not yet uploaded to Sanity ──
-  const guidanceImageUrl = urlForHomepageImage(images.guidanceImage ?? null, 1536, 1024);
+  //
+  // Dimensions match the actual display crop (not the original upload size).
+  // guidanceImage: CSS aspect-ratio 16/6.5, max display ~820px → request 1200×490 (2x buffer)
+  // travelersImage: CSS height 480px fixed, column ~550px wide → 700×480
+  // identityMapImage: CSS width 100%, max column ~560px → 640×480
+  // stakesImage: CSS height 420px fixed, column ~560px wide → 640×420
+  const guidanceImageUrl = urlForHomepageImage(images.guidanceImage ?? null, 1200, 490);
   const guidanceImageAlt =
     images.guidanceImage?.alt?.trim() ||
     "A small group in warm, unhurried conversation — the feeling of being heard and accompanied.";
@@ -83,12 +89,12 @@ export default async function Home() {
     images.travelersImage?.alt?.trim() ||
     "Two people sharing a reflective conversation at an outdoor table against a coastal sunset — the warmth of shared understanding.";
 
-  const identityMapImageUrl = urlForHomepageImage(images.identityMapImage ?? null, 560, 420);
+  const identityMapImageUrl = urlForHomepageImage(images.identityMapImage ?? null, 640, 480);
   const identityMapImageAlt =
     images.identityMapImage?.alt?.trim() ||
     "The SparkLife IdentityMap — a personal compass bringing together values, strengths, purpose, and emerging direction.";
 
-  const stakesImageUrl = urlForHomepageImage(images.stakesImage ?? null, 560, 420);
+  const stakesImageUrl = urlForHomepageImage(images.stakesImage ?? null, 640, 420);
   const stakesImageAlt =
     images.stakesImage?.alt?.trim() ||
     "Three people walking together along a coastal path at sunset — fellow travellers moving forward with intention.";
@@ -192,9 +198,11 @@ export default async function Home() {
             <Image
               src={guidanceImageUrl ?? "/images/sll-people-07.jpg"}
               alt={guidanceImageAlt}
-              width={1536}
-              height={1024}
+              width={1200}
+              height={490}
               className="guidance-image"
+              sizes="(max-width: 1024px) 100vw, 820px"
+              priority
             />
           </Reveal>
         </div>
@@ -211,6 +219,7 @@ export default async function Home() {
               width={700}
               height={480}
               className="travelers-image"
+              sizes="(max-width: 768px) 100vw, 560px"
             />
           </div>
 
@@ -410,9 +419,10 @@ export default async function Home() {
               <Image
                 src={identityMapImageUrl ?? "/images/sll-map-005.jpg"}
                 alt={identityMapImageAlt}
-                width={560}
-                height={420}
+                width={640}
+                height={480}
                 className="lab-map-image"
+                sizes="(max-width: 768px) 100vw, 560px"
               />
             </div>
           </div>
@@ -446,9 +456,10 @@ export default async function Home() {
             <Image
               src={stakesImageUrl ?? "/images/sll-sunrise-04.jpg"}
               alt={stakesImageAlt}
-              width={560}
+              width={640}
               height={420}
               className="stakes-image"
+              sizes="(max-width: 768px) 100vw, 560px"
             />
           </div>
         </div>
