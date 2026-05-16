@@ -2334,3 +2334,646 @@ html.ember-cursor-active * {
     width: 100%;
   }
 }
+
+/* ===================================================================
+   Identity Lab Page (/identity-lab/)
+   =================================================================== */
+
+/* ─── Hero ─────────────────────────────────────────────────────── */
+
+.il-hero-grid {
+  align-items: center;
+  display: grid;
+  gap: clamp(2.5rem, 5vw, 5rem);
+  grid-template-columns: 3fr 2fr;
+}
+
+.il-hero-image-wrap {
+  position: relative;
+}
+
+.il-hero-img {
+  border-radius: 6px;
+  box-shadow: 0 8px 32px rgba(32, 43, 65, 0.13);
+  height: auto;
+  object-fit: cover;
+  width: 100%;
+}
+
+.il-descriptor {
+  border-left: 3px solid var(--ember);
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: clamp(1.1rem, 1.4vw, 1.32rem);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 1.25rem 0;
+  padding-left: 0.9rem;
+}
+
+/* ─── Identity Map section (featured) ──────────────────────────── */
+
+.il-map-section {
+  padding-top: clamp(5rem, 8vw, 8rem);
+  padding-bottom: clamp(5rem, 8vw, 8rem);
+}
+
+.il-map-grid {
+  align-items: start;
+  display: grid;
+  gap: clamp(3rem, 6vw, 5.5rem);
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.85fr);
+}
+
+.il-map-visual-col {
+  position: relative;
+}
+
+.il-map-badge-row {
+  margin-bottom: 0.85rem;
+}
+
+.il-map-badge {
+  background: var(--ember);
+  border-radius: 2px;
+  color: var(--white);
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  padding: 0.3em 0.75em;
+  text-transform: uppercase;
+}
+
+.il-map-img {
+  border-radius: 6px;
+  box-shadow: 0 10px 40px rgba(32, 43, 65, 0.14);
+  height: auto;
+  object-fit: cover;
+  width: 100%;
+}
+
+.il-map-tagline {
+  border-left: 3px solid var(--ember);
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: clamp(1.28rem, 1.7vw, 1.55rem);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 1.5rem 0;
+  padding-left: 1rem;
+}
+
+.il-ai-note {
+  background: rgba(32, 43, 65, 0.04);
+  border-radius: 4px;
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-top: 1.5rem;
+  padding: 1rem 1.25rem;
+}
+
+.il-ai-note strong {
+  color: var(--navy);
+}
+
+/* ─── Phase cards ───────────────────────────────────────────────── */
+
+.il-phases-intro {
+  color: var(--muted);
+  font-size: 1.1rem;
+  line-height: 1.75;
+  margin-bottom: 0;
+  max-width: 740px;
+}
+
+.il-phases {
+  display: grid;
+  gap: 1.35rem;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 2.5rem;
+}
+
+.il-phase-card {
+  background: var(--page-bg);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: clamp(1.75rem, 3vw, 2.5rem);
+  transition: box-shadow var(--t-medium) var(--ease-soft),
+              transform var(--t-medium) var(--ease-soft);
+}
+
+.il-phase-card:hover {
+  box-shadow: var(--shadow);
+  transform: translateY(-3px);
+}
+
+.il-phase-number {
+  color: var(--ember);
+  font-family: var(--serif);
+  font-size: clamp(3.5rem, 5vw, 5rem);
+  font-weight: 600;
+  line-height: 1;
+  margin-bottom: 0.85rem;
+}
+
+.il-phase-name {
+  color: var(--navy);
+  font-size: clamp(1.15rem, 1.5vw, 1.38rem);
+  margin-bottom: 0.75rem;
+}
+
+.il-phase-what {
+  color: var(--ember-deep);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.4rem;
+  margin-top: 1.25rem;
+  text-transform: uppercase;
+}
+
+/* ─── What's included ───────────────────────────────────────────── */
+
+.il-included-grid {
+  display: grid;
+  gap: clamp(2rem, 5vw, 4rem);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 2.5rem;
+}
+
+.il-included-group {
+  margin-bottom: 2.25rem;
+}
+
+.il-included-group:last-child {
+  margin-bottom: 0;
+}
+
+.il-included-heading {
+  color: var(--navy);
+  font-family: var(--sans);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+
+.il-included-list {
+  color: var(--muted);
+  display: grid;
+  font-size: 1rem;
+  gap: 0.5rem;
+  line-height: 1.65;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.il-included-list > li {
+  padding-left: 1.4rem;
+  position: relative;
+}
+
+.il-included-list > li::before {
+  color: var(--ember);
+  content: "✓";
+  left: 0;
+  position: absolute;
+}
+
+.il-included-sublist {
+  color: var(--muted);
+  font-size: 0.95rem;
+  gap: 0.3rem;
+  list-style: none;
+  margin: 0.5rem 0 0;
+  padding: 0;
+}
+
+.il-included-sublist li {
+  padding-left: 1rem;
+  position: relative;
+}
+
+.il-included-sublist li::before {
+  color: var(--ember);
+  content: "–";
+  left: 0;
+  position: absolute;
+}
+
+/* ─── Is this for you? ──────────────────────────────────────────── */
+
+.il-qualify-intro {
+  color: var(--muted);
+  font-size: 1.1rem;
+  line-height: 1.75;
+  margin-bottom: 0.5rem;
+  max-width: 760px;
+}
+
+.il-qualify-lead {
+  color: var(--navy);
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 1.25rem;
+  margin-top: 1.5rem;
+}
+
+.il-persona-grid {
+  display: grid;
+  gap: 1.1rem;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-bottom: 2.5rem;
+}
+
+.il-persona-card {
+  background: var(--page-bg);
+  border-left: 3px solid var(--ember);
+  border-radius: 0 4px 4px 0;
+  padding: 1.35rem 1.5rem 1.35rem 1.6rem;
+}
+
+.il-persona-title {
+  color: var(--navy);
+  font-size: clamp(1rem, 1.3vw, 1.18rem);
+  margin-bottom: 0.35rem;
+}
+
+.il-persona-desc {
+  color: var(--muted);
+  font-size: 0.97rem;
+  line-height: 1.65;
+  margin-bottom: 0;
+}
+
+.il-not-for-you {
+  border-top: 1px solid var(--line);
+  margin-top: 1rem;
+  padding-top: 2rem;
+}
+
+.il-nfy-heading {
+  color: var(--mid-navy);
+  font-size: clamp(1.1rem, 1.4vw, 1.28rem);
+  margin-bottom: 1rem;
+}
+
+.il-nfy-list {
+  color: var(--soft);
+  display: grid;
+  font-size: 1rem;
+  gap: 0.5rem;
+  line-height: 1.65;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.il-nfy-list li {
+  padding-left: 1.4rem;
+  position: relative;
+}
+
+.il-nfy-list li::before {
+  color: var(--slate-mist);
+  content: "×";
+  left: 0;
+  position: absolute;
+}
+
+/* ─── Investment / Pricing ──────────────────────────────────────── */
+
+.il-pricing-card {
+  background: var(--page-bg);
+  border: 2px solid var(--ember);
+  border-radius: 6px;
+  box-shadow: 0 6px 28px rgba(32, 43, 65, 0.09);
+  margin: 2rem auto 0;
+  max-width: 580px;
+  padding: clamp(2rem, 5vw, 3.5rem);
+  text-align: center;
+}
+
+.il-pricing-price {
+  color: var(--navy);
+  font-size: clamp(3.5rem, 7vw, 5rem);
+  font-weight: 700;
+  font-family: var(--sans);
+  line-height: 1;
+  margin-bottom: 0.35rem;
+  margin-top: 0;
+}
+
+.il-pricing-option {
+  color: var(--soft);
+  font-size: 0.95rem;
+  font-style: italic;
+  margin-bottom: 1.75rem;
+  margin-top: 0;
+}
+
+.il-pricing-list {
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  display: grid;
+  font-size: 0.97rem;
+  gap: 0.5rem;
+  line-height: 1.6;
+  list-style: none;
+  margin: 0 auto 1.5rem;
+  max-width: 420px;
+  padding: 1.5rem 0 0;
+  text-align: left;
+}
+
+.il-pricing-list li {
+  padding-left: 1.35rem;
+  position: relative;
+}
+
+.il-pricing-list li::before {
+  color: var(--ember);
+  content: "✓";
+  left: 0;
+  position: absolute;
+}
+
+.il-cohort-note {
+  color: var(--navy);
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+  margin-top: 1.5rem;
+}
+
+.il-spaces-note {
+  color: var(--soft);
+  font-size: 0.9rem;
+  font-style: italic;
+  margin-bottom: 1.75rem;
+  margin-top: 0;
+}
+
+.il-pricing-cta {
+  display: inline-block;
+}
+
+/* ─── CTA band ──────────────────────────────────────────────────── */
+
+.il-cta-band-copy {
+  color: var(--muted);
+  font-size: 1.12rem;
+  line-height: 1.75;
+  margin-bottom: 2rem;
+  max-width: 640px;
+}
+
+.il-cta-support {
+  color: var(--soft);
+  font-size: 0.95rem;
+  margin-top: 1.25rem;
+}
+
+.il-cta-support a {
+  color: var(--ember-deep);
+  text-decoration: underline;
+  text-decoration-color: rgba(212, 98, 74, 0.4);
+  text-underline-offset: 3px;
+  transition: color var(--t-quick);
+}
+
+.il-cta-support a:hover {
+  color: var(--ember);
+}
+
+/* ─── FAQ accordion ─────────────────────────────────────────────── */
+
+.il-faq-list {
+  border-top: 1px solid var(--line);
+  margin-top: 2.5rem;
+}
+
+.il-faq-item {
+  border-bottom: 1px solid var(--line);
+}
+
+.il-faq-btn {
+  align-items: center;
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  gap: 0.75rem;
+  padding: 1.25rem 0;
+  text-align: left;
+  width: 100%;
+  transition: background var(--t-quick);
+}
+
+.il-faq-q {
+  color: var(--navy);
+  flex: 1;
+  font-size: clamp(1rem, 1.3vw, 1.12rem);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.il-faq-icon {
+  color: var(--ember);
+  flex-shrink: 0;
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
+.il-faq-badge {
+  background: rgba(239, 124, 98, 0.1);
+  border-radius: 2px;
+  color: var(--ember-deep);
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  padding: 0.25em 0.6em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Smooth height animation via grid-template-rows trick */
+.il-faq-dd {
+  display: grid;
+  grid-template-rows: 0fr;
+  margin: 0;
+  transition: grid-template-rows 250ms ease;
+}
+
+.il-faq-open .il-faq-dd {
+  grid-template-rows: 1fr;
+}
+
+.il-faq-inner {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.75;
+  overflow: hidden;
+  padding-bottom: 0;
+  transition: padding-bottom 250ms ease;
+}
+
+.il-faq-inner p {
+  font-size: inherit;
+  line-height: inherit;
+}
+
+.il-faq-inner p:last-child {
+  margin-bottom: 0;
+}
+
+.il-faq-open .il-faq-inner {
+  padding-bottom: 1.5rem;
+}
+
+/* ─── Closing section ───────────────────────────────────────────── */
+
+.il-closing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: clamp(480px, 55vw, 720px);
+  overflow: hidden;
+  position: relative;
+}
+
+.il-closing-bg {
+  object-fit: cover;
+  object-position: center 40%;
+}
+
+.il-closing-overlay {
+  background: rgba(27, 42, 65, 0.58);
+  inset: 0;
+  position: absolute;
+  z-index: 1;
+}
+
+.il-closing-content {
+  max-width: 800px;
+  padding: clamp(4rem, 8vw, 8rem) 5vw;
+  position: relative;
+  text-align: center;
+  z-index: 2;
+}
+
+.il-closing-heading {
+  color: var(--white);
+  margin-bottom: 1.75rem;
+}
+
+.il-closing-copy {
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 1.1rem;
+  line-height: 1.75;
+  margin-bottom: 0.75rem;
+}
+
+.il-closing-copy:last-of-type {
+  margin-bottom: 2.5rem;
+}
+
+.il-closing-actions {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.il-closing-secondary {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1rem;
+  text-decoration: underline;
+  text-decoration-color: rgba(255, 255, 255, 0.4);
+  text-underline-offset: 3px;
+  transition: color var(--t-quick);
+}
+
+.il-closing-secondary:hover {
+  color: var(--white);
+}
+
+/* ─── Responsive — 900px ────────────────────────────────────────── */
+
+@media (max-width: 900px) {
+  .il-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .il-hero-image-wrap {
+    order: -1;
+    max-height: 380px;
+    overflow: hidden;
+    border-radius: 6px;
+  }
+
+  .il-hero-img {
+    height: 380px;
+    object-position: center 30%;
+  }
+
+  .il-map-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .il-map-visual-col {
+    order: -1;
+  }
+
+  .il-phases {
+    grid-template-columns: 1fr;
+  }
+
+  .il-included-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .il-persona-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .il-pricing-card {
+    max-width: 100%;
+  }
+}
+
+/* ─── Responsive — 600px ────────────────────────────────────────── */
+
+@media (max-width: 600px) {
+  .il-hero-image-wrap {
+    max-height: 280px;
+  }
+
+  .il-hero-img {
+    height: 280px;
+  }
+
+  .il-pricing-price {
+    font-size: clamp(3rem, 12vw, 4rem);
+  }
+
+  .il-closing {
+    min-height: 480px;
+  }
+
+  .il-closing-actions {
+    align-items: stretch;
+  }
+
+  .il-closing-actions .button {
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+  }
+}
