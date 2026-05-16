@@ -17,7 +17,7 @@ type NavLink =
 // href   → always navigates to that page
 const navLinks: NavLink[] = [
   { label: "Identity Lab", anchor: "identity-lab" },
-  { label: "Our Story",    anchor: "about" },
+  { label: "Our Story",    href: "/about/" },
 ];
 
 export function SiteHeader() {
