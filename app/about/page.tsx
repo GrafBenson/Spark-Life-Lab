@@ -99,7 +99,7 @@ export default function AboutPage() {
 
             <div className="hero-image-wrap">
               <Image
-                src="/images/sll-sunrise-05.jpg"
+                src="/images/our-story-hero-sunrise-09.jpg"
                 alt="Two people in warm, reflective conversation at an outdoor coastal setting — the feeling of being accompanied and understood."
                 width={800}
                 height={600}
@@ -118,7 +118,7 @@ export default function AboutPage() {
           <div className="about-story-grid section-inner">
             <div className="about-story-img-wrap">
               <Image
-                src="/images/sll-people-07.jpg"
+                src="/images/our-story-story-sunrise-12.jpg"
                 alt="A small group in unhurried conversation outdoors — the warmth of shared understanding and companionship."
                 width={700}
                 height={520}
@@ -283,7 +283,7 @@ export default function AboutPage() {
           <div className="about-closing-grid section-inner">
             <div className="about-closing-img-wrap">
               <Image
-                src="/images/sll-sunrise-04.jpg"
+                src="/images/our-story-closing-sunrise-14.jpg"
                 alt="People walking together along a coastal path at sunset — fellow travellers moving forward with intention."
                 width={700}
                 height={520}
