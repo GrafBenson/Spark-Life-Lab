@@ -31,6 +31,9 @@ export const metadata: Metadata = {
 const STATIC_FOUNDERS = [
   {
     id: "founder-barbel",
+    // nameKey: ASCII-normalized first name — used as fallback lookup key when
+    // Sanity document _id doesn't match (e.g. document created without fixed seed ID).
+    nameKey: "barbel",
     name: "Bärbel Tress, PhD",
     role: "Co-founder",
     bio: "A scientist and maven who spent decades guiding researchers forward — and found her own path forward when she discovered her genius and purpose in midlife.",
@@ -41,6 +44,7 @@ const STATIC_FOUNDERS = [
   },
   {
     id: "founder-gunther",
+    nameKey: "gunther",
     name: "Gunther Tress, PhD",
     role: "Co-founder",
     bio: "A communicator, scientist, and storyteller who built a career making complex ideas come alive — and brings that same clarity, warmth, and lightness to midlife transformation.",
@@ -51,6 +55,7 @@ const STATIC_FOUNDERS = [
   },
   {
     id: "founder-scott",
+    nameKey: "scott",
     name: "Scott E. Burton",
     role: "Co-founder",
     bio: "A strategist and guide with decades in leadership and transformation who found that the most important journey was the one inward.",
@@ -106,17 +111,36 @@ export default async function Home() {
     "Three people walking together along a coastal path at sunset — fellow travellers moving forward with intention.";
 
   // ── Founders — overlay Sanity photo URLs onto fully hardcoded static copy ──
+  //
+  // founderPhotoMap is keyed two ways for robustness:
+  //   1. By Sanity _id (works when documents were seeded with fixed IDs like "founder-barbel")
+  //   2. By "name:<normalizedFirstName>" (fallback when _id is a Sanity-generated UUID)
+  //
+  // urlForFounderPhoto now guards against cleared image fields (see lib/sanity/image.ts):
+  // a cleared field returns null, which ?? chains to the local fallbackPhoto.
   const founderPhotoMap = new Map<string, { src: string | null; lqip?: string }>();
   if (rawFounders) {
     for (const f of rawFounders) {
-      founderPhotoMap.set(f._id, {
+      const entry = {
         src: urlForFounderPhoto(f.photo ?? null),
         lqip: f.photo?.lqip,
-      });
+      };
+      // Primary key: Sanity document _id
+      founderPhotoMap.set(f._id, entry);
+      // Secondary key: normalized first name (strips diacritics, lowercased)
+      if (f.name) {
+        const firstName = f.name
+          .split(/[\s,]+/)[0]
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .toLowerCase();
+        founderPhotoMap.set(`name:${firstName}`, entry);
+      }
     }
   }
   const founders = STATIC_FOUNDERS.map((f) => {
-    const sanity = founderPhotoMap.get(f.id);
+    // Prefer _id match; fall back to name-based key if _id is a UUID
+    const sanity = founderPhotoMap.get(f.id) ?? founderPhotoMap.get(`name:${f.nameKey}`);
     return {
       ...f,
       photoSrc: sanity?.src ?? f.fallbackPhoto,

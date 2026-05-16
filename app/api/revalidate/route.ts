@@ -29,9 +29,35 @@ export async function POST(req: NextRequest) {
     return NextResponse.json({ message: "Invalid signature" }, { status: 401 });
   }
 
-  // Purge the full route cache for all pages so the next request re-fetches
-  // fresh image data from Sanity CDN
-  revalidatePath("/", "layout");
+  // Parse the webhook payload to extract the document type and ID for logging.
+  // This does NOT expose the secret — only the document metadata from the payload body.
+  let docType = "unknown";
+  let docId = "unknown";
+  try {
+    const payload = JSON.parse(rawBody) as { _type?: string; _id?: string };
+    docType = payload._type ?? "unknown";
+    docId = payload._id ?? "unknown";
+  } catch {
+    // Non-JSON body — validation already passed so this is unexpected but not fatal
+  }
 
-  return NextResponse.json({ revalidated: true });
+  // Revalidate all routes that render Sanity images.
+  // "layout" scope purges the full route tree (HTML + data cache) for every page
+  // under the root layout. Explicit page revalidations are belt-and-suspenders
+  // for the specific routes we know consume Sanity data.
+  revalidatePath("/", "layout");
+  revalidatePath("/", "page");
+  revalidatePath("/about", "page");
+
+  const timestamp = new Date().toISOString();
+  console.log(
+    `[revalidate] ${timestamp} — revalidated all paths — docType: ${docType}, docId: ${docId}`,
+  );
+
+  return NextResponse.json({
+    revalidated: true,
+    timestamp,
+    document: { type: docType, id: docId },
+    paths: ["/", "/about"],
+  });
 }

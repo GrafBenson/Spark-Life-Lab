@@ -34,6 +34,7 @@ export const homepageImagesQuery = `
 export const foundersQuery = `
   *[_type == "founder"] | order(order asc) {
     _id,
+    name,
     photo { asset, "lqip": asset->metadata.lqip },
   }
 `;

@@ -8,11 +8,33 @@ type SanityImageSource = Record<string, any> | string | null | undefined;
 const builder = createImageUrlBuilder(sanityClient);
 
 /**
+ * Returns true only when source has a real, non-empty asset._ref string.
+ *
+ * When a Sanity image field is cleared in Studio and the document is re-published,
+ * the GROQ projection may return a truthy-but-invalid object like
+ * `{ _type: "image", asset: null }` or `{}`. These pass a simple `!source` guard
+ * but cause the image-url builder to fail silently or return a broken URL.
+ *
+ * This helper treats a missing or null asset._ref as "no image" so the calling
+ * function can fall through to the local fallback immediately.
+ *
+ * String sources (direct Sanity CDN URLs, e.g. from asset->url projection) are
+ * considered valid if non-empty — the builder handles them natively.
+ */
+function hasValidSanityImage(source: SanityImageSource): source is NonNullable<SanityImageSource> {
+  if (!source) return false;
+  if (typeof source === "string") return source.length > 0;
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const asset = (source as Record<string, any>).asset;
+  return typeof asset?._ref === "string" && asset._ref.length > 0;
+}
+
+/**
  * Build a Sanity CDN image URL from a raw Sanity image reference.
- * Returns null if source is falsy.
+ * Returns null if source is falsy or has no valid asset reference.
  */
 export function urlFor(source: SanityImageSource | null | undefined): string | null {
-  if (!source) return null;
+  if (!hasValidSanityImage(source)) return null;
   try {
     return builder.image(source).auto("format").url();
   } catch {
@@ -23,11 +45,12 @@ export function urlFor(source: SanityImageSource | null | undefined): string | n
 /**
  * Build a Sanity CDN image URL sized for founder headshots.
  * 200×200 crop at q=80 keeps file size small for the small circular display.
+ * Returns null if source has no valid asset reference (e.g. field was cleared in Studio).
  */
 export function urlForFounderPhoto(
   source: SanityImageSource | null | undefined,
 ): string | null {
-  if (!source) return null;
+  if (!hasValidSanityImage(source)) return null;
   try {
     return builder.image(source).width(200).height(200).fit("crop").quality(80).auto("format").url();
   } catch {
@@ -53,7 +76,7 @@ export function urlForHomepageImage(
   width: number,
   height: number,
 ): string | null {
-  if (!source) return null;
+  if (!hasValidSanityImage(source)) return null;
   try {
     return builder
       .image(source)
@@ -81,7 +104,7 @@ export function urlForHomepageImage(
 export function urlForSanityLoader(
   source: SanityImageSource | null | undefined,
 ): string | null {
-  if (!source) return null;
+  if (!hasValidSanityImage(source)) return null;
   try {
     return builder.image(source).quality(80).auto("format").url();
   } catch {

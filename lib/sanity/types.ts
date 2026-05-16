@@ -61,6 +61,8 @@ export type SanityHomepageImages = {
  */
 export type SanityFounderPhoto = {
   _id: string;
+  /** Full name as entered in Sanity Studio — used as a secondary lookup key. */
+  name?: string;
   photo?: SanityImageRef & { lqip?: string };
 };
 
