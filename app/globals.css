@@ -2243,8 +2243,8 @@ html.ember-cursor-active * {
   display: block;
   height: 520px;
   object-fit: cover;
-  /* Shift right so the cyclist, trail sign, and path direction remain visible */
-  object-position: 72% 40%;
+  /* Anchor to right edge so cyclist, trail sign, and walking people stay visible */
+  object-position: 100% 40%;
   width: 100%;
 }
 
@@ -2304,8 +2304,8 @@ html.ember-cursor-active * {
 
   .about-closing-img-wrap img {
     height: 320px;
-    /* Full-width single-column at tablet: pull back slightly so scene reads well */
-    object-position: 65% 40%;
+    /* Full-width single-column at tablet: anchor right edge so subject stays visible */
+    object-position: 100% 40%;
   }
 }
 
