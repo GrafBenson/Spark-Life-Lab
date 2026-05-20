@@ -1893,7 +1893,8 @@ html.ember-cursor-active * {
   align-items: center;
   display: grid;
   gap: clamp(3rem, 6vw, 5rem);
-  grid-template-columns: minmax(320px, 1fr) minmax(520px, 680px);
+  /* Reduced from 520–680px: portrait map is a preview here, not full-size poster */
+  grid-template-columns: minmax(320px, 1fr) minmax(300px, 440px);
 }
 
 .lab-map-wrap {
@@ -1908,7 +1909,7 @@ html.ember-cursor-active * {
   box-shadow: 0 12px 56px rgba(32, 43, 65, 0.22), 0 4px 16px rgba(32, 43, 65, 0.12);
   display: block;
   height: auto;
-  max-width: 440px; /* portrait image: cap width so it doesn't overpower text column */
+  max-width: 360px; /* portrait preview: card-sized, not poster — 360px wide = ~540px tall at 2:3 */
   width: 100%;
   object-fit: contain;
 }
@@ -2055,10 +2056,10 @@ html.ember-cursor-active * {
     order: -1;
   }
 
-  /* Cap map image on tablet so the portrait image doesn't poster the page */
+  /* Cap map image on tablet/mobile — homepage preview should be compact */
   .lab-map-image {
     margin: 0 auto;
-    max-width: min(400px, 80vw);
+    max-width: min(280px, 72vw);
   }
 
   /* Travelers: tighten image-to-text rhythm on tablet+mobile */
