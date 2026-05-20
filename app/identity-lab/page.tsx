@@ -211,14 +211,12 @@ export default function IdentityLabPage() {
               <div className="il-map-badge-row">
                 <span className="il-map-badge">Your signature deliverable</span>
               </div>
-              {/* Identity Map image: sll-map-005.jpg — map/document asset.
-                  TODO: Replace with the actual high-resolution Identity Map mockup
-                  when provided by SparkLifeLab. */}
+              {/* Identity Map image: sll-map-007.jpg — client-provided deliverable asset. */}
               <Image
-                src="/images/sll-map-005.jpg"
-                alt="A preview of the SparkLife Identity Map — a beautifully designed personal document synthesizing your values, strengths, purpose, and emerging direction."
-                width={560}
-                height={700}
+                src="/images/sll-map-007.jpg"
+                alt="SparkLife Identity Map showing a visual path for clarity, values, strengths, growth, and direction"
+                width={1024}
+                height={1536}
                 className="il-map-img"
                 sizes="(max-width: 900px) 100vw, 45vw"
               />

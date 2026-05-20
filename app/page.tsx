@@ -103,7 +103,7 @@ export default async function Home() {
   const identityMapImageUrl = urlForSanityLoader(images.identityMapImage ?? null);
   const identityMapImageAlt =
     images.identityMapImage?.alt?.trim() ||
-    "The SparkLife IdentityMap — a personal compass bringing together values, strengths, purpose, and emerging direction.";
+    "SparkLife Identity Map showing a visual path for clarity, values, strengths, growth, and direction";
 
   const stakesImageUrl = urlForSanityLoader(images.stakesImage ?? null);
   const stakesImageAlt =
@@ -463,10 +463,10 @@ export default async function Home() {
             {/* Identity Map visual */}
             <div className="lab-map-wrap">
               <SanityImage
-                src={identityMapImageUrl ?? "/images/sll-map-005.jpg"}
+                src={identityMapImageUrl ?? "/images/sll-map-007.jpg"}
                 alt={identityMapImageAlt}
-                width={640}
-                height={480}
+                width={1024}
+                height={1536}
                 className="lab-map-image"
                 sizes="(max-width: 768px) 100vw, 560px"
                 {...(identityMapImageUrl && images.identityMapImage?.lqip
