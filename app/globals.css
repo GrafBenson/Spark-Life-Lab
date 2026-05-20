@@ -1908,6 +1908,7 @@ html.ember-cursor-active * {
   box-shadow: 0 12px 56px rgba(32, 43, 65, 0.22), 0 4px 16px rgba(32, 43, 65, 0.12);
   display: block;
   height: auto;
+  max-width: 440px; /* portrait image: cap width so it doesn't overpower text column */
   width: 100%;
   object-fit: contain;
 }
@@ -2052,6 +2053,12 @@ html.ember-cursor-active * {
 
   .lab-map-wrap {
     order: -1;
+  }
+
+  /* Cap map image on tablet so the portrait image doesn't poster the page */
+  .lab-map-image {
+    margin: 0 auto;
+    max-width: min(400px, 80vw);
   }
 
   /* Travelers: tighten image-to-text rhythm on tablet+mobile */
@@ -2417,7 +2424,9 @@ html.ember-cursor-active * {
   border-radius: 6px;
   box-shadow: 0 10px 40px rgba(32, 43, 65, 0.14);
   height: auto;
-  object-fit: cover;
+  margin: 0 auto; /* center when max-width narrows image below column width */
+  max-width: 460px; /* portrait: let it be prominent but not a full-height poster */
+  object-fit: contain; /* never crop map labels */
   width: 100%;
 }
 
@@ -2936,6 +2945,12 @@ html.ember-cursor-active * {
 
   .il-map-visual-col {
     order: -1;
+  }
+
+  /* Cap portrait map on tablet/mobile so it doesn't dominate single-column layout */
+  .il-map-img {
+    margin: 0 auto;
+    max-width: min(440px, 86vw);
   }
 
   .il-phases {
