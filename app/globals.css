@@ -1884,17 +1884,17 @@ html.ember-cursor-active * {
 
 /* ===== Identity Lab — grid with map visual ===== */
 
-/* Wider container for the lab section — allows map to be substantially larger */
+/* Standard max-width for the lab section — map is now a preview card, not full-size poster */
 .section-lab .section-inner {
-  width: min(1480px, 100%);
+  width: min(var(--max), 100%);
 }
 
 .lab-grid {
   align-items: center;
   display: grid;
-  gap: clamp(3rem, 6vw, 5rem);
-  /* Reduced from 520–680px: portrait map is a preview here, not full-size poster */
-  grid-template-columns: minmax(320px, 1fr) minmax(300px, 440px);
+  gap: clamp(2.5rem, 5vw, 4rem);
+  /* Text col flexible; image col sized to hold the 420px portrait preview snugly */
+  grid-template-columns: minmax(320px, 1fr) minmax(380px, 460px);
 }
 
 .lab-map-wrap {
@@ -1909,7 +1909,7 @@ html.ember-cursor-active * {
   box-shadow: 0 12px 56px rgba(32, 43, 65, 0.22), 0 4px 16px rgba(32, 43, 65, 0.12);
   display: block;
   height: auto;
-  max-width: 360px; /* portrait preview: card-sized, not poster — 360px wide = ~540px tall at 2:3 */
+  max-width: 420px; /* portrait preview: readable card — 420px wide = ~630px tall at 2:3 */
   width: 100%;
   object-fit: contain;
 }
@@ -2056,10 +2056,10 @@ html.ember-cursor-active * {
     order: -1;
   }
 
-  /* Cap map image on tablet/mobile — homepage preview should be compact */
+  /* Cap map image on tablet/mobile — compact preview but still readable */
   .lab-map-image {
     margin: 0 auto;
-    max-width: min(280px, 72vw);
+    max-width: min(310px, 76vw);
   }
 
   /* Travelers: tighten image-to-text rhythm on tablet+mobile */
