@@ -48,6 +48,7 @@ export async function POST(req: NextRequest) {
   revalidatePath("/", "layout");
   revalidatePath("/", "page");
   revalidatePath("/about", "page");
+  revalidatePath("/identity-lab", "page");
 
   const timestamp = new Date().toISOString();
   console.log(
@@ -58,6 +59,6 @@ export async function POST(req: NextRequest) {
     revalidated: true,
     timestamp,
     document: { type: docType, id: docId },
-    paths: ["/", "/about"],
+    paths: ["/", "/about", "/identity-lab"],
   });
 }

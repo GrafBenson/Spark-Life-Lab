@@ -9,14 +9,18 @@ The Sanity Studio at [https://sparklifelab.sanity.studio](https://sparklifelab.s
 | Studio section | What it controls |
 |---|---|
 | 📷 Homepage — Site Photos | The 4 section photos on the homepage |
+| 📷 Our Story — Page Photos | The 3 section photos on the Our Story page |
+| 📷 Identity Lab — Page Photos | The 3 section photos on the Identity Lab page |
 | 👤 Founders | Founder headshot photos |
 | ⚙️ Site Settings | Footer text, contact email, Substack URL |
 
+> **If a photo field is cleared and the document is re-published, the site automatically falls back to the approved default image.** No photo is ever "broken" — the site always has a valid image to show.
+
 ### Client image workflow (step-by-step)
 
-1. Go to [sparklifelab.sanity.studio](https://sparklifelab.sanity.studio)
-2. Click **📷 Homepage — Site Photos**
-3. Click the image field you want to update (e.g. "About Section — Photo")
+1. Go to [sparklifelab-cms.sanity.studio](https://sparklifelab-cms.sanity.studio)
+2. Click the relevant section (e.g. **📷 Our Story — Page Photos**)
+3. Click the image field you want to update
 4. Drag-and-drop a new photo or click to upload
 5. Optionally update the Alt Text field (important for accessibility)
 6. Click **Publish** (top-right green button)
@@ -113,7 +117,7 @@ Copy the output. This is your `SANITY_WEBHOOK_SECRET`.
 | **URL** | `https://spark-life-lab.com/api/revalidate` |
 | **Dataset** | `production` |
 | **Trigger on** | Create, Update, Delete (check all; Publish is covered by these) |
-| **Filter** | `_type in ["homepage", "founder", "siteSettings"]` |
+| **Filter** | `_type in ["homepage", "founder", "siteSettings", "ourStoryPagePhotos", "identityLabPagePhotos"]` |
 | **Projection** | Leave blank (default) |
 | **HTTP method** | `POST` |
 | **Secret** | (paste the same secret from Step 1) |
@@ -160,7 +164,7 @@ The following are hardcoded in the Next.js source code and require a developer t
 - All CTA button text
 - Navigation links
 - Footer legal link text and URLs
-- All other-page content (Identity Lab, About, Clarity Check, etc.)
+- All other-page content (Clarity Check, etc.)
 
 This is intentional. It ensures the live site is always stable and the approved V1.3 copy is never accidentally overwritten.
 

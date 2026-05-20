@@ -40,6 +40,34 @@ export const foundersQuery = `
 `;
 
 /**
+ * Our Story page image slots.
+ * Text is hardcoded in app/about/page.tsx.
+ */
+export const ourStoryImagesQuery = `
+  *[_type == "ourStoryPagePhotos" && _id == "singleton-our-story-page-photos"][0]{
+    _id,
+    _type,
+    heroImage    { asset, alt, "lqip": asset->metadata.lqip },
+    storyImage   { asset, alt, "lqip": asset->metadata.lqip },
+    closingImage { asset, alt, "lqip": asset->metadata.lqip },
+  }
+`;
+
+/**
+ * Identity Lab page image slots.
+ * Text is hardcoded in app/identity-lab/page.tsx.
+ */
+export const identityLabImagesQuery = `
+  *[_type == "identityLabPagePhotos" && _id == "singleton-identity-lab-page-photos"][0]{
+    _id,
+    _type,
+    heroImage        { asset, alt, "lqip": asset->metadata.lqip },
+    identityMapImage { asset, alt, "lqip": asset->metadata.lqip },
+    closingImage     { asset, alt, "lqip": asset->metadata.lqip },
+  }
+`;
+
+/**
  * Site settings singleton.
  * _id and _type included for stega footer click-to-edit.
  */

@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { draftMode } from "next/headers";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
+import { safeFetch } from "@/lib/sanity/client";
+import { ourStoryImagesQuery } from "@/lib/sanity/queries";
+import { urlForSanityLoader } from "@/lib/sanity/image";
+import { SanityImage } from "@/components/sanity-image";
+import type { SanityOurStoryImages } from "@/lib/sanity/types";
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
@@ -68,7 +74,29 @@ const founders = [
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
-export default function AboutPage() {
+export default async function AboutPage() {
+  const { isEnabled: isDraft } = await draftMode();
+
+  const rawImages = await safeFetch<SanityOurStoryImages>(ourStoryImagesQuery, {}, isDraft);
+  const images = rawImages ?? {};
+
+  // Image URLs — urlForSanityLoader returns null when the field is missing/cleared.
+  // Fallback to local client-provided images in all null/undefined cases.
+  const heroImageUrl = urlForSanityLoader(images.heroImage ?? null);
+  const heroImageAlt =
+    images.heroImage?.alt?.trim() ||
+    "Two people in warm, reflective conversation at an outdoor coastal setting — the feeling of being accompanied and understood.";
+
+  const storyImageUrl = urlForSanityLoader(images.storyImage ?? null);
+  const storyImageAlt =
+    images.storyImage?.alt?.trim() ||
+    "A small group in unhurried conversation outdoors — the warmth of shared understanding and companionship.";
+
+  const closingImageUrl = urlForSanityLoader(images.closingImage ?? null);
+  const closingImageAlt =
+    images.closingImage?.alt?.trim() ||
+    "People walking together along a coastal path at sunset — fellow travellers moving forward with intention.";
+
   return (
     <>
       <BreadcrumbJsonLd page="Our Story" href="/about/" />
@@ -98,13 +126,16 @@ export default function AboutPage() {
             </div>
 
             <div className="hero-image-wrap">
-              <Image
-                src="/images/our-story-hero-sunrise-09.jpg"
-                alt="Two people in warm, reflective conversation at an outdoor coastal setting — the feeling of being accompanied and understood."
+              <SanityImage
+                src={heroImageUrl ?? "/images/our-story-hero-sunrise-09.jpg"}
+                alt={heroImageAlt}
                 width={800}
                 height={600}
                 priority
                 sizes="(max-width: 900px) 100vw, 480px"
+                {...(heroImageUrl && images.heroImage?.lqip
+                  ? { placeholder: "blur" as const, blurDataURL: images.heroImage.lqip }
+                  : {})}
               />
             </div>
           </div>
@@ -117,12 +148,15 @@ export default function AboutPage() {
         >
           <div className="about-story-grid section-inner">
             <div className="about-story-img-wrap">
-              <Image
-                src="/images/our-story-story-sunrise-12.jpg"
-                alt="A small group in unhurried conversation outdoors — the warmth of shared understanding and companionship."
+              <SanityImage
+                src={storyImageUrl ?? "/images/our-story-story-sunrise-12.jpg"}
+                alt={storyImageAlt}
                 width={700}
                 height={520}
                 sizes="(max-width: 900px) 100vw, 480px"
+                {...(storyImageUrl && images.storyImage?.lqip
+                  ? { placeholder: "blur" as const, blurDataURL: images.storyImage.lqip }
+                  : {})}
               />
             </div>
 
@@ -282,12 +316,15 @@ export default function AboutPage() {
         >
           <div className="about-closing-grid section-inner">
             <div className="about-closing-img-wrap">
-              <Image
-                src="/images/our-story-closing-sunrise-14.jpg"
-                alt="People walking together along a coastal path at sunset — fellow travellers moving forward with intention."
+              <SanityImage
+                src={closingImageUrl ?? "/images/our-story-closing-sunrise-14.jpg"}
+                alt={closingImageAlt}
                 width={700}
                 height={520}
                 sizes="(max-width: 900px) 100vw, 480px"
+                {...(closingImageUrl && images.closingImage?.lqip
+                  ? { placeholder: "blur" as const, blurDataURL: images.closingImage.lqip }
+                  : {})}
               />
             </div>
 

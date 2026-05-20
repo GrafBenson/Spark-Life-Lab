@@ -68,6 +68,20 @@ const documents = [
     ],
   },
 
+  // ── Our Story page image slots ──────────────────────────────────────────────
+  // Stub only — clients upload photos via Studio.
+  {
+    _id: "singleton-our-story-page-photos",
+    _type: "ourStoryPagePhotos",
+  },
+
+  // ── Identity Lab page image slots ───────────────────────────────────────────
+  // Stub only — clients upload photos via Studio.
+  {
+    _id: "singleton-identity-lab-page-photos",
+    _type: "identityLabPagePhotos",
+  },
+
   // ── Founder stubs — clients upload photos via Studio ───────────────────────
   // Name and order are seeded so Studio can identify each document.
   // Bio text is hardcoded in the frontend.

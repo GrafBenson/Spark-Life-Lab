@@ -1,8 +1,13 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
+import { draftMode } from "next/headers";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { IdentityLabFaq, type FaqItem } from "@/components/identity-lab-faq";
+import { safeFetch } from "@/lib/sanity/client";
+import { identityLabImagesQuery } from "@/lib/sanity/queries";
+import { urlForSanityLoader } from "@/lib/sanity/image";
+import { SanityImage } from "@/components/sanity-image";
+import type { SanityIdentityLabImages } from "@/lib/sanity/types";
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
@@ -96,7 +101,29 @@ const PERSONAS = [
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
-export default function IdentityLabPage() {
+export default async function IdentityLabPage() {
+  const { isEnabled: isDraft } = await draftMode();
+
+  const rawImages = await safeFetch<SanityIdentityLabImages>(identityLabImagesQuery, {}, isDraft);
+  const images = rawImages ?? {};
+
+  // Image URLs — urlForSanityLoader returns null when field is missing/cleared.
+  // Fallback to local approved images in all null/undefined cases.
+  const heroImageUrl = urlForSanityLoader(images.heroImage ?? null);
+  const heroImageAlt =
+    images.heroImage?.alt?.trim() ||
+    "A small group in warm, unhurried conversation outdoors — the companionship of fellow travellers navigating the midlife threshold together.";
+
+  const identityMapImageUrl = urlForSanityLoader(images.identityMapImage ?? null);
+  const identityMapImageAlt =
+    images.identityMapImage?.alt?.trim() ||
+    "SparkLife Identity Map showing a visual path for clarity, values, strengths, growth, and direction";
+
+  const closingImageUrl = urlForSanityLoader(images.closingImage ?? null);
+  const closingImageAlt =
+    images.closingImage?.alt?.trim() ||
+    "People walking together along a coastal path at sunset — moving forward with clarity and companionship.";
+
   return (
     <>
       <BreadcrumbJsonLd page="Identity Lab" href="/identity-lab/" />
@@ -132,16 +159,17 @@ export default function IdentityLabPage() {
             </div>
 
             <div className="il-hero-image-wrap">
-              {/* Hero: sll-people-07.jpg — warm group conversation, companionship theme.
-                  TODO: Replace with a dedicated Identity Lab hero image when provided. */}
-              <Image
-                src="/images/sll-people-07.jpg"
-                alt="A small group in warm, unhurried conversation outdoors — the companionship of fellow travellers navigating the midlife threshold together."
+              <SanityImage
+                src={heroImageUrl ?? "/images/sll-people-07.jpg"}
+                alt={heroImageAlt}
                 width={600}
                 height={750}
                 priority
                 className="il-hero-img"
                 sizes="(max-width: 900px) 100vw, 40vw"
+                {...(heroImageUrl && images.heroImage?.lqip
+                  ? { placeholder: "blur" as const, blurDataURL: images.heroImage.lqip }
+                  : {})}
               />
             </div>
           </div>
@@ -211,14 +239,17 @@ export default function IdentityLabPage() {
               <div className="il-map-badge-row">
                 <span className="il-map-badge">Your signature deliverable</span>
               </div>
-              {/* Identity Map image: sll-map-007.jpg — client-provided deliverable asset. */}
-              <Image
-                src="/images/sll-map-007.jpg"
-                alt="SparkLife Identity Map showing a visual path for clarity, values, strengths, growth, and direction"
+              {/* Identity Map: no cropping — displayed with object-fit: contain so all map labels remain readable. */}
+              <SanityImage
+                src={identityMapImageUrl ?? "/images/sll-map-007.jpg"}
+                alt={identityMapImageAlt}
                 width={1024}
                 height={1536}
                 className="il-map-img"
                 sizes="(max-width: 900px) 100vw, 45vw"
+                {...(identityMapImageUrl && images.identityMapImage?.lqip
+                  ? { placeholder: "blur" as const, blurDataURL: images.identityMapImage.lqip }
+                  : {})}
               />
             </div>
           </div>
@@ -487,16 +518,16 @@ export default function IdentityLabPage() {
         </section>
 
         {/* ─── SECTION 10 — CLOSING ─── */}
-        {/* Closing image: sll-sunrise-04.jpg — coastal path at sunset.
-            Also used in the About page closing. Client should provide a dedicated
-            Identity Lab closing image to differentiate the two pages. */}
         <section className="il-closing">
-          <Image
-            src="/images/sll-sunrise-04.jpg"
-            alt="People walking together along a coastal path at sunset — moving forward with clarity and companionship."
+          <SanityImage
+            src={closingImageUrl ?? "/images/sll-sunrise-04.jpg"}
+            alt={closingImageAlt}
             fill
             className="il-closing-bg"
             sizes="100vw"
+            {...(closingImageUrl && images.closingImage?.lqip
+              ? { placeholder: "blur" as const, blurDataURL: images.closingImage.lqip }
+              : {})}
           />
           <div className="il-closing-overlay" aria-hidden="true" />
           <div className="il-closing-content">

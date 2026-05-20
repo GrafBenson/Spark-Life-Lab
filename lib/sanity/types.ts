@@ -56,6 +56,30 @@ export type SanityHomepageImages = {
 };
 
 /**
+ * Our Story page image slots — the only Our Story fields fetched from Sanity.
+ * Text is hardcoded in app/about/page.tsx.
+ */
+export type SanityOurStoryImages = {
+  _id?: string;
+  _type?: string;
+  heroImage?: SanityImageField;
+  storyImage?: SanityImageField;
+  closingImage?: SanityImageField;
+};
+
+/**
+ * Identity Lab page image slots — the only Identity Lab fields fetched from Sanity.
+ * Text is hardcoded in app/identity-lab/page.tsx.
+ */
+export type SanityIdentityLabImages = {
+  _id?: string;
+  _type?: string;
+  heroImage?: SanityImageField;
+  identityMapImage?: SanityImageField;
+  closingImage?: SanityImageField;
+};
+
+/**
  * Founder photo — the only founder field fetched from Sanity.
  * Name, role, bio, and LinkedIn URL are hardcoded in app/page.tsx.
  */

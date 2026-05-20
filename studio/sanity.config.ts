@@ -6,14 +6,16 @@ import {schemaTypes} from './schemaTypes'
  * SparkLifeLab Studio — image replacement MVP.
  *
  * Structure:
- *   📷 Homepage — Site Photos   → singleton-homepage (the document the live site reads)
- *   👤 Founders                 → one card per founder; upload photo here
- *   ⚙️  Site Settings           → footer contact email, legal links, etc.
+ *   📷 Homepage — Site Photos        → singleton-homepage
+ *   📷 Our Story — Page Photos       → singleton-our-story-page-photos
+ *   📷 Identity Lab — Page Photos    → singleton-identity-lab-page-photos
+ *   👤 Founders                      → one card per founder; upload photo here
+ *   ⚙️  Site Settings                → footer contact email, legal links, etc.
  *
- * Presentation Tool is intentionally removed for this MVP.
+ * Presentation Tool is intentionally removed.
  * The client edits images directly in the document panel — no preview overlay needed.
  *
- * To set site photos: click "Homepage — Site Photos", upload an image, click Publish.
+ * To set photos: click the relevant section, upload an image, click Publish.
  * To set a founder photo: click "Founders", open a founder card, upload a photo, click Publish.
  */
 export default defineConfig({
@@ -40,6 +42,29 @@ export default defineConfig({
                   .schemaType('homepage')
                   .documentId('singleton-homepage')
                   .title('Homepage — Site Photos'),
+              ),
+
+            // ── Our Story singleton ────────────────────────────────────────
+            // Fixed ID prevents the client from creating duplicate documents.
+            S.listItem()
+              .title('📷 Our Story — Page Photos')
+              .id('singleton-our-story-page-photos')
+              .child(
+                S.document()
+                  .schemaType('ourStoryPagePhotos')
+                  .documentId('singleton-our-story-page-photos')
+                  .title('Our Story — Page Photos'),
+              ),
+
+            // ── Identity Lab singleton ─────────────────────────────────────
+            S.listItem()
+              .title('📷 Identity Lab — Page Photos')
+              .id('singleton-identity-lab-page-photos')
+              .child(
+                S.document()
+                  .schemaType('identityLabPagePhotos')
+                  .documentId('singleton-identity-lab-page-photos')
+                  .title('Identity Lab — Page Photos'),
               ),
 
             S.divider(),
