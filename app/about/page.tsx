@@ -64,11 +64,11 @@ const founders = [
     linkedinUrl: "https://www.linkedin.com/in/scotteburton",
     linkedinLabel: "Scott E. Burton on LinkedIn (opens in new tab)",
     background:
-      "Scott is a strategist, guide, and experienced leader with decades of work in transformation, growth, and execution. He brings a strong sense of direction, steadiness, and human understanding to moments when people or organizations are in transition.",
+      "Scott is an Experienced Change Guide, Successful Business Leader and Trusted Advisor with decades of work in personal and business transformation, change management, performance improvement, plus leadership & life coaching. He brings a strong sense of purpose & possibilities, practical planning & collaborative problem solving, and holistic human needs to moments when individuals, teams and organizations are in transition.",
     quote:
-      "\u201cWhat changed for me in midlife was not simply what I was doing, but how I understood the deeper question underneath it. I began to see that growth at this stage is less about proving something and more about living in a way that feels true.\u201d",
+      "\u201cWhat changed for me in midlife was the harder I worked, the less alive I felt, despite greater achievements. I started asking myself some of those deeper questions about \u2018living a good life\u2019; and began to see that growth at this stage is less about proving something and more about living in a way that feels authentic and true to me.\u201d",
     sllRole:
-      "At SparkLifeLab, Scott is especially drawn to the inner and outer journey of change: helping people move forward with more honesty, courage, and grounded action.",
+      "At SparkLifeLab, Scott is especially drawn to the integration of the inner and outer journey of personal change: helping people experiment and move forward with more curiosity, clarity, courage, compassion, creativity and a focused calling to action.",
   },
 ];
 
