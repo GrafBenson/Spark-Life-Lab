@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { Analytics } from "@vercel/analytics/next";
 import { Cormorant_Garamond, Jost } from "next/font/google";
 import "./globals.css";
 import { draftMode } from "next/headers";
@@ -114,6 +115,8 @@ export default async function RootLayout({
         <EmberCursor />
         {/* Visual Editing overlay — only rendered in Draft Mode (Presentation Tool) */}
         {isDraft && <VisualEditing />}
+        {/* Vercel Web Analytics — privacy-friendly, no cookies, no external tracking */}
+        <Analytics />
       </body>
     </html>
   );
