@@ -17,9 +17,9 @@ export const navItems = [
 
 export const legalItems = [
   { href: "/privacy-policy/", label: "Privacy Policy" },
-  { href: "/terms-of-use/", label: "Terms of Use" },
+  { href: "/terms-and-conditions/", label: "Terms & Conditions" },
   { href: "/cookie-policy/", label: "Cookie Policy" },
-  { href: "/impressum/", label: "Impressum" },
+  { href: "/impressum/", label: "Legal Note" },
 ];
 
 export const founders = [

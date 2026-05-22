@@ -89,7 +89,7 @@ export function SiteFooter({
                 className="footer-text-button"
                 onClick={openCookiePreferences}
               >
-                Cookie preferences
+                Cookie Preferences
               </button>
             </li>
           </ul>

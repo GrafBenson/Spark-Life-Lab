@@ -9,6 +9,11 @@ const nextConfig: NextConfig = {
         destination: "/identity-lab/",
         permanent: true,
       },
+      {
+        source: "/terms-of-use/",
+        destination: "/terms-and-conditions/",
+        permanent: true,
+      },
     ];
   },
   // next-sanity is pure ESM (type: module). Without transpilePackages, Turbopack's

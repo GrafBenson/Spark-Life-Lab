@@ -104,11 +104,11 @@ export default async function RootLayout({
         <ScrollProgress />
         <SiteHeader />
         {children}
+        {/* legalLinks intentionally not passed — legal routes are code-controlled via data/site.ts legalItems */}
         <SiteFooter
           footerDescriptor={settings?.footerDescriptor}
           contactEmail={settings?.contactEmail}
           substackUrl={settings?.substackUrl}
-          legalLinks={settings?.legalLinks as { label: string; href: string }[] | undefined}
         />
         <CookieConsent />
         <EmberCursor />
