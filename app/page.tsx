@@ -4,7 +4,6 @@ import Image from "next/image";
 import { draftMode } from "next/headers";
 import { Reveal } from "@/components/motion/reveal";
 import { HeroVideo } from "@/components/hero-video";
-import { ClarityCheckCard } from "@/components/clarity-check-card";
 import { safeFetch } from "@/lib/sanity/client";
 import { homepageImagesQuery, foundersQuery } from "@/lib/sanity/queries";
 import { urlForFounderPhoto, urlForSanityLoader } from "@/lib/sanity/image";
@@ -16,12 +15,12 @@ import type { SanityHomepageImages, SanityFounderPhoto } from "@/lib/sanity/type
 export const metadata: Metadata = {
   title: "SparkLifeLab — Midlife Clarity & Guided Transformation",
   description:
-    "A calm, guided space for people in midlife who sense something has shifted. Take the free Midlife Clarity Check or explore the SparkLife Identity Lab.",
+    "A calm, guided space for people in midlife who sense something has shifted. Explore the SparkLife Identity Lab — a guided journey to clarity, values, and direction.",
   openGraph: {
     type: "website",
     title: "SparkLifeLab — Find Your Way Through Midlife",
     description:
-      "A calm, guided space for people in midlife who sense something has shifted. Free Midlife Clarity Check and SparkLife Identity Lab.",
+      "A calm, guided space for people in midlife who sense something has shifted. Explore the SparkLife Identity Lab.",
     siteName: "SparkLifeLab",
   },
 };
@@ -166,13 +165,9 @@ export default async function Home() {
               walks alongside people in midlife who are ready to find clarity, reconnect with
               what matters, and step into what comes next.
             </p>
-            <p className="hero-descriptor">
-              Start with the free Midlife Clarity Check — a 6-question self-assessment with
-              personalised results.
-            </p>
             <div className="hero-actions">
-              <Link className="button button-primary" href="#clarity-check">
-                Get my free Midlife Clarity Check →
+              <Link className="button button-primary" href="/identity-lab/">
+                Explore the SparkLife Identity Lab →
               </Link>
               <a className="hero-learn-more" href="#problem">
                 Learn more ↓
@@ -347,10 +342,10 @@ export default async function Home() {
           <div className="steps">
             <article className="step-card step-card-default">
               <div className="step-number">01</div>
-              <h3>Take the Midlife Clarity Check</h3>
+              <h3>Locate yourself</h3>
               <p>
-                Start with a short self-assessment to gain clarity on where you are.
-                Free. 20–30 minutes.
+                Start by naming where you are. Recognise what has shifted and begin to
+                understand what is asking for your attention.
               </p>
             </article>
 
@@ -375,50 +370,13 @@ export default async function Home() {
           </div>
 
           <div className="plan-cta">
-            <Link className="button button-primary" href="#clarity-check">
-              Start with the Midlife Clarity Check — it&rsquo;s free →
+            <Link className="button button-primary" href="/identity-lab/">
+              Explore the SparkLife Identity Lab →
             </Link>
           </div>
           <p className="plan-closing">
             The path forward doesn&rsquo;t need to be clear all at once. It only needs to begin.
           </p>
-        </div>
-      </Reveal>
-
-      {/* ─── SECTION 5 — MIDLIFE CLARITY CHECK ─── */}
-      <Reveal as="section" id="clarity-check" className="section-lead">
-        <div className="lead-grid">
-          {/* Left — content */}
-          <div>
-            <p className="eyebrow-white">Free — your first honest step.</p>
-            <h2 style={{ color: "var(--white)" }}>The Midlife Clarity Check</h2>
-            <p className="lead-white" style={{ marginBottom: "1.25rem" }}>
-              A free self-reflection to help you locate yourself — and understand where you
-              truly stand.
-            </p>
-            <p style={{ color: "rgba(255,255,255,0.78)", lineHeight: 1.72, marginBottom: "0.65rem" }}>
-              Many people in midlife sense that something has shifted — but can&rsquo;t quite
-              find words for it. The Midlife Clarity Check gives you language and structure
-              for that experience.
-            </p>
-            <p style={{ color: "rgba(255,255,255,0.78)", lineHeight: 1.72, marginBottom: "1.5rem" }}>
-              Six honest questions. About 20–30 minutes when done with care.
-            </p>
-            <p style={{ color: "rgba(255,255,255,0.65)", fontSize: "0.82rem", fontWeight: 600, letterSpacing: "0.14em", textTransform: "uppercase", marginBottom: "0.75rem" }}>
-              What you&rsquo;ll discover:
-            </p>
-            <ol className="lead-benefits-numbered">
-              <li>Where you are in your midlife transition — from early fog to emerging clarity</li>
-              <li>Which area of your life feels most out of sync right now</li>
-              <li>A short, honest reflection on your current experience — written for where you are</li>
-            </ol>
-            <p className="lead-closing" style={{ marginTop: "1.75rem", fontStyle: "normal", color: "rgba(255,255,255,0.55)" }}>
-              It takes 20–30 minutes. It costs nothing. And it starts with honesty.
-            </p>
-          </div>
-
-          {/* Right — Kit form */}
-          <ClarityCheckCard />
         </div>
       </Reveal>
 
@@ -496,8 +454,8 @@ export default async function Home() {
               answers. They&rsquo;re the ones who took one honest step.
             </p>
             <p style={{ marginTop: "1.5rem" }}>
-              <Link className="button-text" href="#clarity-check">
-                Start with the free Clarity Check →
+              <Link className="button-text" href="/identity-lab/">
+                Explore the SparkLife Identity Lab →
               </Link>
             </p>
           </div>
@@ -520,15 +478,15 @@ export default async function Home() {
       {/* ─── SECTION 8 — CLOSING CTA ─── */}
       <Reveal as="section" id="closing-cta" className="section-closing">
         <div className="section-inner narrow">
-          <h2>Start with a free, honest check-in.</h2>
+          <h2>Ready to find your way through?</h2>
           <p className="closing-tagline">
             <span className="closing-tagline-lead">Ignite your best life —</span>{" "}
             <span className="closing-tagline-tail">on purpose.</span>
           </p>
-          <Link className="button button-primary" href="/clarity-check/">
-            Get the free Midlife Clarity Check →
+          <Link className="button button-primary" href="/identity-lab/">
+            Explore the SparkLife Identity Lab →
           </Link>
-          <p className="closing-sub">20–30 minutes. No commitment. Just clarity.</p>
+          <p className="closing-sub">A guided journey to clarity, values, and direction.</p>
         </div>
       </Reveal>
 

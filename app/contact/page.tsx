@@ -8,7 +8,7 @@ import { site } from "@/data/site";
 export const metadata: Metadata = {
   title: "Contact SparkLifeLab — Questions Welcome",
   description:
-    "Email SparkLifeLab with questions about the free Clarity Check, the Identity Lab programme, or potential collaboration.",
+    "Email SparkLifeLab with questions about the Identity Lab programme or potential collaboration.",
   openGraph: {
     title: "Contact SparkLifeLab — Questions Welcome",
     description:
@@ -25,13 +25,13 @@ export default function ContactPage() {
           variant="contact"
           eyebrow="Contact"
           title="Questions are welcome. Pressure is not."
-          intro="Write to us about the Clarity Check, the Identity Lab, or collaboration. We respond within two working days."
+          intro="Write to us about the Identity Lab or collaboration. We respond within two working days."
         />
 
         <Reveal as="section" className="section">
           <div className="section-inner">
             <p style={{ marginBottom: "2rem", lineHeight: 1.7 }}>
-              SparkLifeLab offers two ways to start: the free Midlife Clarity Check (a 20–30 minute self-reflection) and the SparkLife Identity Lab (a small-group guided transformation). If you have questions about either, or want to talk about collaboration, write to us.
+              SparkLifeLab offers the SparkLife Identity Lab — a small-group guided transformation journey for people in midlife. If you have questions about the Identity Lab, or want to talk about collaboration, write to us.
             </p>
           </div>
         </Reveal>
@@ -52,10 +52,10 @@ export default function ContactPage() {
               <p className="meta-line">Two working days.</p>
             </article>
             <article className="contact-method">
-              <p className="eyebrow">Not sure where to start?</p>
-              <h2>Try the free Clarity Check</h2>
-              <p>20–30 minutes. Free. No commitment.</p>
-              <ButtonLink href="/clarity-check/">Get the free Clarity Check</ButtonLink>
+              <p className="eyebrow">Ready to take the next step?</p>
+              <h2>Explore the Identity Lab</h2>
+              <p>A guided journey to clarity, values, and direction.</p>
+              <ButtonLink href="/identity-lab/">Learn about the Identity Lab</ButtonLink>
             </article>
           </div>
         </Reveal>

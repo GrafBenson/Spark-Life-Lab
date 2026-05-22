@@ -11,7 +11,6 @@ export const site = {
 // V10: Resources and Contact are deferred at launch.
 // Nav anchors are handled directly in site-header.tsx.
 export const navItems = [
-  { href: "/clarity-check/", label: "Clarity Check" },
   { href: "/identity-lab/", label: "Identity Lab" },
   { href: "/about/", label: "Our Story" },
 ];

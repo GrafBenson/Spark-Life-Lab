@@ -35,7 +35,7 @@ export const metadata: Metadata = {
     template: "%s | SparkLifeLab",
   },
   description:
-    "A calm, guided space for people in midlife who sense something has shifted. Take the free Midlife Clarity Check or explore the SparkLife Identity Lab.",
+    "A calm, guided space for people in midlife who sense something has shifted. Explore the SparkLife Identity Lab — a guided journey to clarity, values, and direction.",
   applicationName: "SparkLifeLab",
   openGraph: {
     type: "website",
@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     siteName: "SparkLifeLab",
     title: "SparkLifeLab — Find Your Way Through Midlife",
     description:
-      "A calm, guided space for people in midlife who sense something has shifted. Free Midlife Clarity Check and SparkLife Identity Lab.",
+      "A calm, guided space for people in midlife who sense something has shifted. Explore the SparkLife Identity Lab.",
   },
   twitter: {
     card: "summary_large_image",
@@ -60,7 +60,7 @@ const organizationJsonLd = {
   url: site.url,
   email: site.email,
   description:
-    "SparkLifeLab offers midlife clarity tools — the free Midlife Clarity Check and the SparkLife Identity Lab small-group guided transformation.",
+    "SparkLifeLab offers midlife clarity and transformation — the SparkLife Identity Lab is a small-group guided journey to clarity, values, and direction.",
   founder: [
     { "@type": "Person", name: "Bärbel" },
     { "@type": "Person", name: "Gunther" },

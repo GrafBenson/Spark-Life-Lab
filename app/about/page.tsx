@@ -116,8 +116,8 @@ export default async function AboutPage() {
                 ourselves needed then: calm, thoughtful, and human.
               </p>
               <div className="hero-actions">
-                <Link className="button button-primary" href="/clarity-check/">
-                  Take the Midlife Clarity Check →
+                <Link className="button button-primary" href="/identity-lab/">
+                  Explore the SparkLife Identity Lab →
                 </Link>
                 <Link className="button-text" href="/identity-lab/">
                   Explore the SparkLife Identity Lab
@@ -193,8 +193,8 @@ export default async function AboutPage() {
                 We are still on that path ourselves. And we are glad to walk it with others now.
               </p>
               <p style={{ marginTop: "1.5rem" }}>
-                <Link className="button-text" href="/clarity-check/">
-                  Start with the Midlife Clarity Check →
+                <Link className="button-text" href="/identity-lab/">
+                  Explore the SparkLife Identity Lab →
                 </Link>
               </p>
             </div>
@@ -253,8 +253,8 @@ export default async function AboutPage() {
             <p className="founders-closing">Three co-founders. Fellow travellers. Still becoming.</p>
 
             <p style={{ textAlign: "center", marginTop: "2.5rem" }}>
-              <Link className="button button-primary" href="/clarity-check/">
-                Take the free Midlife Clarity Check →
+              <Link className="button button-primary" href="/identity-lab/">
+                Explore the SparkLife Identity Lab →
               </Link>
             </p>
           </div>
@@ -299,8 +299,8 @@ export default async function AboutPage() {
             </p>
 
             <div className="about-cta-group">
-              <Link className="button button-primary" href="/clarity-check/">
-                Take the Midlife Clarity Check →
+              <Link className="button button-primary" href="/identity-lab/">
+                Explore the SparkLife Identity Lab →
               </Link>
               <Link className="button button-secondary" href="/identity-lab/">
                 Explore the SparkLife Identity Lab
@@ -342,8 +342,8 @@ export default async function AboutPage() {
               </p>
 
               <div className="about-cta-group" style={{ marginTop: "2rem" }}>
-                <Link className="button button-primary" href="/clarity-check/">
-                  Take the Midlife Clarity Check →
+                <Link className="button button-primary" href="/identity-lab/">
+                  Explore the SparkLife Identity Lab →
                 </Link>
                 <Link className="button button-secondary" href="/identity-lab/">
                   Explore the SparkLife Identity Lab

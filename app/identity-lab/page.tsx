@@ -40,8 +40,8 @@ const FAQ_ITEMS: FaqItem[] = [
     a: "No. The Identity Lab is not therapy or one-on-one coaching. It is a structured, group-based journey to help you understand who you are and what direction feels true. If you are in crisis or need therapeutic support, we recommend working with a licensed professional.",
   },
   {
-    q: "Do I need to complete the Midlife Clarity Check first?",
-    a: "No, but it helps. The Midlife Clarity Check is free and takes 20–30 minutes. It introduces the Midlife Fog concept and helps you assess where you are. If you have not taken it yet, we recommend starting there.",
+    q: "Do I need any preparation before joining?",
+    a: "No preparation is required. The Identity Lab is designed to guide you from wherever you are. If you have already been reflecting on your midlife transition, that awareness will serve you well.",
   },
   {
     q: "How much time does this take each week?",
@@ -70,7 +70,7 @@ const FAQ_ITEMS: FaqItem[] = [
   },
   {
     q: "What if I am not sure this is for me?",
-    a: "Start with the free Midlife Clarity Check. It takes 20–30 minutes and will help you assess whether the Identity Lab feels like the right next step.",
+    a: "Reach out to us at hello@spark-life-lab.com. We are happy to answer questions and help you decide whether the Identity Lab feels like the right next step.",
   },
 ];
 
@@ -152,8 +152,8 @@ export default async function IdentityLabPage() {
                 <a className="button button-primary" href={JOIN_HREF}>
                   Join the Identity Lab
                 </a>
-                <Link className="button-text" href="/clarity-check/">
-                  Not ready yet? Start with the free Midlife Clarity Check →
+                <Link className="button-text" href="/about/">
+                  Learn more about our story →
                 </Link>
               </div>
             </div>
@@ -547,8 +547,8 @@ export default async function IdentityLabPage() {
               <a className="button button-primary" href={JOIN_HREF}>
                 Join the Identity Lab
               </a>
-              <Link className="il-closing-secondary" href="/clarity-check/">
-                Start with the free Midlife Clarity Check →
+              <Link className="il-closing-secondary" href="/about/">
+                Read our story →
               </Link>
             </div>
           </div>
