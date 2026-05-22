@@ -1,49 +1,45 @@
+import fs from "fs";
+import path from "path";
 import type { Metadata } from "next";
-import { LegalPage } from "@/components/legal-page";
+import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Privacy Policy",
+  title: "Privacy Policy — SparkLifeLab",
   description:
-    "SparkLifeLab privacy policy placeholder for review before launch, including GDPR and CCPA considerations.",
+    "SparkLifeLab Privacy Policy. How we collect, use, and protect your personal information under GDPR, CCPA, and applicable privacy laws.",
 };
 
 export default function PrivacyPolicyPage() {
+  const htmlContent = fs.readFileSync(
+    path.join(process.cwd(), "content/legal/sll-privacy-policy.html"),
+    "utf-8"
+  );
+
   return (
-    <LegalPage
-      title="Privacy Policy"
-      intro="This placeholder outlines the privacy topics the final policy should cover for US, Canadian, and EU visitors."
-    >
-      {/* TODO: Replace with final Termly/iubenda/lawyer-reviewed Privacy Policy. */}
-      <div className="legal-grid">
-        <article className="legal-card">
-          <h2>Data collected</h2>
-          <p>
-            The final policy should cover name, email address, consent records, website
-            analytics if enabled, and any data collected by the selected email provider.
+    <main>
+      <section
+        className="legal-policy-page"
+        style={{
+          background: "var(--page-bg)",
+          paddingLeft: "5vw",
+          paddingRight: "5vw",
+          paddingTop: "clamp(3rem, 5vw, 5rem)",
+          paddingBottom: "clamp(4rem, 6vw, 6rem)",
+        }}
+      >
+        <div className="legal-policy-inner">
+          {/* HTML contains its own <h1>PRIVACY POLICY</h1> — no duplicate heading added */}
+          <div
+            className="legal-html-content"
+            dangerouslySetInnerHTML={{ __html: htmlContent }}
+          />
+          <p className="legal-policy-footer-nav">
+            <Link href="/">← Return to homepage</Link>
+            {" · "}
+            <Link href="/contact/">Contact us</Link>
           </p>
-        </article>
-        <article className="legal-card">
-          <h2>How data is used</h2>
-          <p>
-            Include lead magnet delivery, email communications, unsubscribe handling, and
-            privacy request handling.
-          </p>
-        </article>
-        <article className="legal-card">
-          <h2>Third-party tools</h2>
-          <p>
-            Add the approved email provider, analytics provider if any, cookie tool, and
-            hosting provider before launch.
-          </p>
-        </article>
-        <article className="legal-card">
-          <h2>User rights</h2>
-          <p>
-            The final policy should address GDPR and applicable US privacy rights, including
-            access, correction, deletion, and consent withdrawal.
-          </p>
-        </article>
-      </div>
-    </LegalPage>
+        </div>
+      </section>
+    </main>
   );
 }
