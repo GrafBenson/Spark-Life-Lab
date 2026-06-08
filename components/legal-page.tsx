@@ -11,22 +11,12 @@ type LegalPageProps = {
 export function LegalPage({ title, intro, children }: LegalPageProps) {
   return (
     <main>
-      <section
-        className="legal-hero section"
-        style={{ background: "var(--page-bg)", paddingLeft: "5vw", paddingRight: "5vw" }}
-      >
-        <div className="section-inner mid">
+      <section className="legal-shell">
+        <div className="legal-shell-inner">
           <p className="brand-context">SparkLifeLab · Legal</p>
           <h1>{title}</h1>
-          <p className="page-intro">{intro}</p>
-        </div>
-      </section>
+          {intro && <p className="legal-intro">{intro}</p>}
 
-      <section
-        className="legal-content"
-        style={{ paddingLeft: "5vw", paddingRight: "5vw", paddingBottom: "clamp(4rem,6vw,6rem)" }}
-      >
-        <div className="legal-content-inner">
           <div className="legal-todo">
             <strong>TODO — Final legal copy required.</strong> This is a structured
             placeholder. Replace with lawyer-reviewed or{" "}
@@ -38,18 +28,11 @@ export function LegalPage({ title, intro, children }: LegalPageProps) {
 
           {children}
 
-          <p style={{ color: "var(--muted)", fontSize: "0.9rem", marginTop: "2rem" }}>
+          <p className="legal-footer-nav">
             Questions?{" "}
-            <a
-              href={`mailto:${site.email}`}
-              style={{ color: "var(--authority)", borderBottom: "1px solid rgba(27,58,107,0.3)" }}
-            >
-              {site.email}
-            </a>
+            <a href={`mailto:${site.email}`}>{site.email}</a>
             {" · "}
-            <Link href="/" style={{ color: "var(--authority)", borderBottom: "1px solid rgba(27,58,107,0.3)" }}>
-              Return to homepage
-            </Link>
+            <Link href="/">Return to homepage</Link>
           </p>
         </div>
       </section>

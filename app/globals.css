@@ -1365,7 +1365,7 @@ main {
 
 .legal-content-inner {
   margin: 0 auto;
-  max-width: 760px;
+  max-width: 860px;
 }
 
 .legal-content h2 {
@@ -1432,7 +1432,7 @@ main {
 
 .legal-policy-inner {
   margin: 0 auto;
-  max-width: 900px;
+  max-width: 860px;
 }
 
 /* Override Termly's Arial/gray inline styles with SparkLifeLab tokens */
@@ -1445,7 +1445,15 @@ main {
 .legal-html-content [data-custom-class='title'] * {
   color: var(--navy) !important;
   font-family: var(--serif) !important;
-  font-size: clamp(2rem, 4vw, 2.6rem) !important;
+  font-size: clamp(1.9rem, 2.8vw, 2.6rem) !important;
+  font-weight: 500 !important;
+  line-height: 1.15 !important;
+}
+
+/* Collapse Termly's wrapper div margins so title sits naturally after brand-context */
+.legal-html-content > [data-custom-class='body'] > div:first-child {
+  margin-bottom: 0.5rem;
+  margin-top: 0;
 }
 
 .legal-html-content [data-custom-class='subtitle'],
@@ -1569,6 +1577,60 @@ main {
 .legal-notice-footer a {
   color: var(--navy);
   text-underline-offset: 3px;
+}
+
+/* ===== Unified legal shell (all legal pages) ===== */
+
+.legal-shell {
+  background: var(--page-bg);
+  padding: clamp(3.5rem, 5vw, 5rem) 5vw clamp(4rem, 6vw, 6rem);
+}
+
+.legal-shell-inner {
+  margin: 0 auto;
+  max-width: 860px;
+}
+
+/* Tighter brand-context spacing in legal context */
+.legal-shell .brand-context {
+  margin-bottom: 1rem;
+}
+
+/* Shared h1 for all legal pages using the shell */
+.legal-shell h1 {
+  color: var(--navy);
+  font-size: clamp(1.9rem, 2.8vw, 2.6rem);
+  font-weight: 500;
+  line-height: 1.15;
+  margin-bottom: 1.5rem;
+  margin-top: 0;
+}
+
+/* Intro text (Cookie Policy placeholder description) — body scale, not hero scale */
+.legal-intro {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.72;
+  margin-bottom: 2rem;
+  margin-top: 0;
+}
+
+/* Unified footer nav at bottom of all legal pages */
+.legal-footer-nav {
+  border-top: 1px solid var(--line);
+  color: var(--soft);
+  font-size: 0.9rem;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+}
+
+.legal-footer-nav a {
+  color: var(--navy);
+  text-underline-offset: 3px;
+}
+
+.legal-footer-nav a:hover {
+  color: var(--ember);
 }
 
 /* ===== Contact page ===== */

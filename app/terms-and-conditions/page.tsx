@@ -17,23 +17,15 @@ export default function TermsAndConditionsPage() {
 
   return (
     <main>
-      <section
-        className="legal-policy-page"
-        style={{
-          background: "var(--page-bg)",
-          paddingLeft: "5vw",
-          paddingRight: "5vw",
-          paddingTop: "clamp(3rem, 5vw, 5rem)",
-          paddingBottom: "clamp(4rem, 6vw, 6rem)",
-        }}
-      >
-        <div className="legal-policy-inner">
+      <section className="legal-shell">
+        <div className="legal-shell-inner">
+          <p className="brand-context">SparkLifeLab · Legal</p>
           {/* HTML contains its own "TERMS AND CONDITIONS" heading — no duplicate added */}
           <div
             className="legal-html-content"
             dangerouslySetInnerHTML={{ __html: htmlContent }}
           />
-          <p className="legal-policy-footer-nav">
+          <p className="legal-footer-nav">
             <Link href="/">← Return to homepage</Link>
             {" · "}
             <Link href="/contact/">Contact us</Link>

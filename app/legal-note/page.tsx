@@ -10,15 +10,10 @@ export const metadata: Metadata = {
 export default function LegalNotePage() {
   return (
     <main>
-      <section className="legal-hero">
-        <div className="section-inner mid">
+      <section className="legal-shell">
+        <div className="legal-shell-inner">
           <p className="brand-context">SparkLifeLab · Legal</p>
           <h1>LEGAL NOTICE</h1>
-        </div>
-      </section>
-
-      <section className="legal-content">
-        <div className="legal-content-inner">
 
           <div className="legal-notice-block">
             <h2>Website operator</h2>
@@ -104,7 +99,7 @@ export default function LegalNotePage() {
             </p>
           </div>
 
-          <p className="legal-notice-footer">
+          <p className="legal-footer-nav">
             <Link href="/">← Return to homepage</Link>
             {" · "}
             <Link href="/contact/">Contact us</Link>
