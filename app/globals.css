@@ -1349,12 +1349,13 @@ main {
 /* ===== Legal pages ===== */
 
 .legal-hero {
+  background: var(--page-bg);
   padding-bottom: 2.5rem;
   padding-top: clamp(3.5rem, 5vw, 5rem);
 }
 
 .legal-hero h1 {
-  font-size: clamp(2.2rem, 3.5vw, 3.4rem);
+  font-size: clamp(1.9rem, 2.8vw, 2.6rem);
 }
 
 .legal-content {
@@ -1393,6 +1394,38 @@ main {
   font-size: 0.9rem;
   margin: 2rem 0;
   padding: 1.25rem 1.5rem;
+}
+
+/* Legal card grid — Cookie Policy placeholder layout */
+.legal-grid {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  margin-top: 2rem;
+}
+
+.legal-card {
+  background: var(--sand);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 1.5rem;
+}
+
+.legal-card h2 {
+  color: var(--navy);
+  font-family: var(--sans);
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.6rem;
+  text-transform: uppercase;
+}
+
+.legal-card p {
+  color: var(--muted);
+  font-size: 0.975rem;
+  line-height: 1.7;
+  margin: 0;
 }
 
 /* ===== Privacy Policy — approved HTML render ===== */
