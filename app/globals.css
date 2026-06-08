@@ -1495,6 +1495,49 @@ main {
   text-underline-offset: 3px;
 }
 
+/* ===== Legal Notice page ===== */
+
+.legal-notice-block {
+  margin-top: 2.25rem;
+}
+
+.legal-notice-block h2 {
+  color: var(--navy);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+}
+
+.legal-notice-block p {
+  color: var(--muted);
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+.legal-notice-block a {
+  color: var(--navy);
+  text-underline-offset: 3px;
+}
+
+.legal-notice-block a:hover {
+  color: var(--ember);
+}
+
+.legal-notice-footer {
+  border-top: 1px solid var(--line);
+  color: var(--soft);
+  font-size: 0.9rem;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+}
+
+.legal-notice-footer a {
+  color: var(--navy);
+  text-underline-offset: 3px;
+}
+
 /* ===== Contact page ===== */
 
 .contact-grid {
