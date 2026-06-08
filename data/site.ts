@@ -19,7 +19,7 @@ export const legalItems = [
   { href: "/privacy-policy/", label: "Privacy Policy" },
   { href: "/terms-and-conditions/", label: "Terms & Conditions" },
   { href: "/cookie-policy/", label: "Cookie Policy" },
-  { href: "/impressum/", label: "Legal Note" },
+  { href: "/legal-note/", label: "Legal Note" },
 ];
 
 export const founders = [

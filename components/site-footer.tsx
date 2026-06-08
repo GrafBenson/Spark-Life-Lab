@@ -3,46 +3,19 @@
 import Link from "next/link";
 import { site, legalItems } from "@/data/site";
 
-// Static fallbacks — used when Sanity settings are unavailable
-const FALLBACK_DESCRIPTOR =
+const DESCRIPTOR =
   "A self-assessment, a guided transformation, and a community — for people ready to move forward.";
-const FALLBACK_SUBSTACK = "https://sparklifelab.substack.com/";
+const SUBSTACK_URL = "https://sparklifelab.substack.com/";
 
-type LegalLink = { label: string; href: string };
-
-type SiteFooterProps = {
-  footerDescriptor?: string;
-  contactEmail?: string;
-  substackUrl?: string;
-  legalLinks?: LegalLink[];
-};
-
-export function SiteFooter({
-  footerDescriptor,
-  contactEmail,
-  substackUrl,
-  legalLinks,
-}: SiteFooterProps = {}) {
+export function SiteFooter() {
   function openCookiePreferences() {
     window.dispatchEvent(new Event("sparklifelab:open-cookie-preferences"));
   }
 
-  const descriptor =
-    footerDescriptor && footerDescriptor.trim().length > 0
-      ? footerDescriptor
-      : FALLBACK_DESCRIPTOR;
-
-  const email =
-    contactEmail && contactEmail.trim().length > 0 ? contactEmail : site.email;
-
-  const substackHref =
-    substackUrl && substackUrl.trim().length > 0 ? substackUrl : FALLBACK_SUBSTACK;
-
-  // Use Sanity legalLinks if present and non-empty; otherwise use static legalItems
-  const resolvedLegalLinks: LegalLink[] =
-    legalLinks && legalLinks.length > 0
-      ? legalLinks.filter((l) => l.label && l.href)
-      : legalItems;
+  const descriptor = DESCRIPTOR;
+  const email = site.email;
+  const substackHref = SUBSTACK_URL;
+  const resolvedLegalLinks = legalItems;
 
   return (
     <footer className="site-footer">

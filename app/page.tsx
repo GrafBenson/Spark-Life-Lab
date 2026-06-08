@@ -1,14 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { draftMode } from "next/headers";
 import { Reveal } from "@/components/motion/reveal";
 import { HeroVideo } from "@/components/hero-video";
-import { safeFetch } from "@/lib/sanity/client";
-import { homepageImagesQuery, foundersQuery } from "@/lib/sanity/queries";
-import { urlForFounderPhoto, urlForSanityLoader } from "@/lib/sanity/image";
-import { SanityImage } from "@/components/sanity-image";
-import type { SanityHomepageImages, SanityFounderPhoto } from "@/lib/sanity/types";
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
@@ -25,127 +19,53 @@ export const metadata: Metadata = {
   },
 };
 
-// ─── Static founder data (approved V1.3 copy — text is always hardcoded) ────
+// ─── Static founder data (approved V1.3 copy — text and photos are hardcoded) ────
 
-const STATIC_FOUNDERS = [
+const founders = [
   {
     id: "founder-barbel",
-    // nameKey: ASCII-normalized first name — used as fallback lookup key when
-    // Sanity document _id doesn't match (e.g. document created without fixed seed ID).
-    nameKey: "barbel",
     name: "Bärbel Tress, PhD",
     role: "Co-founder",
     bio: "A scientist and maven who spent decades guiding researchers forward — and found her own path forward when she discovered her genius and purpose in midlife.",
     linkedinUrl: "https://www.linkedin.com/in/baerbeltress",
     linkedinAriaLabel: "Bärbel Tress on LinkedIn (opens in new tab)",
-    fallbackPhoto: "/images/founder_barbel.png",
+    photo: "/images/founder_barbel.png",
     photoAlt: "Bärbel Tress, Co-founder of SparkLifeLab",
   },
   {
     id: "founder-gunther",
-    nameKey: "gunther",
     name: "Gunther Tress, PhD",
     role: "Co-founder",
     bio: "A communicator, scientist, and storyteller who built a career making complex ideas come alive — and brings that same clarity, warmth, and lightness to midlife transformation.",
     linkedinUrl: "https://www.linkedin.com/in/gunthertress",
     linkedinAriaLabel: "Gunther Tress on LinkedIn (opens in new tab)",
-    fallbackPhoto: "/images/founder_gunther.png",
+    photo: "/images/founder_gunther.png",
     photoAlt: "Gunther Tress, Co-founder of SparkLifeLab",
   },
   {
     id: "founder-scott",
-    nameKey: "scott",
     name: "Scott E. Burton",
     role: "Co-founder",
     bio: "A strategist and guide with decades in leadership and transformation who found that the most important journey was the one inward.",
     linkedinUrl: "https://www.linkedin.com/in/scotteburton",
     linkedinAriaLabel: "Scott E. Burton on LinkedIn (opens in new tab)",
-    fallbackPhoto: "/images/founder_scott.png",
+    photo: "/images/founder_scott.png",
     photoAlt: "Scott E. Burton, Co-founder of SparkLifeLab",
   },
 ];
 
 // ─── Page ─────────────────────────────────────────────────────────────────────
 
-export default async function Home() {
-  const { isEnabled: isDraft } = await draftMode();
-
-  const [rawImages, rawFounders] = await Promise.all([
-    safeFetch<SanityHomepageImages>(homepageImagesQuery, {}, isDraft),
-    safeFetch<SanityFounderPhoto[]>(foundersQuery, {}, isDraft),
-  ]);
-
-  const images = rawImages ?? {};
-
-  // ── Image slots — falls back to local /images if not yet uploaded to Sanity ──
-  //
-  // urlForSanityLoader returns a base Sanity CDN URL (quality 80 + auto=format,
-  // no fixed width). The sanityImageLoader then appends ?w= at each srcset breakpoint,
-  // serving images directly from Sanity's CDN and bypassing Next.js re-optimization.
-  //
-  // width/height props on <Image> are for layout (aspect ratio / CLS prevention) only.
-  // Actual delivered dimensions are determined by the sizes prop + loader srcset.
-  //
-  // lqip (Low Quality Image Placeholder): Sanity auto-generates a tiny base64 blur
-  // thumbnail for every uploaded image. We pass it as blurDataURL so the image
-  // fades in from a brand-accurate blur instead of a blank box.
-  const guidanceImageUrl = urlForSanityLoader(images.guidanceImage ?? null);
+export default function Home() {
+  // ── Image alt text for the local /public/images assets ──
   const guidanceImageAlt =
-    images.guidanceImage?.alt?.trim() ||
     "A small group in warm, unhurried conversation — the feeling of being heard and accompanied.";
-
-  const travelersImageUrl = urlForSanityLoader(images.travelersImage ?? null);
   const travelersImageAlt =
-    images.travelersImage?.alt?.trim() ||
     "Two people sharing a reflective conversation at an outdoor table against a coastal sunset — the warmth of shared understanding.";
-
-  const identityMapImageUrl = urlForSanityLoader(images.identityMapImage ?? null);
   const identityMapImageAlt =
-    images.identityMapImage?.alt?.trim() ||
     "SparkLife Identity Map showing a visual path for clarity, values, strengths, growth, and direction";
-
-  const stakesImageUrl = urlForSanityLoader(images.stakesImage ?? null);
   const stakesImageAlt =
-    images.stakesImage?.alt?.trim() ||
     "Three people walking together along a coastal path at sunset — fellow travellers moving forward with intention.";
-
-  // ── Founders — overlay Sanity photo URLs onto fully hardcoded static copy ──
-  //
-  // founderPhotoMap is keyed two ways for robustness:
-  //   1. By Sanity _id (works when documents were seeded with fixed IDs like "founder-barbel")
-  //   2. By "name:<normalizedFirstName>" (fallback when _id is a Sanity-generated UUID)
-  //
-  // urlForFounderPhoto now guards against cleared image fields (see lib/sanity/image.ts):
-  // a cleared field returns null, which ?? chains to the local fallbackPhoto.
-  const founderPhotoMap = new Map<string, { src: string | null; lqip?: string }>();
-  if (rawFounders) {
-    for (const f of rawFounders) {
-      const entry = {
-        src: urlForFounderPhoto(f.photo ?? null),
-        lqip: f.photo?.lqip,
-      };
-      // Primary key: Sanity document _id
-      founderPhotoMap.set(f._id, entry);
-      // Secondary key: normalized first name (strips diacritics, lowercased)
-      if (f.name) {
-        const firstName = f.name
-          .split(/[\s,]+/)[0]
-          .normalize("NFD")
-          .replace(/[\u0300-\u036f]/g, "")
-          .toLowerCase();
-        founderPhotoMap.set(`name:${firstName}`, entry);
-      }
-    }
-  }
-  const founders = STATIC_FOUNDERS.map((f) => {
-    // Prefer _id match; fall back to name-based key if _id is a UUID
-    const sanity = founderPhotoMap.get(f.id) ?? founderPhotoMap.get(`name:${f.nameKey}`);
-    return {
-      ...f,
-      photoSrc: sanity?.src ?? f.fallbackPhoto,
-      photoLqip: sanity?.src ? (sanity.lqip ?? undefined) : undefined,
-    };
-  });
 
   return (
     <main>
@@ -227,17 +147,14 @@ export default async function Home() {
             </p>
           </div>
           <Reveal delay={150} className="guidance-image-reveal">
-            <SanityImage
-              src={guidanceImageUrl ?? "/images/sll-people-07.jpg"}
+            <Image
+              src="/images/sll-people-07.jpg"
               alt={guidanceImageAlt}
               width={1200}
               height={490}
               className="guidance-image"
               sizes="(max-width: 1024px) 100vw, 820px"
               priority
-              {...(guidanceImageUrl && images.guidanceImage?.lqip
-                ? { placeholder: "blur" as const, blurDataURL: images.guidanceImage.lqip }
-                : {})}
             />
           </Reveal>
         </div>
@@ -248,16 +165,13 @@ export default async function Home() {
         <div className="travelers-grid section-inner" style={{ maxWidth: "var(--max)", margin: "0 auto" }}>
 
           <div>
-            <SanityImage
-              src={travelersImageUrl ?? "/images/sll-sunrise-05.jpg"}
+            <Image
+              src="/images/sll-sunrise-05.jpg"
               alt={travelersImageAlt}
               width={700}
               height={480}
               className="travelers-image"
               sizes="(max-width: 768px) 100vw, 560px"
-              {...(travelersImageUrl && images.travelersImage?.lqip
-                ? { placeholder: "blur" as const, blurDataURL: images.travelersImage.lqip }
-                : {})}
             />
           </div>
 
@@ -301,14 +215,11 @@ export default async function Home() {
             {founders.map((founder) => (
               <article className="founder-card" key={founder.id}>
                 <Image
-                  src={founder.photoSrc}
+                  src={founder.photo}
                   alt={founder.photoAlt}
                   width={100}
                   height={100}
                   className="founder-photo"
-                  {...(founder.photoLqip
-                    ? { placeholder: "blur" as const, blurDataURL: founder.photoLqip }
-                    : {})}
                 />
                 <h3>{founder.name}</h3>
                 <p className="founder-role">{founder.role}</p>
@@ -420,16 +331,13 @@ export default async function Home() {
 
             {/* Identity Map visual */}
             <div className="lab-map-wrap">
-              <SanityImage
-                src={identityMapImageUrl ?? "/images/sll-map-007.jpg"}
+              <Image
+                src="/images/sll-map-007.jpg"
                 alt={identityMapImageAlt}
                 width={1024}
                 height={1536}
                 className="lab-map-image"
                 sizes="(max-width: 768px) 100vw, 560px"
-                {...(identityMapImageUrl && images.identityMapImage?.lqip
-                  ? { placeholder: "blur" as const, blurDataURL: images.identityMapImage.lqip }
-                  : {})}
               />
             </div>
           </div>
@@ -460,16 +368,13 @@ export default async function Home() {
             </p>
           </div>
           <div>
-            <SanityImage
-              src={stakesImageUrl ?? "/images/sll-sunrise-04.jpg"}
+            <Image
+              src="/images/sll-sunrise-04.jpg"
               alt={stakesImageAlt}
               width={640}
               height={420}
               className="stakes-image"
               sizes="(max-width: 768px) 100vw, 560px"
-              {...(stakesImageUrl && images.stakesImage?.lqip
-                ? { placeholder: "blur" as const, blurDataURL: images.stakesImage.lqip }
-                : {})}
             />
           </div>
         </div>
