@@ -1539,22 +1539,22 @@ main {
 /* ===== Legal Notice page ===== */
 
 .legal-notice-block {
-  margin-top: 2.25rem;
+  margin-block: 2rem;
 }
 
 .legal-notice-block h2 {
   color: var(--navy);
-  font-size: 0.85rem;
+  font-size: 1rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
-  margin-bottom: 0.5rem;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.75rem;
   text-transform: uppercase;
 }
 
 .legal-notice-block p {
   color: var(--muted);
-  font-size: 1rem;
-  line-height: 1.7;
+  font-size: 0.975rem;
+  line-height: 1.72;
 }
 
 .legal-notice-block a {
