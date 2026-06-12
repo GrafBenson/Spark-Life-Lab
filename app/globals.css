@@ -63,6 +63,15 @@ html {
   background: var(--navy);
   min-height: 100%;
   scroll-behavior: smooth;
+  /* Keep anchor targets clear of the fixed cookie banner while it is shown */
+  scroll-padding-bottom: var(--cookie-banner-h, 0px);
+}
+
+/* While the first-visit cookie banner is visible, reserve space for it so the
+   fixed bar never overlaps — and silently blocks clicks on — page content/CTAs.
+   --cookie-banner-h is set/cleared by the CookieConsent component. */
+body.has-cookie-banner {
+  padding-bottom: var(--cookie-banner-h, 0px);
 }
 
 html,
