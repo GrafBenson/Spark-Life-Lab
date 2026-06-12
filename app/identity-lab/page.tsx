@@ -100,9 +100,9 @@ export default function IdentityLabPage() {
   const heroImageAlt =
     "A small group in warm, unhurried conversation outdoors — the companionship of fellow travellers navigating the midlife threshold together.";
   const identityMapImageAlt =
-    "SparkLife Identity Map showing a visual path for clarity, values, strengths, growth, and direction";
+    "A woman reviews her personal Identity Map at a table — insights gathered and ready to guide the next chapter.";
   const closingImageAlt =
-    "People walking together along a coastal path at sunset — moving forward with clarity and companionship.";
+    "A man sits quietly on a dock at sunset over a still lake — the calm clarity of a threshold crossed.";
 
   return (
     <>
@@ -140,10 +140,10 @@ export default function IdentityLabPage() {
 
             <div className="il-hero-image-wrap">
               <Image
-                src="/images/sll-people-07.jpg"
+                src="/images/identity-lab-hero-client.jpg"
                 alt={heroImageAlt}
-                width={600}
-                height={750}
+                width={1024}
+                height={1536}
                 priority
                 className="il-hero-img"
                 sizes="(max-width: 900px) 100vw, 40vw"
@@ -216,9 +216,8 @@ export default function IdentityLabPage() {
               <div className="il-map-badge-row">
                 <span className="il-map-badge">Your signature deliverable</span>
               </div>
-              {/* Identity Map: no cropping — displayed with object-fit: contain so all map labels remain readable. */}
               <Image
-                src="/images/sll-map-007.jpg"
+                src="/images/identity-lab-map-client.jpg"
                 alt={identityMapImageAlt}
                 width={1024}
                 height={1536}
@@ -460,22 +459,34 @@ export default function IdentityLabPage() {
           className="section il-cta-band"
           style={{ background: "var(--sand)", paddingLeft: "5vw", paddingRight: "5vw" }}
         >
-          <div className="section-inner mid">
-            <p className="eyebrow">Ready when you are</p>
-            <h2>Ready to begin?</h2>
-            <p className="il-cta-band-copy">
-              If you are standing at this threshold now and ready to cross it with
-              clarity and companionship, the Identity Lab is here.
-            </p>
-            <a className="button button-primary" href={JOIN_HREF}>
-              Join the Identity Lab
-            </a>
-            <p className="il-cta-support">
-              Questions?{" "}
-              <a href="mailto:hello@spark-life-lab.com">
-                Email us at hello@spark-life-lab.com
+          <div className="il-ready-grid section-inner">
+            <div>
+              <p className="eyebrow">Ready when you are</p>
+              <h2>Ready to begin?</h2>
+              <p className="il-cta-band-copy">
+                If you are standing at this threshold now and ready to cross it with
+                clarity and companionship, the Identity Lab is here.
+              </p>
+              <a className="button button-primary" href={JOIN_HREF}>
+                Join the Identity Lab
               </a>
-            </p>
+              <p className="il-cta-support">
+                Questions?{" "}
+                <a href="mailto:hello@spark-life-lab.com">
+                  Email us at hello@spark-life-lab.com
+                </a>
+              </p>
+            </div>
+            <div className="il-ready-image-wrap">
+              <Image
+                src="/images/identity-lab-ready-client.jpeg"
+                alt="A person in peaceful contemplation on a stone terrace at sunset — the calm readiness of a new beginning."
+                width={1714}
+                height={918}
+                className="il-ready-img"
+                sizes="(max-width: 900px) 100vw, 45vw"
+              />
+            </div>
           </div>
         </section>
 
@@ -494,7 +505,7 @@ export default function IdentityLabPage() {
         {/* ─── SECTION 10 — CLOSING ─── */}
         <section className="il-closing">
           <Image
-            src="/images/sll-sunrise-04.jpg"
+            src="/images/identity-lab-final-client.jpg"
             alt={closingImageAlt}
             fill
             className="il-closing-bg"

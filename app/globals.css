@@ -2619,6 +2619,7 @@ html.ember-cursor-active * {
   box-shadow: 0 8px 32px rgba(32, 43, 65, 0.13);
   height: auto;
   object-fit: cover;
+  object-position: center 65%; /* show people group, not empty sky */
   width: 100%;
 }
 
@@ -2671,10 +2672,11 @@ html.ember-cursor-active * {
 .il-map-img {
   border-radius: 6px;
   box-shadow: 0 10px 40px rgba(32, 43, 65, 0.14);
-  height: auto;
-  margin: 0 auto; /* center when max-width narrows image below column width */
-  max-width: 460px; /* portrait: let it be prominent but not a full-height poster */
-  object-fit: contain; /* never crop map labels */
+  height: 540px;
+  margin: 0 auto;
+  max-width: 460px;
+  object-fit: cover;
+  object-position: center 25%; /* show face and worksheet in portrait crop */
   width: 100%;
 }
 
@@ -2987,7 +2989,27 @@ html.ember-cursor-active * {
   display: inline-block;
 }
 
-/* ─── CTA band ──────────────────────────────────────────────────── */
+/* ─── CTA band / Ready to Begin ────────────────────────────────── */
+
+.il-ready-grid {
+  align-items: center;
+  display: grid;
+  gap: clamp(2.5rem, 5vw, 5rem);
+  grid-template-columns: 1fr 1fr;
+}
+
+.il-ready-image-wrap {
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.il-ready-img {
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgba(32, 43, 65, 0.13);
+  display: block;
+  height: auto; /* show full landscape at natural proportions — no side-cropping */
+  width: 100%;
+}
 
 .il-cta-band-copy {
   color: var(--muted);
@@ -3107,14 +3129,14 @@ html.ember-cursor-active * {
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: clamp(480px, 55vw, 720px);
+  min-height: clamp(480px, 55vw, 780px);
   overflow: hidden;
   position: relative;
 }
 
 .il-closing-bg {
   object-fit: cover;
-  object-position: center 40%;
+  object-position: right 55%; /* shift person on dock into right half, away from centered text */
 }
 
 .il-closing-overlay {
@@ -3184,7 +3206,7 @@ html.ember-cursor-active * {
 
   .il-hero-img {
     height: 380px;
-    object-position: center 30%;
+    object-position: center 60%; /* keep people visible on mobile crop */
   }
 
   .il-map-grid {
@@ -3197,6 +3219,7 @@ html.ember-cursor-active * {
 
   /* Cap portrait map on tablet/mobile so it doesn't dominate single-column layout */
   .il-map-img {
+    height: 380px;
     margin: 0 auto;
     max-width: min(440px, 86vw);
   }
@@ -3215,6 +3238,14 @@ html.ember-cursor-active * {
 
   .il-pricing-card {
     max-width: 100%;
+  }
+
+  .il-ready-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .il-ready-img {
+    height: auto; /* natural height on mobile too */
   }
 }
 
