@@ -95,11 +95,11 @@ export default function AboutPage() {
                 ourselves needed then: calm, thoughtful, and human.
               </p>
               <div className="hero-actions">
-                <Link className="button button-primary" href="/identity-lab/">
-                  Explore the SparkLife Identity Lab →
+                <Link className="button button-primary" href="/#clarity-check">
+                  Explore the Midlife Clarity Check →
                 </Link>
                 <Link className="button-text" href="/identity-lab/">
-                  Explore the SparkLife Identity Lab
+                  Explore the Identity Lab
                 </Link>
               </div>
             </div>
@@ -166,8 +166,8 @@ export default function AboutPage() {
                 We are still on that path ourselves. And we are glad to walk it with others now.
               </p>
               <p style={{ marginTop: "1.5rem" }}>
-                <Link className="button-text" href="/identity-lab/">
-                  Explore the SparkLife Identity Lab →
+                <Link className="button-text" href="/#clarity-check">
+                  Explore the Midlife Clarity Check →
                 </Link>
               </p>
             </div>
@@ -226,8 +226,8 @@ export default function AboutPage() {
             <p className="founders-closing">Three co-founders. Fellow travellers. Still becoming.</p>
 
             <p style={{ textAlign: "center", marginTop: "2.5rem" }}>
-              <Link className="button button-primary" href="/identity-lab/">
-                Explore the SparkLife Identity Lab →
+              <Link className="button button-primary" href="/#clarity-check">
+                Explore the Midlife Clarity Check →
               </Link>
             </p>
           </div>
@@ -272,11 +272,11 @@ export default function AboutPage() {
             </p>
 
             <div className="about-cta-group">
-              <Link className="button button-primary" href="/identity-lab/">
-                Explore the SparkLife Identity Lab →
+              <Link className="button button-primary" href="/#clarity-check">
+                Explore the Midlife Clarity Check →
               </Link>
               <Link className="button button-secondary" href="/identity-lab/">
-                Explore the SparkLife Identity Lab
+                Explore the Identity Lab
               </Link>
             </div>
           </div>
@@ -312,11 +312,11 @@ export default function AboutPage() {
               </p>
 
               <div className="about-cta-group" style={{ marginTop: "2rem" }}>
-                <Link className="button button-primary" href="/identity-lab/">
-                  Explore the SparkLife Identity Lab →
+                <Link className="button button-primary" href="/#clarity-check">
+                  Explore the Midlife Clarity Check →
                 </Link>
                 <Link className="button button-secondary" href="/identity-lab/">
-                  Explore the SparkLife Identity Lab
+                  Explore the Identity Lab
                 </Link>
               </div>
               <p className="about-cta-support">Free. Thoughtful. A good place to begin.</p>

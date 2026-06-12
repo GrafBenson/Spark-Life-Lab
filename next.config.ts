@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
     return [
       {
         source: "/clarity-check/",
-        destination: "/identity-lab/",
+        destination: "/#clarity-check",
         permanent: true,
       },
       {

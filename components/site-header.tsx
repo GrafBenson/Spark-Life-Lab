@@ -33,8 +33,8 @@ export function SiteHeader() {
         ))}
       </nav>
 
-      <Link className="header-cta" href="/identity-lab/">
-        Explore the Identity Lab →
+      <Link className="header-cta" href="/#clarity-check">
+        Explore the Midlife Clarity Check →
       </Link>
 
       <button
@@ -66,10 +66,10 @@ export function SiteHeader() {
           ))}
           <Link
             className="mobile-nav-cta"
-            href="/identity-lab/"
+            href="/#clarity-check"
             onClick={() => setMenuOpen(false)}
           >
-            Explore the Identity Lab →
+            Explore the Midlife Clarity Check →
           </Link>
         </nav>
       </div>
