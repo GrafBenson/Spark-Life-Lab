@@ -43,11 +43,11 @@ const founders = [
     linkedinUrl: "https://www.linkedin.com/in/gunthertress",
     linkedinLabel: "Gunther Tress on LinkedIn (opens in new tab)",
     background:
-      "Gunther is a scientist, communicator, and writer. For many years, he has helped researchers, especially early- and mid-career academics, find direction, develop confidence, and move forward in meaningful ways. Together with Bärbel, he has supported thousands of academics through writing, publishing, career development, and professional transition.",
+      "Gunther is a scientist, educator, communicator, writer, and entrepreneur. Over the past two decades, he has helped researchers and academics move forward with more clarity, confidence, and direction. Together with Bärbel, he has supported thousands of academics through writing, publishing, career development, and professional transition. His work combines analytical depth with warmth, humor, and a strong instinct for making complex things understandable and alive.",
     quote:
-      "\u201cMy own transition has been about moving from teaching people mainly how to do things well toward helping people ask what they actually want, what kind of life fits, and what story they want to live next. That shift opened a more creative, reflective, and human direction in my work.\u201d",
+      "\u201cWhat changed for me in midlife was the realization that I could keep doing work that was useful, respected, and genuinely helpful to others, yet still not feel fully alive in it. I began to see that much of my life had been built around strengths I could use effectively, rather than around the deeper creative and performative part of myself that felt most true. I had spent years bringing that part of me into my work through language, humor, storytelling, and presence, but I had never really allowed myself to build my life around it. Midlife made that harder to ignore. That realization brought me back to something that had always been with me: the desire to create, to tell stories, to write, to perform, and to bring lightness, energy, and meaning into the lives of others.\u201d",
     sllRole:
-      "At SparkLifeLab, Gunther is especially interested in language, story, and possibility: helping people find words for what they are sensing, imagine new paths, and begin to rewrite the story of what midlife can become.",
+      "At SparkLifeLab, Gunther is especially drawn to helping people recognize what is most deeply theirs — the part of themselves that may have been overlooked, postponed, or pushed to the margins of a life that otherwise looked successful. His contribution lies in helping people find language for what they are sensing, reconnect with what feels most alive in them, and begin shaping a life that is not only effective and admirable from the outside, but also more honest, creative, and fully their own.",
   },
   {
     id: "scott",
@@ -58,11 +58,11 @@ const founders = [
     linkedinUrl: "https://www.linkedin.com/in/scotteburton",
     linkedinLabel: "Scott E. Burton on LinkedIn (opens in new tab)",
     background:
-      "Scott is an Experienced Change Guide, Successful Business Leader and Trusted Advisor with decades of work in personal and business transformation, change management, performance improvement, plus leadership & life coaching. He brings a strong sense of purpose & possibilities, practical planning & collaborative problem solving, and holistic human needs to moments when individuals, teams and organizations are in transition.",
+      "Scott is an experienced change guide, business leader, entrepreneur, and trusted advisor with decades of work in personal and business transformation, change management, performance improvement, and leadership. He brings a strong sense of purpose, practical planning, collaborative problem-solving, and human understanding to moments when people, teams, and organizations are in transition.",
     quote:
-      "\u201cWhat changed for me in midlife was the harder I worked, the less alive I felt, despite greater achievements. I started asking myself some of those deeper questions about \u2018living a good life\u2019; and began to see that growth at this stage is less about proving something and more about living in a way that feels authentic and true to me.\u201d",
+      "\u201cWhat changed for me in midlife was that the harder I worked, the less alive I felt, despite greater achievements. After decades of striving for success, I was burned out, my relationships were strained, and old beliefs and identities no longer fit. I began asking deeper questions about what it really means to live a good life, and slowly realized that growth at this stage is less about proving something and more about living in a way that feels authentic and true. That was the beginning of my journey back to the values, people, dreams, and desires that mattered most to me.\u201d",
     sllRole:
-      "At SparkLifeLab, Scott is especially drawn to the integration of the inner and outer journey of personal change: helping people experiment and move forward with more curiosity, clarity, courage, compassion, creativity and a focused calling to action.",
+      "At SparkLifeLab, Scott is especially drawn to the resilience of the human spirit and the meeting point between inner desire and outward change — helping people move forward with more curiosity, clarity, courage, compassion, and grounded action.",
   },
 ];
 
@@ -89,17 +89,24 @@ export default function AboutPage() {
               <h1>Why SparkLifeLab exists</h1>
               <p className="hero-copy">
                 SparkLifeLab began with a quiet question many people reach in midlife: Is this
-                really it — or is something else trying to emerge? We created SparkLifeLab
-                because we know what it feels like when life still works on the outside, but
-                something inside no longer fits. We wanted to build the kind of space we
-                ourselves needed then: calm, thoughtful, and human.
+                really it — or is something else trying to emerge? Maybe you have asked
+                yourself questions like: Who am I now? What do I want from this next chapter?
+                What do I do with the rest of my life? From personal experience, we know this
+                can be a deeply unsettling time.
+              </p>
+              <p className="hero-copy">
+                We created SparkLifeLab because we know what it feels like when life still
+                works on the surface, but something inside no longer fits — when the beliefs
+                and roles that once guided you no longer do. We wanted to build the kind of
+                space we ourselves needed then: calm, thoughtful, and human — a space to
+                reflect, reconnect, and move toward a life that feels more fully your own.
               </p>
               <div className="hero-actions">
                 <Link className="button button-primary" href="/#clarity-check">
-                  Explore the Midlife Clarity Check →
+                  Take the Midlife Clarity Check →
                 </Link>
                 <Link className="button-text" href="/identity-lab/">
-                  Explore the Identity Lab
+                  Explore the Identity Lab →
                 </Link>
               </div>
             </div>
@@ -134,14 +141,15 @@ export default function AboutPage() {
             </div>
 
             <div>
-              <p className="eyebrow">How this began</p>
+              <p className="eyebrow">The Story Behind It</p>
               <h2>How this began</h2>
               <p>
-                The three of us — Bärbel, Gunther, and Scott — met during an online course on
-                life purpose in 2023. None of us was in crisis. Our careers were established.
-                From the outside, our lives looked solid and successful. Yet each of us felt a
-                growing sense that the stories we were living no longer fit. Something had
-                shifted — subtle, persistent, and hard to name.
+                The three of us — Bärbel, Gunther, and Scott — met in 2023, each of us
+                searching for more meaning. From the outside, our lives looked solid and
+                successful. Yet each of us felt that the stories we were living no longer
+                fit. Something had shifted. Parts of life that once felt clear no longer did,
+                while something new was beginning to stir — not yet fully visible, but
+                impossible to ignore.
               </p>
               <p>
                 What helped us most was not quick advice or ready-made answers. It was the
@@ -152,22 +160,20 @@ export default function AboutPage() {
               </p>
               <p>
                 Over time, we came to understand that what we were navigating was not a
-                personal failure. It was a threshold. A meaningful crossing many people reach
-                in midlife — often alone, and often without the kind of structure or support
-                that would help. That realization changed how we saw this phase of life, and
-                it became the seed of SparkLifeLab.
+                personal failure. It was a meaningful midlife passage — one many people move
+                through alone, and often without the kind of shared experience, structure, and
+                support that would help. That realization changed how we saw this phase of
+                life, and it became the seed of SparkLifeLab.
               </p>
               <p>
-                We did not set out to fix midlife or reinvent anyone. We created SparkLifeLab
-                to honor it: as a real passage, a time that asks for honesty, reflection, and
-                gentle movement toward what is next.
-              </p>
-              <p>
-                We are still on that path ourselves. And we are glad to walk it with others now.
+                We did not create SparkLifeLab to fix people. We created it as a calm, human
+                space for reflection, honesty, and change — a place where people can begin to
+                understand themselves more deeply and move toward what comes next. We are
+                still on that path ourselves, and we are glad to walk it with others now.
               </p>
               <p style={{ marginTop: "1.5rem" }}>
                 <Link className="button-text" href="/#clarity-check">
-                  Explore the Midlife Clarity Check →
+                  Start with the Midlife Clarity Check →
                 </Link>
               </p>
             </div>
@@ -183,9 +189,13 @@ export default function AboutPage() {
             <p className="eyebrow">The people behind SparkLifeLab</p>
             <h2>Meet the founders</h2>
             <p className="about-founders-intro">
-              We each came to this work from a different direction. What we share is a deep
-              respect for midlife as a meaningful turning point — and a belief that people
-              deserve thoughtful support as they find their way through it.
+              We each came to this work from a different place in life. What we share is a
+              deep respect for midlife as a meaningful passage — and a belief that people
+              deserve thoughtful support as they move through it. This work is personal to
+              all three of us. We know what it means when life looks solid on the outside,
+              but something deeper asks for change. We know, too, how much it matters to
+              feel guided and supported as a new story begins to take shape. That is part
+              of why we created SparkLifeLab.
             </p>
 
             <div className="about-founder-list">
@@ -227,7 +237,7 @@ export default function AboutPage() {
 
             <p style={{ textAlign: "center", marginTop: "2.5rem" }}>
               <Link className="button button-primary" href="/#clarity-check">
-                Explore the Midlife Clarity Check →
+                Take the Midlife Clarity Check →
               </Link>
             </p>
           </div>
@@ -243,40 +253,38 @@ export default function AboutPage() {
             <h2>What we believe about midlife</h2>
 
             <blockquote className="about-beliefs-highlight">
-              Midlife is not a crisis. It is a threshold.
+              Midlife is not a crisis. It is a passage.
             </blockquote>
 
             <p>
-              We do not see midlife as a crisis. We see it as a threshold — a crossing point
-              where experience, longing, and possibility meet. Feeling stuck, restless, or
-              unsure is not a flaw. It is often a signal that growth is asking for attention.
+              We do not see midlife as a crisis. We see it as a passage — a time when lived
+              experience, longing, and new possibilities begin to meet. Feeling stuck,
+              restless, or unsure is not a flaw. It is often a natural signal that change
+              and growth are asking for attention.
             </p>
             <p>
               We also believe that midlife has been framed too narrowly for too long. Too
               often, the cultural story is one of decline, urgency, or quiet settling. We do
               not accept that story. We believe renewal, relevance, and becoming do not end
-              in midlife. In many ways, this is the phase when a more honest life begins to
-              ask for shape.
+              in midlife.
             </p>
             <p>
-              What makes SparkLifeLab different is the kind of support we offer. We are not
-              here to push people into dramatic reinvention or to diagnose, fix, or override
-              anyone&rsquo;s lived experience. We walk alongside people as guides — offering
-              structure, reflection, and companionship as clarity unfolds in small, intentional
-              steps.
+              In many ways, this is the phase when a more honest and aligned life begins to
+              ask for shape. What makes SparkLifeLab different is the kind of support we
+              offer. We are not here to push people into dramatic reinvention or to diagnose,
+              fix, or override anyone&rsquo;s lived experience. We walk alongside people as
+              guides — offering structure, reflection, and companionship as clarity unfolds
+              in small, intentional steps.
             </p>
             <p>
-              That is why the threshold framing matters to us. A threshold is not a breakdown.
-              It is a crossing. And crossings ask for attention, courage, and the right kind of
-              company.
+              That is why the idea of a midlife passage matters to us. A passage is not a
+              breakdown. It is a real part of life — one that asks for attention, courage,
+              and the right kind of company.
             </p>
 
             <div className="about-cta-group">
               <Link className="button button-primary" href="/#clarity-check">
-                Explore the Midlife Clarity Check →
-              </Link>
-              <Link className="button button-secondary" href="/identity-lab/">
-                Explore the Identity Lab
+                Take the Midlife Clarity Check →
               </Link>
             </div>
           </div>
@@ -307,16 +315,14 @@ export default function AboutPage() {
                 standing outside this terrain. We know it from the inside.
               </p>
               <p>
-                We are still learning. Still crossing. Still becoming. And we are glad to
-                walk this stretch with others.
+                We are still learning. Still becoming. And we are glad to walk this stretch
+                with others — with more clarity, more honesty, and a growing sense of what
+                becomes possible next.
               </p>
 
               <div className="about-cta-group" style={{ marginTop: "2rem" }}>
                 <Link className="button button-primary" href="/#clarity-check">
-                  Explore the Midlife Clarity Check →
-                </Link>
-                <Link className="button button-secondary" href="/identity-lab/">
-                  Explore the Identity Lab
+                  Take the Midlife Clarity Check →
                 </Link>
               </div>
               <p className="about-cta-support">Free. Thoughtful. A good place to begin.</p>

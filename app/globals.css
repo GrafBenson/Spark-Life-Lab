@@ -3191,6 +3191,17 @@ html.ember-cursor-active * {
   color: var(--white);
 }
 
+/* ─── Responsive — 1100px ───────────────────────────────────────── */
+
+@media (max-width: 1100px) {
+  .il-closing-bg {
+    object-position: 30% 55%;
+    transform: scale(1.8);
+    transform-origin: 24% 55%;
+    /* scale() zooms in so object-position has leverage even where image barely overflows */
+  }
+}
+
 /* ─── Responsive — 900px ────────────────────────────────────────── */
 
 @media (max-width: 900px) {
@@ -3267,6 +3278,12 @@ html.ember-cursor-active * {
 
   .il-closing {
     min-height: 480px;
+  }
+
+  .il-closing-bg {
+    object-position: 24% 55%;
+    transform: scale(1.8);
+    transform-origin: 20% 55%;
   }
 
   .il-closing-actions {
