@@ -34,7 +34,7 @@ export function SiteHeader() {
       </nav>
 
       <Link className="header-cta" href="/#clarity-check">
-        Explore the Midlife Clarity Check →
+        Take the Midlife Clarity Check →
       </Link>
 
       <button
@@ -69,7 +69,7 @@ export function SiteHeader() {
             href="/#clarity-check"
             onClick={() => setMenuOpen(false)}
           >
-            Explore the Midlife Clarity Check →
+            Take the Midlife Clarity Check →
           </Link>
         </nav>
       </div>

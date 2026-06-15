@@ -10,12 +10,12 @@ import { ClarityCheckCard } from "@/components/clarity-check-card";
 export const metadata: Metadata = {
   title: "SparkLifeLab — Midlife Clarity & Guided Transformation",
   description:
-    "A calm, guided space for people in midlife who sense something has shifted. Take the free Midlife Clarity Check or explore the SparkLife Identity Lab.",
+    "A calm, guided space for people in midlife who sense something has shifted. Take the free Midlife Clarity Check or explore the Identity Lab.",
   openGraph: {
     type: "website",
     title: "SparkLifeLab — Find Your Way Through Midlife",
     description:
-      "A calm, guided space for people in midlife who sense something has shifted. Free Midlife Clarity Check and SparkLife Identity Lab.",
+      "A calm, guided space for people in midlife who sense something has shifted. Free Midlife Clarity Check and Identity Lab.",
     siteName: "SparkLifeLab",
   },
 };
@@ -92,7 +92,7 @@ export default function Home() {
             </p>
             <div className="hero-actions">
               <Link className="button button-primary" href="#clarity-check">
-                Explore the Midlife Clarity Check →
+                Take the Midlife Clarity Check →
               </Link>
               <a className="hero-learn-more" href="#problem">
                 Learn more ↓
@@ -142,7 +142,7 @@ export default function Home() {
               SparkLifeLab exists for people in midlife who sense that something in their
               life no longer fits — even if, from the outside, everything looks fine. We
               exist because midlife deserves a more thoughtful, humane framing — as a
-              meaningful threshold where experience, longing, and possibility meet.
+              meaningful passage where experience, longing, and possibility meet.
             </p>
             <p className="lead founders-lead" style={{ marginTop: "1rem" }}>
               Feeling stuck or uncertain is not a flaw. It is often a signal that growth is
@@ -198,10 +198,10 @@ export default function Home() {
             </p>
             <p>
               What helped us most was the chance to slow down together. Space, time, and
-              companionship. Gradually, clarity emerged. We realised this was a threshold —
-              a meaningful crossing many people reach in midlife, often alone.
-              SparkLifeLab grew from the wish that something like this had existed when we
-              first felt that quiet restlessness.
+              companionship. Gradually, clarity emerged. We realized this was not a personal
+              failure. It was a meaningful midlife passage — one many people experience, often
+              alone. SparkLifeLab grew from the wish that something like this had existed when
+              we first felt that quiet restlessness.
             </p>
             <p>
               We&rsquo;re still on that path ourselves, and we&rsquo;re glad to walk it with you.
@@ -269,7 +269,7 @@ export default function Home() {
               <div className="step-number">02</div>
               <h3>Join a guided experience</h3>
               <p>
-                Deepen your clarity through the SparkLife Identity Lab — a guided journey
+                Deepen your clarity through the Identity Lab — a guided journey
                 to help you understand who you are now and shape your next chapter with
                 intention.
               </p>
@@ -287,7 +287,7 @@ export default function Home() {
 
           <div className="plan-cta">
             <Link className="button button-primary" href="#clarity-check">
-              Explore the Midlife Clarity Check →
+              Take the Midlife Clarity Check →
             </Link>
           </div>
           <p className="plan-closing">
@@ -340,7 +340,7 @@ export default function Home() {
             {/* Text + CTA */}
             <div>
               <p className="eyebrow">When you&rsquo;re ready for the next step.</p>
-              <h2>The SparkLife Identity Lab</h2>
+              <h2>The Identity Lab</h2>
               <p
                 className="lead"
                 style={{ fontStyle: "italic", maxWidth: "600px", marginBottom: "1.25rem", marginTop: "1.25rem" }}
@@ -348,7 +348,7 @@ export default function Home() {
                 Your guided first step into clarity
               </p>
               <p style={{ maxWidth: "680px" }}>
-                Once you have a clearer sense of where you are, the SparkLife Identity Lab
+                Once you have a clearer sense of where you are, the Identity Lab
                 offers the next step — a guided transformation journey to help you understand
                 who you are now, what truly matters, and how to move forward with intention.
               </p>
@@ -405,7 +405,7 @@ export default function Home() {
             </p>
             <p style={{ marginTop: "1.5rem" }}>
               <Link className="button-text" href="#clarity-check">
-                Explore the Midlife Clarity Check →
+                Take the Midlife Clarity Check →
               </Link>
             </p>
           </div>
@@ -431,7 +431,7 @@ export default function Home() {
             <span className="closing-tagline-tail">on purpose.</span>
           </p>
           <Link className="button button-primary" href="#clarity-check">
-            Explore the Midlife Clarity Check →
+            Take the Midlife Clarity Check →
           </Link>
           <p className="closing-sub">20–30 minutes. No commitment. Just clarity.</p>
         </div>

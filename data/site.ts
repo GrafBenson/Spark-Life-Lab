@@ -42,7 +42,7 @@ export const planSteps = [
   },
   {
     label: "Join a guided experience",
-    text: "Deepen your clarity through the SparkLife Identity Lab, a guided programme designed to help you understand who you are now and shape your next chapter with intention and confidence.",
+    text: "Deepen your clarity through the Identity Lab, a guided programme designed to help you understand who you are now and shape your next chapter with intention and confidence.",
   },
   {
     label: "Live your spark",

@@ -7,13 +7,13 @@ import { IdentityLabFaq, type FaqItem } from "@/components/identity-lab-faq";
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
 export const metadata: Metadata = {
-  title: "SparkLife Identity Lab | SparkLifeLab",
+  title: "Identity Lab | SparkLifeLab",
   description:
     "A guided transformation journey for people in midlife who are ready to move from fog to grounded forward movement.",
   openGraph: {
-    title: "SparkLife Identity Lab | SparkLifeLab",
+    title: "Identity Lab | SparkLifeLab",
     description:
-      "Not a course. Not coaching. A guided crossing — with others who understand what this passage feels like. Ends with your personal Identity Map.",
+      "Not just a course. Not just coaching. A guided crossing — with others who understand what this passage feels like. Ends with your personal Identity Map.",
   },
 };
 
@@ -98,11 +98,11 @@ const PERSONAS = [
 
 export default function IdentityLabPage() {
   const heroImageAlt =
-    "A small group in warm, unhurried conversation outdoors — the companionship of fellow travellers navigating the midlife threshold together.";
+    "A small group in warm, unhurried conversation outdoors — the companionship of fellow travellers navigating the midlife passage together.";
   const identityMapImageAlt =
     "A woman reviews her personal Identity Map at a table — insights gathered and ready to guide the next chapter.";
   const closingImageAlt =
-    "A man sits quietly on a dock at sunset over a still lake — the calm clarity of a threshold crossed.";
+    "A man sits quietly on a dock at sunset over a still lake — the calm clarity of a passage completed.";
 
   return (
     <>
@@ -114,26 +114,26 @@ export default function IdentityLabPage() {
           <div className="il-hero-grid section-inner">
             <div>
               <p className="eyebrow">When you&rsquo;re ready for the next step</p>
-              <h1>The SparkLife Identity Lab</h1>
+              <h1>The Identity Lab</h1>
               <p className="hero-copy">
                 A guided transformation journey for people in midlife who are ready to
                 move from fog to grounded forward movement.
               </p>
               <p className="il-descriptor">
-                Not a course. Not coaching. A guided crossing.
+                Not just a course. Not just coaching. A guided crossing.
               </p>
               <p>
-                Once you have a clearer sense of where you are, the SparkLife Identity
-                Lab offers the next step — a structured journey to help you understand
+                Once you have a clearer sense of where you are, the Identity Lab
+                offers the next step — a structured journey to help you understand
                 who you are now, what truly matters, and how to move forward with
                 intention.
               </p>
               <div className="hero-actions">
                 <a className="button button-primary" href={JOIN_HREF}>
-                  Join the Identity Lab
+                  Join the Identity Lab →
                 </a>
                 <Link className="button-text" href="/#clarity-check">
-                  Explore the Midlife Clarity Check →
+                  Take the Midlife Clarity Check →
                 </Link>
               </div>
             </div>
@@ -161,8 +161,8 @@ export default function IdentityLabPage() {
             <p className="eyebrow">What it is</p>
             <h2>A guided crossing — with others who understand</h2>
             <p>
-              The SparkLife Identity Lab is a guided journey for people in midlife who
-              are navigating the threshold between what no longer fits and what wants to
+              The Identity Lab is a guided journey for people in midlife who
+              are navigating a passage between what no longer fits and what wants to
               emerge next.
             </p>
             <p>
@@ -197,11 +197,11 @@ export default function IdentityLabPage() {
                 Not a worksheet. Not a summary. A compass you keep.
               </blockquote>
               <p>
-                The Identity Map is created specifically for you. Throughout the four
-                weeks, you complete reflection exercises, assessments, and guided prompts.
-                You upload your work, and we synthesize your insights — using advanced
-                tools including AI — into a clear, visual document that reflects who you
-                are now and the direction that feels most yours.
+                The Identity Map is created specifically for you. Throughout the
+                four-week journey, you complete reflection exercises, assessments, and
+                guided prompts. You upload your work, and we synthesize your insights —
+                using advanced tools including AI — into a clear, visual document that
+                reflects who you are now and the direction that feels most yours.
               </p>
               <p className="il-ai-note">
                 <strong>The AI role:</strong> We use technology to help organize and
@@ -213,9 +213,6 @@ export default function IdentityLabPage() {
             </div>
 
             <div className="il-map-visual-col">
-              <div className="il-map-badge-row">
-                <span className="il-map-badge">Your signature deliverable</span>
-              </div>
               <Image
                 src="/images/identity-lab-map-client.jpg"
                 alt={identityMapImageAlt}
@@ -383,7 +380,7 @@ export default function IdentityLabPage() {
             <h2>Is the Identity Lab right for you?</h2>
             <p className="il-qualify-intro">
               The Identity Lab is designed for people in midlife (roughly ages 45–75)
-              who are navigating a threshold — a moment when life no longer fits the way
+              who are navigating a passage — a moment when life no longer fits the way
               it used to, and the way forward is unclear.
             </p>
             <p className="il-qualify-lead">This journey is for you if you are:</p>
@@ -422,8 +419,8 @@ export default function IdentityLabPage() {
           style={{ paddingLeft: "5vw", paddingRight: "5vw" }}
         >
           <div className="section-inner mid">
-            <p className="eyebrow">Investment</p>
-            <h2>Investment</h2>
+            <p className="eyebrow">Pricing</p>
+            <h2>Your investment</h2>
 
             <div className="il-pricing-card">
               <p className="il-pricing-price">$497</p>
@@ -448,7 +445,7 @@ export default function IdentityLabPage() {
                 Spaces are limited to preserve the quality of the group experience.
               </p>
               <a className="button button-primary il-pricing-cta" href={JOIN_HREF}>
-                Join the Identity Lab
+                Join the Identity Lab →
               </a>
             </div>
           </div>
@@ -461,14 +458,14 @@ export default function IdentityLabPage() {
         >
           <div className="il-ready-grid section-inner">
             <div>
-              <p className="eyebrow">Ready when you are</p>
+              <p className="eyebrow">When it feels right</p>
               <h2>Ready to begin?</h2>
               <p className="il-cta-band-copy">
-                If you are standing at this threshold now and ready to cross it with
+                If you are entering this passage now and ready to move through it with
                 clarity and companionship, the Identity Lab is here.
               </p>
               <a className="button button-primary" href={JOIN_HREF}>
-                Join the Identity Lab
+                Join the Identity Lab →
               </a>
               <p className="il-cta-support">
                 Questions?{" "}
@@ -496,7 +493,7 @@ export default function IdentityLabPage() {
           style={{ paddingLeft: "5vw", paddingRight: "5vw" }}
         >
           <div className="section-inner mid">
-            <p className="eyebrow">Common questions</p>
+            <p className="eyebrow">Good to know</p>
             <h2>Frequently Asked Questions</h2>
             <IdentityLabFaq items={FAQ_ITEMS} />
           </div>
@@ -505,7 +502,7 @@ export default function IdentityLabPage() {
         {/* ─── SECTION 10 — CLOSING ─── */}
         <section className="il-closing">
           <Image
-            src="/images/identity-lab-final-client.jpg"
+            src="/images/identity-lab-final-002.jpg"
             alt={closingImageAlt}
             fill
             className="il-closing-bg"
@@ -514,7 +511,7 @@ export default function IdentityLabPage() {
           <div className="il-closing-overlay" aria-hidden="true" />
           <div className="il-closing-content">
             <h2 className="il-closing-heading">
-              A threshold crossed with clarity and companionship
+              A passage made with clarity and companionship
             </h2>
             <p className="il-closing-copy">Midlife is not a crisis. It is a crossing.</p>
             <p className="il-closing-copy">
@@ -523,14 +520,14 @@ export default function IdentityLabPage() {
               clarity and companionship.
             </p>
             <p className="il-closing-copy">
-              If you are standing at this threshold, you do not have to cross it alone.
+              If you are at the start of this passage, you do not have to make it alone.
             </p>
             <div className="il-closing-actions">
               <a className="button button-primary" href={JOIN_HREF}>
-                Join the Identity Lab
+                Join the Identity Lab →
               </a>
               <Link className="il-closing-secondary" href="/#clarity-check">
-                Explore the Midlife Clarity Check →
+                Take the Midlife Clarity Check →
               </Link>
             </div>
           </div>
