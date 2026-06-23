@@ -76,7 +76,7 @@ export default function LegalNotePage() {
             <p>
               Registered jurisdiction: Delaware, United States<br />
               Registration authority: Delaware Division of Corporations<br />
-              Delaware file number: [insert when available]
+              Delaware file number: 10605487
             </p>
           </div>
 

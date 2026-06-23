@@ -82,13 +82,13 @@ export default function Home() {
             </h1>
             <p className="hero-copy">
               That quiet restlessness. The sense that something has shifted but you can&rsquo;t
-              quite name it. You&rsquo;re not lost — you&rsquo;re at a threshold. SparkLifeLab
+              quite name it. You&rsquo;re not lost — you&rsquo;re moving through a meaningful life passage. SparkLifeLab
               walks alongside people in midlife who are ready to find clarity, reconnect with
               what matters, and step into what comes next.
             </p>
             <p className="hero-descriptor">
               Start with the free Midlife Clarity Check — a 6-question self-assessment with
-              personalised results.
+              personalized results.
             </p>
             <div className="hero-actions">
               <Link className="button button-primary" href="#clarity-check">
