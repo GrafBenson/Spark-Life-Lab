@@ -98,3 +98,27 @@ test("controls the closing tagline wrap point", () => {
   assert.match(home, /closing-tagline-tail/);
   assert.match(styles, /\.closing-tagline span\s*{[\s\S]*white-space:\s*nowrap;/);
 });
+
+test("embeds the live Kit Midlife Clarity Check form in the existing card", () => {
+  const card = read("components/clarity-check-card.tsx");
+  const kitFormPath = "components/midlife-clarity-kit-form.tsx";
+  const kitForm = existsSync(join(root, kitFormPath)) ? read(kitFormPath) : "";
+  const componentSource = [card, kitForm].join("\n");
+  const styles = read("app/globals.css");
+
+  assert.match(card, /Get your free Midlife Clarity Check/);
+  assert.match(card, /Free\. No spam\. Delivered to your inbox\. Unsubscribe at any time\./);
+  assert.match(componentSource, /sll-midlife-kit-form/);
+  assert.match(componentSource, /62b878a91d/);
+  assert.match(componentSource, /https:\/\/sparklifelab\.kit\.com\/62b878a91d\/index\.js/);
+  assert.match(componentSource, /First name/);
+  assert.match(componentSource, /Email address/);
+  assert.doesNotMatch(card, /clarity-form-input/);
+  assert.doesNotMatch(card, /clarity-form-submit/);
+  assert.match(styles, /\.sll-midlife-kit-form\s*{/);
+  assert.match(styles, /\.sll-midlife-kit-form\s+\.formkit-fields/);
+  assert.match(styles, /\.sll-midlife-kit-form\s+\.formkit-input/);
+  assert.match(styles, /\.sll-midlife-kit-form\s+\.formkit-submit/);
+  assert.match(styles, /\.sll-midlife-kit-form\s+\.formkit-submit > span\s*{[\s\S]*display:\s*block !important;/);
+  assert.match(styles, /content:\s*"\\00a0→";/);
+});

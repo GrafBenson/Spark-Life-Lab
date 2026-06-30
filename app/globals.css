@@ -2186,7 +2186,7 @@ html.ember-cursor-active * {
   width: 100%;
 }
 
-/* Form placeholder — visual only, no real submission */
+/* Live Kit form */
 .clarity-form-placeholder {
   display: flex;
   flex-direction: column;
@@ -2202,55 +2202,118 @@ html.ember-cursor-active * {
   margin: 0;
 }
 
-.clarity-form-fields {
-  display: grid;
-  gap: 0.55rem;
-}
-
-.clarity-form-input {
-  background: rgba(255, 255, 255, 0.09);
-  border: 1px solid rgba(255, 255, 255, 0.22);
-  border-radius: 3px;
-  color: var(--white);
-  font-family: var(--sans);
-  font-size: 1.18rem;
-  min-height: 50px;
-  padding: 0.85rem 1rem;
-  transition: border-color var(--t-quick);
+.sll-midlife-kit-form {
+  min-height: 174px;
   width: 100%;
 }
 
-.clarity-form-input::placeholder { color: rgba(255, 255, 255, 0.42); }
-
-.clarity-form-input:focus,
-.clarity-form-input:focus-visible {
-  border-color: var(--ember);
-  outline: 0;
+.sll-midlife-kit-form .formkit-form,
+.sll-midlife-kit-form .formkit-background,
+.sll-midlife-kit-form .formkit-card,
+.sll-midlife-kit-form .formkit-container,
+.sll-midlife-kit-form .formkit-form [data-style="clean"] {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  max-width: 100% !important;
+  padding: 0 !important;
+  width: 100% !important;
 }
 
-.clarity-form-submit {
-  background: var(--ember);
-  border: none;
-  border-radius: 3px;
-  box-shadow: 0 2px 10px rgba(239, 124, 98, 0.28);
-  color: var(--white);
-  cursor: pointer;
-  display: block;
-  font-family: var(--sans);
-  font-size: 1rem;
-  font-weight: 500;
-  letter-spacing: 0.1em;
-  min-height: 50px;
-  padding: 0.9rem 1.6rem;
-  text-align: center;
-  text-transform: uppercase;
-  transition: background var(--t-quick), box-shadow var(--t-quick);
-  width: 100%;
+.sll-midlife-kit-form .formkit-alert {
+  border-radius: 4px !important;
+  font-size: 0.95rem !important;
+  line-height: 1.4 !important;
+  list-style: none !important;
+  margin: 0 0 0.75rem !important;
+  padding: 0.75rem 1rem !important;
+  text-align: left !important;
+  width: 100% !important;
 }
 
-.clarity-form-submit:hover {
-  background: var(--ember-deep);
-  box-shadow: 0 4px 16px rgba(239, 124, 98, 0.36);
+.sll-midlife-kit-form .formkit-alert:empty {
+  display: none !important;
+}
+
+.sll-midlife-kit-form .formkit-fields {
+  display: flex !important;
+  flex-direction: column !important;
+  flex-wrap: nowrap !important;
+  gap: 0.75rem !important;
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+.sll-midlife-kit-form .formkit-field,
+.sll-midlife-kit-form .formkit-input,
+.sll-midlife-kit-form .formkit-submit {
+  flex: 0 0 auto !important;
+  margin: 0 !important;
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+.sll-midlife-kit-form .formkit-input {
+  background: rgba(255, 255, 255, 0.09) !important;
+  border: 1px solid rgba(255, 255, 255, 0.22) !important;
+  border-radius: 3px !important;
+  box-shadow: none !important;
+  color: var(--white) !important;
+  font-family: var(--sans) !important;
+  font-size: 1.18rem !important;
+  line-height: 1.4 !important;
+  min-height: 50px !important;
+  padding: 0.85rem 1rem !important;
+  transition: border-color var(--t-quick) !important;
+}
+
+.sll-midlife-kit-form .formkit-input::placeholder {
+  color: rgba(255, 255, 255, 0.42) !important;
+  opacity: 1 !important;
+}
+
+.sll-midlife-kit-form .formkit-input:focus,
+.sll-midlife-kit-form .formkit-input:focus-visible {
+  border-color: var(--ember) !important;
+  outline: 0 !important;
+}
+
+.sll-midlife-kit-form .formkit-submit {
+  background: var(--ember) !important;
+  border: none !important;
+  border-radius: 3px !important;
+  box-shadow: 0 2px 10px rgba(239, 124, 98, 0.28) !important;
+  color: var(--white) !important;
+  cursor: pointer !important;
+  display: block !important;
+  font-family: var(--sans) !important;
+  font-size: 1rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.1em !important;
+  min-height: 50px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  text-align: center !important;
+  text-transform: uppercase !important;
+  transition: background var(--t-quick), box-shadow var(--t-quick) !important;
+}
+
+.sll-midlife-kit-form .formkit-submit:hover,
+.sll-midlife-kit-form .formkit-submit:focus-visible {
+  background: var(--ember-deep) !important;
+  box-shadow: 0 4px 16px rgba(239, 124, 98, 0.36) !important;
+}
+
+.sll-midlife-kit-form .formkit-submit > span {
+  display: block !important;
+  line-height: 1.35 !important;
+  min-height: 50px !important;
+  padding: 0.9rem 1.6rem !important;
+}
+
+.sll-midlife-kit-form .formkit-submit > span::after {
+  content: "\00a0→";
 }
 
 .clarity-form-reassurance {
