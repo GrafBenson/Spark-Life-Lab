@@ -122,3 +122,50 @@ test("embeds the live Kit Midlife Clarity Check form in the existing card", () =
   assert.match(styles, /\.sll-midlife-kit-form\s+\.formkit-submit > span\s*{[\s\S]*display:\s*block !important;/);
   assert.match(styles, /content:\s*"\\00a0→";/);
 });
+
+test("routes Identity Lab enrollment CTAs through pricing and waitlist", () => {
+  const identityLab = read("app/identity-lab/page.tsx");
+
+  assert.match(identityLab, /const INVESTMENT_HREF = "#identity-lab-investment";/);
+  assert.match(identityLab, /const WAITLIST_HREF = "\/identity-lab\/waitlist\/";/);
+  assert.match(identityLab, /id="identity-lab-investment"/);
+  assert.equal((identityLab.match(/href=\{INVESTMENT_HREF\}/g) ?? []).length, 3);
+  assert.equal((identityLab.match(/href=\{WAITLIST_HREF\}/g) ?? []).length, 1);
+  assert.doesNotMatch(identityLab, /https?:\/\/[^\s"']*kajabi/i);
+});
+
+test("keeps the Identity Lab waitlist page hidden and Kit-powered", () => {
+  const waitlistPath = "app/identity-lab/waitlist/page.tsx";
+  const kitFormPath = "components/identity-waitlist-kit-form.tsx";
+  assert.equal(existsSync(join(root, waitlistPath)), true, `${waitlistPath} should exist`);
+  assert.equal(existsSync(join(root, kitFormPath)), true, `${kitFormPath} should exist`);
+
+  const waitlist = read(waitlistPath);
+  const kitForm = read(kitFormPath);
+  const styles = read("app/globals.css");
+  const navigation = [
+    read("components/site-header.tsx"),
+    read("components/site-footer.tsx"),
+    read("data/site.ts"),
+  ].join("\n");
+
+  assert.match(waitlist, /IDENTITY LAB/);
+  assert.match(waitlist, /Join the waitlist for the next Identity Lab cohort/);
+  assert.match(waitlist, /The Identity Lab is a guided journey for people in midlife who are ready to move from fog to grounded forward movement\./);
+  assert.match(waitlist, /Registration is currently closed\. If you’d like to be the first to know when the next enrollment opens, join the waitlist below\./);
+  assert.match(waitlist, /Add your name and email, and we’ll let you know as soon as registration opens again\./);
+  assert.match(waitlist, /We’ll only email you about the Identity Lab and related updates\. No spam\./);
+  assert.match(waitlist, /Not ready yet\? Start with the Midlife Clarity Check →/);
+  assert.match(waitlist, /href="\/#clarity-check"/);
+  assert.doesNotMatch(waitlist, /next\/image/);
+  assert.doesNotMatch(navigation, /\/identity-lab\/waitlist\//);
+  assert.match(kitForm, /sll-identity-waitlist-kit-form/);
+  assert.match(kitForm, /fed36a3d05/);
+  assert.match(kitForm, /https:\/\/sparklifelab\.kit\.com\/fed36a3d05\/index\.js/);
+  assert.match(styles, /\.sll-identity-waitlist-kit-form\s*{/);
+  assert.match(styles, /\.sll-identity-waitlist-kit-form\s+\.formkit-fields/);
+  assert.match(styles, /\.sll-identity-waitlist-kit-form\s+\.formkit-input/);
+  assert.match(styles, /\.sll-identity-waitlist-kit-form\s+\.formkit-submit/);
+  assert.match(read("components/midlife-clarity-kit-form.tsx"), /62b878a91d/);
+  assert.doesNotMatch(kitForm, /62b878a91d/);
+});

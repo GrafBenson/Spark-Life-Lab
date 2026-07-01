@@ -17,11 +17,9 @@ export const metadata: Metadata = {
   },
 };
 
-// ─── CTA destination ─────────────────────────────────────────────────────────
-// TODO: Replace JOIN_HREF with the Kajabi sales page URL when provided by SparkLifeLab.
-// Current placeholder: mailto link so no broken destination exists in the meantime.
-const JOIN_HREF =
-  "mailto:hello@spark-life-lab.com?subject=Identity%20Lab%20Interest";
+// ─── CTA destinations ────────────────────────────────────────────────────────
+const INVESTMENT_HREF = "#identity-lab-investment";
+const WAITLIST_HREF = "/identity-lab/waitlist/";
 
 // ─── FAQ data — approved V1.0 copy ───────────────────────────────────────────
 
@@ -129,7 +127,7 @@ export default function IdentityLabPage() {
                 intention.
               </p>
               <div className="hero-actions">
-                <a className="button button-primary" href={JOIN_HREF}>
+                <a className="button button-primary" href={INVESTMENT_HREF}>
                   Join the Identity Lab →
                 </a>
                 <Link className="button-text" href="/#clarity-check">
@@ -414,7 +412,7 @@ export default function IdentityLabPage() {
 
         {/* ─── SECTION 7 — INVESTMENT ─── */}
         <section
-          id="investment"
+          id="identity-lab-investment"
           className="section"
           style={{ paddingLeft: "5vw", paddingRight: "5vw" }}
         >
@@ -444,7 +442,7 @@ export default function IdentityLabPage() {
               <p className="il-spaces-note">
                 Spaces are limited to preserve the quality of the group experience.
               </p>
-              <a className="button button-primary il-pricing-cta" href={JOIN_HREF}>
+              <a className="button button-primary il-pricing-cta" href={WAITLIST_HREF}>
                 Join the Identity Lab →
               </a>
             </div>
@@ -464,7 +462,7 @@ export default function IdentityLabPage() {
                 If you are entering this passage now and ready to move through it with
                 clarity and companionship, the Identity Lab is here.
               </p>
-              <a className="button button-primary" href={JOIN_HREF}>
+              <a className="button button-primary" href={INVESTMENT_HREF}>
                 Join the Identity Lab →
               </a>
               <p className="il-cta-support">
@@ -523,7 +521,7 @@ export default function IdentityLabPage() {
               If you are at the start of this passage, you do not have to make it alone.
             </p>
             <div className="il-closing-actions">
-              <a className="button button-primary" href={JOIN_HREF}>
+              <a className="button button-primary" href={INVESTMENT_HREF}>
                 Join the Identity Lab →
               </a>
               <Link className="il-closing-secondary" href="/#clarity-check">

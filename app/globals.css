@@ -2324,6 +2324,170 @@ html.ember-cursor-active * {
   text-align: center;
 }
 
+/* ===== Identity Lab waitlist page ===== */
+
+.identity-waitlist-page {
+  background: var(--page-bg);
+}
+
+.identity-waitlist-section {
+  background: var(--page-bg);
+  padding: clamp(5rem, 8vw, 8rem) 5vw;
+}
+
+.identity-waitlist-inner {
+  max-width: 720px;
+}
+
+.identity-waitlist-inner h1 {
+  font-size: clamp(2.25rem, 4vw, 3.6rem);
+  margin-bottom: 1.2rem;
+}
+
+.identity-waitlist-intro {
+  color: var(--navy);
+  font-size: clamp(1.16rem, 1.5vw, 1.32rem);
+  line-height: 1.7;
+  margin-bottom: 1rem;
+}
+
+.identity-waitlist-copy {
+  color: var(--muted);
+  font-size: 1.08rem;
+  line-height: 1.75;
+  margin-bottom: 2rem;
+}
+
+.identity-waitlist-support {
+  color: var(--navy);
+  font-size: 1rem;
+  font-weight: 600;
+  line-height: 1.6;
+  margin-bottom: 0.9rem;
+}
+
+.identity-waitlist-note {
+  color: var(--soft);
+  font-size: 0.95rem;
+  font-style: italic;
+  margin: 0.9rem 0 0;
+}
+
+.identity-waitlist-secondary {
+  margin: 1.75rem 0 0;
+}
+
+.sll-identity-waitlist-kit-form {
+  max-width: 520px;
+  min-height: 174px;
+  width: 100%;
+}
+
+.sll-identity-waitlist-kit-form .formkit-form,
+.sll-identity-waitlist-kit-form .formkit-background,
+.sll-identity-waitlist-kit-form .formkit-card,
+.sll-identity-waitlist-kit-form .formkit-container,
+.sll-identity-waitlist-kit-form .formkit-form [data-style="clean"] {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  margin: 0 !important;
+  max-width: 100% !important;
+  padding: 0 !important;
+  width: 100% !important;
+}
+
+.sll-identity-waitlist-kit-form .formkit-alert {
+  border-radius: 4px !important;
+  font-size: 0.95rem !important;
+  line-height: 1.4 !important;
+  list-style: none !important;
+  margin: 0 0 0.75rem !important;
+  padding: 0.75rem 1rem !important;
+  text-align: left !important;
+  width: 100% !important;
+}
+
+.sll-identity-waitlist-kit-form .formkit-alert:empty {
+  display: none !important;
+}
+
+.sll-identity-waitlist-kit-form .formkit-fields {
+  display: flex !important;
+  flex-direction: column !important;
+  flex-wrap: nowrap !important;
+  gap: 0.75rem !important;
+  margin: 0 !important;
+  width: 100% !important;
+}
+
+.sll-identity-waitlist-kit-form .formkit-field,
+.sll-identity-waitlist-kit-form .formkit-input,
+.sll-identity-waitlist-kit-form .formkit-submit {
+  flex: 0 0 auto !important;
+  margin: 0 !important;
+  max-width: 100% !important;
+  width: 100% !important;
+}
+
+.sll-identity-waitlist-kit-form .formkit-input {
+  background: var(--white) !important;
+  border: 1px solid rgba(32, 43, 65, 0.18) !important;
+  border-radius: 3px !important;
+  box-shadow: none !important;
+  color: var(--navy) !important;
+  font-family: var(--sans) !important;
+  font-size: 1rem !important;
+  line-height: 1.4 !important;
+  min-height: 52px !important;
+  padding: 0.85rem 1rem !important;
+  transition: border-color var(--t-quick) !important;
+}
+
+.sll-identity-waitlist-kit-form .formkit-input::placeholder {
+  color: rgba(32, 43, 65, 0.42) !important;
+  opacity: 1 !important;
+}
+
+.sll-identity-waitlist-kit-form .formkit-input:focus,
+.sll-identity-waitlist-kit-form .formkit-input:focus-visible {
+  border-color: var(--ember) !important;
+  outline: 0 !important;
+}
+
+.sll-identity-waitlist-kit-form .formkit-submit {
+  background: var(--ember) !important;
+  border: none !important;
+  border-radius: 3px !important;
+  box-shadow: var(--shadow-btn) !important;
+  color: var(--white) !important;
+  cursor: pointer !important;
+  display: block !important;
+  font-family: var(--sans) !important;
+  font-size: 0.95rem !important;
+  font-weight: 500 !important;
+  letter-spacing: 0.09em !important;
+  min-height: 52px !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  text-align: center !important;
+  text-transform: uppercase !important;
+  transition: background var(--t-quick), box-shadow var(--t-quick) !important;
+}
+
+.sll-identity-waitlist-kit-form .formkit-submit:hover,
+.sll-identity-waitlist-kit-form .formkit-submit:focus-visible {
+  background: var(--ember-deep) !important;
+  box-shadow: 0 4px 14px rgba(32, 43, 65, 0.24) !important;
+}
+
+.sll-identity-waitlist-kit-form .formkit-submit > span {
+  display: block !important;
+  line-height: 1.35 !important;
+  min-height: 52px !important;
+  padding: 0.9rem 1.5rem !important;
+}
+
 /* Lead benefits — numbered variant (Clarity Check "What you'll discover") */
 .lead-benefits-numbered {
   counter-reset: none;
