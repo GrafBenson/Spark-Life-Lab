@@ -9,19 +9,21 @@ import { IdentityLabFaq, type FaqItem } from "@/components/identity-lab-faq";
 export const metadata: Metadata = {
   title: "Identity Lab | SparkLifeLab",
   description:
-    "A guided transformation journey for people in midlife who are ready to move from fog to grounded forward movement.",
+    "A guided journey for people in midlife who are ready to move from fog to grounded forward movement.",
   openGraph: {
     title: "Identity Lab | SparkLifeLab",
     description:
-      "Not just a course. Not just coaching. A guided crossing — with others who understand what this passage feels like. Ends with your personal Identity Map.",
+      "Not just a course. Not just coaching. A guided journey — with others who understand. Ends with your personal Identity Map.",
   },
 };
 
 // ─── CTA destinations ────────────────────────────────────────────────────────
-const INVESTMENT_HREF = "#identity-lab-investment";
+// In-page anchor to the pricing / enrollment section (hero + "What it is" CTAs).
+const ENROLLMENT_HREF = "#identity-lab-enrollment";
+// Hidden waitlist page — used while registration is closed (pricing + final CTAs).
 const WAITLIST_HREF = "/identity-lab/waitlist/";
 
-// ─── FAQ data — approved V1.0 copy ───────────────────────────────────────────
+// ─── FAQ data — approved V1.0 copy (unchanged) ───────────────────────────────
 
 const FAQ_ITEMS: FaqItem[] = [
   {
@@ -67,28 +69,48 @@ const FAQ_ITEMS: FaqItem[] = [
   },
 ];
 
-// ─── Persona data — approved V1.0 copy ───────────────────────────────────────
+// ─── Persona data — approved V1.2 copy ───────────────────────────────────────
 
 const PERSONAS = [
   {
     title: "A Career Re-Orienter",
-    desc: "Your career path no longer feels aligned. You want clarity on what comes next, but you are not ready to settle or step aside.",
+    desc: "Your work no longer feels aligned, and you want greater clarity about what comes next.",
   },
   {
     title: "A Transition Navigator",
-    desc: "You are between chapters — leaving one role, entering another — and need structure and support as you find your footing.",
+    desc: "You are between chapters — leaving one role, entering another — and want support as you find your footing again.",
   },
   {
     title: "A Purpose Seeker Beyond Retirement",
-    desc: "You are retired or approaching retirement, but you want your next phase to be about contribution and relevance, not just leisure.",
+    desc: "You want your next phase to be about contribution, meaning, and relevance — not just leisure.",
   },
   {
     title: "An Inner or Creative Explorer",
-    desc: "You are drawn to personal growth, curiosity, and living more consciously. You want to understand yourself at a deeper level.",
+    desc: "You are drawn to reflection, personal growth, and living more consciously, and want to understand yourself more deeply.",
   },
   {
     title: "A Life Rebuilder",
-    desc: "You have faced a significant life change — loss, disruption, or upheaval — and you are ready to rebuild with intention and companionship.",
+    desc: "You have been through a major life change or disruption and are ready to rebuild with more intention and clarity.",
+  },
+];
+
+// ─── Founder reflection quotes — approved V1.2 copy ──────────────────────────
+
+const REFLECTIONS = [
+  {
+    name: "Gunther",
+    quote:
+      "It helped me see more clearly what is truly mine — what gives me energy, what no longer fits, and what kind of life I want to shape more consciously.",
+  },
+  {
+    name: "Bärbel",
+    quote:
+      "What stayed with me most was the growing clarity. I saw more clearly what drives me, what grounds me, and what I want to give more space in my life.",
+  },
+  {
+    name: "Scott",
+    quote:
+      "It helped me recognize that growth at this stage is less about proving something and more about living in a way that feels authentic and true.",
   },
 ];
 
@@ -97,10 +119,12 @@ const PERSONAS = [
 export default function IdentityLabPage() {
   const heroImageAlt =
     "A small group in warm, unhurried conversation outdoors — the companionship of fellow travellers navigating the midlife passage together.";
+  const whatIsImageAlt =
+    "A man participating in an online group session for the Identity Lab";
   const identityMapImageAlt =
     "A woman reviews her personal Identity Map at a table — insights gathered and ready to guide the next chapter.";
-  const closingImageAlt =
-    "A man sits quietly on a dock at sunset over a still lake — the calm clarity of a passage completed.";
+  const readyImageAlt =
+    "A woman sits on a stone terrace at sunset, overlooking a river valley — a calm, reflective moment of readiness.";
 
   return (
     <>
@@ -114,11 +138,11 @@ export default function IdentityLabPage() {
               <p className="eyebrow">When you&rsquo;re ready for the next step</p>
               <h1>The Identity Lab</h1>
               <p className="hero-copy">
-                A guided transformation journey for people in midlife who are ready to
-                move from fog to grounded forward movement.
+                A guided journey for people in midlife who are ready to move from fog
+                to grounded forward movement.
               </p>
               <p className="il-descriptor">
-                Not just a course. Not just coaching. A guided crossing.
+                Not just a course. Not just coaching. A guided journey.
               </p>
               <p>
                 Once you have a clearer sense of where you are, the Identity Lab
@@ -127,7 +151,7 @@ export default function IdentityLabPage() {
                 intention.
               </p>
               <div className="hero-actions">
-                <a className="button button-primary" href={INVESTMENT_HREF}>
+                <a className="button button-primary" href={ENROLLMENT_HREF}>
                   Join the Identity Lab →
                 </a>
                 <Link className="button-text" href="/#clarity-check">
@@ -150,34 +174,133 @@ export default function IdentityLabPage() {
           </div>
         </section>
 
-        {/* ─── SECTION 2 — WHAT THIS IS ─── */}
+        {/* ─── SECTION 2 — WHY THIS MATTERS ─── */}
         <section
           className="section"
           style={{ background: "var(--sand)", paddingLeft: "5vw", paddingRight: "5vw" }}
         >
           <div className="section-inner mid">
-            <p className="eyebrow">What it is</p>
-            <h2>A guided crossing — with others who understand</h2>
+            <p className="eyebrow">Why this matters</p>
+            <h2>When life no longer fits the way it used to</h2>
             <p>
-              The Identity Lab is a guided journey for people in midlife who
-              are navigating a passage between what no longer fits and what wants to
-              emerge next.
+              You may not be in crisis. From the outside, life may still look solid.
+              But something feels off. What once felt right no longer fits in the same
+              way. The old structure still exists, yet it no longer gives you the same
+              sense of meaning, energy, or direction.
             </p>
             <p>
-              In a small, supported group, you will explore your values, your strengths,
-              and the direction that feels most aligned with who you are becoming. This
-              is not about consuming information or following a self-help formula. It is
-              about slowing down, looking inward, and making sense of who you are now.
+              That can be hard to name. It can feel like fog, restlessness,
+              disorientation, or a quiet loss of aliveness. You know something is
+              shifting — but you do not yet know what to hold on to, what to let go of,
+              or what comes next.
             </p>
-            <p>
-              The journey is deliberately paced — human pace, not the pace of a training
-              program. There is no performance, no grading, no pressure to have answers.
-              Only the invitation to look more closely.
-            </p>
+            <p>This is the moment the Identity Lab is designed for.</p>
           </div>
         </section>
 
-        {/* ─── SECTION 3 — IDENTITY MAP (FEATURED) ─── */}
+        {/* ─── SECTION 3 — WHAT IT IS ─── */}
+        <section
+          className="section"
+          style={{ paddingLeft: "5vw", paddingRight: "5vw" }}
+        >
+          <div className="il-whatis-grid section-inner">
+            <div>
+              <p className="eyebrow">What it is</p>
+              <h2>A guided journey — with others who understand</h2>
+              <p>
+                The Identity Lab is a guided journey for people in midlife who are
+                navigating the space between what no longer fits and what wants to
+                emerge next.
+              </p>
+              <p>
+                In a small, supported group, you explore your values, your strengths,
+                and the direction that feels most aligned with who you are becoming.
+                This is not about consuming information or following a self-help
+                formula. It is about slowing down, looking inward, and making sense of
+                who you are now.
+              </p>
+              <p>
+                The journey is deliberately paced — human pace, not the pace of a
+                training program. There is no performance, no grading, and no pressure
+                to have all the answers. Only the invitation to look more closely, with
+                structure, reflection, and support.
+              </p>
+              <div className="il-whatis-actions">
+                <a className="button button-primary" href={ENROLLMENT_HREF}>
+                  Join the Identity Lab →
+                </a>
+              </div>
+            </div>
+
+            <div className="il-whatis-image-wrap">
+              <Image
+                src="/images/ID-Lab-What-is-section.jpg"
+                alt={whatIsImageAlt}
+                width={1023}
+                height={1537}
+                className="il-whatis-img"
+                sizes="(max-width: 900px) 100vw, 45vw"
+              />
+            </div>
+          </div>
+        </section>
+
+        {/* ─── SECTION 4 — WHAT YOU GAIN ─── */}
+        <section
+          className="section"
+          style={{ background: "var(--sand)", paddingLeft: "5vw", paddingRight: "5vw" }}
+        >
+          <div className="section-inner">
+            <p className="eyebrow">Why it matters</p>
+            <h2>What you gain</h2>
+            <p className="il-benefits-intro">
+              Through the Identity Lab, you move from uncertainty toward a clearer
+              sense of who you are, what matters now, and how to move forward.
+            </p>
+
+            <div className="il-benefits">
+              <div className="il-benefit">
+                <h3 className="il-benefit-title">Greater self-understanding</h3>
+                <p className="il-benefit-desc">
+                  You see yourself more clearly — your values, patterns, strengths, and
+                  deeper motivations.
+                </p>
+              </div>
+              <div className="il-benefit">
+                <h3 className="il-benefit-title">Clarity about what fits</h3>
+                <p className="il-benefit-desc">
+                  You recognize what still belongs in your life, what no longer does,
+                  and where change is needed.
+                </p>
+              </div>
+              <div className="il-benefit">
+                <h3 className="il-benefit-title">
+                  Reconnection with what is most alive in you
+                </h3>
+                <p className="il-benefit-desc">
+                  You rediscover the parts of yourself that have been overlooked,
+                  postponed, or pushed aside.
+                </p>
+              </div>
+              <div className="il-benefit">
+                <h3 className="il-benefit-title">A stronger sense of direction</h3>
+                <p className="il-benefit-desc">
+                  You see more clearly which future possibilities feel aligned,
+                  meaningful, and worth exploring.
+                </p>
+              </div>
+              <div className="il-benefit">
+                <h3 className="il-benefit-title">A personal compass for the future</h3>
+                <p className="il-benefit-desc">
+                  You leave with insights you can return to when making grounded
+                  decisions about what comes next.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ─── SECTION 5 — YOUR PERSONAL IDENTITY MAP ─── */}
         <section
           className="section il-map-section"
           style={{ paddingLeft: "5vw", paddingRight: "5vw" }}
@@ -187,27 +310,29 @@ export default function IdentityLabPage() {
               <p className="eyebrow">What you leave with</p>
               <h2>Your personal Identity Map</h2>
               <p>
-                The journey ends with your personal Identity Map — a beautifully designed
-                document that brings together everything you discovered: your values,
-                strengths, purpose, and emerging future.
+                At the end of the journey, you receive your personal Identity Map — a
+                beautifully designed document that brings together what you discovered
+                about yourself: your values, strengths, patterns, purpose, and emerging
+                future.
               </p>
               <blockquote className="il-map-tagline">
                 Not a worksheet. Not a summary. A compass you keep.
               </blockquote>
               <p>
-                The Identity Map is created specifically for you. Throughout the
-                four-week journey, you complete reflection exercises, assessments, and
-                guided prompts. You upload your work, and we synthesize your insights —
-                using advanced tools including AI — into a clear, visual document that
-                reflects who you are now and the direction that feels most yours.
+                The Identity Map is created from your own reflections, assessments, and
+                written exercises across the journey. It brings your insights together
+                in a way that is clear, visual, and easier to return to later —
+                especially when life feels foggy again.
               </p>
-              <p className="il-ai-note">
-                <strong>The AI role:</strong> We use technology to help organize and
-                visualize your reflections, but every insight comes from you. The Identity
-                Map is not generated by AI — it is created from your work, guided by the
-                SparkLifeLab founders, and designed to be something you return to whenever
-                the fog creeps back.
-              </p>
+              <div className="il-ai-note">
+                <p className="il-ai-note-label">The AI role</p>
+                <p className="il-ai-note-copy">
+                  We use AI carefully to help organize and synthesize your reflections,
+                  but every insight comes from you. The Identity Map is created from
+                  your own work and shaped into a clear, personal document you can
+                  return to over time.
+                </p>
+              </div>
             </div>
 
             <div className="il-map-visual-col">
@@ -223,144 +348,100 @@ export default function IdentityLabPage() {
           </div>
         </section>
 
-        {/* ─── SECTION 4 — HOW THE JOURNEY UNFOLDS ─── */}
+        {/* ─── SECTION 6 — HOW IT UNFOLDS ─── */}
         <section
           className="section"
           style={{ background: "var(--sand)", paddingLeft: "5vw", paddingRight: "5vw" }}
         >
           <div className="section-inner">
-            <p className="eyebrow">The journey</p>
-            <h2>How the journey unfolds</h2>
+            <p className="eyebrow">How it unfolds</p>
+            <h2>The journey in three phases</h2>
             <p className="il-phases-intro">
-              The Identity Lab moves through three distinct phases over four weeks. Each
-              phase deepens the previous one and helps you build a clearer understanding
-              of who you are and what becomes possible.
+              The Identity Lab unfolds over three phases. Each one builds on the last
+              and helps you move from self-understanding toward a clearer sense of
+              direction.
             </p>
 
             <div className="il-phases">
               <article className="il-phase-card">
-                <div className="il-phase-number" aria-hidden="true">01</div>
-                <h3 className="il-phase-name">Understanding Yourself</h3>
-                <p>
-                  You explore your values, personality, and behavioral patterns. You
-                  begin to see what has shaped you and what still resonates now.
-                </p>
-                <p className="il-phase-what">What happens</p>
-                <p>
-                  Reflection exercises and assessments help you see yourself more
-                  clearly. You examine what you have been holding onto and what may be
-                  ready to release.
+                <h3 className="il-phase-name">01 — Understanding yourself</h3>
+                <p className="il-phase-desc">
+                  You explore your values, personality, and patterns, and begin to
+                  understand what has shaped you and what still feels true now.
                 </p>
               </article>
 
               <article className="il-phase-card">
-                <div className="il-phase-number" aria-hidden="true">02</div>
-                <h3 className="il-phase-name">Revealing Your Core Identity</h3>
-                <p>
-                  You move from understanding patterns to recognizing your essence. You
-                  identify your natural strengths and the moments when you are most
-                  alive.
-                </p>
-                <p className="il-phase-what">What happens</p>
-                <p>
-                  You uncover your innate strengths and recognize when you are at your
-                  best. You begin to sense a deeper purpose and contribution.
+                <h3 className="il-phase-name">02 — Revealing your core identity</h3>
+                <p className="il-phase-desc">
+                  You uncover your natural strengths, recognize when you are at your
+                  best, and begin to see what you are here to bring to life.
                 </p>
               </article>
 
               <article className="il-phase-card">
-                <div className="il-phase-number" aria-hidden="true">03</div>
-                <h3 className="il-phase-name">Emerging Possibilities</h3>
-                <p>
-                  You shift from self-understanding to exploring what draws you forward.
-                  You reconnect with what inspires you and begin to sense how your
-                  identity can come to life in the future.
-                </p>
-                <p className="il-phase-what">What happens</p>
-                <p>
-                  You explore new directions that feel aligned. You integrate your
-                  insights and receive your personal Identity Map — a visual synthesis
-                  of your journey.
+                <h3 className="il-phase-name">03 — Emerging possibilities</h3>
+                <p className="il-phase-desc">
+                  You explore what draws you forward, reconnect with what inspires you,
+                  and begin to sense what kind of future may be opening next.
                 </p>
               </article>
             </div>
           </div>
         </section>
 
-        {/* ─── SECTION 5 — WHAT'S INCLUDED ─── */}
+        {/* ─── SECTION 7 — WHAT'S INCLUDED ─── */}
         <section
           className="section"
           style={{ paddingLeft: "5vw", paddingRight: "5vw" }}
         >
           <div className="section-inner">
-            <p className="eyebrow">The full picture</p>
-            <h2>What&rsquo;s included</h2>
+            <p className="eyebrow">What&rsquo;s included</p>
+            <h2>What you get</h2>
 
             <div className="il-included-grid">
               <div>
                 <div className="il-included-group">
-                  <h3 className="il-included-heading">Duration &amp; Structure</h3>
+                  <h3 className="il-included-heading">Duration &amp; structure</h3>
                   <ul className="il-included-list">
                     <li>4 weeks of guided material</li>
-                    <li>
-                      5 learning stations — content released twice weekly (Tuesdays
-                      and Fridays)
-                    </li>
-                    <li>
-                      Deliberately paced to allow time for reflection between releases
-                    </li>
+                    <li>5 learning stations</li>
+                    <li>Content released twice weekly</li>
+                    <li>Deliberately paced to allow time for reflection</li>
                   </ul>
                 </div>
 
                 <div className="il-included-group">
-                  <h3 className="il-included-heading">Your Deliverables</h3>
+                  <h3 className="il-included-heading">Live sessions</h3>
                   <ul className="il-included-list">
-                    <li>
-                      Your personal Identity Map — a beautifully designed PDF
-                      synthesizing your reflections and insights
-                    </li>
-                    <li>Guided prompts, exercises, and frameworks at every station</li>
-                    <li>Access to all materials and recordings</li>
-                  </ul>
-                </div>
-
-                <div className="il-included-group">
-                  <h3 className="il-included-heading">Time Commitment</h3>
-                  <ul className="il-included-list">
-                    <li>
-                      Approximately 3–5 hours per week, including live sessions and
-                      reflection exercises
-                    </li>
+                    <li>3 live group sessions with the SparkLifeLab founders</li>
+                    <li>Kick-off at the start</li>
+                    <li>Integration &amp; Exchange midway</li>
+                    <li>Identity Map Ceremony at the end</li>
                   </ul>
                 </div>
               </div>
 
               <div>
                 <div className="il-included-group">
-                  <h3 className="il-included-heading">Live Sessions</h3>
+                  <h3 className="il-included-heading">Materials &amp; access</h3>
                   <ul className="il-included-list">
-                    <li>
-                      3 live group sessions with the SparkLifeLab founders:
-                      <ul className="il-included-sublist">
-                        <li>Kick-off: orientation and welcome</li>
-                        <li>
-                          Integration &amp; Exchange: deepening insights midway through
-                        </li>
-                        <li>
-                          Identity Map Ceremony: receiving your map and closing the
-                          journey
-                        </li>
-                      </ul>
-                    </li>
+                    <li>Guided prompts, exercises, and reflection practices</li>
+                    <li>Access to all materials and recordings</li>
+                    <li>Small cohort for meaningful connection</li>
+                    <li>Private space for optional sharing</li>
                   </ul>
                 </div>
 
                 <div className="il-included-group">
-                  <h3 className="il-included-heading">Group Experience</h3>
+                  <h3 className="il-included-heading">Your deliverable</h3>
                   <ul className="il-included-list">
-                    <li>Small cohort for meaningful connection</li>
-                    <li>Private space for sharing reflections (optional)</li>
-                    <li>Recordings available for those who cannot attend live</li>
+                    <li>Your personal Identity Map</li>
+                    <li>A beautifully designed PDF shaped from your reflections</li>
+                    <li>
+                      A clear synthesis of your values, strengths, purpose, and
+                      emerging direction
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -368,19 +449,14 @@ export default function IdentityLabPage() {
           </div>
         </section>
 
-        {/* ─── SECTION 6 — IS THIS FOR YOU? ─── */}
+        {/* ─── SECTION 8 — WHO IT'S FOR ─── */}
         <section
           className="section"
           style={{ background: "var(--sand)", paddingLeft: "5vw", paddingRight: "5vw" }}
         >
           <div className="section-inner">
-            <p className="eyebrow">Self-qualify</p>
+            <p className="eyebrow">Who it&rsquo;s for</p>
             <h2>Is the Identity Lab right for you?</h2>
-            <p className="il-qualify-intro">
-              The Identity Lab is designed for people in midlife (roughly ages 45–75)
-              who are navigating a passage — a moment when life no longer fits the way
-              it used to, and the way forward is unclear.
-            </p>
             <p className="il-qualify-lead">This journey is for you if you are:</p>
 
             <div className="il-persona-grid">
@@ -396,75 +472,78 @@ export default function IdentityLabPage() {
               <h3 className="il-nfy-heading">This journey is not for you if:</h3>
               <ul className="il-nfy-list">
                 <li>
-                  You are looking for a quick solution or someone to tell you what to do
+                  you are looking for a quick fix or someone to tell you exactly what
+                  to do
                 </li>
-                <li>You are in acute crisis and need immediate therapeutic support</li>
+                <li>you are in acute crisis and need immediate therapeutic support</li>
                 <li>
-                  You are not willing to engage in reflection, writing, and introspection
+                  you are not willing to engage in reflection, writing, and
+                  introspection
                 </li>
                 <li>
-                  You prefer to work entirely alone without any live or group elements
+                  you want a fully private self-study experience with no group or live
+                  elements
                 </li>
               </ul>
             </div>
           </div>
         </section>
 
-        {/* ─── SECTION 7 — INVESTMENT ─── */}
+        {/* ─── SECTION 9 — FROM OUR OWN EXPERIENCE (founder reflection) ─── */}
         <section
-          id="identity-lab-investment"
+          className="section il-reflection"
+          style={{ background: "#E7E8EF", paddingLeft: "5vw", paddingRight: "5vw" }}
+        >
+          <div className="section-inner">
+            <p className="eyebrow">From our own experience</p>
+            <h2>What this kind of work can open up</h2>
+            <p className="il-reflection-intro">
+              Before we created the Identity Lab, we each went through this kind of
+              reflective work ourselves. Different questions came into focus for each
+              of us, but the result was similar: greater clarity, stronger
+              self-recognition, and a more grounded sense of what truly matters.
+            </p>
+
+            <div className="il-quotes">
+              {REFLECTIONS.map((r) => (
+                <figure className="il-quote" key={r.name}>
+                  <blockquote className="il-quote-text">{r.quote}</blockquote>
+                  <figcaption className="il-quote-name">{r.name}</figcaption>
+                </figure>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* ─── SECTION 10 — PRICING / ENROLLMENT ─── */}
+        <section
+          id="identity-lab-enrollment"
           className="section"
           style={{ paddingLeft: "5vw", paddingRight: "5vw" }}
         >
           <div className="section-inner mid">
-            <p className="eyebrow">Pricing</p>
-            <h2>Your investment</h2>
+            <p className="eyebrow">Ready to join?</p>
+            <h2>Join the Identity Lab</h2>
 
             <div className="il-pricing-card">
               <p className="il-pricing-price">$497</p>
-              {/* TODO: Confirm installment options with SparkLifeLab before launch.
-                  Remove or update this line if not offered. */}
-              <p className="il-pricing-option">
-                One-time payment or installment options
-              </p>
               <ul className="il-pricing-list">
-                <li>4 weeks of guided content across 5 learning stations</li>
+                <li>4-week guided journey</li>
+                <li>5 learning stations</li>
                 <li>3 live group sessions with the SparkLifeLab founders</li>
-                <li>Personalized support throughout your journey</li>
-                <li>Your personal Identity Map (delivered at the end)</li>
+                <li>Your personal Identity Map</li>
                 <li>Access to all materials and recordings</li>
                 <li>Small cohort experience for meaningful connection</li>
               </ul>
-              {/* TODO: Update when specific cohort date is confirmed by SparkLifeLab. */}
               <p className="il-cohort-note">
-                Next cohort: <strong>Forming now.</strong>
+                Next cohort: <strong>forming now</strong>
               </p>
               <p className="il-spaces-note">
-                Spaces are limited to preserve the quality of the group experience.
+                Spaces are limited to protect the quality of the group experience.
               </p>
-              <a className="button button-primary il-pricing-cta" href={WAITLIST_HREF}>
+              <Link className="button button-primary il-pricing-cta" href={WAITLIST_HREF}>
                 Join the Identity Lab →
-              </a>
-            </div>
-          </div>
-        </section>
-
-        {/* ─── SECTION 8 — READY TO BEGIN? ─── */}
-        <section
-          className="section il-cta-band"
-          style={{ background: "var(--sand)", paddingLeft: "5vw", paddingRight: "5vw" }}
-        >
-          <div className="il-ready-grid section-inner">
-            <div>
-              <p className="eyebrow">When it feels right</p>
-              <h2>Ready to begin?</h2>
-              <p className="il-cta-band-copy">
-                If you are entering this passage now and ready to move through it with
-                clarity and companionship, the Identity Lab is here.
-              </p>
-              <a className="button button-primary" href={INVESTMENT_HREF}>
-                Join the Identity Lab →
-              </a>
+              </Link>
               <p className="il-cta-support">
                 Questions?{" "}
                 <a href="mailto:hello@spark-life-lab.com">
@@ -472,20 +551,10 @@ export default function IdentityLabPage() {
                 </a>
               </p>
             </div>
-            <div className="il-ready-image-wrap">
-              <Image
-                src="/images/identity-lab-ready-client.jpeg"
-                alt="A person in peaceful contemplation on a stone terrace at sunset — the calm readiness of a new beginning."
-                width={1714}
-                height={918}
-                className="il-ready-img"
-                sizes="(max-width: 900px) 100vw, 45vw"
-              />
-            </div>
           </div>
         </section>
 
-        {/* ─── SECTION 9 — FAQ ─── */}
+        {/* ─── SECTION 11 — FAQ (unchanged) ─── */}
         <section
           className="section"
           style={{ paddingLeft: "5vw", paddingRight: "5vw" }}
@@ -497,36 +566,39 @@ export default function IdentityLabPage() {
           </div>
         </section>
 
-        {/* ─── SECTION 10 — CLOSING ─── */}
-        <section className="il-closing">
-          <Image
-            src="/images/identity-lab-final-002.jpg"
-            alt={closingImageAlt}
-            fill
-            className="il-closing-bg"
-            sizes="100vw"
-          />
-          <div className="il-closing-overlay" aria-hidden="true" />
-          <div className="il-closing-content">
-            <h2 className="il-closing-heading">
-              A passage made with clarity and companionship
-            </h2>
-            <p className="il-closing-copy">Midlife is not a crisis. It is a crossing.</p>
-            <p className="il-closing-copy">
-              The Identity Lab is not about fixing yourself or proving anything. It is
-              about understanding who you are now and taking the next honest step with
-              clarity and companionship.
-            </p>
-            <p className="il-closing-copy">
-              If you are at the start of this passage, you do not have to make it alone.
-            </p>
-            <div className="il-closing-actions">
-              <a className="button button-primary" href={INVESTMENT_HREF}>
+        {/* ─── SECTION 12 — FINAL CLOSING (Ready to begin?) ─── */}
+        <section
+          className="section il-cta-band"
+          style={{ background: "var(--sand)", paddingLeft: "5vw", paddingRight: "5vw" }}
+        >
+          <div className="il-ready-grid section-inner">
+            <div>
+              <p className="eyebrow">When it feels right</p>
+              <h2>Ready to begin?</h2>
+              <p className="il-cta-band-copy">
+                If this feels like the right next step, the Identity Lab is here. A
+                guided journey to help you understand who you are now, what matters
+                most, and how to move forward with greater clarity and intention.
+              </p>
+              <Link className="button button-primary" href={WAITLIST_HREF}>
                 Join the Identity Lab →
-              </a>
-              <Link className="il-closing-secondary" href="/#clarity-check">
-                Take the Midlife Clarity Check →
               </Link>
+              <p className="il-cta-support">
+                Questions?{" "}
+                <a href="mailto:hello@spark-life-lab.com">
+                  Email us at hello@spark-life-lab.com
+                </a>
+              </p>
+            </div>
+            <div className="il-ready-image-wrap">
+              <Image
+                src="/images/identity-lab-ready-client.jpeg"
+                alt={readyImageAlt}
+                width={1714}
+                height={918}
+                className="il-ready-img"
+                sizes="(max-width: 900px) 100vw, 45vw"
+              />
             </div>
           </div>
         </section>

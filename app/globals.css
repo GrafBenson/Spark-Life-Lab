@@ -2862,6 +2862,34 @@ html.ember-cursor-active * {
   padding-left: 0.9rem;
 }
 
+/* ─── What it is (text + image) ─────────────────────────────────── */
+
+.il-whatis-grid {
+  align-items: center;
+  display: grid;
+  gap: clamp(2.5rem, 5vw, 5rem);
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+}
+
+.il-whatis-image-wrap {
+  position: relative;
+}
+
+.il-whatis-img {
+  border-radius: 6px;
+  box-shadow: 0 10px 40px rgba(32, 43, 65, 0.14);
+  height: 540px;
+  margin: 0 auto;
+  max-width: 460px;
+  object-fit: cover;
+  object-position: center 30%;
+  width: 100%;
+}
+
+.il-whatis-actions {
+  margin-top: 2rem;
+}
+
 /* ─── Identity Map section (featured) ──────────────────────────── */
 
 .il-map-section {
@@ -2933,6 +2961,21 @@ html.ember-cursor-active * {
   color: var(--navy);
 }
 
+.il-ai-note p {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin: 0;
+}
+
+.il-ai-note p + p {
+  margin-top: 0.5rem;
+}
+
+.il-ai-note-label {
+  color: var(--navy);
+  font-weight: 700;
+}
+
 /* ─── Phase cards ───────────────────────────────────────────────── */
 
 .il-phases-intro {
@@ -2964,29 +3007,72 @@ html.ember-cursor-active * {
   transform: translateY(-3px);
 }
 
-.il-phase-number {
-  color: var(--ember);
-  font-family: var(--serif);
-  font-size: clamp(3.5rem, 5vw, 5rem);
-  font-weight: 600;
-  line-height: 1;
-  margin-bottom: 0.85rem;
-}
-
 .il-phase-name {
   color: var(--navy);
-  font-size: clamp(1.15rem, 1.5vw, 1.38rem);
-  margin-bottom: 0.75rem;
+  font-size: clamp(1.35rem, 1.9vw, 1.7rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  padding-bottom: 0.85rem;
+  position: relative;
 }
 
-.il-phase-what {
-  color: var(--ember-deep);
-  font-size: 0.82rem;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  margin-bottom: 0.4rem;
-  margin-top: 1.25rem;
-  text-transform: uppercase;
+.il-phase-name::after {
+  background: var(--ember);
+  bottom: 0;
+  content: "";
+  height: 2px;
+  left: 0;
+  position: absolute;
+  width: 2.4rem;
+}
+
+.il-phase-desc {
+  margin-bottom: 0;
+}
+
+/* ─── What you gain (benefits) — stacked editorial, not cards ───── */
+
+.il-benefits-intro {
+  color: var(--muted);
+  font-size: 1.1rem;
+  line-height: 1.75;
+  margin-bottom: 2.5rem;
+  max-width: 740px;
+}
+
+.il-benefits {
+  display: flex;
+  flex-direction: column;
+  max-width: 820px;
+}
+
+.il-benefit {
+  padding: clamp(1.4rem, 3vw, 1.9rem) 0;
+}
+
+.il-benefit:first-child {
+  padding-top: 0;
+}
+
+.il-benefit + .il-benefit {
+  border-top: 1px solid var(--line);
+}
+
+.il-benefit-title {
+  color: var(--navy);
+  font-size: clamp(1.18rem, 1.5vw, 1.4rem);
+  line-height: 1.25;
+  margin-bottom: 0.5rem;
+}
+
+.il-benefit-desc {
+  color: var(--muted);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 0;
+  max-width: 640px;
 }
 
 /* ─── What's included ───────────────────────────────────────────── */
@@ -3105,16 +3191,16 @@ html.ember-cursor-active * {
   margin-bottom: 0;
 }
 
+/* Kept quieter than the persona cards: no fill, just a hairline divider. */
 .il-not-for-you {
-  background: var(--page-bg);
-  border-radius: 4px;
-  margin-top: 2.5rem;
-  padding: 1.75rem 1.85rem;
+  border-top: 1px solid var(--line);
+  margin-top: 2.75rem;
+  padding: 1.85rem 0 0;
 }
 
 .il-nfy-heading {
-  color: var(--navy);
-  font-size: clamp(1.1rem, 1.4vw, 1.28rem);
+  color: var(--soft);
+  font-size: clamp(1.02rem, 1.25vw, 1.15rem);
   margin-bottom: 1rem;
 }
 
@@ -3141,7 +3227,54 @@ html.ember-cursor-active * {
   position: absolute;
 }
 
-/* ─── Investment / Pricing ──────────────────────────────────────── */
+/* ─── From our own experience (founder reflection) ──────────────── */
+
+.il-reflection-intro {
+  color: var(--muted);
+  font-size: 1.12rem;
+  line-height: 1.75;
+  margin-bottom: clamp(2.25rem, 4vw, 3rem);
+  max-width: 760px;
+}
+
+.il-quotes {
+  display: grid;
+  gap: clamp(1.75rem, 4vw, 2.75rem);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.il-quote {
+  margin: 0;
+}
+
+.il-quote::before {
+  color: var(--ember);
+  content: "\201C";
+  display: block;
+  font-family: var(--serif);
+  font-size: 3rem;
+  line-height: 0.6;
+  margin-bottom: 0.4rem;
+}
+
+.il-quote-text {
+  color: var(--navy);
+  font-family: var(--serif);
+  font-size: clamp(1.12rem, 1.35vw, 1.3rem);
+  font-style: italic;
+  line-height: 1.55;
+  margin: 0 0 1rem;
+}
+
+.il-quote-name {
+  color: var(--navy);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ─── Pricing / Enrollment ──────────────────────────────────────── */
 
 .il-pricing-card {
   background: var(--page-bg);
@@ -3351,84 +3484,6 @@ html.ember-cursor-active * {
   padding-bottom: 1.5rem;
 }
 
-/* ─── Closing section ───────────────────────────────────────────── */
-
-.il-closing {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: clamp(480px, 55vw, 780px);
-  overflow: hidden;
-  position: relative;
-}
-
-.il-closing-bg {
-  object-fit: cover;
-  object-position: right 55%; /* shift person on dock into right half, away from centered text */
-}
-
-.il-closing-overlay {
-  background: rgba(27, 42, 65, 0.58);
-  inset: 0;
-  position: absolute;
-  z-index: 1;
-}
-
-.il-closing-content {
-  max-width: 800px;
-  padding: clamp(4rem, 8vw, 8rem) 5vw;
-  position: relative;
-  text-align: center;
-  z-index: 2;
-}
-
-.il-closing-heading {
-  color: var(--white);
-  margin-bottom: 1.75rem;
-}
-
-.il-closing-copy {
-  color: rgba(255, 255, 255, 0.88);
-  font-size: 1.1rem;
-  line-height: 1.75;
-  margin-bottom: 0.75rem;
-}
-
-.il-closing-copy:last-of-type {
-  margin-bottom: 2.5rem;
-}
-
-.il-closing-actions {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  gap: 1.25rem;
-}
-
-.il-closing-secondary {
-  color: rgba(255, 255, 255, 0.82);
-  font-size: 1rem;
-  text-decoration: underline;
-  text-decoration-color: rgba(255, 255, 255, 0.4);
-  text-underline-offset: 3px;
-  transition: color var(--t-quick);
-}
-
-.il-closing-secondary:hover {
-  color: var(--white);
-}
-
-/* ─── Responsive — 1100px ───────────────────────────────────────── */
-
-@media (max-width: 1100px) {
-  .il-closing-bg {
-    object-position: 30% 55%;
-    transform: scale(1.8);
-    transform-origin: 24% 55%;
-    /* scale() zooms in so object-position has leverage even where image barely overflows */
-  }
-}
-
 /* ─── Responsive — 900px ────────────────────────────────────────── */
 
 @media (max-width: 900px) {
@@ -3461,6 +3516,20 @@ html.ember-cursor-active * {
     height: 380px;
     margin: 0 auto;
     max-width: min(440px, 86vw);
+  }
+
+  .il-whatis-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .il-whatis-img {
+    height: 380px;
+    max-width: min(440px, 86vw);
+  }
+
+  .il-quotes {
+    gap: 2rem;
+    grid-template-columns: 1fr;
   }
 
   .il-phases {
@@ -3501,25 +3570,5 @@ html.ember-cursor-active * {
 
   .il-pricing-price {
     font-size: clamp(3rem, 12vw, 4rem);
-  }
-
-  .il-closing {
-    min-height: 480px;
-  }
-
-  .il-closing-bg {
-    object-position: 24% 55%;
-    transform: scale(1.8);
-    transform-origin: 20% 55%;
-  }
-
-  .il-closing-actions {
-    align-items: stretch;
-  }
-
-  .il-closing-actions .button {
-    justify-content: center;
-    text-align: center;
-    width: 100%;
   }
 }

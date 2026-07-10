@@ -126,11 +126,13 @@ test("embeds the live Kit Midlife Clarity Check form in the existing card", () =
 test("routes Identity Lab enrollment CTAs through pricing and waitlist", () => {
   const identityLab = read("app/identity-lab/page.tsx");
 
-  assert.match(identityLab, /const INVESTMENT_HREF = "#identity-lab-investment";/);
+  assert.match(identityLab, /const ENROLLMENT_HREF = "#identity-lab-enrollment";/);
   assert.match(identityLab, /const WAITLIST_HREF = "\/identity-lab\/waitlist\/";/);
-  assert.match(identityLab, /id="identity-lab-investment"/);
-  assert.equal((identityLab.match(/href=\{INVESTMENT_HREF\}/g) ?? []).length, 3);
-  assert.equal((identityLab.match(/href=\{WAITLIST_HREF\}/g) ?? []).length, 1);
+  assert.match(identityLab, /id="identity-lab-enrollment"/);
+  // Hero + "What it is" CTAs scroll to the on-page enrollment anchor.
+  assert.equal((identityLab.match(/href=\{ENROLLMENT_HREF\}/g) ?? []).length, 2);
+  // Pricing + final closing CTAs go to the hidden waitlist page.
+  assert.equal((identityLab.match(/href=\{WAITLIST_HREF\}/g) ?? []).length, 2);
   assert.doesNotMatch(identityLab, /https?:\/\/[^\s"']*kajabi/i);
 });
 
