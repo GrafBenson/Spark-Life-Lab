@@ -1,10 +1,7 @@
 "use client";
 
-// TODO: When ready for production, replace this localStorage-based banner
-// with a real consent management platform (Termly, iubenda, Cookiebot, etc.)
-// to ensure GDPR/TTDSG compliance. Until then, this provides correct UX behaviour:
-// banner shows on first visit, preferences saved to localStorage, no non-essential
-// cookies set before consent.
+// Preferences are stored locally. Vercel Web Analytics is cookieless and loads
+// independently; the optional categories are reserved for future cookie-based tools.
 
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
@@ -28,7 +25,6 @@ const essentialOnly: ConsentState = {
 export function CookieConsent() {
   const [visible, setVisible] = useState(false);
   const [manageOpen, setManageOpen] = useState(false);
-  const [analytics, setAnalytics] = useState(false);
   const [marketing, setMarketing] = useState(false);
   const panelRef = useRef<HTMLElement>(null);
 
@@ -43,10 +39,8 @@ export function CookieConsent() {
       if (current) {
         try {
           const parsed = JSON.parse(current) as ConsentState;
-          setAnalytics(parsed.analytics);
           setMarketing(parsed.marketing);
         } catch {
-          setAnalytics(false);
           setMarketing(false);
         }
       }
@@ -97,8 +91,8 @@ export function CookieConsent() {
       <div className="cookie-copy">
         <p className="cookie-title">Cookie preferences</p>
         <p>
-          We use cookies to improve your experience. By continuing you accept our{" "}
-          <Link href="/cookie-policy/">Cookie Policy</Link>.
+          Essential storage remembers your preferences. Our privacy-friendly traffic
+          analytics do not use cookies. Read our <Link href="/cookie-policy/">Cookie Policy</Link>.
         </p>
 
         {manageOpen ? (
@@ -110,11 +104,12 @@ export function CookieConsent() {
             <label>
               <input
                 type="checkbox"
-                checked={analytics}
-                onChange={(e) => setAnalytics(e.target.checked)}
-                aria-label="Analytics cookies"
+                checked={false}
+                disabled
+                readOnly
+                aria-label="Analytics cookies (not currently used)"
               />
-              {" "}Analytics cookies
+              {" "}Analytics cookies <em style={{ fontSize: "0.8em", opacity: 0.65 }}>(not currently used)</em>
             </label>
             <label>
               <input
@@ -140,7 +135,7 @@ export function CookieConsent() {
           <button
             type="button"
             className="cookie-primary"
-            onClick={() => saveConsent({ mode: "custom", analytics, marketing })}
+            onClick={() => saveConsent({ mode: "custom", analytics: false, marketing })}
           >
             Save choices
           </button>
@@ -148,7 +143,7 @@ export function CookieConsent() {
           <button
             type="button"
             className="cookie-primary"
-            onClick={() => saveConsent({ mode: "all", analytics: true, marketing: true })}
+            onClick={() => saveConsent({ mode: "all", analytics: false, marketing: true })}
           >
             Accept all
           </button>

@@ -4,29 +4,29 @@ import { LegalPage } from "@/components/legal-page";
 export const metadata: Metadata = {
   title: "Cookie Policy",
   description:
-    "SparkLifeLab Cookie Policy placeholder connected to the cookie consent banner and preference controls.",
+    "How SparkLifeLab uses essential browser storage and privacy-friendly, cookieless Vercel Web Analytics.",
 };
 
 export default function CookiePolicyPage() {
   return (
     <LegalPage
       title="Cookie Policy"
-      intro="This placeholder explains the current consent model and the information the final cookie policy must include."
+      intro="This policy explains the essential browser storage and privacy-friendly analytics used on the SparkLifeLab website."
     >
-      {/* TODO: Replace with final Termly/iubenda/lawyer-reviewed Cookie Policy. */}
       <div className="legal-grid">
         <article className="legal-card">
-          <h2>Essential cookies</h2>
+          <h2>Essential storage</h2>
           <p>
-            Essential storage is used to remember cookie preferences and keep the website
-            usable. These are not optional in the banner.
+            Local browser storage remembers your privacy preferences and keeps the website
+            usable. This essential storage is always active.
           </p>
         </article>
         <article className="legal-card">
-          <h2>Analytics cookies</h2>
+          <h2>Website analytics</h2>
           <p>
-            Analytics are not currently loaded. If added later, the script must wait until
-            the visitor grants analytics consent.
+            We use Vercel Web Analytics to measure page views and basic technical information
+            in aggregated form. It does not use cookies and is not intended to identify
+            individual visitors.
           </p>
         </article>
         <article className="legal-card">
