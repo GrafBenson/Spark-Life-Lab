@@ -64,7 +64,7 @@ export default function Home() {
   const travelersImageAlt =
     "Two people sharing a reflective conversation at an outdoor table against a coastal sunset — the warmth of shared understanding.";
   const identityMapImageAlt =
-    "SparkLife Identity Map showing a visual path for clarity, values, strengths, growth, and direction";
+    "A person reviewing their personal Identity Map and reflection materials at a sunlit table";
   const stakesImageAlt =
     "Three people walking together along a coastal path at sunset — fellow travellers moving forward with intention.";
 
@@ -339,28 +339,28 @@ export default function Home() {
           <div className="lab-grid">
             {/* Text + CTA */}
             <div>
-              <p className="eyebrow">When you&rsquo;re ready for the next step.</p>
+              <p className="eyebrow">When you&rsquo;re ready for the next step</p>
               <h2>The Identity Lab</h2>
               <p
                 className="lead"
                 style={{ fontStyle: "italic", maxWidth: "600px", marginBottom: "1.25rem", marginTop: "1.25rem" }}
               >
-                Your guided first step into clarity
+                Understand who you are now — and what comes next.
               </p>
               <p style={{ maxWidth: "680px" }}>
-                Once you have a clearer sense of where you are, the Identity Lab
-                offers the next step — a guided transformation journey to help you understand
-                who you are now, what truly matters, and how to move forward with intention.
+                The Identity Lab helps you understand who you are, what energizes you,
+                what no longer fits, and what kind of future could feel truly meaningful.
               </p>
               <p style={{ maxWidth: "680px" }}>
-                In a small, supported group, you will explore your values, your strengths,
-                and the direction that feels most aligned with who you are becoming. Not a
-                course. Not coaching.
+                It guides you through a structured exploration of your values, strengths,
+                desires, purpose, and life patterns, so you can recognize what is uniquely
+                yours and begin to trust it.
               </p>
               <p style={{ maxWidth: "680px" }}>
-                The journey ends with your personal <strong>IdentityMap</strong>: a
-                beautifully designed document that brings together everything you discovered —
-                your values, strengths, purpose, and emerging future. A compass you keep.
+                By the end, you have more than insight. You have greater clarity about what
+                to carry forward, what to release, and how to shape a life that feels more
+                aligned, alive, and fulfilling. Your personal <strong>Identity Map</strong> brings
+                these discoveries together as a compass you can keep.
               </p>
 
               <div style={{ marginTop: "2rem" }}>
@@ -368,13 +368,13 @@ export default function Home() {
                   Explore the Identity Lab →
                 </Link>
               </div>
-              <p className="lab-meta">Places are limited. Applications are now open.</p>
+              <p className="lab-meta">Small cohorts. See current dates and enrollment details.</p>
             </div>
 
             {/* Identity Map visual */}
             <div className="lab-map-wrap">
               <Image
-                src="/images/sll-map-007.jpg"
+                src="/images/ID-Lab-section-on-Home-001.jpg"
                 alt={identityMapImageAlt}
                 width={1024}
                 height={1536}

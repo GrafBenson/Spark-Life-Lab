@@ -2,8 +2,8 @@ export const site = {
   name: "SparkLifeLab",
   displayName: "SparkLifeLab",
   tagline: "Ignite Your Best Life — On Purpose",
-  domain: "spark-life-lab.com",
-  url: "https://spark-life-lab.com",
+  domain: "www.spark-life-lab.com",
+  url: "https://www.spark-life-lab.com",
   email: "hello@spark-life-lab.com",
   year: 2026,
 };

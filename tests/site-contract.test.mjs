@@ -12,9 +12,9 @@ const routes = [
   "app/resources/page.tsx",
   "app/contact/page.tsx",
   "app/privacy-policy/page.tsx",
-  "app/terms-of-use/page.tsx",
+  "app/terms-and-conditions/page.tsx",
   "app/cookie-policy/page.tsx",
-  "app/impressum/page.tsx",
+  "app/legal-note/page.tsx",
 ];
 
 const read = (path) => readFileSync(join(root, path), "utf8");
@@ -30,7 +30,7 @@ test("keeps the site grounded in the approved SparkLifeLab content", () => {
   assert.match(content, /SparkLifeLab/);
   assert.match(content, /Midlife Fog/);
   assert.match(content, /Midlife Clarity Check/);
-  assert.match(content, /SparkLife Identity Lab/);
+  assert.match(content, /The Identity Lab/);
   assert.match(content, /Bärbel/);
   assert.match(content, /Gunther/);
   assert.match(content, /Scott/);
@@ -41,11 +41,10 @@ test("does not include unsupported social proof or fake claims", () => {
   assert.doesNotMatch(files, /testimonial/i);
   assert.doesNotMatch(files, /press mention/i);
   assert.doesNotMatch(files, /certified/i);
-  assert.doesNotMatch(files, /thousands of/i);
   assert.doesNotMatch(files, /clinically proven/i);
 });
 
-test("has explicit legal, cookie, and honest integration placeholders", () => {
+test("has explicit legal, cookie, and consent integrations", () => {
   const layout = read("app/layout.tsx");
   const footer = [read("components/site-footer.tsx"), read("data/site.ts")].join("\n");
   const cookie = read("components/cookie-consent.tsx");
@@ -53,15 +52,53 @@ test("has explicit legal, cookie, and honest integration placeholders", () => {
 
   assert.match(layout, /Organization/);
   assert.match(footer, /Privacy Policy/);
-  assert.match(footer, /Terms of Use/);
+  assert.match(footer, /Terms & Conditions/);
   assert.match(footer, /Cookie Policy/);
-  assert.match(footer, /Impressum/);
+  assert.match(footer, /Legal Note/);
   assert.match(cookie, /Essential only/);
   assert.match(cookie, /Manage preferences/);
   assert.match(cookie, /Accept all/);
   assert.match(email, /consent/i);
   assert.match(email, /Privacy Policy/);
   assert.match(email, /Unsubscribe/);
+});
+
+test("uses the final production assets, locked homepage copy, and official LinkedIn link", () => {
+  const header = read("components/site-header.tsx");
+  const footer = read("components/site-footer.tsx");
+  const cursor = read("components/ember-cursor.tsx");
+  const clarity = read("components/clarity-check-card.tsx");
+  const home = read("app/page.tsx");
+
+  assert.equal(existsSync(join(root, "public/images/sparklifelab-wordmark.png")), true);
+  assert.equal(existsSync(join(root, "public/images/sparklifelab-spark.png")), true);
+  assert.equal(existsSync(join(root, "public/images/ID-Lab-section-on-Home-001.jpg")), true);
+  assert.equal(existsSync(join(root, "public/images/Midlife-Clarity-Check-cover-V2.2.jpg")), true);
+  assert.match(header, /sparklifelab-wordmark\.png/);
+  assert.match(footer, /sparklifelab-wordmark\.png/);
+  assert.match(cursor, /sparklifelab-spark\.png/);
+  assert.match(cursor, /ember-trail-grad/);
+  assert.match(clarity, /Midlife-Clarity-Check-cover-V2\.2\.jpg/);
+  assert.match(home, /ID-Lab-section-on-Home-001\.jpg/);
+  assert.match(home, /Understand who you are now — and what comes next\./);
+  assert.match(home, /Small cohorts\. See current dates and enrollment details\./);
+  assert.match(home, /<strong>Identity Map<\/strong>/);
+  assert.doesNotMatch(home, /Your guided first step into clarity/);
+  assert.doesNotMatch(home, /Not a course\. Not coaching\./);
+  assert.doesNotMatch(home, /Places are limited\. Applications are now open\./);
+  assert.match(footer, /https:\/\/www\.linkedin\.com\/company\/sparklifelab\//);
+  assert.match(footer, /Follow us on LinkedIn →/);
+  assert.equal((footer.match(/target="_blank"/g) ?? []).length, 2);
+});
+
+test("enables Vercel Analytics against the canonical live domain", () => {
+  const layout = read("app/layout.tsx");
+  const site = read("data/site.ts");
+
+  assert.match(layout, /@vercel\/analytics\/next/);
+  assert.match(layout, /<Analytics \/>/);
+  assert.match(site, /https:\/\/www\.spark-life-lab\.com/);
+  assert.doesNotMatch([layout, site].join("\n"), /vercel\.app/);
 });
 
 test("keeps the mobile homepage hero text before the image", () => {

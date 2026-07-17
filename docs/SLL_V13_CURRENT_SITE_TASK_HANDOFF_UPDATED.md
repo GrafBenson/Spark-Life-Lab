@@ -3,7 +3,7 @@
 **Purpose:** Precise implementation handoff for Claude Code.  
 **Scope:** Update the current SparkLifeLab website with the approved V1.3 client changes.  
 **Mode:** Controlled revision, not redesign.  
-**Website reference:** https://spark-life-lab.vercel.app/
+**Website reference:** https://www.spark-life-lab.com/
 
 ---
 

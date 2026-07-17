@@ -3,7 +3,7 @@
 /**
  * EmberCursor v3
  *
- * A single fixed SVG carries both the comet trail and the spark head,
+ * A single fixed SVG carries both the comet trail and the final spark head,
  * so trail and head share exactly the same coordinate space — no offset.
  *
  * Trail: smooth quadratic-bezier path (midpoint algorithm) + linearGradient
@@ -169,9 +169,8 @@ export function EmberCursor() {
     window.addEventListener("blur",               onBlur);
 
     // ── rAF aliases ───────────────────────────────────────────────────────────
-    // Capture non-null aliases so TypeScript can prove non-nullability inside
+    // Capture non-null child-element aliases so TypeScript can prove non-nullability inside
     // the hoisted function declaration (closure analysis limitation).
-    const svg_   = svgEl;
     const trail_ = trailEl;
     const grad_  = gradEl;
     const s0_    = s0El;
@@ -330,37 +329,21 @@ export function EmberCursor() {
       />
 
       {/*
-       * Spark head — geometry centred at local (0,0).
+       * Spark head — official high-resolution PNG centred at local (0,0).
        * Positioned via SVG `transform` attribute: translate(mx,my) scale(s).
        *   - translate: direct cursor tracking, zero lag
        *   - scale: lerped for a smooth hover reaction
        * This avoids CSS transform / SVG attribute composition ambiguity.
        */}
       <g>
-        {/* Centre dot — asymmetric offset for hand-drawn feel */}
-        <circle cx="0.4" cy="-0.4" r="2.2" fill={EMBER} />
-
-        {/* Ray 1 — top, leans left */}
-        <path d="M-0.2,-1 C-1,-3.5 -1.6,-6 -0.8,-9"
-          stroke={EMBER} strokeWidth="1.25" strokeLinecap="round" />
-        {/* Ray 2 — upper-right, longest */}
-        <path d="M0.5,-0.8 C2.4,-2.5 4.6,-3.8 7,-5.6"
-          stroke={EMBER} strokeWidth="1.05" strokeLinecap="round" />
-        {/* Ray 3 — right, nearly horizontal, shortest */}
-        <path d="M0.6,-0.2 C2.8,-0.5 4.6,-0.1 6.5,0.6"
-          stroke={EMBER} strokeWidth="0.85" strokeLinecap="round" />
-        {/* Ray 4 — lower-right */}
-        <path d="M0.4,0.4 C1.8,2.2 3,4.4 4,7"
-          stroke={EMBER} strokeWidth="1.00" strokeLinecap="round" />
-        {/* Ray 5 — bottom, slightly right of vertical */}
-        <path d="M0.1,0.5 C0.8,2.8 1.2,5.5 0.4,8.5"
-          stroke={EMBER} strokeWidth="1.15" strokeLinecap="round" />
-        {/* Ray 6 — lower-left */}
-        <path d="M-0.4,0.4 C-2,1.8 -3.8,3 -6.2,4.4"
-          stroke={EMBER} strokeWidth="0.95" strokeLinecap="round" />
-        {/* Ray 7 — upper-left */}
-        <path d="M-0.5,-0.6 C-2.4,-1.6 -4.8,-2.4 -7.2,-3.2"
-          stroke={EMBER} strokeWidth="1.10" strokeLinecap="round" />
+        <image
+          href="/images/sparklifelab-spark.png"
+          x="-8.75"
+          y="-10.5"
+          width="17.5"
+          height="21"
+          preserveAspectRatio="xMidYMid meet"
+        />
       </g>
     </svg>
   );

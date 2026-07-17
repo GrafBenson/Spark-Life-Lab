@@ -1,11 +1,13 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { site, legalItems } from "@/data/site";
 
 const DESCRIPTOR =
   "A self-assessment, a guided transformation, and a community — for people ready to move forward.";
 const SUBSTACK_URL = "https://sparklifelab.substack.com/";
+const LINKEDIN_URL = "https://www.linkedin.com/company/sparklifelab/";
 
 export function SiteFooter() {
   function openCookiePreferences() {
@@ -15,6 +17,7 @@ export function SiteFooter() {
   const descriptor = DESCRIPTOR;
   const email = site.email;
   const substackHref = SUBSTACK_URL;
+  const linkedinHref = LINKEDIN_URL;
   const resolvedLegalLinks = legalItems;
 
   return (
@@ -24,16 +27,25 @@ export function SiteFooter() {
         {/* Brand column */}
         <div>
           <Link className="footer-wordmark" href="/" aria-label="SparkLifeLab home">
-            <span>Spark</span>LifeLab
+            <Image
+              src="/images/sparklifelab-wordmark.png"
+              alt="SparkLifeLab"
+              width={1070}
+              height={221}
+              className="footer-wordmark-image"
+            />
           </Link>
           <p className="footer-tagline">Ignite your best life — on purpose</p>
           <p className="footer-descriptor">{descriptor}</p>
           <div className="footer-contact">
             <a href={`mailto:${email}`}>{email}</a>
           </div>
-          <div className="footer-contact" style={{ marginTop: "0.5rem" }}>
+          <div className="footer-contact footer-editorial-links">
             <a href={substackHref} target="_blank" rel="noopener noreferrer">
               Read our essays on Substack →
+            </a>
+            <a href={linkedinHref} target="_blank" rel="noopener noreferrer">
+              Follow us on LinkedIn →
             </a>
           </div>
         </div>
@@ -72,7 +84,7 @@ export function SiteFooter() {
 
       <div className="footer-bottom">
         <p>© {site.year} SparkLifeLab. All rights reserved.</p>
-        <p>spark-life-lab.com</p>
+        <p>{site.domain}</p>
       </div>
     </footer>
   );

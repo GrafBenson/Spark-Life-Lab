@@ -169,20 +169,19 @@ main {
 
 /* Wordmark */
 .wordmark {
-  color: var(--white);
-  font-family: var(--serif);
-  font-size: 1.45rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
+  display: block;
+  flex-shrink: 0;
   text-decoration: none;
   transition: opacity var(--t-quick) var(--ease-soft);
+  width: clamp(142px, 14vw, 172px);
 }
 
 .wordmark:hover { opacity: 0.88; }
 
-.wordmark span {
-  color: var(--gold);
-  font-style: italic;
+.wordmark-image {
+  display: block;
+  height: auto;
+  width: 100%;
 }
 
 /* Desktop nav links */
@@ -1047,20 +1046,17 @@ main {
 }
 
 .footer-wordmark {
-  color: var(--white);
   display: block;
-  font-family: var(--serif);
-  font-size: 1.28rem;
-  font-weight: 600;
-  letter-spacing: -0.01em;
   margin-bottom: 0.5rem;
   text-decoration: none;
   transition: opacity var(--t-quick);
+  width: min(185px, 100%);
 }
 
-.footer-wordmark span {
-  color: var(--gold);
-  font-style: italic;
+.footer-wordmark-image {
+  display: block;
+  height: auto;
+  width: 100%;
 }
 
 .footer-wordmark:hover { opacity: 0.85; }
@@ -1080,6 +1076,14 @@ main {
 }
 
 .footer-contact a:hover { color: var(--gold); }
+
+.footer-editorial-links {
+  align-items: start;
+  display: grid;
+  gap: 0.5rem;
+  justify-items: start;
+  margin-top: 0.5rem;
+}
 
 .footer-heading {
   color: var(--gold);
@@ -2129,9 +2133,9 @@ html.ember-cursor-active * {
   max-width: 280px;
 }
 
-/* ===== Identity Lab — grid with map visual ===== */
+/* ===== Identity Lab — grid with final Identity Map visual ===== */
 
-/* Standard max-width for the lab section — map is now a preview card, not full-size poster */
+/* Standard max-width for the lab section */
 .section-lab .section-inner {
   width: min(var(--max), 100%);
 }
@@ -2140,7 +2144,7 @@ html.ember-cursor-active * {
   align-items: center;
   display: grid;
   gap: clamp(2.5rem, 5vw, 4rem);
-  /* Text col flexible; image col sized to hold the 420px portrait preview snugly */
+  /* Text column stays flexible; image column holds the portrait visual snugly. */
   grid-template-columns: minmax(320px, 1fr) minmax(380px, 460px);
 }
 
@@ -2151,17 +2155,17 @@ html.ember-cursor-active * {
 }
 
 .lab-map-image {
-  background-color: var(--cream); /* warm placeholder while image loads */
+  background-color: var(--cream);
   border-radius: 6px;
   box-shadow: 0 12px 56px rgba(32, 43, 65, 0.22), 0 4px 16px rgba(32, 43, 65, 0.12);
   display: block;
   height: auto;
-  max-width: 420px; /* portrait preview: readable card — 420px wide = ~630px tall at 2:3 */
+  max-width: 420px;
   width: 100%;
   object-fit: contain;
 }
 
-/* ===== Clarity Check V2 — cover + form placeholder ===== */
+/* ===== Clarity Check V2 — final cover + live form ===== */
 
 .clarity-card-v2 {
   display: flex;
@@ -2169,14 +2173,14 @@ html.ember-cursor-active * {
   gap: 2rem;
 }
 
-/* Cover image — uses drop-shadow (not box-shadow) so it follows
-   the transparent PNG outline, not the bounding rectangle. */
+/* Final cover image */
 .clarity-cover-wrap {
   display: flex;
   justify-content: center;
 }
 
 .clarity-cover-img {
+  border-radius: 2px;
   display: block;
   filter:
     drop-shadow(0 6px 24px rgba(32, 43, 65, 0.40))

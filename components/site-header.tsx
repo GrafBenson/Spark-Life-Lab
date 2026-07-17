@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 
 // All nav destinations are page routes — no anchor-scroll behaviour in the header.
@@ -24,7 +25,14 @@ export function SiteHeader() {
   return (
     <header className={`site-header${scrolled ? " is-scrolled" : ""}${menuOpen ? " is-menu-open" : ""}`}>
       <Link className="wordmark" href="/" aria-label="SparkLifeLab — home">
-        <span>Spark</span>LifeLab
+        <Image
+          src="/images/sparklifelab-wordmark.png"
+          alt="SparkLifeLab"
+          width={1070}
+          height={221}
+          className="wordmark-image"
+          preload
+        />
       </Link>
 
       <nav className="desktop-nav" aria-label="Primary navigation">

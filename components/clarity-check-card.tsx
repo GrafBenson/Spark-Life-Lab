@@ -1,9 +1,5 @@
 /**
- * ClarityCheckCard — live Kit form + transparent cover visual.
- *
- * - Cover PNG preserves transparency (no white background box)
- * - Shadow is applied via CSS filter: drop-shadow (not box-shadow)
- *   so it follows the actual image outline, not the bounding rect
+ * ClarityCheckCard — live Kit form + final Midlife Clarity Check cover.
  */
 
 import Image from "next/image";
@@ -12,13 +8,13 @@ import { MidlifeClarityKitForm } from "@/components/midlife-clarity-kit-form";
 export function ClarityCheckCard() {
   return (
     <div className="clarity-card-v2">
-      {/* Cover visual — transparent PNG with soft depth shadow */}
+      {/* Final cover visual with soft depth shadow */}
       <div className="clarity-cover-wrap">
         <Image
-          src="/images/Clarity-Check-cover-transparent.png"
+          src="/images/Midlife-Clarity-Check-cover-V2.2.jpg"
           alt="The Midlife Clarity Check — a free personal self-assessment"
-          width={480}
-          height={640}
+          width={998}
+          height={1296}
           className="clarity-cover-img"
           priority
         />
