@@ -1398,18 +1398,7 @@ main {
   line-height: 1.78;
 }
 
-.legal-todo {
-  background: var(--sand);
-  border: 1px solid var(--line);
-  border-left: 3px solid var(--gold);
-  border-radius: 3px;
-  color: var(--navy);
-  font-size: 0.9rem;
-  margin: 2rem 0;
-  padding: 1.25rem 1.5rem;
-}
-
-/* Legal card grid — Cookie Policy placeholder layout */
+/* Legal card grid */
 .legal-grid {
   display: grid;
   gap: 1rem;
@@ -1619,7 +1608,7 @@ main {
   margin-top: 0;
 }
 
-/* Intro text (Cookie Policy placeholder description) — body scale, not hero scale */
+/* Legal intro text — body scale, not hero scale */
 .legal-intro {
   color: var(--muted);
   font-size: 1rem;

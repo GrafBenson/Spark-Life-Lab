@@ -17,15 +17,6 @@ export function LegalPage({ title, intro, children }: LegalPageProps) {
           <h1>{title}</h1>
           {intro && <p className="legal-intro">{intro}</p>}
 
-          <div className="legal-todo">
-            <strong>TODO — Final legal copy required.</strong> This is a structured
-            placeholder. Replace with lawyer-reviewed or{" "}
-            <a href="https://termly.io" target="_blank" rel="noopener noreferrer">Termly</a>/
-            <a href="https://iubenda.com" target="_blank" rel="noopener noreferrer">iubenda</a>-generated
-            text before public launch. Do not invent company registration data, legal
-            addresses, or responsible person details.
-          </div>
-
           {children}
 
           <p className="legal-footer-nav">

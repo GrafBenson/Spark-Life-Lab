@@ -95,6 +95,7 @@ test("enables Vercel Analytics against the canonical live domain", () => {
   const layout = read("app/layout.tsx");
   const site = read("data/site.ts");
   const cookiePolicy = read("app/cookie-policy/page.tsx");
+  const legalPage = read("components/legal-page.tsx");
 
   assert.match(layout, /@vercel\/analytics\/next/);
   assert.match(layout, /<Analytics \/>/);
@@ -102,6 +103,7 @@ test("enables Vercel Analytics against the canonical live domain", () => {
   assert.match(cookiePolicy, /Vercel Web Analytics/);
   assert.match(cookiePolicy, /It does not use cookies/);
   assert.doesNotMatch(cookiePolicy, /placeholder|Analytics are not currently loaded/i);
+  assert.doesNotMatch(legalPage, /TODO — Final legal copy required|structured placeholder/i);
   assert.doesNotMatch([layout, site].join("\n"), /vercel\.app/);
 });
 
