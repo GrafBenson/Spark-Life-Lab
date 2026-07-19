@@ -7,6 +7,8 @@ export const metadata: Metadata = {
   title: "Identity Lab Waitlist | SparkLifeLab",
   description:
     "Join the waitlist for the next Identity Lab cohort at SparkLifeLab.",
+  alternates: { canonical: "/identity-lab/waitlist/" },
+  robots: { index: false, follow: false },
 };
 
 export default function IdentityLabWaitlistPage() {

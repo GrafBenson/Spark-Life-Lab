@@ -55,9 +55,13 @@ test("has explicit legal, cookie, and consent integrations", () => {
   assert.match(footer, /Terms & Conditions/);
   assert.match(footer, /Cookie Policy/);
   assert.match(footer, /Legal Note/);
+  assert.match(footer, /Cookie preferences/);
   assert.match(cookie, /Essential only/);
   assert.match(cookie, /Manage preferences/);
-  assert.match(cookie, /Accept all/);
+  assert.doesNotMatch(cookie, /Accept all/);
+  assert.match(cookie, /ACTIVE_OPTIONAL_COOKIE_CATEGORIES/);
+  assert.match(cookie, /Privacy-friendly website analytics/);
+  assert.doesNotMatch(cookie, /type="checkbox"/);
   assert.match(email, /consent/i);
   assert.match(email, /Privacy Policy/);
   assert.match(email, /Unsubscribe/);
@@ -101,8 +105,11 @@ test("enables Vercel Analytics against the canonical live domain", () => {
   assert.match(layout, /<Analytics \/>/);
   assert.match(site, /https:\/\/www\.spark-life-lab\.com/);
   assert.match(cookiePolicy, /Vercel Web Analytics/);
-  assert.match(cookiePolicy, /It does not use cookies/);
-  assert.doesNotMatch(cookiePolicy, /placeholder|Analytics are not currently loaded/i);
+  assert.match(cookiePolicy, /does not use cookies/);
+  assert.match(cookiePolicy, /ckid/);
+  assert.match(cookiePolicy, /persistent random identifier/);
+  assert.match(cookiePolicy, /cksubscribed-/);
+  assert.doesNotMatch(cookiePolicy, /Speed Insights|PROVISIONAL|TODO|replace this sentence/i);
   assert.doesNotMatch(legalPage, /TODO — Final legal copy required|structured placeholder/i);
   assert.doesNotMatch([layout, site].join("\n"), /vercel\.app/);
 });
@@ -213,4 +220,51 @@ test("keeps the Identity Lab waitlist page hidden and Kit-powered", () => {
   assert.match(styles, /\.sll-identity-waitlist-kit-form\s+\.formkit-submit/);
   assert.match(read("components/midlife-clarity-kit-form.tsx"), /62b878a91d/);
   assert.doesNotMatch(kitForm, /62b878a91d/);
+  assert.match(waitlist, /robots:\s*\{\s*index:\s*false,\s*follow:\s*false\s*\}/);
+});
+
+test("publishes canonical metadata and only indexable sitemap routes", () => {
+  const canonicalRoutes = new Map([
+    ["app/page.tsx", "/"],
+    ["app/about/page.tsx", "/about/"],
+    ["app/identity-lab/page.tsx", "/identity-lab/"],
+    ["app/contact/page.tsx", "/contact/"],
+    ["app/resources/page.tsx", "/resources/"],
+    ["app/privacy-policy/page.tsx", "/privacy-policy/"],
+    ["app/terms-and-conditions/page.tsx", "/terms-and-conditions/"],
+    ["app/cookie-policy/page.tsx", "/cookie-policy/"],
+    ["app/legal-note/page.tsx", "/legal-note/"],
+    ["app/identity-lab/waitlist/page.tsx", "/identity-lab/waitlist/"],
+  ]);
+
+  for (const [route, canonical] of canonicalRoutes) {
+    assert.match(read(route), new RegExp(`canonical: ["']${canonical.replaceAll("/", "\\/")}["']`));
+  }
+
+  const sitemap = read("app/sitemap.ts");
+  assert.match(sitemap, /path:\s*"\/"/);
+  assert.match(sitemap, /path:\s*"\/cookie-policy\/"/);
+  assert.doesNotMatch(sitemap, /path:\s*"\/legal-note\/"/);
+  assert.doesNotMatch(sitemap, /path:\s*"\/identity-lab\/waitlist\/"/);
+  assert.doesNotMatch(sitemap, /vercel\.app/);
+
+  const robots = read("app/robots.ts");
+  assert.match(robots, /allow:\s*"\/"/);
+  assert.match(robots, /sitemap:\s*`\$\{site\.url\}\/sitemap\.xml`/);
+});
+
+test("keeps the preference center accessible and reopenable", () => {
+  const cookie = read("components/cookie-consent.tsx");
+  const footer = read("components/site-footer.tsx");
+
+  assert.match(cookie, /role="dialog"/);
+  assert.match(cookie, /aria-modal="true"/);
+  assert.match(cookie, /event\.key === "Escape"/);
+  assert.match(cookie, /event\.key !== "Tab"/);
+  assert.match(cookie, /returnFocusRef/);
+  assert.match(cookie, /document\.body\.style\.overflow = "hidden"/);
+  assert.match(cookie, /role="status"/);
+  assert.match(cookie, /aria-live="polite"/);
+  assert.match(cookie, /Your privacy preferences have been saved/);
+  assert.match(footer, /sparklifelab:open-cookie-preferences/);
 });

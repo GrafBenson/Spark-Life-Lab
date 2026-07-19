@@ -1,154 +1,301 @@
 "use client";
 
-// Preferences are stored locally. Vercel Web Analytics is cookieless and loads
-// independently; the optional categories are reserved for future cookie-based tools.
-
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
+import {
+  loadCookiePreferences,
+  saveCookiePreferences,
+} from "@/lib/cookie-preferences.mjs";
 
-type ConsentMode = "essential" | "all" | "custom";
-
-type ConsentState = {
-  mode: ConsentMode;
-  analytics: boolean;
-  marketing: boolean;
-};
-
-const storageKey = "sparklifelab-cookie-consent";
-
-const essentialOnly: ConsentState = {
-  mode: "essential",
-  analytics: false,
-  marketing: false,
-};
+const OPEN_PREFERENCES_EVENT = "sparklifelab:open-cookie-preferences";
+const ACTIVE_OPTIONAL_COOKIE_CATEGORIES: string[] = [];
+const SAVE_CONFIRMATION =
+  "Your privacy preferences have been saved. You can change them at any time using the “Cookie preferences” link in the footer.";
 
 export function CookieConsent() {
-  const [visible, setVisible] = useState(false);
-  const [manageOpen, setManageOpen] = useState(false);
-  const [marketing, setMarketing] = useState(false);
-  const panelRef = useRef<HTMLElement>(null);
+  const [bannerVisible, setBannerVisible] = useState(false);
+  const [preferencesOpen, setPreferencesOpen] = useState(false);
+  const [confirmationVisible, setConfirmationVisible] = useState(false);
+  const [storageError, setStorageError] = useState(false);
+  const bannerRef = useRef<HTMLElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+  const returnFocusRef = useRef<HTMLElement | null>(null);
+  const confirmationTimerRef = useRef<number | null>(null);
+  const hasOptionalCookieCategories = ACTIVE_OPTIONAL_COOKIE_CATEGORIES.length > 0;
 
   useEffect(() => {
-    const timer = window.setTimeout(() => {
-      const stored = window.localStorage.getItem(storageKey);
-      if (!stored) setVisible(true);
+    const initializationTimer = window.setTimeout(() => {
+      try {
+        const preference = loadCookiePreferences(window.localStorage);
+        setBannerVisible(preference === null);
+      } catch {
+        setBannerVisible(true);
+        setStorageError(true);
+      }
     }, 0);
 
     const openPreferences = () => {
-      const current = window.localStorage.getItem(storageKey);
-      if (current) {
-        try {
-          const parsed = JSON.parse(current) as ConsentState;
-          setMarketing(parsed.marketing);
-        } catch {
-          setMarketing(false);
-        }
-      }
-      setManageOpen(true);
-      setVisible(true);
+      returnFocusRef.current =
+        document.activeElement instanceof HTMLElement ? document.activeElement : null;
+      setStorageError(false);
+      setPreferencesOpen(true);
     };
 
-    window.addEventListener("sparklifelab:open-cookie-preferences", openPreferences);
+    window.addEventListener(OPEN_PREFERENCES_EVENT, openPreferences);
     return () => {
-      window.clearTimeout(timer);
-      window.removeEventListener("sparklifelab:open-cookie-preferences", openPreferences);
+      window.clearTimeout(initializationTimer);
+      window.removeEventListener(OPEN_PREFERENCES_EVENT, openPreferences);
+      if (confirmationTimerRef.current !== null) {
+        window.clearTimeout(confirmationTimerRef.current);
+      }
     };
   }, []);
 
-  // Reserve page space equal to the fixed banner's height while it is visible.
-  // Without this, the bottom-pinned bar overlays page content and intercepts
-  // clicks on any CTA sitting in its band (the closing CTA and footer links can
-  // never be scrolled clear of it). Tracks height changes (mobile wrap / manage panel).
   useEffect(() => {
-    const el = panelRef.current;
-    if (!visible || !el) return;
+    const banner = bannerRef.current;
+    if (!bannerVisible || !banner) {
+      return;
+    }
 
     const root = document.documentElement;
-    const apply = () => root.style.setProperty("--cookie-banner-h", `${el.offsetHeight}px`);
-    apply();
-    document.body.classList.add("has-cookie-banner");
+    const applyHeight = () => {
+      root.style.setProperty("--cookie-banner-h", `${banner.offsetHeight}px`);
+    };
 
-    const ro = new ResizeObserver(apply);
-    ro.observe(el);
+    applyHeight();
+    document.body.classList.add("has-cookie-banner");
+    const resizeObserver = new ResizeObserver(applyHeight);
+    resizeObserver.observe(banner);
 
     return () => {
-      ro.disconnect();
+      resizeObserver.disconnect();
       document.body.classList.remove("has-cookie-banner");
       root.style.removeProperty("--cookie-banner-h");
     };
-  }, [visible]);
+  }, [bannerVisible]);
 
-  function saveConsent(consent: ConsentState) {
-    window.localStorage.setItem(storageKey, JSON.stringify(consent));
-    setVisible(false);
-    setManageOpen(false);
+  useEffect(() => {
+    if (!preferencesOpen) {
+      return;
+    }
+
+    const dialog = dialogRef.current;
+    if (!dialog) {
+      return;
+    }
+
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = "hidden";
+    closeButtonRef.current?.focus();
+
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        event.preventDefault();
+        setPreferencesOpen(false);
+        return;
+      }
+
+      if (event.key !== "Tab") {
+        return;
+      }
+
+      const focusable = Array.from(
+        dialog.querySelectorAll<HTMLElement>(
+          'button:not([disabled]), a[href], [tabindex]:not([tabindex="-1"])'
+        )
+      );
+      if (focusable.length === 0) {
+        event.preventDefault();
+        return;
+      }
+
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    };
+
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+      document.body.style.overflow = previousOverflow;
+      if (returnFocusRef.current?.isConnected) {
+        returnFocusRef.current.focus();
+      }
+    };
+  }, [preferencesOpen]);
+
+  function showConfirmation() {
+    setConfirmationVisible(true);
+    if (confirmationTimerRef.current !== null) {
+      window.clearTimeout(confirmationTimerRef.current);
+    }
+    confirmationTimerRef.current = window.setTimeout(() => {
+      setConfirmationVisible(false);
+    }, 9000);
   }
 
-  if (!visible) return null;
+  function savePreferences() {
+    try {
+      saveCookiePreferences(window.localStorage);
+      setStorageError(false);
+      setPreferencesOpen(false);
+      setBannerVisible(false);
+      showConfirmation();
+    } catch {
+      setStorageError(true);
+    }
+  }
+
+  function openPreferences(trigger: HTMLElement) {
+    returnFocusRef.current = trigger;
+    setStorageError(false);
+    setPreferencesOpen(true);
+  }
 
   return (
-    <section ref={panelRef} className="cookie-panel" role="dialog" aria-label="Cookie consent" aria-modal="true">
-      <div className="cookie-copy">
-        <p className="cookie-title">Cookie preferences</p>
-        <p>
-          Essential storage remembers your preferences. Our privacy-friendly traffic
-          analytics do not use cookies. Read our <Link href="/cookie-policy/">Cookie Policy</Link>.
-        </p>
-
-        {manageOpen ? (
-          <div className="cookie-manage">
-            <label>
-              <input type="checkbox" checked disabled readOnly aria-label="Essential cookies (always active)" />
-              {" "}Essential cookies <em style={{ fontSize: "0.8em", opacity: 0.65 }}>(always active)</em>
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                checked={false}
-                disabled
-                readOnly
-                aria-label="Analytics cookies (not currently used)"
-              />
-              {" "}Analytics cookies <em style={{ fontSize: "0.8em", opacity: 0.65 }}>(not currently used)</em>
-            </label>
-            <label>
-              <input
-                type="checkbox"
-                checked={marketing}
-                onChange={(e) => setMarketing(e.target.checked)}
-                aria-label="Marketing cookies"
-              />
-              {" "}Marketing cookies
-            </label>
+    <>
+      {bannerVisible ? (
+        <section
+          ref={bannerRef}
+          className="cookie-panel"
+          aria-labelledby="cookie-banner-title"
+        >
+          <div className="cookie-copy">
+            <p className="cookie-title" id="cookie-banner-title">
+              Cookie preferences
+            </p>
+            <p>
+              We use essential browser storage to remember your privacy choices and to support
+              website functions such as our Kit signup forms. We also use privacy-friendly Vercel
+              analytics that do not use cookies or identify individual visitors.
+            </p>
+            <p>
+              No advertising or marketing cookies are currently active. You can review or update
+              your preferences at any time.
+            </p>
+            <Link className="cookie-policy-link" href="/cookie-policy/">
+              Read our Cookie Policy
+            </Link>
+            {storageError ? (
+              <p className="cookie-storage-error" role="alert">
+                We could not save your preference. Please check that browser storage is available
+                and try again.
+              </p>
+            ) : null}
           </div>
-        ) : null}
-      </div>
 
-      <div className="cookie-actions">
-        <button type="button" onClick={() => saveConsent(essentialOnly)}>
-          Essential only
-        </button>
-        <button type="button" onClick={() => setManageOpen(true)}>
-          Manage preferences
-        </button>
-        {manageOpen ? (
-          <button
-            type="button"
-            className="cookie-primary"
-            onClick={() => saveConsent({ mode: "custom", analytics: false, marketing })}
+          <div className="cookie-actions">
+            <button type="button" onClick={savePreferences}>
+              Essential only
+            </button>
+            <button
+              type="button"
+              className="cookie-primary"
+              onClick={(event) => openPreferences(event.currentTarget)}
+            >
+              Manage preferences
+            </button>
+            {hasOptionalCookieCategories ? (
+              <button type="button" onClick={savePreferences}>
+                Accept optional cookies
+              </button>
+            ) : null}
+          </div>
+        </section>
+      ) : null}
+
+      {preferencesOpen ? (
+        <div className="cookie-preferences-backdrop">
+          <div
+            ref={dialogRef}
+            className="cookie-preferences-dialog"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="cookie-preferences-title"
+            aria-describedby="cookie-preferences-summary"
           >
-            Save choices
-          </button>
-        ) : (
-          <button
-            type="button"
-            className="cookie-primary"
-            onClick={() => saveConsent({ mode: "all", analytics: false, marketing: true })}
-          >
-            Accept all
-          </button>
-        )}
+            <div className="cookie-preferences-header">
+              <div>
+                <p className="cookie-preferences-eyebrow">Privacy controls</p>
+                <h2 id="cookie-preferences-title">Cookie preferences</h2>
+              </div>
+              <button
+                ref={closeButtonRef}
+                type="button"
+                className="cookie-preferences-close"
+                onClick={() => setPreferencesOpen(false)}
+                aria-label="Close cookie preferences without saving"
+              >
+                Close
+              </button>
+            </div>
+
+            <p id="cookie-preferences-summary" className="cookie-preferences-summary">
+              Review the technologies currently used on this website. Opening or closing this
+              panel does not change your saved preference.
+            </p>
+
+            <div className="cookie-category-list">
+              <section className="cookie-category" aria-labelledby="essential-storage-title">
+                <div className="cookie-category-heading">
+                  <h3 id="essential-storage-title">Essential storage</h3>
+                  <span className="cookie-category-status">Always active</span>
+                </div>
+                <p>
+                  Essential browser storage and security technologies help the website function,
+                  remember your privacy preferences, and protect embedded Kit forms against
+                  automated abuse. These technologies cannot be switched off through the
+                  preference center.
+                </p>
+              </section>
+
+              <section className="cookie-category" aria-labelledby="website-analytics-title">
+                <div className="cookie-category-heading">
+                  <h3 id="website-analytics-title">Privacy-friendly website analytics</h3>
+                  <span className="cookie-category-status cookie-category-status-info">
+                    Cookieless
+                  </span>
+                </div>
+                <p>
+                  We use Vercel Web Analytics to understand page views and basic website usage in
+                  aggregated form. Vercel Web Analytics does not use cookies and is not intended to
+                  identify individual visitors.
+                </p>
+              </section>
+            </div>
+
+            {storageError ? (
+              <p className="cookie-modal-error" role="alert">
+                We could not save your preference. Please check that browser storage is available
+                and try again.
+              </p>
+            ) : null}
+
+            <div className="cookie-preferences-footer">
+              <Link href="/cookie-policy/">Read our Cookie Policy</Link>
+              <button type="button" className="cookie-save-button" onClick={savePreferences}>
+                Save choices
+              </button>
+            </div>
+          </div>
+        </div>
+      ) : null}
+
+      <div
+        className={`cookie-confirmation${confirmationVisible ? " is-visible" : ""}`}
+        role="status"
+        aria-live="polite"
+        aria-atomic="true"
+      >
+        {confirmationVisible ? SAVE_CONFIRMATION : ""}
       </div>
-    </section>
+    </>
   );
 }

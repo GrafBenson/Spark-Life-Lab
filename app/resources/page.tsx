@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   title: "Midlife Clarity Resources — SparkLifeLab",
   description:
     "Essays and reflection resources on midlife clarity, purpose, values, and identity change. Published by SparkLifeLab.",
+  alternates: { canonical: "/resources/" },
   openGraph: {
     title: "Midlife Clarity Resources — SparkLifeLab",
     description:

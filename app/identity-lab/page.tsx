@@ -10,6 +10,7 @@ export const metadata: Metadata = {
   title: "Identity Lab | SparkLifeLab",
   description:
     "A guided journey for people in midlife who are ready to move from fog to grounded forward movement.",
+  alternates: { canonical: "/identity-lab/" },
   openGraph: {
     title: "Identity Lab | SparkLifeLab",
     description:

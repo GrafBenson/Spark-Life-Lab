@@ -11,6 +11,7 @@ export const metadata: Metadata = {
   title: "SparkLifeLab — Midlife Clarity & Guided Transformation",
   description:
     "A calm, guided space for people in midlife who sense something has shifted. Take the free Midlife Clarity Check or explore the Identity Lab.",
+  alternates: { canonical: "/" },
   openGraph: {
     type: "website",
     title: "SparkLifeLab — Find Your Way Through Midlife",

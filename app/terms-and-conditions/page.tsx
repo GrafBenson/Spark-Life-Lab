@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Terms & Conditions — SparkLifeLab",
   description:
     "SparkLifeLab Terms & Conditions. The legal terms governing your use of the SparkLifeLab website and services.",
+  alternates: { canonical: "/terms-and-conditions/" },
 };
 
 export default function TermsAndConditionsPage() {

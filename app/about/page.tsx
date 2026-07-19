@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Our Story — SparkLifeLab",
   description:
     "SparkLifeLab began with a quiet question many people reach in midlife. Meet the three co-founders — Bärbel, Gunther, and Scott — and why they built the kind of space they themselves needed.",
+  alternates: { canonical: "/about/" },
   openGraph: {
     title: "Our Story — SparkLifeLab",
     description:

@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy — SparkLifeLab",
   description:
     "SparkLifeLab Privacy Policy. How we collect, use, and protect your personal information under GDPR, CCPA, and applicable privacy laws.",
+  alternates: { canonical: "/privacy-policy/" },
 };
 
 export default function PrivacyPolicyPage() {

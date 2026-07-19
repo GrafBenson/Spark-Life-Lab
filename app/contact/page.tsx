@@ -9,6 +9,7 @@ export const metadata: Metadata = {
   title: "Contact SparkLifeLab — Questions Welcome",
   description:
     "Email SparkLifeLab with questions about the free Clarity Check, the Identity Lab programme, or potential collaboration.",
+  alternates: { canonical: "/contact/" },
   openGraph: {
     title: "Contact SparkLifeLab — Questions Welcome",
     description:
