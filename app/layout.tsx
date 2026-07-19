@@ -34,28 +34,6 @@ export const metadata: Metadata = {
     "A calm, guided space for people in midlife who sense something has shifted. Take the free Midlife Clarity Check or explore the Identity Lab.",
   applicationName: "SparkLifeLab",
   manifest: "/manifest.webmanifest",
-  icons: {
-    icon: [
-      { url: "/favicon-16x16.png?v=2", sizes: "16x16", type: "image/png" },
-      { url: "/favicon-32x32.png?v=2", sizes: "32x32", type: "image/png" },
-      { url: "/favicon.svg?v=2", sizes: "any", type: "image/svg+xml" },
-    ],
-    shortcut: "/favicon.ico?v=2",
-    apple: [
-      {
-        url: "/apple-touch-icon.png?v=2",
-        sizes: "180x180",
-        type: "image/png",
-      },
-    ],
-    other: [
-      {
-        rel: "mask-icon",
-        url: "/favicon.svg?v=2",
-        color: "#ef7c62",
-      },
-    ],
-  },
   openGraph: {
     type: "website",
     url: site.url,
@@ -102,6 +80,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${serif.variable} ${sans.variable}`}>
       <head>
+        <link rel="mask-icon" href="/favicon.svg?v=3" color="#ef7c62" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationJsonLd) }}
