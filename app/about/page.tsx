@@ -38,7 +38,7 @@ const founders = [
     id: "gunther",
     name: "Gunther Tress, PhD",
     role: "Co-founder",
-    photo: "/images/founder_gunther_test.png",
+    photo: "/images/founder_gunther.png",
     photoAlt: "Gunther Tress, Co-founder of SparkLifeLab",
     linkedinUrl: "https://www.linkedin.com/in/gunthertress",
     linkedinLabel: "Gunther Tress on LinkedIn (opens in new tab)",
