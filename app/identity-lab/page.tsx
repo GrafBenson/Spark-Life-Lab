@@ -3,6 +3,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { IdentityLabFaq, type FaqItem } from "@/components/identity-lab-faq";
+import { IdentityLabWaitlist } from "@/components/identity-lab-waitlist";
+import { IdentityLabEnrollmentOpen } from "@/components/identity-lab-enrollment-open";
+import {
+  identityLabStatus,
+  IDENTITY_LAB_ACTION_ANCHOR,
+  IDENTITY_LAB_ACTION_HREF,
+  IDENTITY_LAB_CTA_LABEL,
+} from "@/lib/identity-lab-config";
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
@@ -19,10 +27,9 @@ export const metadata: Metadata = {
 };
 
 // ─── CTA destinations ────────────────────────────────────────────────────────
-// In-page anchor to the pricing / enrollment section (hero + "What it is" CTAs).
-const ENROLLMENT_HREF = "#identity-lab-enrollment";
-// Hidden waitlist page — used while registration is closed (pricing + final CTAs).
-const WAITLIST_HREF = "/identity-lab/waitlist/";
+// Every primary CTA points at the same stable in-page anchor (#identity-lab-action),
+// which resolves to whichever conversion block is active. The label follows the
+// status flag in lib/identity-lab-config.ts — no per-CTA edits needed on switch.
 
 // ─── FAQ data — approved V1.0 copy (unchanged) ───────────────────────────────
 
@@ -87,7 +94,7 @@ const PERSONAS = [
   },
   {
     title: "An Inner or Creative Explorer",
-    desc: "You are drawn to reflection, personal growth, and living more consciously, and want to understand yourself more deeply.",
+    desc: "You are drawn to reflection, personal growth, or creative expression, and want to reconnect with parts of yourself that have been overlooked or left unexplored.",
   },
   {
     title: "A Life Rebuilder",
@@ -152,8 +159,8 @@ export default function IdentityLabPage() {
                 intention.
               </p>
               <div className="hero-actions">
-                <a className="button button-primary" href={ENROLLMENT_HREF}>
-                  Join the Identity Lab →
+                <a className="button button-primary" href={IDENTITY_LAB_ACTION_HREF}>
+                  {IDENTITY_LAB_CTA_LABEL}
                 </a>
                 <Link className="button-text" href="/#clarity-check">
                   Take the Midlife Clarity Check →
@@ -227,8 +234,8 @@ export default function IdentityLabPage() {
                 structure, reflection, and support.
               </p>
               <div className="il-whatis-actions">
-                <a className="button button-primary" href={ENROLLMENT_HREF}>
-                  Join the Identity Lab →
+                <a className="button button-primary" href={IDENTITY_LAB_ACTION_HREF}>
+                  {IDENTITY_LAB_CTA_LABEL}
                 </a>
               </div>
             </div>
@@ -259,45 +266,64 @@ export default function IdentityLabPage() {
               sense of who you are, what matters now, and how to move forward.
             </p>
 
-            <div className="il-benefits">
-              <div className="il-benefit">
-                <h3 className="il-benefit-title">Greater self-understanding</h3>
-                <p className="il-benefit-desc">
-                  You see yourself more clearly — your values, patterns, strengths, and
-                  deeper motivations.
-                </p>
-              </div>
-              <div className="il-benefit">
-                <h3 className="il-benefit-title">Clarity about what fits</h3>
-                <p className="il-benefit-desc">
-                  You recognize what still belongs in your life, what no longer does,
-                  and where change is needed.
-                </p>
-              </div>
-              <div className="il-benefit">
-                <h3 className="il-benefit-title">
-                  Reconnection with what is most alive in you
-                </h3>
-                <p className="il-benefit-desc">
-                  You rediscover the parts of yourself that have been overlooked,
-                  postponed, or pushed aside.
-                </p>
-              </div>
-              <div className="il-benefit">
-                <h3 className="il-benefit-title">A stronger sense of direction</h3>
-                <p className="il-benefit-desc">
-                  You see more clearly which future possibilities feel aligned,
-                  meaningful, and worth exploring.
-                </p>
-              </div>
-              <div className="il-benefit">
-                <h3 className="il-benefit-title">A personal compass for the future</h3>
-                <p className="il-benefit-desc">
-                  You leave with insights you can return to when making grounded
-                  decisions about what comes next.
-                </p>
-              </div>
-            </div>
+            <ol className="il-journey" aria-label="What you gain — a five-stage journey from uncertainty to clarity">
+              <li className="il-journey-stage il-journey-stage--up">
+                <span className="il-journey-marker" aria-hidden="true">01</span>
+                <div className="il-journey-card">
+                  <h3 className="il-benefit-title">Greater self-understanding</h3>
+                  <p className="il-benefit-desc">
+                    You see yourself more clearly — your values, patterns, strengths, and
+                    deeper motivations.
+                  </p>
+                </div>
+              </li>
+
+              <li className="il-journey-stage il-journey-stage--down">
+                <span className="il-journey-marker" aria-hidden="true">02</span>
+                <div className="il-journey-card">
+                  <h3 className="il-benefit-title">Clarity about what fits</h3>
+                  <p className="il-benefit-desc">
+                    You recognize what still belongs in your life, what no longer does,
+                    and where change is needed.
+                  </p>
+                </div>
+              </li>
+
+              <li className="il-journey-stage il-journey-stage--up">
+                <span className="il-journey-marker" aria-hidden="true">03</span>
+                <div className="il-journey-card">
+                  <h3 className="il-benefit-title">
+                    Reconnection with what is most alive in you
+                  </h3>
+                  <p className="il-benefit-desc">
+                    You rediscover the parts of yourself that have been overlooked,
+                    postponed, or pushed aside.
+                  </p>
+                </div>
+              </li>
+
+              <li className="il-journey-stage il-journey-stage--down">
+                <span className="il-journey-marker" aria-hidden="true">04</span>
+                <div className="il-journey-card">
+                  <h3 className="il-benefit-title">A stronger sense of direction</h3>
+                  <p className="il-benefit-desc">
+                    You see more clearly which future possibilities feel aligned,
+                    meaningful, and worth exploring.
+                  </p>
+                </div>
+              </li>
+
+              <li className="il-journey-stage il-journey-stage--up il-journey-stage--final">
+                <span className="il-journey-marker" aria-hidden="true">05</span>
+                <div className="il-journey-card">
+                  <h3 className="il-benefit-title">A personal compass for the future</h3>
+                  <p className="il-benefit-desc">
+                    You leave with insights you can return to when making grounded
+                    decisions about what comes next.
+                  </p>
+                </div>
+              </li>
+            </ol>
           </div>
         </section>
 
@@ -365,7 +391,8 @@ export default function IdentityLabPage() {
 
             <div className="il-phases">
               <article className="il-phase-card">
-                <h3 className="il-phase-name">01 — Understanding yourself</h3>
+                <div className="il-phase-number" aria-hidden="true">01</div>
+                <h3 className="il-phase-name">Understanding yourself</h3>
                 <p className="il-phase-desc">
                   You explore your values, personality, and patterns, and begin to
                   understand what has shaped you and what still feels true now.
@@ -373,7 +400,8 @@ export default function IdentityLabPage() {
               </article>
 
               <article className="il-phase-card">
-                <h3 className="il-phase-name">02 — Revealing your core identity</h3>
+                <div className="il-phase-number" aria-hidden="true">02</div>
+                <h3 className="il-phase-name">Revealing your core identity</h3>
                 <p className="il-phase-desc">
                   You uncover your natural strengths, recognize when you are at your
                   best, and begin to see what you are here to bring to life.
@@ -381,7 +409,8 @@ export default function IdentityLabPage() {
               </article>
 
               <article className="il-phase-card">
-                <h3 className="il-phase-name">03 — Emerging possibilities</h3>
+                <div className="il-phase-number" aria-hidden="true">03</div>
+                <h3 className="il-phase-name">Emerging possibilities</h3>
                 <p className="il-phase-desc">
                   You explore what draws you forward, reconnect with what inspires you,
                   and begin to sense what kind of future may be opening next.
@@ -428,9 +457,9 @@ export default function IdentityLabPage() {
                   <h3 className="il-included-heading">Materials &amp; access</h3>
                   <ul className="il-included-list">
                     <li>Guided prompts, exercises, and reflection practices</li>
-                    <li>Access to all materials and recordings</li>
+                    <li>Access to all course materials</li>
                     <li>Small cohort for meaningful connection</li>
-                    <li>Private space for optional sharing</li>
+                    <li>Space for both personal reflection and meaningful conversation</li>
                   </ul>
                 </div>
 
@@ -516,42 +545,18 @@ export default function IdentityLabPage() {
           </div>
         </section>
 
-        {/* ─── SECTION 10 — PRICING / ENROLLMENT ─── */}
+        {/* ─── SECTION 10 — CENTRAL CONVERSION BLOCK (A or B, never both) ─── */}
         <section
-          id="identity-lab-enrollment"
-          className="section"
+          id={IDENTITY_LAB_ACTION_ANCHOR}
+          className="section il-action-section"
           style={{ paddingLeft: "5vw", paddingRight: "5vw" }}
         >
           <div className="section-inner mid">
-            <p className="eyebrow">Ready to join?</p>
-            <h2>Join the Identity Lab</h2>
-
-            <div className="il-pricing-card">
-              <p className="il-pricing-price">$497</p>
-              <ul className="il-pricing-list">
-                <li>4-week guided journey</li>
-                <li>5 learning stations</li>
-                <li>3 live group sessions with the SparkLifeLab founders</li>
-                <li>Your personal Identity Map</li>
-                <li>Access to all materials and recordings</li>
-                <li>Small cohort experience for meaningful connection</li>
-              </ul>
-              <p className="il-cohort-note">
-                Next cohort: <strong>forming now</strong>
-              </p>
-              <p className="il-spaces-note">
-                Spaces are limited to protect the quality of the group experience.
-              </p>
-              <Link className="button button-primary il-pricing-cta" href={WAITLIST_HREF}>
-                Join the Identity Lab →
-              </Link>
-              <p className="il-cta-support">
-                Questions?{" "}
-                <a href="mailto:hello@spark-life-lab.com">
-                  Email us at hello@spark-life-lab.com
-                </a>
-              </p>
-            </div>
+            {identityLabStatus === "waitlist" ? (
+              <IdentityLabWaitlist />
+            ) : (
+              <IdentityLabEnrollmentOpen />
+            )}
           </div>
         </section>
 
@@ -581,9 +586,9 @@ export default function IdentityLabPage() {
                 guided journey to help you understand who you are now, what matters
                 most, and how to move forward with greater clarity and intention.
               </p>
-              <Link className="button button-primary" href={WAITLIST_HREF}>
-                Join the Identity Lab →
-              </Link>
+              <a className="button button-primary" href={IDENTITY_LAB_ACTION_HREF}>
+                {IDENTITY_LAB_CTA_LABEL}
+              </a>
               <p className="il-cta-support">
                 Questions?{" "}
                 <a href="mailto:hello@spark-life-lab.com">

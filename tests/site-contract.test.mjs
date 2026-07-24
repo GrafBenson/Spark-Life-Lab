@@ -173,17 +173,50 @@ test("embeds the live Kit Midlife Clarity Check form in the existing card", () =
   assert.match(styles, /content:\s*"\\00a0→";/);
 });
 
-test("routes Identity Lab enrollment CTAs through pricing and waitlist", () => {
+test("routes every Identity Lab CTA to the single status-driven action anchor", () => {
   const identityLab = read("app/identity-lab/page.tsx");
+  const config = read("lib/identity-lab-config.ts");
 
-  assert.match(identityLab, /const ENROLLMENT_HREF = "#identity-lab-enrollment";/);
-  assert.match(identityLab, /const WAITLIST_HREF = "\/identity-lab\/waitlist\/";/);
-  assert.match(identityLab, /id="identity-lab-enrollment"/);
-  // Hero + "What it is" CTAs scroll to the on-page enrollment anchor.
-  assert.equal((identityLab.match(/href=\{ENROLLMENT_HREF\}/g) ?? []).length, 2);
-  // Pricing + final closing CTAs go to the hidden waitlist page.
-  assert.equal((identityLab.match(/href=\{WAITLIST_HREF\}/g) ?? []).length, 2);
+  // One documented flag drives which conversion block renders and how CTAs read.
+  assert.match(config, /export const identityLabStatus: IdentityLabStatus = "waitlist";/);
+  assert.match(config, /IDENTITY_LAB_ACTION_ANCHOR = "identity-lab-action"/);
+  assert.match(config, /identityLabStatus === "waitlist" \? "Join the waitlist →" : "Enroll now →"/);
+
+  // The stable anchor is on the central block, regardless of which block is active.
+  assert.match(identityLab, /id=\{IDENTITY_LAB_ACTION_ANCHOR\}/);
+
+  // Hero, "What it is", and final "Ready to begin?" CTAs all point at that anchor
+  // and carry the status-driven label — no hardcoded CTA text or destinations.
+  assert.equal((identityLab.match(/href=\{IDENTITY_LAB_ACTION_HREF\}/g) ?? []).length, 3);
+  assert.equal((identityLab.match(/\{IDENTITY_LAB_CTA_LABEL\}/g) ?? []).length, 3);
+  assert.doesNotMatch(identityLab, /Join the Identity Lab →/);
+
+  // Only the active block is rendered — never both with one hidden by CSS.
+  assert.match(
+    identityLab,
+    /identityLabStatus === "waitlist" \? \(\s*<IdentityLabWaitlist \/>\s*\) : \(\s*<IdentityLabEnrollmentOpen \/>\s*\)/,
+  );
   assert.doesNotMatch(identityLab, /https?:\/\/[^\s"']*kajabi/i);
+});
+
+test("keeps both Identity Lab conversion blocks available and correctly scoped", () => {
+  const waitlistBlock = read("components/identity-lab-waitlist.tsx");
+  const enrollmentBlock = read("components/identity-lab-enrollment-open.tsx");
+
+  // Block B reuses the existing Kit form rather than creating a new one.
+  assert.match(waitlistBlock, /IdentityWaitlistKitForm/);
+  assert.match(waitlistBlock, /Join the waitlist/);
+  assert.match(waitlistBlock, /Access to all course materials/);
+  assert.match(waitlistBlock, /Not ready yet\? Start with the Midlife Clarity Check →/);
+  // Pre-launch must not show price, and the summary must not promise recordings.
+  assert.doesNotMatch(waitlistBlock, /\$\d/);
+  assert.doesNotMatch(waitlistBlock, /recording/i);
+
+  // Block A stays ready in the codebase at the approved price.
+  assert.match(enrollmentBlock, /\$595/);
+  assert.match(enrollmentBlock, /Enroll now →/);
+  assert.match(enrollmentBlock, /Access to all course materials/);
+  assert.doesNotMatch(enrollmentBlock, /materials and recordings/i);
 });
 
 test("keeps the Identity Lab waitlist page hidden and Kit-powered", () => {

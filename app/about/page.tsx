@@ -61,7 +61,7 @@ const founders = [
     background:
       "Scott is an experienced change guide, business leader, entrepreneur, and trusted advisor with decades of work in personal and business transformation, change management, performance improvement, and leadership. He brings a strong sense of purpose, practical planning, collaborative problem-solving, and human understanding to moments when people, teams, and organizations are in transition.",
     quote:
-      "\u201cWhat changed for me in midlife was that the harder I worked, the less alive I felt, despite greater achievements. After decades of striving for success, I was burned out, my relationships were strained, and old beliefs and identities no longer fit. I felt as if my internal compass no longer pointed to my true north. I began asking deeper questions about what it really means to live a good life, and slowly realized that growth at this stage is less about proving something and more about living in a way that feels authentic and true. That was the beginning of my journey back to the values, people, dreams, and desires that mattered most to me.\u201d",
+      "\u201cWhat changed for me in midlife was that the harder I worked, the less alive I felt, despite greater achievements. After decades of striving for success, I was burned out, my relationships were strained, and old beliefs and identities no longer fit. I felt as if my internal compass no longer pointed to my true north. Over time, I realized that my map was no longer the territory\u2014that the assumptions and identities I had relied on no longer matched the life I was actually living. I began asking deeper questions about what it really means to live a good life and slowly realized that growth at this stage is less about proving something and more about living in a way that feels authentic and true. That was the beginning of my journey back to the values, people, dreams, and desires that mattered most to me.\u201d",
     sllRole:
       "At SparkLifeLab, Scott is especially drawn to the resilience of the human spirit and the meeting point between inner desire and outward change — helping people move forward with more curiosity, clarity, courage, compassion, and grounded action.",
   },
@@ -153,8 +153,9 @@ export default function AboutPage() {
               </p>
               <p>
                 What helped us most was not quick advice or ready-made answers. It was the
-                chance to slow down together. Space, time, and companionship. Conversations
-                that did not rush us toward solutions, but helped us listen more closely to
+                chance to slow down together. Space, time, and a sense of trust and shared
+                understanding. Conversations that did not rush us toward solutions, but
+                helped us listen more closely to
                 what mattered. Gradually, clarity emerged. Not all at once, but step by
                 step.
               </p>
@@ -273,13 +274,13 @@ export default function AboutPage() {
               what feels more true now. What makes SparkLifeLab different is the kind of support we
               offer. We are not here to push people into dramatic reinvention or to diagnose,
               fix, or override anyone&rsquo;s lived experience. We walk alongside people as
-              guides — offering structure, reflection, and companionship as clarity unfolds
-              in small, intentional steps.
+              guides — offering structure, reflection, and a calm, trusted space as clarity
+              unfolds in small, intentional steps.
             </p>
             <p>
               That is why the idea of a midlife passage matters to us. A passage is not a
               breakdown. It is a real part of life — one that asks for attention, courage,
-              and the right kind of company.
+              and the right kind of support.
             </p>
 
             <div className="about-cta-group">

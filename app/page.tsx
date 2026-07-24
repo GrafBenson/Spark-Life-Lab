@@ -148,8 +148,8 @@ export default function Home() {
             <p className="lead founders-lead" style={{ marginTop: "1rem" }}>
               Feeling stuck or uncertain is not a flaw. It is often a signal that growth is
               asking for attention. We don&rsquo;t promise quick fixes or dramatic reinvention. We
-              walk alongside people as guides — offering structure, reflection, and
-              companionship as they find their own direction forward.
+              walk alongside people as guides — offering structure, reflection, and a calm,
+              trusted space in which they can find their own way forward.
             </p>
           </div>
           <Reveal delay={150} className="guidance-image-reveal">
@@ -182,30 +182,28 @@ export default function Home() {
           </div>
 
           <div>
-            <p className="eyebrow">We&rsquo;re fellow travellers</p>
+            <p className="eyebrow">Guided by lived experience</p>
             <h2>Why we built SparkLifeLab</h2>
-            <p style={{ fontStyle: "italic", color: "var(--muted)", marginBottom: "1.25rem" }}>
-              Not experts standing apart — companions on the same path.
+            <p>
+              SparkLifeLab began with a quiet question many people reach in midlife:{" "}
+              <em>Is this really it — or is something else trying to emerge?</em>
             </p>
             <p>
-              SparkLifeLab began with a quiet question many people reach in midlife: Is this
-              really it — or is something else trying to emerge?
+              The three of us — Bärbel, Gunther, and Scott — met in 2023, each searching for
+              more meaning. Our lives looked solid from the outside, yet each of us felt that
+              the stories we were living no longer quite fit. Something had shifted, and
+              something new was beginning to stir.
             </p>
             <p>
-              The three of us — Bärbel, Gunther, and Scott — met during an online course on
-              life purpose. Our careers were established, our lives looked solid from the
-              outside. Yet each of us felt a growing sense that the stories we were living
-              no longer quite fit. Something had shifted — subtle, persistent, hard to name.
+              What helped us most was slowing down together — making space for honest
+              conversation and listening more closely to what mattered. Gradually, we came to
+              see that this was not a personal failure, but a meaningful midlife passage many
+              people navigate without enough structure or support.
             </p>
             <p>
-              What helped us most was the chance to slow down together. Space, time, and
-              companionship. Gradually, clarity emerged. We realized this was not a personal
-              failure. It was a meaningful midlife passage — one many people experience, often
-              alone. SparkLifeLab grew from the wish that something like this had existed when
-              we first felt that quiet restlessness.
-            </p>
-            <p>
-              We&rsquo;re still on that path ourselves, and we&rsquo;re glad to walk it with you.
+              That realization became the seed of SparkLifeLab: a calm, human space where
+              people can understand themselves more deeply and find their own way forward,
+              guided by those who know this passage from lived experience.
             </p>
             <p style={{ marginTop: "1.5rem" }}>
               <Link className="button-text" href="/about/">
@@ -261,27 +259,29 @@ export default function Home() {
               <div className="step-number">01</div>
               <h3>Take the Midlife Clarity Check</h3>
               <p>
-                Start with a short self-assessment to gain clarity on where you are.
-                Free. 20–30 minutes.
+                Start with a short self-assessment to understand where you feel clear, where
+                something no longer fits, and what may need your attention next.
               </p>
+              <p className="step-note">Free. 20–30 minutes.</p>
             </article>
 
-            <article className="step-card step-card-featured">
+            <article className="step-card step-card-default">
               <div className="step-number">02</div>
               <h3>Join a guided experience</h3>
               <p>
-                Deepen your clarity through the Identity Lab — a guided journey
-                to help you understand who you are now and shape your next chapter with
-                intention.
+                Deepen your clarity through the Identity Lab — a guided journey to understand
+                who you are now, what matters most, and which direction feels right for your
+                next chapter.
               </p>
             </article>
 
             <article className="step-card step-card-default">
               <div className="step-number">03</div>
-              <h3>Live your spark</h3>
+              <h3>Follow your spark</h3>
               <p>
-                Begin living your next chapter — supported by a community that keeps you
-                inspired and grounded.
+                Use the clarity you have gained to explore new possibilities, make grounded
+                choices, and begin taking meaningful steps toward a life that fits who you
+                are now.
               </p>
             </article>
           </div>
