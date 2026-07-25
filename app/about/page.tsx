@@ -29,11 +29,11 @@ const founders = [
     linkedinUrl: "https://www.linkedin.com/in/baerbeltress",
     linkedinLabel: "Bärbel Tress on LinkedIn (opens in new tab)",
     background:
-      "Bärbel is a scientist, strategist, and transformation thinker. For many years, she has helped researchers and academic leaders move through important career and life transitions with more clarity, confidence, and direction. Together with Gunther, she has also built and led a long-established company that has supported thousands of academics across different stages of their professional lives.",
+      "Bärbel is a scientist, strategist, and transformation thinker. For more than two decades, she has guided thousands of researchers and academic leaders to develop their potential, navigate change, and achieve ambitious goals.",
     quote:
-      "\u201cWhat drew me more deeply into this work was my own experience of midlife as a time when outward success no longer answers the deeper question of what truly fits. I became more interested in purpose, inner alignment, and the kind of change that begins quietly but changes everything over time.\u201d",
+      "\u201cThrough my own journey of self-discovery, I came to understand what had always driven me from within. I realised that my genius is envisioning better future states\u2014for people, organisations, and ideas\u2014and helping bring them to life. I instinctively see what people could become long before they do themselves\u2014and I love helping bring that possibility to life.\u201d",
     sllRole:
-      "At SparkLifeLab, Bärbel is especially drawn to the deeper transformation underneath change: what becomes possible when people reconnect with what feels true now and begin to shape a life around it.",
+      "Today, she brings that same gift to SparkLifeLab. Drawing on scientific insight, decades of experience, and her own transformational journey, she helps people reconnect with who they truly are, discover possibilities they had never imagined, and create lives of greater purpose, fulfilment, and joy.",
   },
   {
     id: "gunther",
