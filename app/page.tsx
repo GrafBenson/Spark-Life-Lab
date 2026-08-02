@@ -48,7 +48,7 @@ const founders = [
     id: "founder-scott",
     name: "Scott E. Burton",
     role: "Co-founder",
-    bio: "A strategist and guide with decades in leadership and transformation who found that the most important journey was the one inward.",
+    bio: "An experienced change guide and business leader who helps people navigate transition with clarity, courage, and grounded action — shaped by his own midlife journey.",
     linkedinUrl: "https://www.linkedin.com/in/scotteburton",
     linkedinAriaLabel: "Scott E. Burton on LinkedIn (opens in new tab)",
     photo: "/images/founder_scott.png",
