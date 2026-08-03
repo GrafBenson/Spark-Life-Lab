@@ -1,4 +1,11 @@
+import type { Metadata } from "next";
 import Link from "next/link";
+
+// Next.js emits `noindex` for not-found automatically, so only the title is
+// set here — adding a second robots directive would duplicate that tag.
+export const metadata: Metadata = {
+  title: "Page not found",
+};
 
 export default function NotFound() {
   return (

@@ -2,13 +2,14 @@ import fs from "fs";
 import path from "path";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Privacy Policy — SparkLifeLab",
+export const metadata: Metadata = pageMetadata({
+  title: "Privacy Policy",
   description:
     "SparkLifeLab Privacy Policy. How we collect, use, and protect your personal information under GDPR, CCPA, and applicable privacy laws.",
-  alternates: { canonical: "/privacy-policy/" },
-};
+  path: "/privacy-policy/",
+});
 
 export default function PrivacyPolicyPage() {
   const htmlContent = fs.readFileSync(

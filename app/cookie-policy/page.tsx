@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { LegalPage } from "@/components/legal-page";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "Cookie Policy",
   description:
     "How SparkLifeLab uses browser storage, Kit form technologies, Cloudflare security cookies, and cookieless Vercel Web Analytics.",
-  alternates: { canonical: "/cookie-policy/" },
-};
+  path: "/cookie-policy/",
+});
 
 const technologyColumns = ["Name", "Provider", "Type", "Purpose", "Duration"];
 

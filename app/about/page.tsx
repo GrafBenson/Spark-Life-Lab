@@ -2,20 +2,19 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
+import { pageMetadata } from "@/lib/seo";
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
-export const metadata: Metadata = {
-  title: "Our Story — SparkLifeLab",
+export const metadata: Metadata = pageMetadata({
+  title: "Our Story",
   description:
     "SparkLifeLab began with a quiet question many people reach in midlife. Meet the three co-founders — Bärbel, Gunther, and Scott — and why they built the kind of space they themselves needed.",
-  alternates: { canonical: "/about/" },
-  openGraph: {
-    title: "Our Story — SparkLifeLab",
-    description:
-      "Three fellow travellers who built SparkLifeLab because something like it didn't exist when they needed it.",
-  },
-};
+  path: "/about/",
+  ogTitle: "Our Story — SparkLifeLab",
+  ogDescription:
+    "Three fellow travellers who built SparkLifeLab because something like it didn't exist when they needed it.",
+});
 
 // ─── Founder data — copy-controlled, approved V1.0 ───────────────────────────
 

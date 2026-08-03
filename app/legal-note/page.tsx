@@ -1,12 +1,13 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Legal Notice — SparkLifeLab",
+export const metadata: Metadata = pageMetadata({
+  title: "Legal Notice",
   description: "Legal Notice for SparkLifeLab Inc., a Delaware corporation.",
-  alternates: { canonical: "/legal-note/" },
-  robots: { index: false, follow: false },
-};
+  path: "/legal-note/",
+  noindex: true,
+});
 
 export default function LegalNotePage() {
   return (

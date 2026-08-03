@@ -4,22 +4,21 @@ import Image from "next/image";
 import { Reveal } from "@/components/motion/reveal";
 import { HeroVideo } from "@/components/hero-video";
 import { ClarityCheckCard } from "@/components/clarity-check-card";
+import { pageMetadata } from "@/lib/seo";
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
+// The homepage sits in the root segment, so the layout title template does not
+// apply to it — this title renders verbatim.
 
-export const metadata: Metadata = {
+export const metadata: Metadata = pageMetadata({
   title: "SparkLifeLab — Midlife Clarity & Guided Transformation",
   description:
     "A calm, guided space for people in midlife who sense something has shifted. Take the free Midlife Clarity Check or explore the Identity Lab.",
-  alternates: { canonical: "/" },
-  openGraph: {
-    type: "website",
-    title: "SparkLifeLab — Find Your Way Through Midlife",
-    description:
-      "A calm, guided space for people in midlife who sense something has shifted. Free Midlife Clarity Check and Identity Lab.",
-    siteName: "SparkLifeLab",
-  },
-};
+  path: "/",
+  ogTitle: "SparkLifeLab — Find Your Way Through Midlife",
+  ogDescription:
+    "A calm, guided space for people in midlife who sense something has shifted. Free Midlife Clarity Check and Identity Lab.",
+});
 
 // ─── Static founder data (approved V1.3 copy — text and photos are hardcoded) ────
 

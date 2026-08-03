@@ -11,20 +11,18 @@ import {
   IDENTITY_LAB_ACTION_HREF,
   IDENTITY_LAB_CTA_LABEL,
 } from "@/lib/identity-lab-config";
+import { pageMetadata } from "@/lib/seo";
 
 // ─── Metadata ────────────────────────────────────────────────────────────────
 
-export const metadata: Metadata = {
-  title: "Identity Lab | SparkLifeLab",
+export const metadata: Metadata = pageMetadata({
+  title: "Identity Lab",
   description:
     "A guided journey for people in midlife who are ready to move from fog to grounded forward movement.",
-  alternates: { canonical: "/identity-lab/" },
-  openGraph: {
-    title: "Identity Lab | SparkLifeLab",
-    description:
-      "Not just a course. Not just coaching. A guided journey — with others who understand. Ends with your personal Identity Map.",
-  },
-};
+  path: "/identity-lab/",
+  ogDescription:
+    "Not just a course. Not just coaching. A guided journey — with others who understand. Ends with your personal Identity Map.",
+});
 
 // ─── CTA destinations ────────────────────────────────────────────────────────
 // Every primary CTA points at the same stable in-page anchor (#identity-lab-action),

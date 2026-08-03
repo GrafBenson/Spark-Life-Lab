@@ -3,18 +3,23 @@ import { PageHero } from "@/components/page-hero";
 import { Reveal } from "@/components/motion/reveal";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { resourceThemes } from "@/data/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Midlife Clarity Resources — SparkLifeLab",
+// The Library is still being assembled and is not linked from the site
+// navigation ("Resources and Contact are deferred at launch" — data/site.ts).
+// It stays noindex, and out of sitemap.xml, until real essays are published,
+// so a placeholder page does not enter the index as thin content.
+
+export const metadata: Metadata = pageMetadata({
+  title: "Midlife Clarity Resources",
   description:
     "Essays and reflection resources on midlife clarity, purpose, values, and identity change. Published by SparkLifeLab.",
-  alternates: { canonical: "/resources/" },
-  openGraph: {
-    title: "Midlife Clarity Resources — SparkLifeLab",
-    description:
-      "A slowly-built library of essays and resources on midlife clarity, purpose, and identity. By the SparkLifeLab team.",
-  },
-};
+  path: "/resources/",
+  ogTitle: "Midlife Clarity Resources — SparkLifeLab",
+  ogDescription:
+    "A slowly-built library of essays and resources on midlife clarity, purpose, and identity. By the SparkLifeLab team.",
+  noindex: true,
+});
 
 export default function ResourcesPage() {
   return (

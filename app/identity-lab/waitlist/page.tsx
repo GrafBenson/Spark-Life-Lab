@@ -2,14 +2,18 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { IdentityWaitlistKitForm } from "@/components/identity-waitlist-kit-form";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Identity Lab Waitlist | SparkLifeLab",
+// Conversion-only route: reachable from the Identity Lab CTA, deliberately kept
+// out of search results and out of sitemap.xml.
+
+export const metadata: Metadata = pageMetadata({
+  title: "Identity Lab Waitlist",
   description:
     "Join the waitlist for the next Identity Lab cohort at SparkLifeLab.",
-  alternates: { canonical: "/identity-lab/waitlist/" },
-  robots: { index: false, follow: false },
-};
+  path: "/identity-lab/waitlist/",
+  noindex: true,
+});
 
 export default function IdentityLabWaitlistPage() {
   return (

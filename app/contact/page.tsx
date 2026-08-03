@@ -4,18 +4,17 @@ import { PageHero } from "@/components/page-hero";
 import { Reveal } from "@/components/motion/reveal";
 import { BreadcrumbJsonLd } from "@/components/breadcrumb-jsonld";
 import { site } from "@/data/site";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Contact SparkLifeLab — Questions Welcome",
+export const metadata: Metadata = pageMetadata({
+  title: "Contact — Questions Welcome",
   description:
     "Email SparkLifeLab with questions about the free Clarity Check, the Identity Lab programme, or potential collaboration.",
-  alternates: { canonical: "/contact/" },
-  openGraph: {
-    title: "Contact SparkLifeLab — Questions Welcome",
-    description:
-      "Reach SparkLifeLab by email for practical questions and thoughtful next steps.",
-  },
-};
+  path: "/contact/",
+  ogTitle: "Contact SparkLifeLab — Questions Welcome",
+  ogDescription:
+    "Reach SparkLifeLab by email for practical questions and thoughtful next steps.",
+});
 
 export default function ContactPage() {
   return (

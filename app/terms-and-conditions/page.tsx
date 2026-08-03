@@ -2,13 +2,14 @@ import fs from "fs";
 import path from "path";
 import type { Metadata } from "next";
 import Link from "next/link";
+import { pageMetadata } from "@/lib/seo";
 
-export const metadata: Metadata = {
-  title: "Terms & Conditions — SparkLifeLab",
+export const metadata: Metadata = pageMetadata({
+  title: "Terms & Conditions",
   description:
     "SparkLifeLab Terms & Conditions. The legal terms governing your use of the SparkLifeLab website and services.",
-  alternates: { canonical: "/terms-and-conditions/" },
-};
+  path: "/terms-and-conditions/",
+});
 
 export default function TermsAndConditionsPage() {
   const htmlContent = fs.readFileSync(

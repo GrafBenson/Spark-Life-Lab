@@ -253,7 +253,8 @@ test("keeps the Identity Lab waitlist page hidden and Kit-powered", () => {
   assert.match(styles, /\.sll-identity-waitlist-kit-form\s+\.formkit-submit/);
   assert.match(read("components/midlife-clarity-kit-form.tsx"), /62b878a91d/);
   assert.doesNotMatch(kitForm, /62b878a91d/);
-  assert.match(waitlist, /robots:\s*\{\s*index:\s*false,\s*follow:\s*false\s*\}/);
+  // Kept out of the index via the shared pageMetadata() helper in lib/seo.ts.
+  assert.match(waitlist, /noindex:\s*true/);
 });
 
 test("publishes canonical metadata and only indexable sitemap routes", () => {
@@ -270,8 +271,15 @@ test("publishes canonical metadata and only indexable sitemap routes", () => {
     ["app/identity-lab/waitlist/page.tsx", "/identity-lab/waitlist/"],
   ]);
 
+  // Canonicals are declared as the `path` argument to pageMetadata() (lib/seo.ts),
+  // which feeds both alternates.canonical and og:url.
   for (const [route, canonical] of canonicalRoutes) {
-    assert.match(read(route), new RegExp(`canonical: ["']${canonical.replaceAll("/", "\\/")}["']`));
+    const escaped = canonical.replaceAll("/", "\\/");
+    assert.match(
+      read(route),
+      new RegExp(`(?:canonical|path): ["']${escaped}["']`),
+      `${route} should declare canonical ${canonical}`
+    );
   }
 
   const sitemap = read("app/sitemap.ts");
@@ -279,6 +287,8 @@ test("publishes canonical metadata and only indexable sitemap routes", () => {
   assert.match(sitemap, /path:\s*"\/cookie-policy\/"/);
   assert.doesNotMatch(sitemap, /path:\s*"\/legal-note\/"/);
   assert.doesNotMatch(sitemap, /path:\s*"\/identity-lab\/waitlist\/"/);
+  // The essay library is still a placeholder and stays noindex until published.
+  assert.doesNotMatch(sitemap, /path:\s*"\/resources\/"/);
   assert.doesNotMatch(sitemap, /vercel\.app/);
 
   const robots = read("app/robots.ts");
