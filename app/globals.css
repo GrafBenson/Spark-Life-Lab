@@ -4276,6 +4276,12 @@ html.ember-cursor-active * {
   margin-bottom: 0;
 }
 
+/* The exercise lead-in runs over two beats ("Think back over the past two
+   weeks." / "Then ask yourself:"), so consecutive paragraphs need a gap. */
+.reflection-copy + .reflection-copy {
+  margin-top: 0.6rem;
+}
+
 /* ── The exercise — the page's single visual accent ── */
 
 .reflection-questions {
