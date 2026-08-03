@@ -4213,3 +4213,116 @@ html.ember-cursor-active * {
     font-size: clamp(3rem, 12vw, 4rem);
   }
 }
+
+/* ===== Hidden subscriber reflections (/reflections/*) ===== */
+/* Shared by every reflection page, so sibling topics need no new CSS.
+   Deliberately restrained: one soft lavender panel carries the exercise and
+   is the page's only visual accent. No hero image, no cards, no CTA block. */
+
+.reflection-page {
+  background: var(--page-bg);
+}
+
+.reflection-shell {
+  padding: clamp(4.5rem, 7vw, 7rem) 5vw clamp(5rem, 8vw, 7.5rem);
+}
+
+.reflection-inner {
+  margin: 0 auto;
+  /* ~62ch at the 19px base — comfortable for reflective reading */
+  max-width: 700px;
+}
+
+/* ── Opening ── */
+
+.reflection-title {
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  margin-bottom: 0.9rem;
+}
+
+.reflection-standfirst {
+  color: var(--mid-navy);
+  font-family: var(--serif);
+  font-size: clamp(1.28rem, 2.4vw, 1.6rem);
+  font-style: italic;
+  line-height: 1.45;
+  margin-bottom: 2.25rem;
+}
+
+/* Sizes track the 19px body base rather than the 16px root, so reading copy
+   is never smaller here than elsewhere on the site. */
+.reflection-intro {
+  color: var(--mid-navy);
+  font-size: clamp(1.15rem, 1.4vw, 1.25rem);
+  line-height: 1.8;
+  margin-bottom: 0;
+}
+
+/* ── Body blocks — rhythm varies on purpose ── */
+
+.reflection-block {
+  margin-top: clamp(2.75rem, 5vw, 3.5rem);
+}
+
+.reflection-heading {
+  font-size: clamp(1.5rem, 2.2vw, 1.85rem);
+  margin-bottom: 0.85rem;
+}
+
+.reflection-copy {
+  color: var(--mid-navy);
+  font-size: clamp(1.15rem, 1.4vw, 1.25rem);
+  line-height: 1.8;
+  margin-bottom: 0;
+}
+
+/* ── The exercise — the page's single visual accent ── */
+
+.reflection-questions {
+  /* Matches the established lavender surface on the Identity Lab page */
+  background: #e7e8ef;
+  border-radius: 4px;
+  list-style: decimal;
+  margin: 1.75rem 0 0;
+  padding: clamp(1.75rem, 4vw, 2.6rem) clamp(1.5rem, 4vw, 2.6rem)
+           clamp(1.75rem, 4vw, 2.6rem) clamp(2.6rem, 6vw, 3.6rem);
+}
+
+/* A touch above body size: the questions are the point of the page. */
+.reflection-question {
+  color: var(--navy);
+  font-size: clamp(1.2rem, 1.6vw, 1.32rem);
+  line-height: 1.7;
+  padding-left: 0.4rem;
+}
+
+.reflection-question + .reflection-question {
+  margin-top: clamp(1.5rem, 3vw, 2rem);
+}
+
+/* Sans numerals: the serif face uses old-style figures, where "1" reads as a
+   small-capital I. */
+.reflection-question::marker {
+  color: var(--mid-navy);
+  font-family: var(--sans);
+  font-size: 0.95em;
+  font-weight: 500;
+}
+
+/* ── Closing ── */
+
+.reflection-return {
+  margin: clamp(3.25rem, 6vw, 4rem) 0 0;
+}
+
+@media (max-width: 640px) {
+  .reflection-standfirst {
+    margin-bottom: 1.85rem;
+  }
+
+  /* Keep the questions comfortably readable; only trim the panel's inset. */
+  .reflection-questions {
+    padding-left: 2.5rem;
+    padding-right: 1.35rem;
+  }
+}
