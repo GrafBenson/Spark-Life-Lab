@@ -147,7 +147,7 @@ export default function Home() {
             <p className="lead founders-lead" style={{ marginTop: "1rem" }}>
               Feeling stuck or uncertain is not a flaw. It is often a signal that growth is
               asking for attention. We don&rsquo;t promise quick fixes or dramatic reinvention. We
-              walk alongside people as guides — offering structure, reflection, and a calm,
+              walk alongside people as experienced guides — offering structure, reflection, and a calm,
               trusted space in which they can find their own way forward.
             </p>
           </div>
@@ -189,7 +189,7 @@ export default function Home() {
             </p>
             <p>
               The three of us — Bärbel, Gunther, and Scott — met in 2023, each searching for
-              more meaning. Our lives looked solid from the outside, yet each of us felt that
+              more meaning. Our lives looked solid from the outside, yet each of us felt
               the stories we were living no longer quite fit. Something had shifted, and
               something new was beginning to stir.
             </p>
@@ -268,9 +268,9 @@ export default function Home() {
               <div className="step-number">02</div>
               <h3>Join a guided experience</h3>
               <p>
-                Deepen your clarity through the Identity Lab — a guided journey to understand
-                who you are now, what matters most, and which direction feels right for your
-                next chapter.
+                Deepen your clarity through the Identity Lab program — a guided journey to
+                understand who you are now, what matters most, and which direction feels
+                right for your next chapter.
               </p>
             </article>
 
@@ -348,8 +348,9 @@ export default function Home() {
                 Understand who you are now — and what comes next.
               </p>
               <p style={{ maxWidth: "680px" }}>
-                The Identity Lab helps you understand who you are, what energizes you,
-                what no longer fits, and what kind of future could feel truly meaningful.
+                The Identity Lab program helps you understand who you are, what energizes
+                you, what no longer fits, and what kind of future could feel truly
+                meaningful.
               </p>
               <p style={{ maxWidth: "680px" }}>
                 It guides you through a structured exploration of your values, strengths,

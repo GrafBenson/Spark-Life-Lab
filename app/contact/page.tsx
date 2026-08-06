@@ -25,13 +25,13 @@ export default function ContactPage() {
           variant="contact"
           eyebrow="Contact"
           title="Questions are welcome. Pressure is not."
-          intro="Write to us about the Clarity Check, the Identity Lab, or collaboration. We respond within two working days."
+          intro="Write to us about the Clarity Check, the Identity Lab program, or collaboration. We respond within two working days."
         />
 
         <Reveal as="section" className="section">
           <div className="section-inner">
             <p style={{ marginBottom: "2rem", lineHeight: 1.7 }}>
-              SparkLifeLab offers two ways to start: the free Midlife Clarity Check (a 20–30 minute self-reflection) and the Identity Lab (a small-group guided transformation). If you have questions about either, or want to talk about collaboration, write to us.
+              SparkLifeLab offers two ways to start: the free Midlife Clarity Check (a 20–30 minute self-reflection) and the Identity Lab program (a small-group guided transformation). If you have questions about either, or want to talk about collaboration, write to us.
             </p>
           </div>
         </Reveal>

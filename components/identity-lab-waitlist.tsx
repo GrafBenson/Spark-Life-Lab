@@ -12,7 +12,7 @@ const SUMMARY_ITEMS = [
   "Five learning stations",
   "Three live group sessions with the SparkLifeLab founders",
   "Your personal Identity Map",
-  "Access to all course materials",
+  "Access to all program materials",
   "A small cohort for meaningful connection",
 ];
 
@@ -23,8 +23,14 @@ export function IdentityLabWaitlist() {
       <h2 className="il-action-heading">Join the waitlist</h2>
 
       <p className="il-waitlist-intro">
-        The first Identity Lab cohort will open soon. Join the waitlist and we&rsquo;ll
-        let you know as soon as enrollment opens.
+        What would another year in the fog cost you? Another twelve months of the
+        same restlessness, the same unanswered questions, the same quiet sense that
+        something is off. It doesn&rsquo;t have to be this way.
+      </p>
+
+      <p className="il-waitlist-intro">
+        The first Identity Lab program cohort will open soon. Join the waitlist and
+        we&rsquo;ll let you know as soon as enrollment opens.
       </p>
 
       <ul className="il-waitlist-summary">
@@ -40,8 +46,8 @@ export function IdentityLabWaitlist() {
       <IdentityWaitlistKitForm />
 
       <p className="il-waitlist-privacy">
-        We&rsquo;ll only email you about the Identity Lab and related SparkLifeLab
-        updates. No spam. You can unsubscribe at any time.
+        We&rsquo;ll only email you about the Identity Lab program and related
+        SparkLifeLab updates. No spam. You can unsubscribe at any time.
       </p>
 
       <p className="il-waitlist-secondary">

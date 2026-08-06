@@ -34,11 +34,11 @@ export const metadata: Metadata = pageMetadata({
 const FAQ_ITEMS: FaqItem[] = [
   {
     q: "Is this a course?",
-    a: "No. The Identity Lab is a guided transformation journey — more structured than coaching, more reflective than a course, and more supportive than self-study. You receive material twice weekly and participate in live sessions that deepen your understanding over time.",
+    a: "No. The Identity Lab program is a guided transformation journey — more structured than coaching, more reflective than a course, and more supportive than self-study. You receive material twice weekly and participate in live sessions that deepen your understanding over time.",
   },
   {
     q: "Is this therapy or coaching?",
-    a: "No. The Identity Lab is not therapy or one-on-one coaching. It is a structured, group-based journey to help you understand who you are and what direction feels true. If you are in crisis or need therapeutic support, we recommend working with a licensed professional.",
+    a: "No. The Identity Lab program is not therapy or one-on-one coaching. It is a structured, group-based journey to help you understand who you are and what direction feels true. If you are in crisis or need therapeutic support, we recommend working with a licensed professional.",
   },
   {
     q: "Do I need to complete the Midlife Clarity Check first?",
@@ -50,15 +50,15 @@ const FAQ_ITEMS: FaqItem[] = [
   },
   {
     q: "What if I cannot attend the live sessions?",
-    a: "All live sessions are recorded and available afterward. While we encourage live participation, you can still complete the journey and receive your Identity Map if you miss a session.",
+    a: "We encourage you to attend all sessions live, since they are a key part of the shared group experience. If something comes up and you miss one, you can still complete the journey and receive your Identity Map.",
   },
   {
     q: "What if I do not know what I want yet?",
-    a: "That is exactly why the Identity Lab exists. You do not need answers. This journey helps you discover what matters and what direction wants to emerge — without pressure to define a fixed plan.",
+    a: "That is exactly why the Identity Lab program exists. You do not need answers. This journey helps you discover what matters and what direction wants to emerge — without pressure to define a fixed plan.",
   },
   {
     q: "Is this right for me if I am retired or not in crisis?",
-    a: "Yes. The Identity Lab is designed for people who are not in crisis but who sense that something has shifted. If your life looks fine from the outside but something inside no longer fits, this journey is for you.",
+    a: "Yes. The Identity Lab program is designed for people who are not in crisis but who sense that something has shifted. If your life looks fine from the outside but something inside no longer fits, this journey is for you.",
   },
   {
     q: "How is AI used in the Identity Lab?",
@@ -71,7 +71,11 @@ const FAQ_ITEMS: FaqItem[] = [
   },
   {
     q: "What if I am not sure this is for me?",
-    a: "Start with the free Midlife Clarity Check. It takes 20–30 minutes and will help you assess whether the Identity Lab feels like the right next step.",
+    a: "Start with the free Midlife Clarity Check. It takes 20–30 minutes and will help you assess whether the Identity Lab program feels like the right next step.",
+  },
+  {
+    q: "Who do I contact if I have questions about the program?",
+    a: "We're glad to talk it through with you directly. Email us at hello@spark-life-lab.com, or let us know you'd like a short conversation — we're happy to answer your questions live before you decide to join.",
   },
 ];
 
@@ -111,7 +115,7 @@ const REFLECTIONS = [
   {
     name: "Bärbel",
     quote:
-      "What stayed with me most was the growing clarity. I saw more clearly what drives me, what grounds me, and what I want to give more space in my life.",
+      "The greatest gift was realizing who I truly am — making sense of my past, sparking ideas for the future, and helping me design my life more consciously and intentionally.",
   },
   {
     name: "Scott",
@@ -145,16 +149,17 @@ export default function IdentityLabPage() {
               <h1>The Identity Lab</h1>
               <p className="hero-copy">
                 A guided journey for people in midlife who are ready to move from fog
-                to grounded forward movement.
+                to clarity — and to a renewed, inspired sense of what comes next.
               </p>
               <p className="il-descriptor">
-                Not just a course. Not just coaching. A guided journey.
+                More than a course. More than coaching. An uplifting, guided journey
+                of self-discovery.
               </p>
               <p>
-                Once you have a clearer sense of where you are, the Identity Lab
-                offers the next step — a structured journey to help you understand
-                who you are now, what truly matters, and how to move forward with
-                intention.
+                Once you have a clearer sense of where you are in your midlife
+                transition, the Identity Lab program offers the next step — a joyful
+                deep dive that helps you understand who you are now, what truly
+                matters, and how to move into a meaningful future.
               </p>
               <div className="hero-actions">
                 <a className="button button-primary" href={IDENTITY_LAB_ACTION_HREF}>
@@ -189,10 +194,11 @@ export default function IdentityLabPage() {
             <p className="eyebrow">Why this matters</p>
             <h2>When life no longer fits the way it used to</h2>
             <p>
-              You may not be in crisis. From the outside, life may still look solid.
-              But something feels off. What once felt right no longer fits in the same
-              way. The old structure still exists, yet it no longer gives you the same
-              sense of meaning, energy, or direction.
+              You may sense that something is no longer working. From the outside,
+              life may still look solid. But something feels off. What once felt
+              right no longer fits in the same way. The old roles and way of living
+              still exist, yet they no longer give you the same sense of meaning,
+              energy, or direction.
             </p>
             <p>
               That can be hard to name. It can feel like fog, restlessness,
@@ -200,7 +206,7 @@ export default function IdentityLabPage() {
               shifting — but you do not yet know what to hold on to, what to let go of,
               or what comes next.
             </p>
-            <p>This is the moment the Identity Lab is designed for.</p>
+            <p>This is the moment the Identity Lab program is designed for.</p>
           </div>
         </section>
 
@@ -214,22 +220,22 @@ export default function IdentityLabPage() {
               <p className="eyebrow">What it is</p>
               <h2>A guided journey — with others who understand</h2>
               <p>
-                The Identity Lab is a guided journey for people in midlife who are
-                navigating the space between what no longer fits and what wants to
+                The Identity Lab program is a guided journey for people in midlife who
+                are navigating the space between what no longer fits and what wants to
                 emerge next.
               </p>
               <p>
-                In a small, supported group, you explore your values, your strengths,
-                and the direction that feels most aligned with who you are becoming.
-                This is not about consuming information or following a self-help
-                formula. It is about slowing down, looking inward, and making sense of
-                who you are now.
+                In a small, supported group, you explore who you truly are — your
+                values, strengths, and unique genius — and begin to sense the future
+                that draws you forward. This is not about consuming information or
+                following a self-help formula. It is about looking inward and
+                reconnecting with what makes you come alive.
               </p>
               <p>
-                The journey is deliberately paced — human pace, not the pace of a
-                training program. There is no performance, no grading, and no pressure
-                to have all the answers. Only the invitation to look more closely, with
-                structure, reflection, and support.
+                Gently guided, you cover more ground in a few weeks than you might
+                alone in many months — a real relief. There is no performance, no
+                grading, and no pressure to have all the answers. Only the invitation
+                to look more closely, with structure, reflection, and support.
               </p>
               <div className="il-whatis-actions">
                 <a className="button button-primary" href={IDENTITY_LAB_ACTION_HREF}>
@@ -260,8 +266,9 @@ export default function IdentityLabPage() {
             <p className="eyebrow">Why it matters</p>
             <h2>What you gain</h2>
             <p className="il-benefits-intro">
-              Through the Identity Lab, you move from uncertainty toward a clearer
-              sense of who you are, what matters now, and how to move forward.
+              Through the Identity Lab program, you move from uncertainty toward a
+              clearer sense of who you are, what matters now, and how to move
+              forward.
             </p>
 
             <ol className="il-journey" aria-label="What you gain — a five-stage journey from uncertainty to clarity">
@@ -270,8 +277,9 @@ export default function IdentityLabPage() {
                 <div className="il-journey-card">
                   <h3 className="il-benefit-title">Greater self-understanding</h3>
                   <p className="il-benefit-desc">
-                    You see yourself more clearly — your values, patterns, strengths, and
-                    deeper motivations.
+                    You see yourself more clearly — your values, personality,
+                    strengths, motivations, and the patterns that have quietly shaped
+                    your life.
                   </p>
                 </div>
               </li>
@@ -281,8 +289,9 @@ export default function IdentityLabPage() {
                 <div className="il-journey-card">
                   <h3 className="il-benefit-title">Clarity about what fits</h3>
                   <p className="il-benefit-desc">
-                    You recognize what still belongs in your life, what no longer does,
-                    and where change is needed.
+                    You see what still belongs in your life, what drains you, and what
+                    you might want to change. It brings relief, and often a first spark
+                    of energy to move.
                   </p>
                 </div>
               </li>
@@ -291,11 +300,11 @@ export default function IdentityLabPage() {
                 <span className="il-journey-marker" aria-hidden="true">03</span>
                 <div className="il-journey-card">
                   <h3 className="il-benefit-title">
-                    Reconnection with what is most alive in you
+                    Reconnecting with what brings you fully alive
                   </h3>
                   <p className="il-benefit-desc">
-                    You rediscover the parts of yourself that have been overlooked,
-                    postponed, or pushed aside.
+                    You uncover your genius and see when you are most fully alive —
+                    moving from self-doubt to knowing the value only you can bring.
                   </p>
                 </div>
               </li>
@@ -305,8 +314,9 @@ export default function IdentityLabPage() {
                 <div className="il-journey-card">
                   <h3 className="il-benefit-title">A stronger sense of direction</h3>
                   <p className="il-benefit-desc">
-                    You see more clearly which future possibilities feel aligned,
-                    meaningful, and worth exploring.
+                    You turn to what lies ahead, gathering the aspirations that
+                    inspire you. You catch a glimpse of the beautiful future that fits
+                    who you truly are.
                   </p>
                 </div>
               </li>
@@ -314,10 +324,10 @@ export default function IdentityLabPage() {
               <li className="il-journey-stage il-journey-stage--up il-journey-stage--final">
                 <span className="il-journey-marker" aria-hidden="true">05</span>
                 <div className="il-journey-card">
-                  <h3 className="il-benefit-title">A personal compass for the future</h3>
+                  <h3 className="il-benefit-title">A deeply meaningful next chapter</h3>
                   <p className="il-benefit-desc">
-                    You leave with insights you can return to when making grounded
-                    decisions about what comes next.
+                    You leave with a clear sense of who you truly are and what wants
+                    to emerge next — ready for a deeply meaningful next chapter.
                   </p>
                 </div>
               </li>
@@ -334,14 +344,15 @@ export default function IdentityLabPage() {
             <div>
               <p className="eyebrow">What you leave with</p>
               <h2>Your personal Identity Map</h2>
+              <p>At the end of the journey, you receive your personal Identity Map.</p>
               <p>
-                At the end of the journey, you receive your personal Identity Map — a
-                beautifully designed document that brings together what you discovered
-                about yourself: your values, strengths, patterns, purpose, and emerging
-                future.
+                It is more than a document — like light gathered through a lens, it
+                brings everything you uncovered into focus. Your values, strengths,
+                genius, life patterns, and emerging future become the story of who you
+                are and who you&rsquo;re becoming.
               </p>
               <blockquote className="il-map-tagline">
-                Not a worksheet. Not a summary. A compass you keep.
+                More than your notes. More than a summary. A compass you keep.
               </blockquote>
               <p>
                 The Identity Map is created from your own reflections, assessments, and
@@ -352,12 +363,15 @@ export default function IdentityLabPage() {
               <div className="il-ai-note">
                 <p className="il-ai-note-label">The AI role</p>
                 <p className="il-ai-note-copy">
-                  We use AI carefully to help organize and synthesize your reflections,
-                  but every insight comes from you. The Identity Map is created from
-                  your own work and shaped into a clear, personal document you can
-                  return to over time.
+                  Every insight in it is yours. With careful, privacy-protected AI
+                  support, we gather your reflections and shape them into one
+                  coherent, beautifully designed story — made for you alone.
                 </p>
               </div>
+              <p>
+                At its heart, it answers the two questions that matter most now — who
+                you are, and what you truly want.
+              </p>
             </div>
 
             <div className="il-map-visual-col">
@@ -382,9 +396,9 @@ export default function IdentityLabPage() {
             <p className="eyebrow">How it unfolds</p>
             <h2>The journey in three phases</h2>
             <p className="il-phases-intro">
-              The Identity Lab unfolds over three phases. Each one builds on the last
-              and helps you move from self-understanding toward a clearer sense of
-              direction.
+              The Identity Lab program unfolds over three phases. Each one builds on
+              the last and helps you move from self-understanding toward a clearer
+              sense of direction.
             </p>
 
             <div className="il-phases">
@@ -392,8 +406,8 @@ export default function IdentityLabPage() {
                 <div className="il-phase-number" aria-hidden="true">01</div>
                 <h3 className="il-phase-name">Understanding yourself</h3>
                 <p className="il-phase-desc">
-                  You explore your values, personality, and patterns, and begin to
-                  understand what has shaped you and what still feels true now.
+                  You get to know your values, personality, strengths, and drivers —
+                  and see what shaped you and what still fits.
                 </p>
               </article>
 
@@ -401,8 +415,8 @@ export default function IdentityLabPage() {
                 <div className="il-phase-number" aria-hidden="true">02</div>
                 <h3 className="il-phase-name">Revealing your core identity</h3>
                 <p className="il-phase-desc">
-                  You uncover your natural strengths, recognize when you are at your
-                  best, and begin to see what you are here to bring to life.
+                  You uncover your genius — your core gift — recognize when you are
+                  most alive, and see the value only you can bring.
                 </p>
               </article>
 
@@ -410,8 +424,9 @@ export default function IdentityLabPage() {
                 <div className="il-phase-number" aria-hidden="true">03</div>
                 <h3 className="il-phase-name">Emerging possibilities</h3>
                 <p className="il-phase-desc">
-                  You explore what draws you forward, reconnect with what inspires you,
-                  and begin to sense what kind of future may be opening next.
+                  You explore what draws you forward, reconnect with what inspires
+                  you, and begin to sense a future that feels deeply meaningful and
+                  fulfilling.
                 </p>
               </article>
             </div>
@@ -434,6 +449,7 @@ export default function IdentityLabPage() {
                   <ul className="il-included-list">
                     <li>4 weeks of guided material</li>
                     <li>5 learning stations</li>
+                    <li>13 in-depth, step-by-step practices</li>
                     <li>Content released twice weekly</li>
                     <li>Deliberately paced to allow time for reflection</li>
                   </ul>
@@ -444,7 +460,7 @@ export default function IdentityLabPage() {
                   <ul className="il-included-list">
                     <li>3 live group sessions with the SparkLifeLab founders</li>
                     <li>Kick-off at the start</li>
-                    <li>Integration &amp; Exchange midway</li>
+                    <li>Exchange &amp; Integration midway</li>
                     <li>Identity Map Ceremony at the end</li>
                   </ul>
                 </div>
@@ -454,8 +470,8 @@ export default function IdentityLabPage() {
                 <div className="il-included-group">
                   <h3 className="il-included-heading">Materials &amp; access</h3>
                   <ul className="il-included-list">
-                    <li>Guided prompts, exercises, and reflection practices</li>
-                    <li>Access to all course materials</li>
+                    <li>Guided prompts and reflective practices</li>
+                    <li>Access to all program materials</li>
                     <li>Small cohort for meaningful connection</li>
                     <li>Space for both personal reflection and meaningful conversation</li>
                   </ul>
@@ -465,11 +481,11 @@ export default function IdentityLabPage() {
                   <h3 className="il-included-heading">Your deliverable</h3>
                   <ul className="il-included-list">
                     <li>Your personal Identity Map</li>
-                    <li>A beautifully designed PDF shaped from your reflections</li>
                     <li>
-                      A clear synthesis of your values, strengths, purpose, and
-                      emerging direction
+                      All you discovered, enhanced and brought into focus — the
+                      essence of who you are and where you feel drawn next.
                     </li>
+                    <li>A beautifully designed PDF shaped from your reflections</li>
                   </ul>
                 </div>
               </div>
@@ -503,7 +519,10 @@ export default function IdentityLabPage() {
                   you are looking for a quick fix or someone to tell you exactly what
                   to do
                 </li>
-                <li>you are in acute crisis and need immediate therapeutic support</li>
+                <li>
+                  you are in acute crisis and need immediate licensed medical,
+                  therapeutic, or counseling support
+                </li>
                 <li>
                   you are not willing to engage in reflection, writing, and
                   introspection
@@ -526,10 +545,10 @@ export default function IdentityLabPage() {
             <p className="eyebrow">From our own experience</p>
             <h2>What this kind of work can open up</h2>
             <p className="il-reflection-intro">
-              Before we created the Identity Lab, we each went through this kind of
-              reflective work ourselves. Different questions came into focus for each
-              of us, but the result was similar: greater clarity, stronger
-              self-recognition, and a more grounded sense of what truly matters.
+              Before we created the Identity Lab program, we each went through this
+              exact reflective work ourselves. Each of us had a different focus, but
+              the result was quite similar: greater clarity, higher self-awareness,
+              and a grounded sense of what truly matters to us in the future.
             </p>
 
             <div className="il-quotes">
@@ -580,9 +599,13 @@ export default function IdentityLabPage() {
               <p className="eyebrow">When it feels right</p>
               <h2>Ready to begin?</h2>
               <p className="il-cta-band-copy">
-                If this feels like the right next step, the Identity Lab is here. A
-                guided journey to help you understand who you are now, what matters
-                most, and how to move forward with greater clarity and intention.
+                If this feels like the right next step, the Identity Lab program is
+                here. A guided journey to help you understand who you are now, what
+                matters most, and how to move forward with greater clarity and
+                intention.
+              </p>
+              <p className="il-cta-band-copy">
+                And you leave with your personal Identity Map — a compass you keep.
               </p>
               <a className="button button-primary" href={IDENTITY_LAB_ACTION_HREF}>
                 {IDENTITY_LAB_CTA_LABEL}

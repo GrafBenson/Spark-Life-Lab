@@ -43,11 +43,11 @@ const founders = [
     linkedinUrl: "https://www.linkedin.com/in/gunthertress",
     linkedinLabel: "Gunther Tress on LinkedIn (opens in new tab)",
     background:
-      "Gunther is a scientist, educator, communicator, writer, and entrepreneur. Over the past two decades, he has helped researchers and academics move forward with more clarity, confidence, and direction. Together with Bärbel, he has supported thousands of academics in their writing, publishing, career development, and professional transition. His work combines analytical depth with warmth, humor, and a strong instinct for making complex things understandable and alive.",
+      "Gunther is a scientist, educator, communicator, writer, and entrepreneur. For more than two decades, he has helped researchers and academics move forward with greater clarity, confidence, and direction. His work combines analytical depth with warmth, humor, and a strong instinct for making complex ideas understandable and alive.",
     quote:
       "\u201cWhat changed for me in midlife was the realization that I could keep doing work that was useful, respected, and genuinely helpful to others, yet still feel that an important part of me was missing from it. I had built a professional life around skills I was very good at, but not enough around the creative and expressive side of myself that gave me the most energy. That part of me was always present in how I worked and connected with people — but it remained secondary. It could enrich what I was doing, but it was never really recognized, trusted, or allowed to shape the life and work I was building. Midlife made that harder to ignore. It brought me back to something that had always been there: the desire to create, to tell stories, and to bring lightness, energy, and meaning into the lives of others.\u201d",
     sllRole:
-      "At SparkLifeLab, Gunther is especially drawn to helping people reconnect with the part of themselves that may have been overlooked, postponed, or kept in the background while they were building a life that worked on the surface. He helps people find language for what they are sensing, reconnect with what feels most alive in them, and begin shaping a life that feels more honest, creative, and fully their own.",
+      "At SparkLifeLab, Gunther is especially drawn to helping people reconnect with parts of themselves that may have been overlooked, postponed, or kept in the background while building a life that worked on the surface. He helps them find language for what they are sensing, reconnect with what feels most alive, and shape a life that feels more honest, creative, and fully their own.",
   },
   {
     id: "scott",
@@ -273,8 +273,8 @@ export default function AboutPage() {
               what feels more true now. What makes SparkLifeLab different is the kind of support we
               offer. We are not here to push people into dramatic reinvention or to diagnose,
               fix, or override anyone&rsquo;s lived experience. We walk alongside people as
-              guides — offering structure, reflection, and a calm, trusted space as clarity
-              unfolds in small, intentional steps.
+              experienced guides — offering structure, reflection, and a calm, trusted space
+              as clarity unfolds in small, intentional steps.
             </p>
             <p>
               That is why the idea of a midlife passage matters to us. A passage is not a

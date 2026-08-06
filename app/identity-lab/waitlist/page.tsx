@@ -25,7 +25,7 @@ export default function IdentityLabWaitlistPage() {
             <p className="eyebrow">IDENTITY LAB</p>
             <h1>Join the waitlist for the next Identity Lab cohort</h1>
             <p className="identity-waitlist-intro">
-              The Identity Lab is a guided journey for people in midlife who are ready to move from fog to grounded forward movement.
+              The Identity Lab program is a guided journey for people in midlife who are ready to move from fog to grounded forward movement.
             </p>
             <p className="identity-waitlist-copy">
               Registration is currently closed. If you’d like to be the first to know when the next enrollment opens, join the waitlist below.
@@ -37,7 +37,7 @@ export default function IdentityLabWaitlistPage() {
             <IdentityWaitlistKitForm />
 
             <p className="identity-waitlist-note">
-              We’ll only email you about the Identity Lab and related updates. No spam.
+              We’ll only email you about the Identity Lab program and related updates. No spam.
             </p>
             <p className="identity-waitlist-secondary">
               <Link className="button-text" href="/#clarity-check">
