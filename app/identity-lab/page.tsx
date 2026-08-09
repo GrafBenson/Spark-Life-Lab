@@ -344,7 +344,7 @@ export default function IdentityLabPage() {
             <div>
               <p className="eyebrow">What you leave with</p>
               <h2>Your personal Identity Map</h2>
-              <p>At the end of the journey, you receive your personal Identity Map.</p>
+              <p>At the end of the program, you receive your personal Identity Map.</p>
               <p>
                 It is more than a document — like light gathered through a lens, it
                 brings everything you uncovered into focus. Your values, strengths,

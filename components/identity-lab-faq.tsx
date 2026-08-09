@@ -9,7 +9,34 @@
  * the Server→Client boundary.
  */
 
-import { useState } from "react";
+import { useState, type ReactNode } from "react";
+
+const EMAIL_PATTERN = /[\w.-]+@[\w.-]+\.\w+/g;
+
+/** Renders a paragraph as text with any email addresses turned into mailto links. */
+function linkifyEmails(text: string): ReactNode[] {
+  const nodes: ReactNode[] = [];
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+
+  while ((match = EMAIL_PATTERN.exec(text))) {
+    if (match.index > lastIndex) {
+      nodes.push(text.slice(lastIndex, match.index));
+    }
+    nodes.push(
+      <a key={match.index} href={`mailto:${match[0]}`}>
+        {match[0]}
+      </a>
+    );
+    lastIndex = match.index + match[0].length;
+  }
+
+  if (lastIndex < text.length) {
+    nodes.push(text.slice(lastIndex));
+  }
+
+  return nodes;
+}
 
 export type FaqItem = {
   q: string;
@@ -54,7 +81,7 @@ export function IdentityLabFaq({ items }: { items: FaqItem[] }) {
             <dd id={id} className="il-faq-dd" aria-hidden={!isOpen}>
               <div className="il-faq-inner">
                 {item.a.split("\n\n").map((para, j) => (
-                  <p key={j}>{para}</p>
+                  <p key={j}>{linkifyEmails(para)}</p>
                 ))}
               </div>
             </dd>

@@ -55,6 +55,11 @@ export function IdentityLabWaitlist() {
           Not ready yet? Start with the Midlife Clarity Check →
         </Link>
       </p>
+
+      <p className="il-cta-support">
+        Questions? Contact us at{" "}
+        <a href="mailto:hello@spark-life-lab.com">hello@spark-life-lab.com</a>.
+      </p>
     </div>
   );
 }
