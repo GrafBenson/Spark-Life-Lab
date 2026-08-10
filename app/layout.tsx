@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Cormorant_Garamond, Jost } from "next/font/google";
 import "./globals.css";
 import { CookieConsent } from "@/components/cookie-consent";
@@ -152,6 +153,8 @@ export default function RootLayout({
         <EmberCursor />
         {/* Vercel Web Analytics — privacy-friendly, no cookies, no external tracking */}
         <Analytics />
+        {/* Vercel Speed Insights — monitor real-world performance metrics */}
+        <SpeedInsights />
       </body>
     </html>
   );
