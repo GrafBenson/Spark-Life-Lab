@@ -2932,6 +2932,66 @@ html.ember-cursor-active * {
   color: #202841 !important;
 }
 
+/* ===== Identity Lab waitlist — confirmation page (hidden) =====
+   Post-double-opt-in landing page. A quiet confirmation moment, so the type
+   scale steps down from the hero h1 and the page carries no surface, card or
+   accent beyond the standard ember eyebrow rule. Sizes intentionally match the
+   hidden reflection pages, the site's other calm single-column route. */
+
+.waitlist-confirmed-page {
+  background: var(--page-bg);
+}
+
+.waitlist-confirmed-section {
+  /* max() keeps the side gutter generous on narrow phones (5vw is only ~19px
+     at 390px) while leaving the desktop 5vw rhythm untouched. */
+  padding: clamp(5rem, 9vw, 8rem) max(5vw, 1.5rem) clamp(5.5rem, 10vw, 8.5rem);
+}
+
+.waitlist-confirmed-inner {
+  margin: 0 auto;
+  /* Narrower than .narrow (780px): five short blocks read better tighter. */
+  max-width: 660px;
+}
+
+.waitlist-confirmed-title {
+  font-size: clamp(2.4rem, 5vw, 3.4rem);
+  margin-bottom: 1.6rem;
+}
+
+.waitlist-confirmed-copy {
+  color: var(--mid-navy);
+  font-size: clamp(1.15rem, 1.4vw, 1.25rem);
+  line-height: 1.8;
+  margin-bottom: 0;
+}
+
+.waitlist-confirmed-copy + .waitlist-confirmed-copy {
+  margin-top: 1.15rem;
+}
+
+.waitlist-confirmed-transition {
+  color: var(--mid-navy);
+  font-size: clamp(1.15rem, 1.4vw, 1.25rem);
+  line-height: 1.8;
+  margin: clamp(2.25rem, 4vw, 2.9rem) 0 0;
+}
+
+.waitlist-confirmed-cta {
+  margin: clamp(1.4rem, 3vw, 1.8rem) 0 0;
+}
+
+.waitlist-confirmed-closing {
+  /* --soft composites to #747B87 on paper — 4.19:1, just under AA for this
+     size. Mid navy (7.06:1) passes; the serif italic still sets it apart. */
+  color: var(--mid-navy);
+  font-family: var(--serif);
+  font-size: clamp(1.2rem, 2vw, 1.4rem);
+  font-style: italic;
+  line-height: 1.5;
+  margin: clamp(2.75rem, 5vw, 3.5rem) 0 0;
+}
+
 /* Lead benefits — numbered variant (Clarity Check "What you'll discover") */
 .lead-benefits-numbered {
   counter-reset: none;
