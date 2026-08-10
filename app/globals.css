@@ -2916,6 +2916,22 @@ html.ember-cursor-active * {
   padding: 0.9rem 1.5rem !important;
 }
 
+/* ===== SparkLifeLab — Kit form success confirmation =====
+   Replaces Kit's default mint-green success state with the SparkLifeLab
+   palette: Paper #FEFDF8 · Deep Navy #202841 · Ember #EF7C62.
+   Shared selector (no form UID) so every embedded Kit form — Identity Lab
+   waitlist, Midlife Clarity Check, and any future form — inherits it.
+   Colours only: padding, radius, width, alignment and font size stay as-is.
+   Error/validation states (.formkit-alert-error) are deliberately untouched
+   so they remain visually distinguishable. */
+
+.formkit-form .formkit-alert-success {
+  background: #FEFDF8 !important;
+  background-color: #FEFDF8 !important;
+  border-color: #EF7C62 !important;
+  color: #202841 !important;
+}
+
 /* Lead benefits — numbered variant (Clarity Check "What you'll discover") */
 .lead-benefits-numbered {
   counter-reset: none;
