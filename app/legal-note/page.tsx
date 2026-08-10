@@ -101,6 +101,21 @@ export default function LegalNotePage() {
             </p>
           </div>
 
+          <div className="legal-notice-block">
+            <h2>Website development</h2>
+            <p>
+              Website design and development by{" "}
+              <a
+                href="https://www.linkedin.com/in/benjamin-tress-241b94416/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Benjamin Tress
+              </a>
+              .
+            </p>
+          </div>
+
           <p className="legal-footer-nav">
             <Link href="/">← Return to homepage</Link>
             {" · "}
