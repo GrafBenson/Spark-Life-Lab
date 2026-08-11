@@ -1771,13 +1771,21 @@ main {
   line-height: 1.72;
 }
 
+/* Inline links sit inside muted body copy, so colour alone did not read as a
+   link — the text-underline-offset below had no underline to offset. Matches
+   .cookie-policy-content a, the site's existing treatment for a link embedded
+   in a paragraph of legal text. */
 .legal-notice-block a {
   color: var(--navy);
+  text-decoration: underline;
+  text-decoration-color: var(--line-strong);
   text-underline-offset: 3px;
+  transition: color var(--t-quick), text-decoration-color var(--t-quick);
 }
 
 .legal-notice-block a:hover {
-  color: var(--ember);
+  color: var(--ember-deep);
+  text-decoration-color: var(--ember);
 }
 
 .legal-notice-footer {

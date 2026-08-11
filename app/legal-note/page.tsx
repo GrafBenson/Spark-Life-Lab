@@ -106,7 +106,7 @@ export default function LegalNotePage() {
             <p>
               Website design and development by{" "}
               <a
-                href="https://www.linkedin.com/in/benjamin-tress-241b94416/"
+                href="https://www.linkedin.com/in/benjamin-tress/"
                 target="_blank"
                 rel="noopener noreferrer"
               >
