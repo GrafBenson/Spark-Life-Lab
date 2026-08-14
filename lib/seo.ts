@@ -2,17 +2,15 @@ import type { Metadata } from "next";
 import { site } from "@/data/site";
 
 // ─── Shared social-preview asset ─────────────────────────────────────────────
-// An existing, approved SparkLifeLab photograph already published on the
-// Identity Lab page. 1714x918 (~1.87:1) is the closest landscape asset in the
-// repository to the 1.91:1 ratio LinkedIn, Facebook, Slack and X expect.
-// Replace `url`/`width`/`height` here (one place) when a purpose-built
-// 1200x630 branded card becomes available.
+// The purpose-built branded card: SparkLifeLab wordmark and tagline over the
+// coastal sunset photo, at 1730x909 (~1.90:1) — matching the 1.91:1 ratio
+// LinkedIn, Facebook, Slack, WhatsApp and X expect.
 
 export const socialImage = {
-  url: "/images/identity-lab-ready-client.jpeg",
-  width: 1714,
-  height: 918,
-  alt: "A woman sits on a stone terrace at sunset, overlooking a river valley — SparkLifeLab.",
+  url: "/images/social-preview.jpg",
+  width: 1730,
+  height: 909,
+  alt: "SparkLifeLab — Ignite your best life, on purpose. Sunset over a coastal cliff.",
 } as const;
 
 // ─── Page metadata builder ───────────────────────────────────────────────────
